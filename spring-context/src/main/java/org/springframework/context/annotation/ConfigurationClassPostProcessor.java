@@ -66,17 +66,13 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link BeanFactoryPostProcessor} used for bootstrapping processing of
- * {@link Configuration @Configuration} classes.
+ * {@link BeanFactoryPostProcessor}用于对{@link Configuration @Configuration}类在应用启动时进行处理。
  *
- * <p>Registered by default when using {@code <context:annotation-config/>} or
- * {@code <context:component-scan/>}. Otherwise, may be declared manually as
- * with any other BeanFactoryPostProcessor.
+ * <p>使用{@code <context:annotation-config/>}或{@code <context:component-scan/>}时默认注册。 
+ * 否则，可以像其它任何BeanFactoryPostProcessor一样手动声明。
  *
- * <p>This post processor is priority-ordered as it is important that any
- * {@link Bean} methods declared in {@code @Configuration} classes have
- * their corresponding bean definitions registered before any other
- * {@link BeanFactoryPostProcessor} executes.
+ * <p>此后处理器按优先级排序，必须在任何其它{@link BeanFactoryPostProcessor}执行之前执行，
+ * 因为在{@code @Configuration}类中声明的所有{@link Bean}方法都必须注册其对应的bean定义。
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -218,11 +214,12 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 
 
 	/**
-	 * Derive further bean definitions from the configuration classes in the registry.
+	 * 从注册表中的配置类派生更多的bean定义。
 	 */
 	@Override
 	public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) {
 		int registryId = System.identityHashCode(registry);
+		// 判断是否已经执行过
 		if (this.registriesPostProcessed.contains(registryId)) {
 			throw new IllegalStateException(
 					"postProcessBeanDefinitionRegistry already called on this post-processor against " + registry);
@@ -232,13 +229,12 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 					"postProcessBeanFactory already called on this post-processor against " + registry);
 		}
 		this.registriesPostProcessed.add(registryId);
-
+		// 正式执行逻辑
 		processConfigBeanDefinitions(registry);
 	}
 
 	/**
-	 * Prepare the Configuration classes for servicing bean requests at runtime
-	 * by replacing them with CGLIB-enhanced subclasses.
+	 * 通过将配置类替换为CGLIB增强的子类，准备用于在运行时为bean请求提供服务的Configuration类。
 	 */
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
@@ -259,8 +255,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 	}
 
 	/**
-	 * Build and validate a configuration model based on the registry of
-	 * {@link Configuration} classes.
+	 * 基于{@link Configuration}类的注册表来构建和验证配置模型。
 	 */
 	public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 		List<BeanDefinitionHolder> configCandidates = new ArrayList<>();
@@ -268,11 +263,13 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 
 		for (String beanName : candidateNames) {
 			BeanDefinition beanDef = registry.getBeanDefinition(beanName);
+			// 判断是否已经处理过
 			if (beanDef.getAttribute(ConfigurationClassUtils.CONFIGURATION_CLASS_ATTRIBUTE) != null) {
 				if (logger.isDebugEnabled()) {
 					logger.debug("Bean definition has already been processed as a configuration class: " + beanDef);
 				}
 			}
+			// 筛选@Configuration注解，注意@Configuration也是@Component注解
 			else if (ConfigurationClassUtils.checkConfigurationClassCandidate(beanDef, this.metadataReaderFactory)) {
 				configCandidates.add(new BeanDefinitionHolder(beanDef, beanName));
 			}
@@ -316,7 +313,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 		Set<BeanDefinitionHolder> candidates = new LinkedHashSet<>(configCandidates);
 		Set<ConfigurationClass> alreadyParsed = new HashSet<>(configCandidates.size());
 		do {
-			parser.parse(candidates);
+			parser.parse(candidates);// 解析 @Configuration 注解
 			parser.validate();
 
 			Set<ConfigurationClass> configClasses = new LinkedHashSet<>(parser.getConfigurationClasses());

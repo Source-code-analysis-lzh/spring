@@ -37,17 +37,14 @@ import org.springframework.web.util.ContentCachingResponseWrapper;
 import org.springframework.web.util.WebUtils;
 
 /**
- * {@link javax.servlet.Filter} that generates an {@code ETag} value based on the
- * content on the response. This ETag is compared to the {@code If-None-Match}
- * header of the request. If these headers are equal, the response content is
- * not sent, but rather a {@code 304 "Not Modified"} status instead.
+ * 根据响应内容生成{@code ETag}值的{@link javax.servlet.Filter}。 
+ * 将此ETag与请求的{@code If-None-Match}标头进行比较。 如果这些标头相等，
+ * 则不发送响应内容，而是发送{@code 304 "Not Modified"}状态。
  *
- * <p>Since the ETag is based on the response content, the response
- * (e.g. a {@link org.springframework.web.servlet.View}) is still rendered.
- * As such, this filter only saves bandwidth, not server performance.
+ * <p>由于ETag基于响应内容，因此仍会渲染响应（例如{@link org.springframework.web.servlet.View}）。
+ * 因此，此过滤器仅节省带宽，而不节省服务器性能。
  *
- * <p><b>NOTE:</b> As of Spring Framework 5.0, this filter uses request/response
- * decorators built on the Servlet 3.1 API.
+ * <p>注意：从Spring Framework 5.0开始，此过滤器使用基于Servlet 3.1 API构建的请求/响应装饰器。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev

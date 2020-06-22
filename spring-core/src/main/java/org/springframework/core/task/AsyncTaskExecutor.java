@@ -20,17 +20,16 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
 /**
- * Extended interface for asynchronous {@link TaskExecutor} implementations,
- * offering an overloaded {@link #execute(Runnable, long)} variant with a start
- * timeout parameter as well support for {@link java.util.concurrent.Callable}.
+ * {@link TaskExecutor}扩展实现异步的接口，
+ * 提供带有启动超时参数的重载{@link #execute(Runnable, long)}
+ * 变体以及对{@link java.util.concurrent.Callable}的支持。
  *
- * <p>Note: The {@link java.util.concurrent.Executors} class includes a set of
- * methods that can convert some other common closure-like objects, for example,
- * {@link java.security.PrivilegedAction} to {@link Callable} before executing them.
+ * <p>注意：{@link java.util.concurrent.Executors}类包含一组方法，
+ * 可以在执行它们之前将一些其它类似于闭包的常见对象转换为{@link Callable}，
+ * 例如{@link java.security.PrivilegedAction}。
  *
- * <p>Implementing this interface also indicates that the {@link #execute(Runnable)}
- * method will not execute its Runnable in the caller's thread but rather
- * asynchronously in some other thread.
+ * <p>实现此接口还表示{@link #execute(Runnable)}方法不会在调用者的线程中执行其Runnable，
+ * 而是在其它线程中异步执行。
  *
  * @author Juergen Hoeller
  * @since 2.0.3

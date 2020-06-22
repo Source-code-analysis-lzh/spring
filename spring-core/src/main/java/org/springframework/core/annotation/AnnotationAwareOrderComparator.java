@@ -26,12 +26,10 @@ import org.springframework.core.annotation.MergedAnnotations.SearchStrategy;
 import org.springframework.lang.Nullable;
 
 /**
- * {@code AnnotationAwareOrderComparator} is an extension of
- * {@link OrderComparator} that supports Spring's
- * {@link org.springframework.core.Ordered} interface as well as the
- * {@link Order @Order} and {@link javax.annotation.Priority @Priority}
- * annotations, with an order value provided by an {@code Ordered}
- * instance overriding a statically defined annotation value (if any).
+ * {@code AnnotationAwareOrderComparator}是{@link OrderComparator}的扩展，
+ * 它支持Spring的{@link org.springframework.core.Ordered}接口以及
+ * {@link Order @Order}和{@link javax.annotation.Priority @Priority}注释，
+ * 由{@code Ordered}实例提供的订单值将覆盖静态定义的注释值（如果有）。
  *
  * <p>Consult the Javadoc for {@link OrderComparator} for details on the
  * sort semantics for non-ordered objects.

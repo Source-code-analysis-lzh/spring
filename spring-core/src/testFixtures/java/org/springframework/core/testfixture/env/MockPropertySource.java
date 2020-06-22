@@ -22,12 +22,10 @@ import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.env.PropertySource;
 
 /**
- * Simple {@link PropertySource} implementation for use in testing. Accepts
- * a user-provided {@link Properties} object, or if omitted during construction,
- * the implementation will initialize its own.
- *
- * The {@link #setProperty} and {@link #withProperty} methods are exposed for
- * convenience, for example:
+ * 用于测试的简单{@link PropertySource}实现。 接受用户提供的{@link Properties}对象，
+ * 如果在构造过程中省略了该对象，则实现将初始化其自己的对象。 
+ * 
+ * 为方便起见，公开了{@link #setProperty}和{@link #withProperty}方法，例如：
  * <pre>
  * {@code
  *   PropertySource<?> source = new MockPropertySource().withProperty("foo", "bar");

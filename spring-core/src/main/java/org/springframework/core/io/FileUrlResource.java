@@ -30,15 +30,15 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ResourceUtils;
 
 /**
- * Subclass of {@link UrlResource} which assumes file resolution, to the degree
- * of implementing the {@link WritableResource} interface for it. This resource
- * variant also caches resolved {@link File} handles from {@link #getFile()}.
+ * {@link UrlResource}的子类，该子类假定已实现文件解析，
+ * 并且为此实现了{@link WritableResource}接口.
+ * 此资源变体还从{@link #getFile()}缓存已解析的{@link File}句柄.
  *
- * <p>This is the class resolved by {@link DefaultResourceLoader} for a "file:..."
- * URL location, allowing a downcast to {@link WritableResource} for it.
+ * <p>这是{@link DefaultResourceLoader}为"file:..." URL位置解析的类，
+ * 从而允许将其向下转换为{@link WritableResource}.
  *
- * <p>Alternatively, for direct construction from a {@link java.io.File} handle
- * or NIO {@link java.nio.file.Path}, consider using {@link FileSystemResource}.
+ * <p>或者，要从{@link java.io.File}句柄或NIO{@link java.nio.file.Path}直接构建，
+ * 请考虑使用{@link FileSystemResource}.
  *
  * @author Juergen Hoeller
  * @since 5.0.2

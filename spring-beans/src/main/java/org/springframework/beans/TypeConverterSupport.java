@@ -26,8 +26,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Base implementation of the {@link TypeConverter} interface, using a package-private delegate.
- * Mainly serves as base class for {@link BeanWrapperImpl}.
+ * {@link TypeConverter}接口的基本实现，使用包私有的委托。 主要用作{@link BeanWrapperImpl}的基类。
  *
  * @author Juergen Hoeller
  * @since 3.2

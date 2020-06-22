@@ -23,30 +23,24 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates whether a bean is to be lazily initialized.
+ * 指示是否延迟初始化该bean。
  *
- * <p>May be used on any class directly or indirectly annotated with {@link
- * org.springframework.stereotype.Component @Component} or on methods annotated with
- * {@link Bean @Bean}.
+ * <p>可以直接在类上使用或者间接使用{@link org.springframework.stereotype.Component @Component}注释
+ * 或者在方法上使用{@link Bean @Bean}注释。
  *
- * <p>If this annotation is not present on a {@code @Component} or {@code @Bean} definition,
- * eager initialization will occur. If present and set to {@code true}, the {@code @Bean} or
- * {@code @Component} will not be initialized until referenced by another bean or explicitly
- * retrieved from the enclosing {@link org.springframework.beans.factory.BeanFactory
- * BeanFactory}. If present and set to {@code false}, the bean will be instantiated on
- * startup by bean factories that perform eager initialization of singletons.
+ * <p>如果{@code @Component}或{@code @Bean}定义上不存在此注释，则会进行立即的初始化。 
+ * 如果存在并设置为{@code true}，则@Bean或@Component不会被初始化，直到被另一个bean引用或从封闭的
+ * {@link org.springframework.beans.factory.BeanFactory BeanFactory}中显式检索。 
+ * 如果存在并且设置为{@code false}，则将在执行启动单例初始化的bean工厂时立即实例化bean。
  *
- * <p>If Lazy is present on a {@link Configuration @Configuration} class, this
- * indicates that all {@code @Bean} methods within that {@code @Configuration}
- * should be lazily initialized. If {@code @Lazy} is present and false on a {@code @Bean}
- * method within a {@code @Lazy}-annotated {@code @Configuration} class, this indicates
- * overriding the 'default lazy' behavior and that the bean should be eagerly initialized.
+ * <p>如果{@link Configuration @Configuration}类上存在Lazy，则表明该{@code @Configuration}中的所有
+ * {@code @Bean}方法都应延迟初始化。 如果{@code @Lazy}存在且在{@code @Lazy}注释的{@code @Configuration}
+ * 类中的{@code @Bean}方法上为false，则表明重写了“默认懒加载”行为，并且应立即初始化Bean。
  *
- * <p>In addition to its role for component initialization, this annotation may also be placed
- * on injection points marked with {@link org.springframework.beans.factory.annotation.Autowired}
- * or {@link javax.inject.Inject}: In that context, it leads to the creation of a
- * lazy-resolution proxy for all affected dependencies, as an alternative to using
- * {@link org.springframework.beans.factory.ObjectFactory} or {@link javax.inject.Provider}.
+ * <p>除了其在组件初始化中的作用外，还可以将该注释放置在标记有
+ * {@link org.springframework.beans.factory.annotation.Autowired}或{@link javax.inject.Inject}
+ * 的注入点上：在这种情况下，它会为所有受影响的依赖项创建一个惰性解析代理，以替代使用
+ * {@link org.springframework.beans.factory.ObjectFactory}的方法或{@link javax.inject.Provider}。
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -62,7 +56,7 @@ import java.lang.annotation.Target;
 public @interface Lazy {
 
 	/**
-	 * Whether lazy initialization should occur.
+	 * 是否应该发生延迟初始化。
 	 */
 	boolean value() default true;
 

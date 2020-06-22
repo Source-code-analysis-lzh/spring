@@ -25,11 +25,9 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.lang.Nullable;
 
 /**
- * Helper class for easy access to messages from a MessageSource,
- * providing various overloaded getMessage methods.
+ * Helper类，用于轻松访问来自MessageSource的消息，并提供各种重载的getMessage方法.
  *
- * <p>Available from ApplicationObjectSupport, but also reusable
- * as a standalone helper to delegate to in application objects.
+ * <p>可从ApplicationObjectSupport获得，但也可作为独立的助手重用，以委托给应用程序对象.
  *
  * @author Juergen Hoeller
  * @since 23.10.2003

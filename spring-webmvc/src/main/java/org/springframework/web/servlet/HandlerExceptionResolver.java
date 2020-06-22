@@ -22,13 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface to be implemented by objects that can resolve exceptions thrown during
- * handler mapping or execution, in the typical case to error views. Implementors are
- * typically registered as beans in the application context.
+ * 实现该接口对象可以解决在处理器映射或执行期间抛出的异常，在典型情况下为错误视图。 
+ * 实现者通常在应用程序上下文中注册为bean。
  *
- * <p>Error views are analogous to JSP error pages but can be used with any kind of
- * exception including any checked exception, with potentially fine-grained mappings for
- * specific handlers.
+ * <p>错误视图类似于JSP错误页面，但是可以与任何类型的异常（包括任何检查的异常）一起使用，
+ * 并且可能具有特定处理器的细粒度映射。
  *
  * @author Juergen Hoeller
  * @since 22.11.2003
@@ -36,18 +34,15 @@ import org.springframework.lang.Nullable;
 public interface HandlerExceptionResolver {
 
 	/**
-	 * Try to resolve the given exception that got thrown during handler execution,
-	 * returning a {@link ModelAndView} that represents a specific error page if appropriate.
-	 * <p>The returned {@code ModelAndView} may be {@linkplain ModelAndView#isEmpty() empty}
-	 * to indicate that the exception has been resolved successfully but that no view
-	 * should be rendered, for instance by setting a status code.
+	 * 尝试解决在处理器执行期间引发的给定异常，如果合适的话，返回代表特定错误页面的{@link ModelAndView}。
+	 * <p>返回的{@code ModelAndView}可以为{@linkplain ModelAndView#isEmpty() empty}，
+	 * 以指示异常已成功解决，但不应渲染任何视图（例如，通过设置状态代码）。
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @param handler the executed handler, or {@code null} if none chosen at the
 	 * time of the exception (for example, if multipart resolution failed)
 	 * @param ex the exception that got thrown during handler execution
-	 * @return a corresponding {@code ModelAndView} to forward to,
-	 * or {@code null} for default processing in the resolution chain
+	 * @return 要转发到的对应{@code ModelAndView}，或者为{@code null}（为解析链中的默认处理）
 	 */
 	@Nullable
 	ModelAndView resolveException(

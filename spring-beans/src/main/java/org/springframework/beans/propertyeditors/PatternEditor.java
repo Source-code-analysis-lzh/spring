@@ -22,8 +22,8 @@ import java.util.regex.Pattern;
 import org.springframework.lang.Nullable;
 
 /**
- * Editor for {@code java.util.regex.Pattern}, to directly populate a Pattern property.
- * Expects the same syntax as Pattern's {@code compile} method.
+ * {@code java.util.regex.Pattern}的编辑器，以直接填充Pattern属性.
+ * 期望使用与Pattern的{@code compile}方法相同的语法.
  *
  * @author Juergen Hoeller
  * @since 2.0.1

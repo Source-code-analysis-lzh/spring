@@ -41,35 +41,27 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureTask;
 
 /**
- * JavaBean that allows for configuring a {@link java.util.concurrent.ThreadPoolExecutor}
- * in bean style (through its "corePoolSize", "maxPoolSize", "keepAliveSeconds", "queueCapacity"
- * properties) and exposing it as a Spring {@link org.springframework.core.task.TaskExecutor}.
- * This class is also well suited for management and monitoring (e.g. through JMX),
- * providing several useful attributes: "corePoolSize", "maxPoolSize", "keepAliveSeconds"
- * (all supporting updates at runtime); "poolSize", "activeCount" (for introspection only).
+ * 允许以bean样式（通过其"corePoolSize", "maxPoolSize", "keepAliveSeconds", "queueCapacity"属性）
+ * 配置{@link java.util.concurrent.ThreadPoolExecutor}的JavaBean，
+ * 并将其作为Spring {@link org.springframework.core.task.TaskExecutor}公开。 
+ * 此类也非常适合管理和监视（例如通过JMX），提供了一些有用的属性：
+ * "corePoolSize", "maxPoolSize", "keepAliveSeconds"（均支持运行时更新）； "poolSize", "activeCount"（仅用于自省）。
  *
- * <p>The default configuration is a core pool size of 1, with unlimited max pool size
- * and unlimited queue capacity. This is roughly equivalent to
- * {@link java.util.concurrent.Executors#newSingleThreadExecutor()}, sharing a single
- * thread for all tasks. Setting {@link #setQueueCapacity "queueCapacity"} to 0 mimics
- * {@link java.util.concurrent.Executors#newCachedThreadPool()}, with immediate scaling
- * of threads in the pool to a potentially very high number. Consider also setting a
- * {@link #setMaxPoolSize "maxPoolSize"} at that point, as well as possibly a higher
- * {@link #setCorePoolSize "corePoolSize"} (see also the
- * {@link #setAllowCoreThreadTimeOut "allowCoreThreadTimeOut"} mode of scaling).
+ * <p>默认配置核心池大小为1，最大池大小不受限制，队列容量也不受限制。 
+ * 这大致相当于{@link java.util.concurrent.Executors#newSingleThreadExecutor()}，
+ * 为所有任务共享一个线程。 将{@link #setQueueCapacity "queueCapacity"}
+ * 设置为0会模仿{@link java.util.concurrent.Executors#newCachedThreadPool()}，
+ * 并立即将池中的线程扩展到一个可能非常高的数目。 考虑在那一刻还设置一个{@link #setMaxPoolSize "maxPoolSize"}，
+ * 以及更高的{@link #setCorePoolSize "corePoolSize"}（另请参见{@link #setAllowCoreThreadTimeOut "allowCoreThreadTimeOut"}缩放模式）。
  *
- * <p><b>NOTE:</b> This class implements Spring's
- * {@link org.springframework.core.task.TaskExecutor} interface as well as the
- * {@link java.util.concurrent.Executor} interface, with the former being the primary
- * interface, the other just serving as secondary convenience. For this reason, the
- * exception handling follows the TaskExecutor contract rather than the Executor contract,
- * in particular regarding the {@link org.springframework.core.task.TaskRejectedException}.
+ * <p>注意：此类实现Spring的{@link org.springframework.core.task.TaskExecutor}接口
+ * 以及{@link java.util.concurrent.Executor}接口，前者是主要接口，另一个仅是辅助便利。 
+ * 因此，异常处理遵循TaskExecutor合同而不是Executor合同，尤其是在{@link org.springframework.core.task.TaskRejectedException}方面。
  *
- * <p>For an alternative, you may set up a ThreadPoolExecutor instance directly using
- * constructor injection, or use a factory method definition that points to the
- * {@link java.util.concurrent.Executors} class. To expose such a raw Executor as a
- * Spring {@link org.springframework.core.task.TaskExecutor}, simply wrap it with a
- * {@link org.springframework.scheduling.concurrent.ConcurrentTaskExecutor} adapter.
+ * <p>作为替代方案，您可以直接使用构造函数注入来设置ThreadPoolExecutor实例，
+ * 或者使用指向{@link java.util.concurrent.Executors}类的工厂方法定义。 
+ * 要将原始的Executor公开为Spring {@link org.springframework.core.task.TaskExecutor}，
+ * 只需使用{@link org.springframework.scheduling.concurrent.ConcurrentTaskExecutor}适配器将其包装即可。
  *
  * @author Juergen Hoeller
  * @since 2.0

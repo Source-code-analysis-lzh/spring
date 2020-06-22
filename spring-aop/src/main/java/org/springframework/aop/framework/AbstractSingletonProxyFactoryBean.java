@@ -28,8 +28,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * Convenient superclass for {@link FactoryBean} types that produce singleton-scoped
- * proxy objects.
+ * 适用于{@link FactoryBean}类型的便捷超类，它们产生单例作用域的代理对象。
  *
  * <p>Manages pre- and post-interceptors (references, rather than
  * interceptor names, as in {@link ProxyFactoryBean}) and provides

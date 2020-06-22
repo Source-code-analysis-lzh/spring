@@ -23,15 +23,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that a bean should be given preference when multiple candidates
- * are qualified to autowire a single-valued dependency. If exactly one
- * 'primary' bean exists among the candidates, it will be the autowired value.
+ * 指示当多个候选者有资格自动装配单值依赖项时，应优先考虑的Bean。 
+ * 如果候选对象中仅存在一个“主” bean，它将是自动装配的值。
  *
- * <p>This annotation is semantically equivalent to the {@code <bean>} element's
- * {@code primary} attribute in Spring XML.
+ * <p>该注释在语义上等效于Spring XML中{@code <bean>}元素的{@code primary}属性。
  *
- * <p>May be used on any class directly or indirectly annotated with
- * {@code @Component} or on methods annotated with @{@link Bean}.
+ * <p>可以用于直接或间接用{@code @Component}注释的任何类，或用@{@link Bean}注释的方法。
  *
  * <h2>Example</h2>
  * <pre class="code">
@@ -64,15 +61,12 @@ import java.lang.annotation.Target;
  * }
  * </pre>
  *
- * <p>Because {@code HibernateFooRepository} is marked with {@code @Primary},
- * it will be injected preferentially over the jdbc-based variant assuming both
- * are present as beans within the same Spring application context, which is
- * often the case when component-scanning is applied liberally.
+ * <p>因为{@code HibernateFooRepository}标记有{@code @Primary}，所以它将优先于基于jdbc的变量注入，
+ * 前提是两者都在同一Spring应用程序上下文中以bean的形式出现，这在自由地进行组件扫描时通常是这种情况。
  *
- * <p>Note that using {@code @Primary} at the class level has no effect unless
- * component-scanning is being used. If a {@code @Primary}-annotated class is
- * declared via XML, {@code @Primary} annotation metadata is ignored, and
- * {@code <bean primary="true|false"/>} is respected instead.
+ * <p>请注意，除非正在使用组件扫描，否则在类级别使用{@code @Primary}无效。 
+ * 如果通过XML声明了{@code @Primary}注释的类，则{@code @Primary}注释元数据将被忽略，
+ * 而应该改为使用{@code <bean primary="true|false"/>}。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

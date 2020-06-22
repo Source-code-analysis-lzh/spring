@@ -31,7 +31,7 @@ import org.springframework.util.ReflectionUtils.MethodFilter;
 
 /**
  * Helper for resolving synthetic {@link Method#isBridge bridge Methods} to the
- * {@link Method} being bridged.
+ * {@link Method} being bridged.(桥接方法帮助类)
  *
  * <p>Given a synthetic {@link Method#isBridge bridge Method} returns the {@link Method}
  * being bridged. A bridge method may be created by the compiler when extending a
@@ -57,11 +57,10 @@ public final class BridgeMethodResolver {
 
 
 	/**
-	 * Find the original method for the supplied {@link Method bridge Method}.
-	 * <p>It is safe to call this method passing in a non-bridge {@link Method} instance.
-	 * In such a case, the supplied {@link Method} instance is returned directly to the caller.
-	 * Callers are <strong>not</strong> required to check for bridging before calling this method.
-	 * @param bridgeMethod the method to introspect
+	 * 找到提供的 {@link Method 桥接方法} 的原始方法.
+	 * <p>传递一个非桥接 {@link Method} 实例来调用本方法是安全的.在这种情况下，直接返回传入的 {@link Method} 实例
+	 * 在调用本方法前没有必要检查传入 {@link Method} 实例.
+	 * @param bridgeMethod 需要内省的方法
 	 * @return the original method (either the bridged method or the passed-in method
 	 * if no more specific one could be found)
 	 */
@@ -130,8 +129,7 @@ public final class BridgeMethodResolver {
 	}
 
 	/**
-	 * Determines whether or not the bridge {@link Method} is the bridge for the
-	 * supplied candidate {@link Method}.
+	 * 确定{@link Method}是否是所提供候选{@link Method}的桥接方法.
 	 */
 	static boolean isBridgeMethodFor(Method bridgeMethod, Method candidateMethod, Class<?> declaringClass) {
 		if (isResolvedTypeMatch(candidateMethod, bridgeMethod, declaringClass)) {

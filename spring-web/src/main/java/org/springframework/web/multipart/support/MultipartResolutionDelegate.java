@@ -33,8 +33,7 @@ import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.util.WebUtils;
 
 /**
- * A common delegate for {@code HandlerMethodArgumentResolver} implementations
- * which need to resolve {@link MultipartFile} and {@link Part} arguments.
+ * {@code HandlerMethodArgumentResolver}实现的公共委托，用来解析{@link MultipartFile}和{@link Part}参数。
  *
  * @author Juergen Hoeller
  * @since 4.3

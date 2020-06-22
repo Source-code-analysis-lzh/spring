@@ -26,17 +26,15 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link java.beans.PropertyEditor Editor} for {@link Resource}
- * descriptors, to automatically convert {@code String} locations
- * e.g. {@code file:C:/myfile.txt} or {@code classpath:myfile.txt} to
- * {@code Resource} properties instead of using a {@code String} location property.
+ * {@link Resource}描述符的{@link java.beans.PropertyEditor Editor}，
+ * 可自动转换{@code String}位置，
+ * 例如 {@code file:C:/myfile.txt}或{@code classpath:myfile.txt}转换为{@code Resource}属性，
+ * 而不使用{@code String}位置属性.
  *
- * <p>The path may contain {@code ${...}} placeholders, to be
- * resolved as {@link org.springframework.core.env.Environment} properties:
- * e.g. {@code ${user.dir}}. Unresolvable placeholders are ignored by default.
+ * <p>该路径可能包含{@code ${...}}占位符，将被解析为{@link org.springframework.core.env.Environment}
+ * 属性：例如 {@code ${user.dir}}. 默认情况下，无法解析的占位符将被忽略.
  *
- * <p>Delegates to a {@link ResourceLoader} to do the heavy lifting,
- * by default using a {@link DefaultResourceLoader}.
+ * <p>委派给{@link ResourceLoader}进行繁重的工作，默认情况下使用{@link DefaultResourceLoader}.
  *
  * @author Juergen Hoeller
  * @author Dave Syer

@@ -21,12 +21,10 @@ import java.util.List;
 import org.springframework.lang.Nullable;
 
 /**
- * Expressions are executed in an evaluation context. It is in this context that
- * references are resolved when encountered during expression evaluation.
+ * 表达式在计算上下文中执行.在表达式求值期间遇到引用时，在这个上下文中解析引用.
  *
- * <p>There is a default implementation of this EvaluationContext interface:
- * {@link org.springframework.expression.spel.support.StandardEvaluationContext}
- * which can be extended, rather than having to implement everything manually.
+ * <p>该EvaluationContext接口的默认实现是：{@link org.springframework.expression.spel.support.StandardEvaluationContext}，
+ * 可以对其进行扩展，而不必手动实现所有功能.
  *
  * @author Andy Clement
  * @author Juergen Hoeller
@@ -35,64 +33,60 @@ import org.springframework.lang.Nullable;
 public interface EvaluationContext {
 
 	/**
-	 * Return the default root context object against which unqualified
-	 * properties/methods/etc should be resolved. This can be overridden
-	 * when evaluating an expression.
+	 * 返回默认的根上下文对象，应针对该对象解析非全限定的属性/方法等. 计算表达式时可以覆盖此设置.
 	 */
 	TypedValue getRootObject();
 
 	/**
-	 * Return a list of accessors that will be asked in turn to read/write a property.
+	 * 返回访问器列表，依次要求其读取/写入属性.
 	 */
 	List<PropertyAccessor> getPropertyAccessors();
 
 	/**
-	 * Return a list of resolvers that will be asked in turn to locate a constructor.
+	 * 返回一个解析器列表，该列表将依次被要求查找构造函数.
 	 */
 	List<ConstructorResolver> getConstructorResolvers();
 
 	/**
-	 * Return a list of resolvers that will be asked in turn to locate a method.
+	 * 返回一个解析器列表，将依次要求其定位方法.
 	 */
 	List<MethodResolver> getMethodResolvers();
 
 	/**
-	 * Return a bean resolver that can look up beans by name.
+	 * 返回一个可以按名称查找bean的bean解析器.
 	 */
 	@Nullable
 	BeanResolver getBeanResolver();
 
 	/**
-	 * Return a type locator that can be used to find types, either by short or
-	 * fully qualified name.
+	 * 返回一个类型定位器，该类型定位器可用于按简短名称或完全限定名称查找类型.
 	 */
 	TypeLocator getTypeLocator();
 
 	/**
-	 * Return a type converter that can convert (or coerce) a value from one type to another.
+	 * 返回一个可以将值从一种类型转换（或强制）为另一种类型的类型转换器.
 	 */
 	TypeConverter getTypeConverter();
 
 	/**
-	 * Return a type comparator for comparing pairs of objects for equality.
+	 * 返回类型比较器，以比较对象对是否相等.
 	 */
 	TypeComparator getTypeComparator();
 
 	/**
-	 * Return an operator overloader that may support mathematical operations
-	 * between more than the standard set of types.
+	 * 返回一个运算符重载程序，该重载程序可能支持比标准类型集更多的数学运算.
 	 */
 	OperatorOverloader getOperatorOverloader();
 
 	/**
-	 * Set a named variable within this evaluation context to a specified value.
+	 * 在此计算上下文中将命名变量设置为指定值.
 	 * @param name the name of the variable to set
 	 * @param value the value to be placed in the variable
 	 */
 	void setVariable(String name, @Nullable Object value);
 
 	/**
-	 * Look up a named variable within this evaluation context.
+	 * 在此计算上下文中查找命名变量.
 	 * @param name variable to lookup
 	 * @return the value of the variable, or {@code null} if not found
 	 */

@@ -25,9 +25,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.comparator.Comparators;
 
 /**
- * A {@link Comparator} that converts values before they are compared.
- * The specified {@link Converter} will be used to convert each value
- * before it passed to the underlying {@code Comparator}.
+ * 一个{@link Comparator}，在比较值之前先将其转换.
+ * 指定的{@link Converter}将用于在将每个值传递给底层{@code Comparator}之前对其进行转换.
  *
  * @author Phillip Webb
  * @since 3.2

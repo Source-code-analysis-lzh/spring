@@ -25,22 +25,17 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A FlashMap provides a way for one request to store attributes intended for
- * use in another. This is most commonly needed when redirecting from one URL
- * to another -- e.g. the Post/Redirect/Get pattern. A FlashMap is saved before
- * the redirect (typically in the session) and is made available after the
- * redirect and removed immediately.
+ * FlashMap提供了一种方法，用于一个请求存储打算在另一个请求中使用的属性。 
+ * 从一个网址重定向到另一个网址时，这是最常见的需求-例如 Post/Redirect/Get模式。 
+ * FlashMap在重定向之前（通常在会话中）保存，并在重定向后可用，并立即删除。
  *
- * <p>A FlashMap can be set up with a request path and request parameters to
- * help identify the target request. Without this information, a FlashMap is
- * made available to the next request, which may or may not be the intended
- * recipient. On a redirect, the target URL is known and a FlashMap can be
- * updated with that information. This is done automatically when the
- * {@code org.springframework.web.servlet.view.RedirectView} is used.
+ * <p>可以使用请求路径和请求参数以帮助识别目标请求来设置FlashMap。 
+ * 没有此信息，FlashMap将可用于下一个请求，该请求可能是也可能不是预期的接收者。 
+ * 在重定向上，目标URL是已知的，并且可以使用该信息更新FlashMap。 
+ * 使用{@code org.springframework.web.servlet.view.RedirectView}时，这是自动完成的。
  *
- * <p>Note: annotated controllers will usually not use FlashMap directly.
- * See {@code org.springframework.web.servlet.mvc.support.RedirectAttributes}
- * for an overview of using flash attributes in annotated controllers.
+ * <p>注意：带注释的控制器通常不会直接使用FlashMap。 有关在带注释的控制器中使用Flash属性的概述，
+ * 请参见{@code org.springframework.web.servlet.mvc.support.RedirectAttributes}。
  *
  * @author Rossen Stoyanchev
  * @since 3.1

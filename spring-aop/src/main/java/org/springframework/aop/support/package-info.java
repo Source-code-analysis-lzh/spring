@@ -1,5 +1,5 @@
 /**
- * Convenience classes for using Spring's AOP API.
+ * 使用Spring的AOP API的便利类。
  */
 @NonNullApi
 @NonNullFields

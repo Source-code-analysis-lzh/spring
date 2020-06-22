@@ -24,8 +24,7 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
- * An interceptor that exposes the {@link ResourceUrlProvider} instance it
- * is configured with as a request attribute.
+ * 一个拦截器，该拦截器公开它的{@link ResourceUrlProvider}实例配置为请求属性。
  *
  * @author Rossen Stoyanchev
  * @since 4.1

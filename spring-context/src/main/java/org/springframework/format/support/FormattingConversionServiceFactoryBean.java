@@ -32,28 +32,20 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
 /**
- * A factory providing convenient access to a {@code FormattingConversionService}
- * configured with converters and formatters for common types such as numbers and
- * datetimes.
+ * 一个工厂，提供对{@code FormattingConversionService}的便捷访问，
+ * 该服务配置带有用于常见类型（例如数字和日期时间）的转换器和格式化器.
  *
- * <p>Additional converters and formatters can be registered declaratively through
- * {@link #setConverters(Set)} and {@link #setFormatters(Set)}. Another option
- * is to register converters and formatters in code by implementing the
- * {@link FormatterRegistrar} interface. You can then configure provide the set
- * of registrars to use through {@link #setFormatterRegistrars(Set)}.
+ * <p>可以通过{@link #setConverters(Set)}和{@link #setFormatters(Set)}声明性地注册其他转换器和格式化器.
+ * 另一种选择是通过实现{@link FormatterRegistrar}接口在代码中注册转换器和格式化器.
+ * 然后，您可以通过{@link #setFormatterRegistrars(Set)}配置提供一组注册服务商.
  *
- * <p>A good example for registering converters and formatters in code is
- * {@code JodaTimeFormatterRegistrar}, which registers a number of
- * date-related formatters and converters. For a more detailed list of cases
- * see {@link #setFormatterRegistrars(Set)}
+ * <p>在代码中注册转换器和格式化器的一个很好的例子是{@code JodaTimeFormatterRegistrar}，
+ * 它注册了许多与日期相关的格式化器和转换器. 有关案例的详细列表，请参见{@link #setFormatterRegistrars(Set)}
  *
- * <p>Like all {@code FactoryBean} implementations, this class is suitable for
- * use when configuring a Spring application context using Spring {@code <beans>}
- * XML. When configuring the container with
- * {@link org.springframework.context.annotation.Configuration @Configuration}
- * classes, simply instantiate, configure and return the appropriate
- * {@code FormattingConversionService} object from a
- * {@link org.springframework.context.annotation.Bean @Bean} method.
+ * <p>与所有{@code FactoryBean}实现一样，此类适用于在使用Spring {@code <beans>} XML配置Spring应用程序上下文时使用.
+ * 使用{@link org.springframework.context.annotation.Configuration @Configuration}类配置容器时，
+ * 只需实例化，配置并从{@link org.springframework.context.annotation.Bean @Bean}方法
+ * 返回适当的{@code FormattingConversionService}对象.
  *
  * @author Keith Donald
  * @author Juergen Hoeller

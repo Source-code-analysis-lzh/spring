@@ -17,8 +17,7 @@
 package org.springframework.context.annotation;
 
 /**
- * Enumeration used to determine whether JDK proxy-based or
- * AspectJ weaving-based advice should be applied.
+ * 用于确定是否应用基于JDK代理或基于AspectJ编织的advice的枚举。
  *
  * @author Chris Beams
  * @since 3.1
@@ -29,12 +28,12 @@ package org.springframework.context.annotation;
 public enum AdviceMode {
 
 	/**
-	 * JDK proxy-based advice.
+	 * 基于JDK代理的advice。
 	 */
 	PROXY,
 
 	/**
-	 * AspectJ weaving-based advice.
+	 * AspectJ基于编织的advice。
 	 */
 	ASPECTJ
 

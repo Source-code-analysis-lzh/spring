@@ -26,7 +26,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.PatternMatchUtils;
 
 /**
- * Pointcut bean for simple method name matches, as an alternative to regexp patterns.
+ * 简单方法名称匹配的Pointcut bean，作为regexp模式的替代方法。
  *
  * <p>Does not handle overloaded methods: all methods with a given name will be eligible.
  *

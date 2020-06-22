@@ -19,7 +19,7 @@ package org.springframework.context.event;
 import org.springframework.context.ApplicationContext;
 
 /**
- * Event raised when an {@code ApplicationContext} gets closed.
+ * {@code ApplicationContext}关闭时引发的事件.关闭上下文后，它将达到使用寿命，无法刷新或重新启动.
  *
  * @author Juergen Hoeller
  * @since 12.08.2003

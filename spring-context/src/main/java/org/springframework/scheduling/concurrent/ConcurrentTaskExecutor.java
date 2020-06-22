@@ -36,22 +36,18 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.concurrent.ListenableFuture;
 
 /**
- * Adapter that takes a {@code java.util.concurrent.Executor} and exposes
- * a Spring {@link org.springframework.core.task.TaskExecutor} for it.
- * Also detects an extended {@code java.util.concurrent.ExecutorService}, adapting
- * the {@link org.springframework.core.task.AsyncTaskExecutor} interface accordingly.
+ * 适配器，它接受{@code java.util.concurrent.Executor}并暴露Spring {@link org.springframework.core.task.TaskExecutor}。 
+ * 还检测扩展的{@code java.util.concurrent.ExecutorService}，
+ * 从而适配{@link org.springframework.core.task.AsyncTaskExecutor}接口。
  *
- * <p>Autodetects a JSR-236 {@link javax.enterprise.concurrent.ManagedExecutorService}
- * in order to expose {@link javax.enterprise.concurrent.ManagedTask} adapters for it,
- * exposing a long-running hint based on {@link SchedulingAwareRunnable} and an identity
- * name based on the given Runnable/Callable's {@code toString()}. For JSR-236 style
- * lookup in a Java EE 7 environment, consider using {@link DefaultManagedTaskExecutor}.
+ * <p>自动检测JSR-236 {@link javax.enterprise.concurrent.ManagedExecutorService}以便为其公开ManagedTask适配器，
+ * 从而公开基于{@link SchedulingAwareRunnable}的长时间运行提示和基于给定Runnable / Callable的{@code toString()}的标识名。 
+ * 对于Java EE 7环境中的JSR-236样式查找，请考虑使用{@link DefaultManagedTaskExecutor}。
  *
- * <p>Note that there is a pre-built {@link ThreadPoolTaskExecutor} that allows
- * for defining a {@link java.util.concurrent.ThreadPoolExecutor} in bean style,
- * exposing it as a Spring {@link org.springframework.core.task.TaskExecutor} directly.
- * This is a convenient alternative to a raw ThreadPoolExecutor definition with
- * a separate definition of the present adapter class.
+ * <p>注意，有一个预先构建的{@link ThreadPoolTaskExecutor}，
+ * 它允许以bean样式定义{@link java.util.concurrent.ThreadPoolExecutor}，
+ * 将其直接作为Spring {@link org.springframework.core.task.TaskExecutor}公开。 
+ * 这是对原始ThreadPoolExecutor定义的方便替代方法，它具有当前适配器类的单独定义。
  *
  * @author Juergen Hoeller
  * @since 2.0

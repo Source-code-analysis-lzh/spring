@@ -26,9 +26,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Abstract base class for {@link org.springframework.aop.PointcutAdvisor}
- * implementations. Can be subclassed for returning a specific pointcut/advice
- * or a freely configurable pointcut/advice.
+ * {@link org.springframework.aop.PointcutAdvisor}实现的抽象基类。 
+ * 可以归类为返回特定的pointcut/advice或可自由配置的pointcut/advice。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

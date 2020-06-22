@@ -36,11 +36,14 @@ if (customJavaHome) {
 	def customJavaHomeDir = new File(customJavaHome)
 	def customJavaSourceVersion = System.getProperty("customJavaSourceVersion")
 
+	// 返回一个包含给定类型的此集合中的对象的集合。等效于调用withType(type).all(configureClosure)。
 	tasks.withType(JavaCompile) {
 		logger.info("Java home for " + it.name + " task in " + project.name + ": " + customJavaHomeDir)
+		// 仅在forkOptions.fork为true时才生效。设置Java主目录，其中包含要使用的编译器。
 		options.forkOptions.javaHome = customJavaHomeDir
 		inputs.property("customJavaHome", customJavaHome)
 		if (customJavaSourceVersion) {
+			// 针对特定的VM版本进行编译。支持的目标：6、7、8、9
 			options.compilerArgs += [ "--release", customJavaSourceVersion]
 			inputs.property("customJavaSourceVersion", customJavaSourceVersion)
 		}

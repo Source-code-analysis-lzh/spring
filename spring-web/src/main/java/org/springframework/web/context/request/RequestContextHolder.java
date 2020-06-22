@@ -24,16 +24,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * Holder class to expose the web request in the form of a thread-bound
- * {@link RequestAttributes} object. The request will be inherited
- * by any child threads spawned by the current thread if the
- * {@code inheritable} flag is set to {@code true}.
+ * Holder类以线程绑定的{@link RequestAttributes}对象的形式公开Web请求。 
+ * 如果将{@code inheritable}标志设置为{@code true}，则该请求将被当前线程产生的任何子线程继承。
  *
- * <p>Use {@link RequestContextListener} or
- * {@link org.springframework.web.filter.RequestContextFilter} to expose
- * the current web request. Note that
- * {@link org.springframework.web.servlet.DispatcherServlet}
- * already exposes the current request by default.
+ * <p>使用{@link RequestContextListener}或{@link org.springframework.web.filter.RequestContextFilter}
+ * 公开当前的Web请求。 请注意，默认情况下，{@link org.springframework.web.servlet.DispatcherServlet}已经公开了当前请求。
  *
  * @author Juergen Hoeller
  * @author Rod Johnson

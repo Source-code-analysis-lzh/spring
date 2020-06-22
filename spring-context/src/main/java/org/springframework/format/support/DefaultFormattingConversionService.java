@@ -30,16 +30,14 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * A specialization of {@link FormattingConversionService} configured by default with
- * converters and formatters appropriate for most applications.
+ * 默认情况下，{@link FormattingConversionService}的一种具体配置，
+ * 它使用适用于大多数应用程序的转换器和格式化器.
  *
- * <p>Designed for direct instantiation but also exposes the static {@link #addDefaultFormatters}
- * utility method for ad hoc use against any {@code FormatterRegistry} instance, just
- * as {@code DefaultConversionService} exposes its own
- * {@link DefaultConversionService#addDefaultConverters addDefaultConverters} method.
+ * <p>专为直接实例化而设计，但还公开了静态的{@link #addDefaultFormatters}实用程序方法，
+ * 可临时用于任何{@code FormatterRegistry}实例，
+ * 就像{@code DefaultConversionService}公开其自己的{@link DefaultConversionService#addDefaultConverters addDefaultConverters}方法一样.
  *
- * <p>Automatically registers formatters for JSR-354 Money & Currency, JSR-310 Date-Time
- * and/or Joda-Time, depending on the presence of the corresponding API on the classpath.
+ * <p>根据类路径上存在的相应API，自动注册JSR-354货币和货币，JSR-310日期时间和/或Joda时间的格式化器.
  *
  * @author Chris Beams
  * @author Juergen Hoeller

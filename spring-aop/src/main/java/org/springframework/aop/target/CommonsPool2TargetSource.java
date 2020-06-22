@@ -27,24 +27,18 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link org.springframework.aop.TargetSource} implementation that holds
- * objects in a configurable Apache Commons2 Pool.
+ * {@link org.springframework.aop.TargetSource}实现将对象保存在可配置的Apache Commons2 Pool中。
  *
- * <p>By default, an instance of {@code GenericObjectPool} is created.
- * Subclasses may change the type of {@code ObjectPool} used by
- * overriding the {@code createObjectPool()} method.
+ * <p>默认情况下，将创建{@code GenericObjectPool}的实例。 
+ * 子类可以通过重写{@code createObjectPool()}方法来更改所使用的{@code ObjectPool}的类型。
  *
- * <p>Provides many configuration properties mirroring those of the Commons Pool
- * {@code GenericObjectPool} class; these properties are passed to the
- * {@code GenericObjectPool} during construction. If creating a subclass of this
- * class to change the {@code ObjectPool} implementation type, pass in the values
- * of configuration properties that are relevant to your chosen implementation.
+ * <p>提供许多配置属性，这些配置属性与Commons Pool {@code GenericObjectPool}类的属性相同。 
+ * 这些属性将在构造过程中传递给{@code GenericObjectPool}。 
+ * 如果创建此类的子类来更改{@code ObjectPool}实现类型，请传入与所选实现相关的配置属性的值。
  *
- * <p>The {@code testOnBorrow}, {@code testOnReturn} and {@code testWhileIdle}
- * properties are explicitly not mirrored because the implementation of
- * {@code PoolableObjectFactory} used by this class does not implement
- * meaningful validation. All exposed Commons Pool properties use the
- * corresponding Commons Pool defaults.
+ * <p>{@code testOnBorrow}, {@code testOnReturn} 和 {@code testWhileIdle}属性未明确镜像，
+ * 因为此类使用的{@code PoolableObjectFactory}的实现未实现有意义的验证。 
+ * 所有公开的Commons Pool属性都使用相应的Commons Pool默认值。
  *
  * <p>Compatible with Apache Commons Pool 2.4, as of Spring 4.2.
  *

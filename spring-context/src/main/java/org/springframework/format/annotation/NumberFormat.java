@@ -23,21 +23,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares that a field or method parameter should be formatted as a number.
+ * 声明字段或方法参数应设置为数字格式.
  *
- * <p>Supports formatting by style or custom pattern string. Can be applied
- * to any JDK {@code Number} type such as {@code Double} and {@code Long}.
+ * <p>支持按样式或自定义模式字符串格式化. 可以应用于任何JDK {@code Number}类型，例如{@code Double}和{@code Long}.
  *
- * <p>For style-based formatting, set the {@link #style} attribute to be the
- * desired {@link Style}. For custom formatting, set the {@link #pattern}
- * attribute to be the number pattern, such as {@code #, ###.##}.
+ * <p>对于基于样式的格式设置，将{@link #style}属性设置为所需的{@link Style}.
+ * 对于自定义格式，将{@link #pattern}属性设置为数字模式，例如{@code #, ###.##}.
  *
- * <p>Each attribute is mutually exclusive, so only set one attribute per
- * annotation instance (the one most convenient one for your formatting needs).
- * When the {@link #pattern} attribute is specified, it takes precedence over
- * the {@link #style} attribute. When no annotation attributes are specified,
- * the default format applied is style-based for either number of currency,
- * depending on the annotated field or method parameter type.
+ * <p>每个属性都是互斥的，因此每个注释实例仅设置一个属性（一种最方便的格式设置）.
+ * 指定{@link #pattern}属性指定后，它优先于{@link #style}属性.
+ * 如果未指定注释属性，则默认的格式是基于样式的货币数量，具体取决于注释字段或方法参数类型.
  *
  * @author Keith Donald
  * @author Juergen Hoeller
@@ -55,6 +50,8 @@ public @interface NumberFormat {
 	 * for most annotated types, except for money types which default to currency
 	 * formatting. Set this attribute when you wish to format your field in
 	 * accordance with a common style other than the default style.
+	 * 用于格式化字段的样式模式.
+	 * <p>对于大多数带注释的类型，通用类型的数字格式默认为{@link Style#DEFAULT}，但默认为货币格式的货币类型除外. 当您希望按照默认样式以外的常见样式设置字段格式时，请设置此属性.
 	 */
 	Style style() default Style.DEFAULT;
 

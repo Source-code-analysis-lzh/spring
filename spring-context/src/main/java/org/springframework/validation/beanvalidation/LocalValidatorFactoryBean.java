@@ -55,17 +55,13 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * This is the central class for {@code javax.validation} (JSR-303) setup in a Spring
- * application context: It bootstraps a {@code javax.validation.ValidationFactory} and
- * exposes it through the Spring {@link org.springframework.validation.Validator} interface
- * as well as through the JSR-303 {@link javax.validation.Validator} interface and the
- * {@link javax.validation.ValidatorFactory} interface itself.
+ * 这是Spring应用程序上下文中{@code javax.validation} (JSR-303)设置的中心类：
+ * 它启动{@code javax.validation.ValidationFactory}并通过Spring {@link org.springframework.validation.Validator}接口
+ * 以及JSR-303 {@link javax.validation.Validator}接口和{@link javax.validation.ValidatorFactory}接口公开.
  *
- * <p>When talking to an instance of this bean through the Spring or JSR-303 Validator interfaces,
- * you'll be talking to the default Validator of the underlying ValidatorFactory. This is very
- * convenient in that you don't have to perform yet another call on the factory, assuming that
- * you will almost always use the default Validator anyway. This can also be injected directly
- * into any target dependency of type {@link org.springframework.validation.Validator}!
+ * <p>通过Spring或JSR-303验证程序接口与该bean的实例通信时，您将与底层ValidatorFactory的默认验证程序进行通信.
+ * 这非常方便，因为您不必在工厂中再次执行任何调用，前提是您几乎总是始终使用默认的Validator.
+ * 也可以将其直接注入到{@link org.springframework.validation.Validator}类型的任何目标依赖项中！
  *
  * <p><b>As of Spring 5.0, this class requires Bean Validation 1.1+, with special support
  * for Hibernate Validator 5.x</b> (see {@link #setValidationMessageSource}).

@@ -20,13 +20,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
 /**
- * {@link StringValueResolver} adapter for resolving placeholders and
- * expressions against a {@link ConfigurableBeanFactory}.
+ * {@link StringValueResolver}适配器，用于针对{@link ConfigurableBeanFactory}解析占位符和表达式.
  *
- * <p>Note that this adapter resolves expressions as well, in contrast
- * to the {@link ConfigurableBeanFactory#resolveEmbeddedValue} method.
- * The {@link BeanExpressionContext} used is for the plain bean factory,
- * with no scope specified for any contextual objects to access.
+ * <p>请注意，与{@link ConfigurableBeanFactory#resolveEmbeddedValue}方法不同，
+ * 此适配器也解析表达式. 所使用的{@link BeanExpressionContext}用于普通bean工厂，
+ * 没有为要访问的任何上下文对象指定范围.
  *
  * @author Juergen Hoeller
  * @since 4.3
@@ -52,6 +50,7 @@ public class EmbeddedValueResolver implements StringValueResolver {
 	@Nullable
 	public String resolveStringValue(String strVal) {
 		String value = this.exprContext.getBeanFactory().resolveEmbeddedValue(strVal);
+		// 如果存在SpringEL表达式，则还需要进一步解析
 		if (this.exprResolver != null && value != null) {
 			Object evaluated = this.exprResolver.evaluate(value, this.exprContext);
 			value = (evaluated != null ? evaluated.toString() : null);

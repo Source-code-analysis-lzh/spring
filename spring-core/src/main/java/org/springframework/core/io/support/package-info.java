@@ -1,6 +1,5 @@
 /**
- * Support classes for Spring's resource abstraction.
- * Includes a ResourcePatternResolver mechanism.
+ * Spring资源抽象的支持类.包括ResourcePatternResolver机制.
  */
 @NonNullApi
 @NonNullFields

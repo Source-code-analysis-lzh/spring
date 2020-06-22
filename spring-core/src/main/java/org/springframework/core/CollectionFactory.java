@@ -43,9 +43,9 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Factory for collections that is aware of common Java and Spring collection types.
+ * 常见Java和Spring集合类型的集合的工厂.
  *
- * <p>Mainly for internal use within the framework.
+ * <p>主要供框架内部使用.
  *
  * @author Juergen Hoeller
  * @author Arjen Poutsma
@@ -100,15 +100,11 @@ public final class CollectionFactory {
 	}
 
 	/**
-	 * Create the most approximate collection for the given collection.
-	 * <p><strong>Warning</strong>: Since the parameterized type {@code E} is
-	 * not bound to the type of elements contained in the supplied
-	 * {@code collection}, type safety cannot be guaranteed if the supplied
-	 * {@code collection} is an {@link EnumSet}. In such scenarios, the caller
-	 * is responsible for ensuring that the element type for the supplied
-	 * {@code collection} is an enum type matching type {@code E}. As an
-	 * alternative, the caller may wish to treat the return value as a raw
-	 * collection or collection of {@link Object}.
+	 * 为给定集合创建最近似的集合.
+	 * <p><strong>警告</strong>：由于参数化类型 {@code E} 未绑定到提供的 {@code collection} 中包含的元素类型，
+	 * 因此如果提供的 {@code collection} 是 {@link EnumSet} ，则不能保证类型安全.
+	 * 在这种情况下，调用者负责确保提供的集合的元素类型是匹配类型 {@code E} 的枚举类型.
+	 * 作为替代，调用者可能希望将返回值视为 {@link Object} 的原始集合或集合.
 	 * @param collection the original collection object, potentially {@code null}
 	 * @param capacity the initial capacity
 	 * @return a new, empty collection instance
@@ -156,14 +152,11 @@ public final class CollectionFactory {
 	}
 
 	/**
-	 * Create the most appropriate collection for the given collection type.
-	 * <p><strong>Warning</strong>: Since the parameterized type {@code E} is
-	 * not bound to the supplied {@code elementType}, type safety cannot be
-	 * guaranteed if the desired {@code collectionType} is {@link EnumSet}.
-	 * In such scenarios, the caller is responsible for ensuring that the
-	 * supplied {@code elementType} is an enum type matching type {@code E}.
-	 * As an alternative, the caller may wish to treat the return value as a
-	 * raw collection or collection of {@link Object}.
+	 * 为给定的集合类型创建最合适的集合.
+	 * <p><strong>警告</strong>: 由于参数化类型 {@code E} 未绑定到提供的 {@code elementType} 上，
+	 * 因此如果所需的 {@code collectionType} 为 {@link EnumSet} ，则不能保证类型安全.
+	 * 在这种情况下，调用者负责确保提供的 {@code elementType} 是与 {@code E} 类型匹配的枚举类型.
+	 * 作为替代，调用者可能希望将返回值视为 {@link Object} 的原始集合或集合.
 	 * @param collectionType the desired type of the target collection (never {@code null})
 	 * @param elementType the collection's element type, or {@code null} if unknown
 	 * (note: only relevant for {@link EnumSet} creation)
@@ -225,14 +218,11 @@ public final class CollectionFactory {
 	}
 
 	/**
-	 * Create the most approximate map for the given map.
-	 * <p><strong>Warning</strong>: Since the parameterized type {@code K} is
-	 * not bound to the type of keys contained in the supplied {@code map},
-	 * type safety cannot be guaranteed if the supplied {@code map} is an
-	 * {@link EnumMap}. In such scenarios, the caller is responsible for
-	 * ensuring that the key type in the supplied {@code map} is an enum type
-	 * matching type {@code K}. As an alternative, the caller may wish to
-	 * treat the return value as a raw map or map keyed by {@link Object}.
+	 * 为给定map创建最近似的map.
+	 * <p><strong>警告</strong>：由于参数化的类型 {@code K} 未绑定到提供的 {@code map} ，
+	 * 因此如果所提供的 {@code map} 为 {@link EnumMap} ，则不能保证类型安全.
+	 * 在这种情况下，调用者负责确保提供的 {@code map} 中的 key 类型是与类型 {@code K} 匹配的枚举类型.
+	 * 作为替代，调用者可能希望将返回值视为原始映射或由{@link Object}键控的映射.
 	 * @param map the original map object, potentially {@code null}
 	 * @param capacity the initial capacity
 	 * @return a new, empty map instance
@@ -271,15 +261,12 @@ public final class CollectionFactory {
 	}
 
 	/**
-	 * Create the most appropriate map for the given map type.
-	 * <p><strong>Warning</strong>: Since the parameterized type {@code K}
-	 * is not bound to the supplied {@code keyType}, type safety cannot be
-	 * guaranteed if the desired {@code mapType} is {@link EnumMap}. In such
-	 * scenarios, the caller is responsible for ensuring that the {@code keyType}
-	 * is an enum type matching type {@code K}. As an alternative, the caller
-	 * may wish to treat the return value as a raw map or map keyed by
-	 * {@link Object}. Similarly, type safety cannot be enforced if the
-	 * desired {@code mapType} is {@link MultiValueMap}.
+	 * 为给定的map类型创建最合适的map.
+	 * <p><strong>警告</strong>：由于参数化的类型 {@code K} 未绑定到提供的 {@code keyType} ，
+	 * 因此如果所需的{@code mapType}为{@link EnumMap}，则不能保证类型安全.
+	 * 在这种情况下，调用者负责确保{@code keyType}是与类型{@code K}匹配的枚举类型.
+	 * 作为替代，调用者可能希望将返回值视为原始映射或由{@link Object}键控的映射.
+	 * 同样，如果所需的{@code mapType}为{@link MultiValueMap}，则无法强制执行类型安全.
 	 * @param mapType the desired type of the target map (never {@code null})
 	 * @param keyType the map's key type, or {@code null} if unknown
 	 * (note: only relevant for {@link EnumMap} creation)

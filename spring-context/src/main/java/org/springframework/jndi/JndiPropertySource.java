@@ -22,26 +22,20 @@ import org.springframework.core.env.PropertySource;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link PropertySource} implementation that reads properties from an underlying Spring
- * {@link JndiLocatorDelegate}.
+ * 从底层Spring {@link JndiLocatorDelegate}读取属性的{@link PropertySource}实现。
  *
- * <p>By default, the underlying {@code JndiLocatorDelegate} will be configured with its
- * {@link JndiLocatorDelegate#setResourceRef(boolean) "resourceRef"} property set to
- * {@code true}, meaning that names looked up will automatically be prefixed with
- * "java:comp/env/" in alignment with published
+ * <p>默认情况下，底层{@code JndiLocatorDelegate}将配置其{@link JndiLocatorDelegate#setResourceRef(boolean) "resourceRef"}
+ * 属性设置为{@code true}，这意味着所查找的名称将自动以"java:comp/env/"为前缀，以符合已发布的JNDI
  * <a href="https://download.oracle.com/javase/jndi/tutorial/beyond/misc/policy.html">JNDI
- * naming conventions</a>. To override this setting or to change the prefix, manually
- * configure a {@code JndiLocatorDelegate} and provide it to one of the constructors here
- * that accepts it. The same applies when providing custom JNDI properties. These should
- * be specified using {@link JndiLocatorDelegate#setJndiEnvironment(java.util.Properties)}
- * prior to construction of the {@code JndiPropertySource}.
+ * naming conventions</a>。 要覆盖此设置或更改前缀，请手动配置{@code JndiLocatorDelegate}并将其提供给此处接受它的构造函数之一。
+ * 提供自定义JNDI属性时，也是如此。 在构造{@code JndiPropertySource}之前，
+ * 应使用{@link JndiLocatorDelegate#setJndiEnvironment(java.util.Properties)}指定这些属性。
  *
- * <p>Note that {@link org.springframework.web.context.support.StandardServletEnvironment
- * StandardServletEnvironment} includes a {@code JndiPropertySource} by default, and any
- * customization of the underlying {@link JndiLocatorDelegate} may be performed within an
+ * <p>请注意，默认情况下{@link org.springframework.web.context.support.StandardServletEnvironment
+ * StandardServletEnvironment}包括{@code JndiPropertySource}，并且可以在
  * {@link org.springframework.context.ApplicationContextInitializer
- * ApplicationContextInitializer} or {@link org.springframework.web.WebApplicationInitializer
- * WebApplicationInitializer}.
+ * ApplicationContextInitializer}或{@link org.springframework.web.WebApplicationInitializer
+ * WebApplicationInitializer}中执行底层{@link JndiLocatorDelegate}的任何自定义。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

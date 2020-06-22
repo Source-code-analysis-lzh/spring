@@ -62,8 +62,8 @@ import org.springframework.util.StringUtils;
 public final class SpringFactoriesLoader {
 
 	/**
-	 * The location to look for factories.
-	 * <p>Can be present in multiple JAR files.
+	 * 寻找工厂的位置。
+	 * <p>可以存在于多个JAR文件中。
 	 */
 	public static final String FACTORIES_RESOURCE_LOCATION = "META-INF/spring.factories";
 
@@ -111,12 +111,8 @@ public final class SpringFactoriesLoader {
 	}
 
 	/**
-	 * Load the fully qualified class names of factory implementations of the
-	 * given type from {@value #FACTORIES_RESOURCE_LOCATION}, using the given
-	 * class loader.
-	 * <p>As of Spring Framework 5.3, if a particular implementation class name
-	 * is discovered more than once for the given factory type, duplicates will
-	 * be ignored.
+	 * 使用给定的类加载器从{@value #FACTORIES_RESOURCE_LOCATION}加载给定类型的工厂实现的标准类名。
+	 * <p>从Spring Framework 5.3开始，如果多次发现给定工厂类型的特定实现类名称，则重复项将被忽略。
 	 * @param factoryType the interface or abstract class representing the factory
 	 * @param classLoader the ClassLoader to use for loading resources; can be
 	 * {@code null} to use the default

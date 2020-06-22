@@ -20,11 +20,9 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.util.Assert;
 
 /**
- * Describes scope characteristics for a Spring-managed bean including the scope
- * name and the scoped-proxy behavior.
+ * 描述Spring托管bean的范围特征，包括范围名称和scoped-proxy行为。
  *
- * <p>The default scope is "singleton", and the default is to <i>not</i> create
- * scoped-proxies.
+ * <p>默认范围是"singleton"，默认是<i>不</ i>创建范围代理。
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

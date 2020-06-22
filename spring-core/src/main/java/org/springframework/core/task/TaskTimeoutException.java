@@ -17,8 +17,7 @@
 package org.springframework.core.task;
 
 /**
- * Exception thrown when a {@link AsyncTaskExecutor} rejects to accept
- * a given task for execution because of the specified timeout.
+ * 当{@link AsyncTaskExecutor}由于指定的超时而拒绝接受给定的任务执行时，抛出该异常。
  *
  * @author Juergen Hoeller
  * @since 2.0.3

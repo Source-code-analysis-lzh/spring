@@ -25,15 +25,12 @@ import org.springframework.web.servlet.support.JstlUtils;
 import org.springframework.web.servlet.support.RequestContext;
 
 /**
- * Specialization of {@link InternalResourceView} for JSTL pages,
- * i.e. JSP pages that use the JSP Standard Tag Library.
+ * 用于JSTL页面的{@link InternalResourceView}的特殊化，即使用JSP标准标签库的JSP页面。
  *
- * <p>Exposes JSTL-specific request attributes specifying locale
- * and resource bundle for JSTL's formatting and message tags,
- * using Spring's locale and {@link org.springframework.context.MessageSource}.
+ * <p>使用Spring的语言环境和{@link org.springframework.context.MessageSource}，
+ * 公开特定于JSTL的请求属性，这些属性指定JSTL格式和消息标签的语言环境和资源包。
  *
- * <p>Typical usage with {@link InternalResourceViewResolver} would look as follows,
- * from the perspective of the DispatcherServlet context definition:
+ * <p>从DispatcherServlet上下文定义的角度来看，{@link InternalResourceViewResolver}的典型用法如下所示：
  *
  * <pre class="code">
  * &lt;bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt;
@@ -46,27 +43,21 @@ import org.springframework.web.servlet.support.RequestContext;
  *   &lt;property name="basename" value="messages"/&gt;
  * &lt;/bean&gt;</pre>
  *
- * Every view name returned from a handler will be translated to a JSP
- * resource (for example: "myView" -> "/WEB-INF/jsp/myView.jsp"), using
- * this view class to enable explicit JSTL support.
+ * 使用此视图类启用显式的JSTL支持，将从处理器返回的每个视图名称都转换为JSP资源
+ * （例如："myView" -> "/WEB-INF/jsp/myView.jsp"）。
  *
- * <p>The specified MessageSource loads messages from "messages.properties" etc
- * files in the class path. This will automatically be exposed to views as
- * JSTL localization context, which the JSTL fmt tags (message etc) will use.
- * Consider using Spring's ReloadableResourceBundleMessageSource instead of
- * the standard ResourceBundleMessageSource for more sophistication.
- * Of course, any other Spring components can share the same MessageSource.
+ * <p>指定的MessageSource从类路径中的"messages.properties"等文件加载消息。 
+ * 这将作为JSTL本地化上下文自动显示给JSTL fmt标签（消息等）使用的视图。 
+ * 考虑使用Spring的ReloadableResourceBundleMessageSource而不是标准
+ * ResourceBundleMessageSource以获得更多的复杂特性。 
+ * 当然，任何其它Spring组件都可以共享相同的MessageSource。
  *
- * <p>This is a separate class mainly to avoid JSTL dependencies in
- * {@link InternalResourceView} itself. JSTL has not been part of standard
- * J2EE up until J2EE 1.4, so we can't assume the JSTL API jar to be
- * available on the class path.
+ * <p>这是一个单独的类，主要是为了避免{@link InternalResourceView}本身中的JSTL依赖关系。 
+ * 直到J2EE 1.4，JSTL才成为标准J2EE的一部分，因此我们不能假定JSTL API jar在类路径中可用。
  *
- * <p>Hint: Set the {@link #setExposeContextBeansAsAttributes} flag to "true"
- * in order to make all Spring beans in the application context accessible
- * within JSTL expressions (e.g. in a {@code c:out} value expression).
- * This will also make all such beans accessible in plain {@code ${...}}
- * expressions in a JSP 2.0 page.
+ * <p>提示：将{@link #setExposeContextBeansAsAttributes}标志设置为"true"，
+ * 以使应用程序上下文中的所有Spring bean在JSTL表达式（例如，在{@code c:out}值表达式中）中均可访问。 
+ * 这还将使所有此类Bean在JSP 2.0页面中都可以通过简单的{@code ${...}表达式进行访问。
  *
  * @author Juergen Hoeller
  * @since 27.02.2003

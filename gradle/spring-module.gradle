@@ -8,34 +8,44 @@ dependencies {
 	jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.23'
 	jmh 'net.sf.jopt-simple:jopt-simple:4.6'
 }
+
+// JMH（Java Microbenchmark Harness）是Java用来做基准测试一个工具
 jmh {
 	duplicateClassesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
+// 打jar包
 jar {
+	// 将内容添加到清单的主要属性
 	manifest.attributes["Implementation-Title"] = project.name
 	manifest.attributes["Implementation-Version"] = project.version
 	manifest.attributes["Automatic-Module-Name"] = project.name.replace('-', '.')  // for Jigsaw
 	manifest.attributes["Created-By"] =
 			"${System.getProperty("java.version")} (${System.getProperty("java.specification.vendor")})"
 
+	// 指定副本的源文件或目录与闭包组成复制规范
 	from("${rootDir}/src/docs/dist") {
 		include "license.txt"
 		include "notice.txt"
-		into "META-INF"
+		into "META-INF" // 复制目的目录
+		// 替换文件中${property}变量
 		expand(copyright: new Date().format("yyyy"), version: project.version)
 	}
 }
 
+// ??
 normalization {
 	runtimeClasspath {
+		// 忽略类路径条目匹配模式中的资源。
 		ignore "META-INF/MANIFEST.MF"
 	}
 }
 
+// 对javadoc任务配置
 javadoc {
 	description = "Generates project-level javadoc for use in -javadoc jar"
 
+	// StandardJavadocDocletOptions对象
 	options.encoding = "UTF-8"
 	options.memberLevel = JavadocMemberLevel.PROTECTED
 	options.author = true
@@ -43,28 +53,39 @@ javadoc {
 	options.use = true
 	options.links(project.ext.javadocLinks)
 	options.addStringOption("Xdoclint:none", "-quiet")
+	options.addStringOption('encoding', 'UTF-8')
+	options.addStringOption('charSet', 'UTF-8')
 
 	// Suppress warnings due to cross-module @see and @link references.
 	// Note that global 'api' task does display all warnings.
+	// 请求将写入System.err的输出路由到Gradle的日志记录系统。
 	logging.captureStandardError LogLevel.INFO
+	// 请求将写入System.out的输出路由到Gradle的日志记录系统。
 	logging.captureStandardOutput LogLevel.INFO  // suppress "## warnings" message
 }
 
+// 打源码包
 task sourcesJar(type: Jar, dependsOn: classes) {
+	// 尝试将多个文件复制到同一目标时使用的策略。
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	// 将属性的值设置为给定值，即存档名称的分类器部分（如果有）
 	archiveClassifier.set("sources")
 	from sourceSets.main.allSource
 	// Don't include or exclude anything explicitly by default. See SPR-12085.
 }
 
-task javadocJar(type: Jar) {
+// 打javadoc文档包
+task javadocJar(type: Jar, dependsOn: javadoc) {
+	// 将属性的值设置为给定值，即存档名称的分类器部分（如果有）
 	archiveClassifier.set("javadoc")
-	from javadoc
+	from javadoc.destinationDir
 }
 
+// 发布指定包到库中
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
+			// 提供应发布的软件组件,https://docs.gradle.org/current/dsl/org.gradle.api.publish.maven.MavenPublication.html#org.gradle.api.publish.maven.MavenPublication:from(org.gradle.api.component.SoftwareComponent)
 			from components.java
 			artifact sourcesJar
 			artifact javadocJar

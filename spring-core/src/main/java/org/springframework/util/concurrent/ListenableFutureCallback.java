@@ -17,8 +17,7 @@
 package org.springframework.util.concurrent;
 
 /**
- * Callback mechanism for the outcome, success or failure, from a
- * {@link ListenableFuture}.
+ * 来自{@link ListenableFuture}的结果，成功或失败的回调机制。
  *
  * @author Arjen Poutsma
  * @author Sebastien Deleuze

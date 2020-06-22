@@ -22,8 +22,8 @@ import java.util.StringJoiner;
 import org.springframework.lang.Nullable;
 
 /**
- * A base class for {@link RequestCondition} types providing implementations of
- * {@link #equals(Object)}, {@link #hashCode()}, and {@link #toString()}.
+ * {@link RequestCondition}类型的基类，提供{@link #equals(Object)},
+ * {@link #hashCode()}, 和 {@link #toString()}的实现。
  *
  * @author Rossen Stoyanchev
  * @since 3.1

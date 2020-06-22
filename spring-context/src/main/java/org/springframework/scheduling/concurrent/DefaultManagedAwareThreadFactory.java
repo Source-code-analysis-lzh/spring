@@ -30,13 +30,11 @@ import org.springframework.jndi.JndiTemplate;
 import org.springframework.lang.Nullable;
 
 /**
- * JNDI-based variant of {@link CustomizableThreadFactory}, performing a default lookup
- * for JSR-236's "java:comp/DefaultManagedThreadFactory" in a Java EE 7 environment,
- * falling back to the local {@link CustomizableThreadFactory} setup if not found.
+ * 基于JNDI的{@link CustomizableThreadFactory}变体，
+ * 在Java EE 7环境中对JSR-236的"java:comp/DefaultManagedThreadFactory"执行默认查找，
+ * 如果未找到，则回退到本地{@link CustomizableThreadFactory}设置。
  *
- * <p>This is a convenient way to use managed threads when running in a Java EE 7
- * environment, simply using regular local threads otherwise - without conditional
- * setup (i.e. without profiles).
+ * <p>这是在Java EE 7环境中运行时使用管理线程的便捷方法，否则仅使用常规本地线程-无需条件设置（即，无需配置文件）。
  *
  * <p>Note: This class is not strictly JSR-236 based; it can work with any regular
  * {@link java.util.concurrent.ThreadFactory} that can be found in JNDI. Therefore,

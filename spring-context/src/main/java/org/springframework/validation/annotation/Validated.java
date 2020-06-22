@@ -23,13 +23,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Variant of JSR-303's {@link javax.validation.Valid}, supporting the
- * specification of validation groups. Designed for convenient use with
- * Spring's JSR-303 support but not JSR-303 specific.
+ * JSR-303的{@link javax.validation.Valid}的变体，支持验证组的规范.
+ * 设计用于方便使用Spring的JSR-303支持，但不适用于JSR-303.
  *
  * <p>Can be used e.g. with Spring MVC handler methods arguments.
  * Supported through {@link org.springframework.validation.SmartValidator}'s
  * validation hint concept, with validation group classes acting as hint objects.
+ * <p>可以在Spring MVC处理程序方法参数中使用.
+ * 通过{@link org.springframework.validation.SmartValidator}的验证提示概念提供支持，验证组类充当提示对象.
  *
  * <p>Can also be used with method level validation, indicating that a specific
  * class is supposed to be validated at the method level (acting as a pointcut
@@ -40,6 +41,11 @@ import java.lang.annotation.Target;
  * a class-level annotation is nevertheless necessary to trigger method validation
  * for a specific bean to begin with. Can also be used as a meta-annotation on a
  * custom stereotype annotation or a custom group-specific validated annotation.
+ * <p>还可与方法级别验证一起使用，指示应在方法级别上验证特定的类（充当相应验证拦截器的切入点），
+ * 还可以选择在带注释的方法中指定用于方法级别验证的验证组 类.
+ * 在方法级别应用此注释可以覆盖特定方法的验证组，但不能用作切入点.
+ * 但是，必须为触发特定bean的方法验证而使用类级别的注释.
+ * 也可以用作自定义构造型注释或自定义组特定的经过验证的注释的元注释.
  *
  * @author Juergen Hoeller
  * @since 3.1

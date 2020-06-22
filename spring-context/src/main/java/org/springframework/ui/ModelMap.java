@@ -25,11 +25,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Implementation of {@link java.util.Map} for use when building model data for use
- * with UI tools. Supports chained calls and generation of model attribute names.
+ * 构建用于UI工具的模型数据时使用的{@link java.util.Map}的实现。 支持链式调用和模型属性名称的生成。
  *
  * <p>This class serves as generic model holder for Servlet MVC but is not tied to it.
  * Check out the {@link Model} interface for an interface variant.
+ * <p>该类充当Servlet MVC的通用模型持有者，但并不与之相关。 签出{@link Model}接口以获取接口变体。
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

@@ -54,14 +54,12 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Static convenience methods for JavaBeans: for instantiating beans,
- * checking bean property types, copying bean properties, etc.
+ * JavaBeans的静态便捷方法：用于实例化bean，检查bean属性类型，复制bean属性等。
  *
- * <p>Mainly for internal use within the framework, but to some degree also
- * useful for application classes. Consider
- * <a href="https://commons.apache.org/proper/commons-beanutils/">Apache Commons BeanUtils</a>,
- * <a href="https://hotelsdotcom.github.io/bull/">BULL - Bean Utils Light Library</a>,
- * or similar third-party frameworks for more comprehensive bean utilities.
+ * <p>主要供框架内部使用，但在某种程度上也对应用程序类有用。 
+ * 考虑使用<a href="https://commons.apache.org/proper/commons-beanutils/">Apache Commons BeanUtils</a>，
+ * <a href="https://hotelsdotcom.github.io/bull/">BULL-Bean Utils Light库</a>
+ * 或类似的第三方框架来获得更全面的Bean实用工具。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

@@ -18,12 +18,11 @@
 package org.apache.commons.logging;
 
 /**
- * A simple logging interface abstracting logging APIs.  In order to be
- * instantiated successfully by {@link LogFactory}, classes that implement
- * this interface must have a constructor that takes a single String
- * parameter representing the "name" of this Log.
+ * 一个简单的日志记录接口，抽象了日志记录API。 
+ * 为了被{@link LogFactory}成功实例化，实现此接口的类必须具有一个构造函数，
+ * 该构造函数采用单个String参数表示此Log的“名称”。
  *
- * <p>The six logging levels used by <code>Log</code> are (in order):
+ * <p>Log使用的六个<code>Log</code>记录级别是（按顺序）：
  * <ol>
  * <li>trace (the least serious)</li>
  * <li>debug</li>
@@ -33,15 +32,10 @@ package org.apache.commons.logging;
  * <li>fatal (the most serious)</li>
  * </ol>
  *
- * The mapping of these log levels to the concepts used by the underlying
- * logging system is implementation dependent.
- * The implementation should ensure, though, that this ordering behaves
- * as expected.
+ * 这些日志级别到底层日志系统使用的概念的映射取决于实现。 但是，实现应确保此排序行为符合预期。
  *
- * <p>Performance is often a logging concern.
- * By examining the appropriate property,
- * a component can avoid expensive operations (producing information
- * to be logged).
+ * <p>性能通常是一个日志关心的问题。 
+ * 通过检查适当的属性，组件可以避免进行昂贵的操作（生成要记录的信息）。
  *
  * <p>For example,
  * <pre>
@@ -51,9 +45,7 @@ package org.apache.commons.logging;
  *    }
  * </pre>
  *
- * <p>Configuration of the underlying logging system will generally be done
- * external to the Logging APIs, through whatever mechanism is supported by
- * that system.
+ * <p>底层日志系统的配置通常将通过该系统支持的任何机制在日志API外部进行。
  *
  * @author Juergen Hoeller (for the {@code spring-jcl} variant)
  * @since 5.0

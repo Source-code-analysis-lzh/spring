@@ -1,6 +1,5 @@
 /**
- * Classes supporting the org.springframework.ui.context package.
- * Provides support classes for specialized UI contexts, e.g. for web UIs.
+ * 支持org.springframework.ui.context包的类。 提供专门的UI上下文的支持类，例如 用于Web UI。
  */
 @NonNullApi
 @NonNullFields

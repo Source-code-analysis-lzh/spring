@@ -35,9 +35,8 @@ import org.springframework.aop.framework.adapter.GlobalAdvisorAdapterRegistry;
 import org.springframework.lang.Nullable;
 
 /**
- * A simple but definitive way of working out an advice chain for a Method,
- * given an {@link Advised} object. Always rebuilds each advice chain;
- * caching can be provided by subclasses.
+ * 给定{@link Advised}对象的情况下，为方法制定advice链的一种简单但确定的方法。
+ * 始终重建每个advice链； 缓存可以由子类提供。
  *
  * @author Juergen Hoeller
  * @author Rod Johnson

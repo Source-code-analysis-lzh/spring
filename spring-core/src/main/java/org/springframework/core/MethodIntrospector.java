@@ -28,11 +28,10 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Defines the algorithm for searching for metadata-associated methods exhaustively
- * including interfaces and parent classes while also dealing with parameterized methods
- * as well as common scenarios encountered with interface and class-based proxies.
+ * 定义用于搜索与元数据相关的方法的详尽算法，包括接口和父类，
+ * 同时还处理参数化方法以及基于接口和基于类的代理遇到的常见情况。
  *
- * <p>Typically, but not necessarily, used for finding annotated handler methods.
+ * <p>通常（但不是必须）用于查找带注释的处理器方法。
  *
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev
@@ -45,9 +44,8 @@ public final class MethodIntrospector {
 
 
 	/**
-	 * Select methods on the given target type based on the lookup of associated metadata.
-	 * <p>Callers define methods of interest through the {@link MetadataLookup} parameter,
-	 * allowing to collect the associated metadata into the result map.
+	 * 根据相关联的元数据查找，选择给定目标类型上的方法。
+	 * <p>调用方通过{@link MetadataLookup}参数定义感兴趣的方法，从而可以将关联的元数据收集到结果map中。
 	 * @param targetType the target type to search methods on
 	 * @param metadataLookup a {@link MetadataLookup} callback to inspect methods of interest,
 	 * returning non-null metadata to be associated with a given method if there is a match,
@@ -60,7 +58,7 @@ public final class MethodIntrospector {
 		Set<Class<?>> handlerTypes = new LinkedHashSet<>();
 		Class<?> specificHandlerType = null;
 
-		if (!Proxy.isProxyClass(targetType)) {
+		if (!Proxy.isProxyClass(targetType)) { // 如果不是代理类
 			specificHandlerType = ClassUtils.getUserClass(targetType);
 			handlerTypes.add(specificHandlerType);
 		}
@@ -85,8 +83,8 @@ public final class MethodIntrospector {
 	}
 
 	/**
-	 * Select methods on the given target type based on a filter.
-	 * <p>Callers define methods of interest through the {@code MethodFilter} parameter.
+	 * 基于过滤器在给定目标类型上选择方法。
+	 * <p>调用者通过{@code MethodFilter}参数定义感兴趣的方法。
 	 * @param targetType the target type to search methods on
 	 * @param methodFilter a {@code MethodFilter} to help
 	 * recognize handler methods of interest
@@ -98,11 +96,9 @@ public final class MethodIntrospector {
 	}
 
 	/**
-	 * Select an invocable method on the target type: either the given method itself
-	 * if actually exposed on the target type, or otherwise a corresponding method
-	 * on one of the target type's interfaces or on the target type itself.
-	 * <p>Matches on user-declared interfaces will be preferred since they are likely
-	 * to contain relevant metadata that corresponds to the method on the target class.
+	 * 在目标类型上选择一个可调用的方法：或者是给定方法本身（如果实际在目标类型上公开），
+	 * 或者在目标类型的接口之一或目标类型本身上的对应方法。
+	 * <p>用户声明的接口上的匹配将是首选，因为它们可能包含与目标类上的方法相对应的相关元数据。
 	 * @param method the method to check
 	 * @param targetType the target type to search methods on
 	 * (typically an interface-based JDK proxy)
@@ -140,14 +136,14 @@ public final class MethodIntrospector {
 
 
 	/**
-	 * A callback interface for metadata lookup on a given method.
+	 * 用于在给定方法上进行元数据查找的回调接口。
 	 * @param <T> the type of metadata returned
 	 */
 	@FunctionalInterface
 	public interface MetadataLookup<T> {
 
 		/**
-		 * Perform a lookup on the given method and return associated metadata, if any.
+		 * 在给定的方法上执行查找并返回关联的元数据（如果有）。
 		 * @param method the method to inspect
 		 * @return non-null metadata to be associated with a method if there is a match,
 		 * or {@code null} for no match

@@ -26,21 +26,15 @@ import org.springframework.core.annotation.AliasFor;
 import org.springframework.web.cors.CorsConfiguration;
 
 /**
- * Annotation for permitting cross-origin requests on specific handler classes
- * and/or handler methods. Processed if an appropriate {@code HandlerMapping}
- * is configured.
+ * 允许在特定处理器类和/或处理器方法上进行跨域请求的注释。 如果配置了适当的{@code HandlerMapping}，则进行处理。
  *
- * <p>Both Spring Web MVC and Spring WebFlux support this annotation through the
- * {@code RequestMappingHandlerMapping} in their respective modules. The values
- * from each type and method level pair of annotations are added to a
- * {@link CorsConfiguration} and then default values are applied via
- * {@link CorsConfiguration#applyPermitDefaultValues()}.
+ * <p>Spring Web MVC和Spring WebFlux都通过各自模块中的{@code RequestMappingHandlerMapping}
+ * 支持此注释。 来自每个类型和方法级别对的注释的值将添加到{@link CorsConfiguration}，
+ * 然后通过{@link CorsConfiguration#applyPermitDefaultValues()}应用默认值。
  *
- * <p>The rules for combining global and local configuration are generally
- * additive -- e.g. all global and all local origins. For those attributes
- * where only a single value can be accepted such as {@code allowCredentials}
- * and {@code maxAge}, the local overrides the global value.
- * See {@link CorsConfiguration#combine(CorsConfiguration)} for more details.
+ * <p>组合全局和局部配置的规则通常是相加的-例如 所有全局和所有本地源。 
+ * 对于只能接受单个值的那些属性（例如{@code allowCredentials}和{@code maxAge}），
+ * 局部属性将覆盖全局值。 有关更多详细信息，请参见{@link CorsConfiguration#combine(CorsConfiguration)}。
  *
  * @author Russell Allen
  * @author Sebastien Deleuze
@@ -76,76 +70,59 @@ public @interface CrossOrigin {
 	String[] value() default {};
 
 	/**
-	 * The list of allowed origins that be specific origins, e.g.
-	 * {@code "https://domain1.com"}, or {@code "*"} for all origins.
-	 * <p>A matched origin is listed in the {@code Access-Control-Allow-Origin}
-	 * response header of preflight actual CORS requests.
-	 * <p>By default all origins are allowed.
-	 * <p><strong>Note:</strong> CORS checks use values from "Forwarded"
-	 * (<a href="https://tools.ietf.org/html/rfc7239">RFC 7239</a>),
-	 * "X-Forwarded-Host", "X-Forwarded-Port", and "X-Forwarded-Proto" headers,
-	 * if present, in order to reflect the client-originated address.
-	 * Consider using the {@code ForwardedHeaderFilter} in order to choose from a
-	 * central place whether to extract and use, or to discard such headers.
-	 * See the Spring Framework reference for more on this filter.
+	 * 指定来源的允许来源列表，例如 {@code "https://domain1.com"}或所有来源的{@code "*"}。
+	 * <p>实际CORS请求的预检请求的Access-Control-Allow-Origin响应标头中列出了匹配的来源。
+	 * <p>默认情况下，所有来源都是允许的。
+	 * <p>注意：CORS会检查来自"Forwarded"（<a href="https://tools.ietf.org/html/rfc7239">RFC 7239</a>）
+	 * ，"X-Forwarded-Host", "X-Forwarded-Port", 和 "X-Forwarded-Proto"标头（如果存在）的值，
+	 * 以反映客户端起源的地址。 考虑使用{@code ForwardedHeaderFilter}
+	 * 以便从中心位置选择是提取还是使用还是丢弃此类标头。 有关此过滤器的更多信息，
+	 * 请参见Spring Framework参考。
 	 * @see #value
 	 */
 	@AliasFor("value")
 	String[] origins() default {};
 
 	/**
-	 * The list of request headers that are permitted in actual requests,
-	 * possibly {@code "*"}  to allow all headers.
-	 * <p>Allowed headers are listed in the {@code Access-Control-Allow-Headers}
-	 * response header of preflight requests.
-	 * <p>A header name is not required to be listed if it is one of:
+	 * 实际请求中允许的请求标头列表，可能为{@code "*"}以允许所有标头。
+	 * <p>预检请求的{@code Access-Control-Allow-Headers}响应标头中列出了允许的标头。
+	 * <p>如果标头名称是以下之一，则不需要列出该标头名称：
 	 * {@code Cache-Control}, {@code Content-Language}, {@code Expires},
-	 * {@code Last-Modified}, or {@code Pragma} as per the CORS spec.
-	 * <p>By default all requested headers are allowed.
+	 * {@code Last-Modified}, or {@code Pragma}。
+	 * <p>默认情况下，所有请求的标头都是允许的。
 	 */
 	String[] allowedHeaders() default {};
 
 	/**
-	 * The List of response headers that the user-agent will allow the client
-	 * to access on an actual response, other than "simple" headers, i.e.
+	 * 用户代理将允许客户端访问的实际响应标头列表，而不是"simple"标头，如
 	 * {@code Cache-Control}, {@code Content-Language}, {@code Content-Type},
-	 * {@code Expires}, {@code Last-Modified}, or {@code Pragma},
-	 * <p>Exposed headers are listed in the {@code Access-Control-Expose-Headers}
-	 * response header of actual CORS requests.
-	 * <p>By default no headers are listed as exposed.
+	 * {@code Expires}, {@code Last-Modified}, or {@code Pragma}
+	 * <p>公开的标头在实际CORS请求的{@code Access-Control-Expose-Headers}响应标头中列出。
+	 * <p>默认情况下，没有标为公开的标题。
 	 */
 	String[] exposedHeaders() default {};
 
 	/**
-	 * The list of supported HTTP request methods.
-	 * <p>By default the supported methods are the same as the ones to which a
-	 * controller method is mapped.
+	 * 受支持的HTTP请求方法的列表。
+	 * <p>默认情况下，受支持的方法与控制器方法所映射的方法相同。
 	 */
 	RequestMethod[] methods() default {};
 
 	/**
-	 * Whether the browser should send credentials, such as cookies along with
-	 * cross domain requests, to the annotated endpoint. The configured value is
-	 * set on the {@code Access-Control-Allow-Credentials} response header of
-	 * preflight requests.
-	 * <p><strong>NOTE:</strong> Be aware that this option establishes a high
-	 * level of trust with the configured domains and also increases the surface
-	 * attack of the web application by exposing sensitive user-specific
-	 * information such as cookies and CSRF tokens.
-	 * <p>By default this is not set in which case the
-	 * {@code Access-Control-Allow-Credentials} header is also not set and
-	 * credentials are therefore not allowed.
+	 * 浏览器是否应将凭据（例如跨域请求带cookies）发送到带注释的端点。 
+	 * 在预检请求的{@code Access-Control-Allow-Credentials}响应标头上设置配置的值。
+	 * <p>注意：请注意，此选项通过暴露敏感的用户特定信息（例如cookie和CSRF令牌）
+	 * 建立了与配置域的高度信任，并且还增加了Web应用程序的遭受攻击。
+	 * <p>默认情况下不设置此选项，在这种情况下，也不会设置
+	 * {@code Access-Control-Allow-Credentials}标头，因此不允许使用凭据。
 	 */
 	String allowCredentials() default "";
 
 	/**
-	 * The maximum age (in seconds) of the cache duration for preflight responses.
-	 * <p>This property controls the value of the {@code Access-Control-Max-Age}
-	 * response header of preflight requests.
-	 * <p>Setting this to a reasonable value can reduce the number of preflight
-	 * request/response interactions required by the browser.
-	 * A negative value means <em>undefined</em>.
-	 * <p>By default this is set to {@code 1800} seconds (30 minutes).
+	 * 预检响应的缓存持续时间的最长期限（以秒为单位）。
+	 * <p>此属性控制预检请求的{@code Access-Control-Max-Age}响应标头的值。
+	 * <p>将此值设置为合理的值可以减少浏览器所需的预检请求/响应交互的次数。 负值表示未定义。
+	 * <p>默认情况下，此设置为{@code 1800}秒（30分钟）。
 	 */
 	long maxAge() default -1;
 

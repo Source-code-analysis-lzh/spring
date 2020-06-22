@@ -30,8 +30,8 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Handler execution chain, consisting of handler object and any handler interceptors.
- * Returned by HandlerMapping's {@link HandlerMapping#getHandler} method.
+ * 处理器执行链，由处理器对象和任何处理器拦截器组成。 
+ * 由HandlerMapping的{@link HandlerMapping#getHandler}方法返回。
  *
  * @author Juergen Hoeller
  * @since 20.06.2003
@@ -128,16 +128,15 @@ public class HandlerExecutionChain {
 
 
 	/**
-	 * Apply preHandle methods of registered interceptors.
-	 * @return {@code true} if the execution chain should proceed with the
-	 * next interceptor or the handler itself. Else, DispatcherServlet assumes
-	 * that this interceptor has already dealt with the response itself.
+	 * 应用注册拦截器的preHandle方法。 如果执行链应该继续执行下一个拦截器或处理器本身则@return {@code true}。 
+	 * 否则，DispatcherServlet假定此拦截器已经处理了响应本身。
 	 */
 	boolean applyPreHandle(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HandlerInterceptor[] interceptors = getInterceptors();
 		if (!ObjectUtils.isEmpty(interceptors)) {
 			for (int i = 0; i < interceptors.length; i++) {
 				HandlerInterceptor interceptor = interceptors[i];
+				// 当拦截器返回false，这是拦截器已经处理响应，则逆序触发当前拦截器afterCompletion方法
 				if (!interceptor.preHandle(request, response, this.handler)) {
 					triggerAfterCompletion(request, response, null);
 					return false;

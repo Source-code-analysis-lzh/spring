@@ -25,12 +25,11 @@ import java.lang.annotation.Target;
 import org.springframework.http.converter.HttpMessageConverter;
 
 /**
- * Annotation indicating a method parameter should be bound to the body of the web request.
- * The body of the request is passed through an {@link HttpMessageConverter} to resolve the
- * method argument depending on the content type of the request. Optionally, automatic
- * validation can be applied by annotating the argument with {@code @Valid}.
+ * 指示方法参数的注释应绑定到Web请求的正文。 请求的主体通过{@link HttpMessageConverter}传递，
+ * 以根据请求的内容类型解析方法参数。 
+ * （可选）可以通过使用{@code @Valid}注释参数来应用自动验证。
  *
- * <p>Supported for annotated handler methods.
+ * <p>支持带注释的处理器方法。
  *
  * @author Arjen Poutsma
  * @since 3.0

@@ -20,9 +20,7 @@ import org.springframework.core.NestedRuntimeException;
 import org.springframework.util.MethodInvoker;
 
 /**
- * Unchecked exception that wraps an exception thrown from a target method.
- * Propagated to the Quartz scheduler from a Job that reflectively invokes
- * an arbitrary target method.
+ * 包含从目标方法抛出的异常的未经检查的异常。从Job传播到Quartz调度程序，该Job反射性地调用任意目标方法。
  *
  * @author Juergen Hoeller
  * @since 2.5.3

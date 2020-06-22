@@ -25,11 +25,11 @@ import org.springframework.validation.BindingResult;
  * Subclass of {@link org.springframework.ui.ExtendedModelMap} that automatically removes
  * a {@link org.springframework.validation.BindingResult} object if the corresponding
  * target attribute gets replaced through regular {@link Map} operations.
+ * 如果通过常规{@link Map}操作替换了相应的target属性，则ExtendedModelMap的子类将自动删除BindingResult对象。
  *
- * <p>This is the class exposed to handler methods by Spring MVC, typically consumed through
- * a declaration of the {@link org.springframework.ui.Model} interface. There is no need to
- * build it within user code; a plain {@link org.springframework.ui.ModelMap} or even a just
- * a regular {@link Map} with String keys will be good enough to return a user model.
+ * <p>这是Spring MVC暴露给处理器方法的类，通常通过{@link org.springframework.ui.Model}
+ * 接口的声明使用。 无需在用户代码中构建它； 一个普通的{@link org.springframework.ui.ModelMap}
+ * 甚至只是一个带有String键的常规{@link Map}都足以返回用户该模型。
  *
  * @author Juergen Hoeller
  * @since 2.5.6

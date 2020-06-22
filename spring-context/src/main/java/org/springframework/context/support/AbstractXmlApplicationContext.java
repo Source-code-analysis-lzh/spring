@@ -27,15 +27,12 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
 /**
- * Convenient base class for {@link org.springframework.context.ApplicationContext}
- * implementations, drawing configuration from XML documents containing bean definitions
- * understood by an {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
+ * 方便的{@link org.springframework.context.ApplicationContext}实现基类，可
+ * 从包含{@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}理解的bean定义的XML文档中提取配置.
  *
- * <p>Subclasses just have to implement the {@link #getConfigResources} and/or
- * the {@link #getConfigLocations} method. Furthermore, they might override
- * the {@link #getResourceByPath} hook to interpret relative paths in an
- * environment-specific fashion, and/or {@link #getResourcePatternResolver}
- * for extended pattern resolution.
+ * <p>子类只需要实现{@link #getConfigResources}和/或{@link #getConfigLocations}方法.
+ * 此外，它们可能会覆盖{@link #getResourceByPath}钩子，以特定于环境的方式解释相对路径，
+ * 和/或{@link #getResourcePatternResolver}以扩展模式解析.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -95,10 +92,8 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 	}
 
 	/**
-	 * Initialize the bean definition reader used for loading the bean
-	 * definitions of this context. Default implementation is empty.
-	 * <p>Can be overridden in subclasses, e.g. for turning off XML validation
-	 * or using a different XmlBeanDefinitionParser implementation.
+	 * 初始化用于加载此上下文的Bean定义的Bean定义读取器. 默认实现为空.
+	 * <p>可以在子类中覆盖，例如 用于关闭XML验证或使用其他XmlBeanDefinitionParser实现.
 	 * @param reader the bean definition reader used by this context
 	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader#setDocumentReaderClass
 	 */
@@ -107,9 +102,9 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 	}
 
 	/**
-	 * Load the bean definitions with the given XmlBeanDefinitionReader.
-	 * <p>The lifecycle of the bean factory is handled by the {@link #refreshBeanFactory}
-	 * method; hence this method is just supposed to load and/or register bean definitions.
+	 * 使用给定的XmlBeanDefinitionReader加载bean定义.
+	 * <p>Bean工厂的生命周期由{@link #refreshBeanFactory}方法处理；
+	 * 因此，该方法仅用于加载和/或注册Bean定义.
 	 * @param reader the XmlBeanDefinitionReader to use
 	 * @throws BeansException in case of bean registration errors
 	 * @throws IOException if the required XML document isn't found
@@ -130,10 +125,8 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 	}
 
 	/**
-	 * Return an array of Resource objects, referring to the XML bean definition
-	 * files that this context should be built with.
-	 * <p>The default implementation returns {@code null}. Subclasses can override
-	 * this to provide pre-built Resource objects rather than location Strings.
+	 * 返回一个Resource对象数组，引用该上下文应使用的XML bean定义文件.
+	 * <p>默认实现返回{@code null}. 子类可以重写此方法以提供预构建的Resource对象，而不是location字符串.
 	 * @return an array of Resource objects, or {@code null} if none
 	 * @see #getConfigLocations()
 	 */

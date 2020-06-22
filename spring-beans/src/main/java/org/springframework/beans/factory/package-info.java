@@ -1,9 +1,8 @@
 /**
- * The core package implementing Spring's lightweight Inversion of Control (IoC) container.
+ * 实现Spring的轻量级控制反转（IoC）容器的核心软件包。
  *
- * <p>Provides an alternative to the Singleton and Prototype design
- * patterns, including a consistent approach to configuration management.
- * Builds on the org.springframework.beans package.
+ * <p>提供了Singleton和Prototype设计模式的替代方案，包括一致的配置管理方法。 
+ * 建立在org.springframework.beans包上。
  *
  * <p>This package and related packages are discussed in Chapter 11 of
  * <a href="https://www.amazon.com/exec/obidos/tg/detail/-/0764543857/">Expert One-On-One J2EE Design and Development</a>

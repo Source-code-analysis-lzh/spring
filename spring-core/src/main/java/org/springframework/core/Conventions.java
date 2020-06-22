@@ -26,8 +26,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Provides methods to support various naming and other conventions used
- * throughout the framework. Mainly for internal use within the framework.
+ * 提供支持整个框架中使用的各种命名和其它约定的方法. 主要供框架内部使用.
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

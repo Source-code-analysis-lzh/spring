@@ -21,11 +21,9 @@ import javax.servlet.ServletRequest;
 import org.springframework.lang.Nullable;
 
 /**
- * Parameter extraction methods, for an approach distinct from data binding,
- * in which parameters of specific types are required.
+ * 参数提取方法，用于不同于数据绑定的方法，其中需要指定类型的参数。
  *
- * <p>This approach is very useful for simple submissions, where binding
- * request parameters to a command object would be overkill.
+ * <p>这种方法对于简单的提交非常有用，在这种情况下，将请求参数绑定到命令对象可能会显得过重。
  *
  * @author Juergen Hoeller
  * @author Keith Donald

@@ -17,13 +17,10 @@
 package org.springframework.beans;
 
 /**
- * Interface for strategies that register custom
- * {@link java.beans.PropertyEditor property editors} with a
- * {@link org.springframework.beans.PropertyEditorRegistry property editor registry}.
+ * 用于向{@link org.springframework.beans.PropertyEditorRegistry 属性编辑器注册表}
+ * 注册自定义{@link java.beans.PropertyEditor 属性编辑器}的策略的接口.
  *
- * <p>This is particularly useful when you need to use the same set of
- * property editors in several different situations: write a corresponding
- * registrar and reuse that in each case.
+ * <p>当您需要在几种不同情况下使用同一组属性编辑器时，这特别有用：编写相应的注册器，并在每种情况下重用该注册器.
  *
  * @author Juergen Hoeller
  * @since 1.2.6
@@ -33,13 +30,12 @@ package org.springframework.beans;
 public interface PropertyEditorRegistrar {
 
 	/**
-	 * Register custom {@link java.beans.PropertyEditor PropertyEditors} with
-	 * the given {@code PropertyEditorRegistry}.
-	 * <p>The passed-in registry will usually be a {@link BeanWrapper} or a
-	 * {@link org.springframework.validation.DataBinder DataBinder}.
-	 * <p>It is expected that implementations will create brand new
-	 * {@code PropertyEditors} instances for each invocation of this
-	 * method (since {@code PropertyEditors} are not threadsafe).
+	 * 使用给定的{@code PropertyEditorRegistry}注册自定义
+	 * {@link java.beans.PropertyEditor PropertyEditors}。
+	 * <p>传入的注册表通常是{@link BeanWrapper}或
+	 * {@link org.springframework.validation.DataBinder DataBinder}。
+	 * <p>期望实现将为此方法的每次调用创建全新的{@code PropertyEditors}实例
+	 * （因为{@code PropertyEditors}不是线程安全的）。
 	 * @param registry the {@code PropertyEditorRegistry} to register the
 	 * custom {@code PropertyEditors} with
 	 */

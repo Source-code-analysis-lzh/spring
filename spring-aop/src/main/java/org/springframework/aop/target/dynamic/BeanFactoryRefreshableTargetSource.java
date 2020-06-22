@@ -20,11 +20,10 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.util.Assert;
 
 /**
- * Refreshable TargetSource that fetches fresh target beans from a BeanFactory.
+ * 可刷新的TargetSource，用于从BeanFactory中获取新鲜的目标bean。
  *
- * <p>Can be subclassed to override {@code requiresRefresh()} to suppress
- * unnecessary refreshes. By default, a refresh will be performed every time
- * the "refreshCheckDelay" has elapsed.
+ * <p>可以子类化以重写{@code requiresRefresh()}以禁止不必要的刷新。 
+ * 默认情况下，每次经过"refreshCheckDelay"都会执行一次刷新。
  *
  * @author Rob Harrop
  * @author Rod Johnson

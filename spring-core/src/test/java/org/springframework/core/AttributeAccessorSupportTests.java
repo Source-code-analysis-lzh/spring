@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
+ * OK
  * @author Rob Harrop
  * @author Sam Brannen
  * @since 2.0

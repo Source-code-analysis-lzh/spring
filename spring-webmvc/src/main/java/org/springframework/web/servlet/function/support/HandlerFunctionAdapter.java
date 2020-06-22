@@ -33,7 +33,7 @@ import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.function.ServerResponse;
 
 /**
- * {@code HandlerAdapter} implementation that supports {@link HandlerFunction}s.
+ * 支持{@link HandlerFunction}的{@code HandlerAdapter}实现。
  *
  * @author Arjen Poutsma
  * @since 5.2

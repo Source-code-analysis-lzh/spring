@@ -28,8 +28,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Spring bean-style class for accessing a Quartz Scheduler, i.e. for registering jobs,
- * triggers and listeners on a given {@link org.quartz.Scheduler} instance.
+ * 用于访问Quartz Scheduler的Spring bean样式类，
+ * 即用于在给定{@link org.quartz.Scheduler}实例上注册作业，触发器和侦听器的类。
  *
  * <p>Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
  *

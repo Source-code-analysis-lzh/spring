@@ -17,18 +17,14 @@
 package org.springframework.core.io;
 
 /**
- * {@link ResourceLoader} implementation that resolves plain paths as
- * file system resources rather than as class path resources
- * (the latter is {@link DefaultResourceLoader}'s default strategy).
+ * {@link ResourceLoader}实现，将纯路径解析为文件系统资源，
+ * 而不是类路径资源（后者是{@link DefaultResourceLoader}的默认策略）.
  *
- * <p><b>NOTE:</b> Plain paths will always be interpreted as relative
- * to the current VM working directory, even if they start with a slash.
- * (This is consistent with the semantics in a Servlet container.)
- * <b>Use an explicit "file:" prefix to enforce an absolute file path.</b>
+ * <p>注意：即使纯路径以斜杠开头，它们也始终会被解释为相对于当前VM工作目录.
+ * （这与Servlet容器中的语义一致.）使用显式的"file:"前缀来强制执行绝对文件路径.
  *
  * <p>{@link org.springframework.context.support.FileSystemXmlApplicationContext}
- * is a full-fledged ApplicationContext implementation that provides
- * the same resource path resolution strategy.
+ * 是成熟的ApplicationContext实现，提供了相同的资源路径解析策略.
  *
  * @author Juergen Hoeller
  * @since 1.1.3
@@ -38,9 +34,8 @@ package org.springframework.core.io;
 public class FileSystemResourceLoader extends DefaultResourceLoader {
 
 	/**
-	 * Resolve resource paths as file system paths.
-	 * <p>Note: Even if a given path starts with a slash, it will get
-	 * interpreted as relative to the current VM working directory.
+	 * 将资源路径解析为文件系统路径.
+	 * <p>注意：即使给定路径以斜杠开头，它也将被解释为相对于当前VM工作目录的相对路径.
 	 * @param path the path to the resource
 	 * @return the corresponding Resource handle
 	 * @see FileSystemResource
@@ -56,8 +51,7 @@ public class FileSystemResourceLoader extends DefaultResourceLoader {
 
 
 	/**
-	 * FileSystemResource that explicitly expresses a context-relative path
-	 * through implementing the ContextResource interface.
+	 * FileSystemResource通过实现ContextResource接口显式表示一个上下文相对路径.
 	 */
 	private static class FileSystemContextResource extends FileSystemResource implements ContextResource {
 

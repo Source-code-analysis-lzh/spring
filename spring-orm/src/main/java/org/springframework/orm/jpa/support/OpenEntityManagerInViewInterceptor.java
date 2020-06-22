@@ -35,10 +35,8 @@ import org.springframework.web.context.request.async.WebAsyncManager;
 import org.springframework.web.context.request.async.WebAsyncUtils;
 
 /**
- * Spring web request interceptor that binds a JPA EntityManager to the
- * thread for the entire processing of the request. Intended for the "Open
- * EntityManager in View" pattern, i.e. to allow for lazy loading in
- * web views despite the original transactions already being completed.
+ * Spring Web请求拦截器，它将JPA EntityManager绑定到线程以完成请求的整个处理。 
+ * 旨在用于"Open EntityManager in View"模式，即，即使原始事务已经完成，也允许在Web视图中进行延迟加载。
  *
  * <p>This interceptor makes JPA EntityManagers available via the current thread,
  * which will be autodetected by transaction managers. It is suitable for service

@@ -24,8 +24,7 @@ import java.util.Set;
 import org.springframework.lang.Nullable;
 
 /**
- * Read-only {@code Map<String, String>} implementation that is backed by system
- * properties or environment variables.
+ * 由系统属性或环境变量支持的只读{@code Map<String，String>}实现。
  *
  * <p>Used by {@link AbstractApplicationContext} when a {@link SecurityManager} prohibits
  * access to {@link System#getProperties()} or {@link System#getenv()}. It is for this

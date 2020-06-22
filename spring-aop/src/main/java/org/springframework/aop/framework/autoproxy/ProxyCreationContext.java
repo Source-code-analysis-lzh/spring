@@ -20,8 +20,7 @@ import org.springframework.core.NamedThreadLocal;
 import org.springframework.lang.Nullable;
 
 /**
- * Holder for the current proxy creation context, as exposed by auto-proxy creators
- * such as {@link AbstractAdvisorAutoProxyCreator}.
+ * 自动代理创建者（例如{@link AbstractAdvisorAutoProxyCreator}）公开的当前代理创建上下文的持有者。
  *
  * @author Juergen Hoeller
  * @author Ramnivas Laddad

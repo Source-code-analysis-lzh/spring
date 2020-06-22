@@ -32,14 +32,10 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A container for CORS configuration along with methods to check against the
- * actual origin, HTTP methods, and headers of a given request.
+ * 用于CORS配置的容器，以及用于检查实际来源，HTTP方法和给定请求头的方法。
  *
- * <p>By default a newly created {@code CorsConfiguration} does not permit any
- * cross-origin requests and must be configured explicitly to indicate what
- * should be allowed. Use {@link #applyPermitDefaultValues()} to flip the
- * initialization model to start with open defaults that permit all cross-origin
- * requests for GET, HEAD, and POST requests.
+ * <p>默认情况下，新创建的{@code CorsConfiguration}不允许任何跨域请求，并且必须显式配置以指示应允许的内容。
+ * 使用{@link #applyPermitDefaultValues()}翻转初始化模型，以允许使用GET，HEAD和POST请求的所有跨域请求的开放默认值。
  *
  * @author Sebastien Deleuze
  * @author Rossen Stoyanchev
@@ -86,8 +82,7 @@ public class CorsConfiguration {
 
 
 	/**
-	 * Construct a new {@code CorsConfiguration} instance with no cross-origin
-	 * requests allowed for any origin by default.
+	 * 默认情况下，构造一个新的{@code CorsConfiguration}实例，不允许任何源的跨域请求。
 	 * @see #applyPermitDefaultValues()
 	 */
 	public CorsConfiguration() {
@@ -335,14 +330,10 @@ public class CorsConfiguration {
 
 
 	/**
-	 * By default a newly created {@code CorsConfiguration} does not permit any
-	 * cross-origin requests and must be configured explicitly to indicate what
-	 * should be allowed.
-	 * <p>Use this method to flip the initialization model to start with open
-	 * defaults that permit all cross-origin requests for GET, HEAD, and POST
-	 * requests. Note however that this method will not override any existing
-	 * values already set.
-	 * <p>The following defaults are applied if not already set:
+	 * 默认情况下，新创建的{@code CorsConfiguration}不允许任何跨域请求，并且必须显式配置以指示应允许的内容。
+	 * <p>使用此方法可以翻转初始化模型，以允许使用GET，HEAD和POST请求的所有跨域请求的开放默认值开始。 
+	 * 但是请注意，此方法不会覆盖任何已设置的现有值。
+	 * <p>如果尚未设置，则将应用以下默认值：
 	 * <ul>
 	 * <li>Allow all origins.</li>
 	 * <li>Allow "simple" methods {@code GET}, {@code HEAD} and {@code POST}.</li>

@@ -30,15 +30,11 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureTask;
 
 /**
- * {@link TaskExecutor} implementation that fires up a new Thread for each task,
- * executing it asynchronously.
+ * {@link AsyncListenableTaskExecutor}实现为每个任务启动一个新的Thread，以异步方式执行它。
  *
- * <p>Supports limiting concurrent threads through the "concurrencyLimit"
- * bean property. By default, the number of concurrent threads is unlimited.
+ * <p>通过"concurrencyLimit" bean属性支持限制并发线程。 默认情况下，并发线程数是无限的。
  *
- * <p><b>NOTE: This implementation does not reuse threads!</b> Consider a
- * thread-pooling TaskExecutor implementation instead, in particular for
- * executing a large number of short-lived tasks.
+ * <p>注意：此实现不会重用线程！ 请考虑使用线程池TaskExecutor实现，特别是对于执行大量短期任务而言。
  *
  * @author Juergen Hoeller
  * @since 2.0
@@ -64,7 +60,7 @@ public class SimpleAsyncTaskExecutor extends CustomizableThreadCreator
 	public static final int NO_CONCURRENCY = ConcurrencyThrottleSupport.NO_CONCURRENCY;
 
 
-	/** Internal concurrency throttle used by this executor. */
+	/** 该执行程序使用的内部并发限制. */
 	private final ConcurrencyThrottleAdapter concurrencyThrottle = new ConcurrencyThrottleAdapter();
 
 	@Nullable

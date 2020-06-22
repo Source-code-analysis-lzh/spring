@@ -26,13 +26,14 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerMapping;
 
 /**
- * Simple {@code Controller} implementation that transforms the virtual
- * path of a URL into a view name and returns that view.
+ * 简单的{@code Controller}实现，将URL的虚拟路径转换为视图名称并返回该视图。
  *
- * <p>Can optionally prepend a {@link #setPrefix prefix} and/or append a
- * {@link #setSuffix suffix} to build the viewname from the URL filename.
+ * <p>使用该控制器与ParameterizableViewController控制器相比可以省去实视图名的配置，直接通过url解析。
+ * 例如访问的是login.do，那么视图名就是login。经常把它配置为默认的Handler。
+ * 
+ * <p>可以选择添加{@link #setPrefix prefix}和/或添加{@link #setSuffix suffix}以从URL文件名构建视图名称。
  *
- * <p>Find some examples below:
+ * <p>在下面找到一些示例：
  * <ol>
  * <li>{@code "/index" -> "index"}</li>
  * <li>{@code "/index.html" -> "index"}</li>
@@ -40,6 +41,17 @@ import org.springframework.web.servlet.HandlerMapping;
  * <li>{@code "/products/view.html" -> "products/view"}</li>
  * </ol>
  *
+ * 	   @Bean(&quot;/*&quot;) //&quot;/*&quot;会把它注册为一个默认的handler
+ *     public UrlFilenameViewController urlFilenameViewController() {
+ *         UrlFilenameViewController controller = new UrlFilenameViewController();
+ *         controller.setPrefix(&quot;/api/v1/&quot;);
+ *         controller.setSuffix(&quot;.do&quot;);
+ *         return controller;
+ *     }
+ * 
+ * 因为这里把它设定为了默认的处理器，所以任何404的请求都会到它这里来，交给它处理。例如我访问：
+ * /democontroller22，因为我配置了前缀后缀，所以最终会到视图/api/v1/democontroller22.do里去。
+ * 
  * <p>Thanks to David Barri for suggesting prefix/suffix support!
  *
  * @author Alef Arendsen

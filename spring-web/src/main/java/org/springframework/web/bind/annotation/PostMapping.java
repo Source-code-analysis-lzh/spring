@@ -25,11 +25,10 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * Annotation for mapping HTTP {@code POST} requests onto specific handler
- * methods.
+ * 用于将HTTP {@code POST}请求映射到特定处理器方法的注释。
  *
- * <p>Specifically, {@code @PostMapping} is a <em>composed annotation</em> that
- * acts as a shortcut for {@code @RequestMapping(method = RequestMethod.POST)}.
+ * <p>具体来说，{@code @PostMapping}是一个组合的注释，用作
+ * {@code @RequestMapping(method = RequestMethod.POST)}的快捷方式。
  *
  * @author Sam Brannen
  * @since 4.3

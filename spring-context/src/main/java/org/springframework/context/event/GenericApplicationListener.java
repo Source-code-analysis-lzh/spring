@@ -23,11 +23,10 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * Extended variant of the standard {@link ApplicationListener} interface,
- * exposing further metadata such as the supported event and source type.
+ * 标准{@link ApplicationListener}接口的扩展变体，进一步公开了元数据，例如受支持的事件和源类型.
  *
- * <p>As of Spring Framework 4.2, this interface supersedes the Class-based
- * {@link SmartApplicationListener} with full handling of generic event types.
+ * <p>从Spring Framework 4.2开始，此接口取代了基于类的{@link SmartApplicationListener}
+ * 并全面处理了泛型事件类型.
  *
  * @author Stephane Nicoll
  * @since 4.2
@@ -37,14 +36,14 @@ import org.springframework.lang.Nullable;
 public interface GenericApplicationListener extends ApplicationListener<ApplicationEvent>, Ordered {
 
 	/**
-	 * Determine whether this listener actually supports the given event type.
+	 * 确定此侦听器是否实际上支持给定的事件类型.
 	 * @param eventType the event type (never {@code null})
 	 */
 	boolean supportsEventType(ResolvableType eventType);
 
 	/**
-	 * Determine whether this listener actually supports the given source type.
-	 * <p>The default implementation always returns {@code true}.
+	 * 确定此侦听器是否实际上支持给定的源类型.
+	 * <p>默认实现始终返回{@code true}.
 	 * @param sourceType the source type, or {@code null} if no source
 	 */
 	default boolean supportsSourceType(@Nullable Class<?> sourceType) {
@@ -52,8 +51,8 @@ public interface GenericApplicationListener extends ApplicationListener<Applicat
 	}
 
 	/**
-	 * Determine this listener's order in a set of listeners for the same event.
-	 * <p>The default implementation returns {@link #LOWEST_PRECEDENCE}.
+	 * 在同一事件的一组侦听器中确定此侦听器的顺序.
+	 * <p>默认实现返回{@link #LOWEST_PRECEDENCE}.
 	 */
 	@Override
 	default int getOrder() {

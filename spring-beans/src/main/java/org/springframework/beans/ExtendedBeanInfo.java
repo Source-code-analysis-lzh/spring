@@ -40,9 +40,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Decorator for a standard {@link BeanInfo} object, e.g. as created by
- * {@link Introspector#getBeanInfo(Class)}, designed to discover and register
- * static and/or non-void returning setter methods. For example:
+ * 标准{@link BeanInfo}对象的装饰器，例如 
+ * 由{@link Introspector#getBeanInfo(Class)}创建，
+ * 旨在发现和注册静态和/或non-void返回的setter方法。 例如：
  *
  * <pre class="code">
  * public class Bean {

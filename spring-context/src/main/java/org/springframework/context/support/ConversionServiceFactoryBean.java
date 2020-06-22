@@ -27,21 +27,16 @@ import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.lang.Nullable;
 
 /**
- * A factory providing convenient access to a ConversionService configured with
- * converters appropriate for most environments. Set the
- * {@link #setConverters "converters"} property to supplement the default converters.
+ * 工厂可方便地访问配置有适用于大多数环境的转换器的ConversionService.
+ * 设置{@link #setConverters "converters"}属性用自定义转换器补充默认转换器.
  *
- * <p>This implementation creates a {@link DefaultConversionService}.
- * Subclasses may override {@link #createConversionService()} in order to return
- * a {@link GenericConversionService} instance of their choosing.
+ * <p>此实现创建一个{@link DefaultConversionService}.
+ * 子类可以重写{@link #createConversionService()}以便返回其选择的{@link GenericConversionService}实例.
  *
- * <p>Like all {@code FactoryBean} implementations, this class is suitable for
- * use when configuring a Spring application context using Spring {@code <beans>}
- * XML. When configuring the container with
- * {@link org.springframework.context.annotation.Configuration @Configuration}
- * classes, simply instantiate, configure and return the appropriate
- * {@code ConversionService} object from a {@link
- * org.springframework.context.annotation.Bean @Bean} method.
+ * <p>与所有{@code FactoryBean}实现一样，此类适用于在使用Spring {@code <beans>} XML配置Spring应用程序上下文时使用.
+ * 使用{@link org.springframework.context.annotation.Configuration @Configuration}类配置容器时，
+ * 只需实例化，配置并从{@link
+ * org.springframework.context.annotation.Bean @Bean}注解方法返回适当的{@code ConversionService}对象.
  *
  * @author Keith Donald
  * @author Juergen Hoeller

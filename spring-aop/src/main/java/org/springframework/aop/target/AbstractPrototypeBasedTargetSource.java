@@ -28,13 +28,11 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 /**
- * Base class for dynamic {@link org.springframework.aop.TargetSource} implementations
- * that create new prototype bean instances to support a pooling or
- * new-instance-per-invocation strategy.
+ * 动态{@link org.springframework.aop.TargetSource}实现的基类，
+ * 这些实现创建新的原型bean实例以支持池化或每次调用新实例策略。
  *
- * <p>Such TargetSources must run in a {@link BeanFactory}, as it needs to
- * call the {@code getBean} method to create a new prototype instance.
- * Therefore, this base class extends {@link AbstractBeanFactoryBasedTargetSource}.
+ * <p>这样的TargetSources必须在{@link BeanFactory}中运行，因为它需要调用getBean方法来创建新的原型实例。 
+ * 因此，此基类扩展了{@link AbstractBeanFactoryBasedTargetSource}。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

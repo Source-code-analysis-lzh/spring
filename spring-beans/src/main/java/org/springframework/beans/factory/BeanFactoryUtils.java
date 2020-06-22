@@ -31,13 +31,10 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Convenience methods operating on bean factories, in particular
- * on the {@link ListableBeanFactory} interface.
+ * 在bean工厂上操作的便捷方法，尤其是在{@link ListableBeanFactory}接口上。
  *
- * <p>Returns bean counts, bean names or bean instances,
- * taking into account the nesting hierarchy of a bean factory
- * (which the methods defined on the ListableBeanFactory interface don't,
- * in contrast to the methods defined on the BeanFactory interface).
+ * <p>返回bean计数，bean名称或bean实例，并考虑bean工厂的嵌套层次结构
+ * （与ListFactoryBeanFactory接口上定义的方法相反，ListableBeanFactory接口上定义的方法没有）。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

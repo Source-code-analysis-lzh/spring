@@ -19,8 +19,7 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface representing an object whose value set can be merged with
- * that of a parent object.
+ * 表示对象的接口，其值集可以与父对象的值集合并。
  *
  * @author Rob Harrop
  * @since 2.0
@@ -37,9 +36,8 @@ public interface Mergeable {
 	boolean isMergeEnabled();
 
 	/**
-	 * Merge the current value set with that of the supplied object.
-	 * <p>The supplied object is considered the parent, and values in
-	 * the callee's value set must override those of the supplied object.
+	 * 将当前设置的值与提供的对象的设置值合并。
+	 * <p>提供的对象被视为父对象，并且被调用者的值集中的值必须覆盖提供的对象的值。
 	 * @param parent the object to merge with
 	 * @return the result of the merge operation
 	 * @throws IllegalArgumentException if the supplied parent is {@code null}

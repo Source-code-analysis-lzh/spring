@@ -27,14 +27,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Subclass of {@link PropertiesPropertySource} that loads a {@link Properties} object
- * from a given {@link org.springframework.core.io.Resource} or resource location such as
- * {@code "classpath:/com/myco/foo.properties"} or {@code "file:/path/to/file.xml"}.
+ * {@link PropertiesPropertySource}的子类，它从给定的{@link org.springframework.core.io.Resource}
+ * 或资源位置（例如{@code "classpath:/com/myco/foo.properties"}或{@code "file:/path/to/file.xml"}）
+ * 加载{@link Properties}对象。
  *
- * <p>Both traditional and XML-based properties file formats are supported; however, in
- * order for XML processing to take effect, the underlying {@code Resource}'s
- * {@link org.springframework.core.io.Resource#getFilename() getFilename()} method must
- * return a non-{@code null} value that ends in {@code ".xml"}.
+ * <p>支持传统和基于XML的属性文件格式； 但是，为了使XML处理生效，底层{@code Resource}的
+ * {@link org.springframework.core.io.Resource#getFilename() getFilename()}
+ * 方法必须返回以{@code ".xml"}结尾的非{@code null}值。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

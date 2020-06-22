@@ -21,14 +21,13 @@ import org.springframework.beans.factory.config.Scope;
 import org.springframework.lang.Nullable;
 
 /**
- * Abstract {@link Scope} implementation that reads from a particular scope
- * in the current thread-bound {@link RequestAttributes} object.
+ * 从当前线程绑定的{@link RequestAttributes}对象中的特定范围读取的抽象{@link Scope}实现。
  *
- * <p>Subclasses simply need to implement {@link #getScope()} to instruct
- * this class which {@link RequestAttributes} scope to read attributes from.
+ * <p>子类只需要实现{@link #getScope()}即可指示此类从哪个{@link RequestAttributes}范围读取属性。
  *
  * <p>Subclasses may wish to override the {@link #get} and {@link #remove}
  * methods to add synchronization around the call back into this super class.
+ * <p>子类可能希望覆盖{@link #get}和{@link #remove}方法，以将同步块包含回调添加到此超类中。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

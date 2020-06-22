@@ -176,6 +176,8 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 	 * Register a {@link org.springframework.beans.factory.config.BeanDefinition} for
 	 * any classes specified by {@link #register(Class...)} and scan any packages
 	 * specified by {@link #scan(String...)}.
+	 * 为{@link #register(Class...)}指定的任何类注册{@link org.springframework.beans.factory.config.BeanDefinition}，
+	 * 并扫描{@link #scan(String...)}。
 	 * <p>For any values specified by {@link #setConfigLocation(String)} or
 	 * {@link #setConfigLocations(String[])}, attempt first to load each location as a
 	 * class, registering a {@code BeanDefinition} if class loading is successful,
@@ -217,6 +219,7 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 				logger.debug("Registering component classes: [" +
 						StringUtils.collectionToCommaDelimitedString(this.componentClasses) + "]");
 			}
+			// 对组件类进行注册
 			reader.register(ClassUtils.toClassArray(this.componentClasses));
 		}
 
@@ -225,9 +228,11 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 				logger.debug("Scanning base packages: [" +
 						StringUtils.collectionToCommaDelimitedString(this.basePackages) + "]");
 			}
+			// 对基类包进行扫描注册
 			scanner.scan(StringUtils.toStringArray(this.basePackages));
 		}
 
+		// 如果是类名称路径，则直接注册，如果是包名称，则扫描注册
 		String[] configLocations = getConfigLocations();
 		if (configLocations != null) {
 			for (String configLocation : configLocations) {
@@ -254,9 +259,11 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 
 
 	/**
-	 * Build an {@link AnnotatedBeanDefinitionReader} for the given bean factory.
+	 * 为给定的bean工厂构建一个{@link AnnotatedBeanDefinitionReader}。
 	 * <p>This should be pre-configured with the {@code Environment} (if desired)
 	 * but not with a {@code BeanNameGenerator} or {@code ScopeMetadataResolver} yet.
+	 * <p>应该使用{@code Environment}（如果需要）进行预配置，但尚未使用{@code BeanNameGenerator}
+	 * 或{@code ScopeMetadataResolver}进行预配置。
 	 * @param beanFactory the bean factory to load bean definitions into
 	 * @since 4.1.9
 	 * @see #getEnvironment()
@@ -268,7 +275,7 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 	}
 
 	/**
-	 * Build a {@link ClassPathBeanDefinitionScanner} for the given bean factory.
+	 * 为给定的bean工厂构建一个{@link ClassPathBeanDefinitionScanner}。
 	 * <p>This should be pre-configured with the {@code Environment} (if desired)
 	 * but not with a {@code BeanNameGenerator} or {@code ScopeMetadataResolver} yet.
 	 * @param beanFactory the bean factory to load bean definitions into

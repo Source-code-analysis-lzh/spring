@@ -1,5 +1,5 @@
 /**
- * An API for defining Formatters to format field model values for display in a UI.
+ * 用于定义格式化程序以格式化字段模型值以在UI中显示的API.
  */
 @NonNullApi
 @NonNullFields

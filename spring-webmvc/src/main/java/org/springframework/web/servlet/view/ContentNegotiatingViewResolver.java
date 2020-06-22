@@ -52,31 +52,22 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 /**
- * Implementation of {@link ViewResolver} that resolves a view based on the request file name
- * or {@code Accept} header.
+ * {@link ViewResolver}的实现，它基于请求文件名或{@code Accept}标头解析视图。
  *
- * <p>The {@code ContentNegotiatingViewResolver} does not resolve views itself, but delegates to
- * other {@link ViewResolver ViewResolvers}. By default, these other view resolvers are picked up automatically
- * from the application context, though they can also be set explicitly by using the
- * {@link #setViewResolvers viewResolvers} property. <strong>Note</strong> that in order for this
- * view resolver to work properly, the {@link #setOrder order} property needs to be set to a higher
- * precedence than the others (the default is {@link Ordered#HIGHEST_PRECEDENCE}).
+ * <p>{@code ContentNegotiatingViewResolver}不会自行解析视图，而是委托给其它{@link ViewResolver ViewResolvers}。 
+ * 默认情况下，这些其它视图解析器会自动从应用程序上下文中拾取，尽管也可以使用viewResolvers属性对其进行显式设置。 
+ * 请注意，为了使此视图解析器正常工作，必须将{@link #setOrder order}属性设置为比其它属性更高的优先级
+ * （默认属性为{@link Ordered#HIGHEST_PRECEDENCE}）。
  *
- * <p>This view resolver uses the requested {@linkplain MediaType media type} to select a suitable
- * {@link View} for a request. The requested media type is determined through the configured
- * {@link ContentNegotiationManager}. Once the requested media type has been determined, this resolver
- * queries each delegate view resolver for a {@link View} and determines if the requested media type
- * is {@linkplain MediaType#includes(MediaType) compatible} with the view's
- * {@linkplain View#getContentType() content type}). The most compatible view is returned.
+ * <p>该视图解析器使用请求的{@linkplain MediaType media type}为请求选择合适的{@link View}。 
+ * 通过配置的{@link ContentNegotiationManager}确定请求的媒体类型。 确定请求的媒体类型后，此解析器将向每个委托视图解析器查询一个{@link View}，
+ * 并确定请求的媒体类型是否与视图的内容类型{@linkplain MediaType#includes(MediaType) compatible}。 返回最兼容的视图。
  *
- * <p>Additionally, this view resolver exposes the {@link #setDefaultViews(List) defaultViews} property,
- * allowing you to override the views provided by the view resolvers. Note that these default views are
- * offered as candidates, and still need have the content type requested (via file extension, parameter,
- * or {@code Accept} header, described above).
+ * <p>此外，此视图解析器还公开{@link #setDefaultViews(List) defaultViews}属性，使您可以覆盖视图解析器提供的视图。
+ * 请注意，这些默认视图是作为候选提供的，仍然需要具有请求的内容类型（通过文件扩展名，参数或{@code Accept}标头，如上所述）。
  *
- * <p>For example, if the request path is {@code /view.html}, this view resolver will look for a view
- * that has the {@code text/html} content type (based on the {@code html} file extension). A request
- * for {@code /view} with a {@code text/html} request {@code Accept} header has the same result.
+ * <p>例如，如果请求路径为{@code /view.html}，则此视图解析器将查找具有{@code text/html}内容类型（基于{@code html}文件扩展名）的视图。 
+ * 带有@code text/html} request {@code Accept}标头的{@code /view}请求具有相同的结果。
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

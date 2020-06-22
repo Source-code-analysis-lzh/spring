@@ -1,5 +1,5 @@
 /**
- * Support package for annotation-based Servlet MVC controllers.
+ * 基于注释的Servlet MVC控制器的支持包。
  */
 @NonNullApi
 @NonNullFields

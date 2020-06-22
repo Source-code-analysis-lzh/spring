@@ -24,11 +24,10 @@ import java.util.List;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link ParameterNameDiscoverer} implementation that tries several discoverer
- * delegates in succession. Those added first in the {@code addDiscoverer} method
- * have highest priority. If one returns {@code null}, the next will be tried.
+ * 依次尝试多个发现者委托的{@link ParameterNameDiscoverer}实现。 
+ * 在{@code addDiscoverer}方法中最先添加的那些优先级最高。 如果一个返回{@code null}，将尝试下一个。
  *
- * <p>The default behavior is to return {@code null} if no discoverer matches.
+ * <p>如果没有发现者匹配，则默认行为是返回{@code null}。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

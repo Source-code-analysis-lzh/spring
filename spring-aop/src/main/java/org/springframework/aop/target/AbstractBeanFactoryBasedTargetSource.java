@@ -27,16 +27,13 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Base class for {@link org.springframework.aop.TargetSource} implementations
- * that are based on a Spring {@link org.springframework.beans.factory.BeanFactory},
- * delegating to Spring-managed bean instances.
+ * 基于Spring {@link org.springframework.beans.factory.BeanFactory}
+ * 的{@link org.springframework.aop.TargetSource}实现的基类，委派给Spring管理的Bean实例。
  *
- * <p>Subclasses can create prototype instances or lazily access a
- * singleton target, for example. See {@link LazyInitTargetSource} and
- * {@link AbstractPrototypeBasedTargetSource}'s subclasses for concrete strategies.
+ * <p>例如，子类可以创建原型实例或延迟访问单例目标。 
+ * 有关具体策略，请参见{@link LazyInitTargetSource}和{@link AbstractPrototypeBasedTargetSource}的子类。
  *
- * <p>BeanFactory-based TargetSources are serializable. This involves
- * disconnecting the current target and turning into a {@link SingletonTargetSource}.
+ * <p>基于BeanFactory的TargetSources可序列化。 这涉及断开当前目标并变成{@link SingletonTargetSource}。
  *
  * @author Juergen Hoeller
  * @author Rod Johnson

@@ -25,11 +25,10 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.lang.Nullable;
 
 /**
- * Specialization of {@link AsyncExecutionInterceptor} that delegates method execution to
- * an {@code Executor} based on the {@link Async} annotation. Specifically designed to
- * support use of {@link Async#value()} executor qualification mechanism introduced in
- * Spring 3.1.2. Supports detecting qualifier metadata via {@code @Async} at the method or
- * declaring class level. See {@link #getExecutorQualifier(Method)} for details.
+ * {@link AsyncExecutionInterceptor}的专业化，它基于{@link Async}批注将方法执行委托给{@code Executor}。 
+ * 专门设计用于支持使用Spring 3.1.2中引入的{@link Async#value()}执行者名称限定机制。 
+ * 支持在方法或声明类级别通过{@code @Async}检测限定符元数据。 
+ * 有关详细信息，请参见{@link #getExecutorQualifier(Method)}。
  *
  * @author Chris Beams
  * @author Stephane Nicoll

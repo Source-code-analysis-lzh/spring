@@ -19,7 +19,7 @@ package org.springframework.context.annotation;
 import org.springframework.beans.factory.config.BeanDefinition;
 
 /**
- * Strategy interface for resolving the scope of bean definitions.
+ * 解析bean定义范围的策略接口。
  *
  * @author Mark Fisher
  * @since 2.5
@@ -29,8 +29,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 public interface ScopeMetadataResolver {
 
 	/**
-	 * Resolve the {@link ScopeMetadata} appropriate to the supplied
-	 * bean {@code definition}.
+	 * 解析适合于提供的bean {@code definition}的{@link ScopeMetadata}。
 	 * <p>Implementations can of course use any strategy they like to
 	 * determine the scope metadata, but some implementations that spring
 	 * immediately to mind might be to use source level annotations

@@ -22,9 +22,8 @@ import java.util.List;
 import org.springframework.util.Assert;
 
 /**
- * Default implementation of the {@code DataBufferFactory} interface. Allows for
- * specification of the default initial capacity at construction time, as well
- * as whether heap-based or direct buffers are to be preferred.
+ * {@code DataBufferFactory}接口的默认实现. 允许在构造时指定默认的初始容量，
+ * 以及优先选择基于堆的缓冲区还是直接缓冲区.
  *
  * @author Arjen Poutsma
  * @since 5.0

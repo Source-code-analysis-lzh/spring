@@ -28,8 +28,8 @@ import org.springframework.util.PatternMatchUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Auto proxy creator that identifies beans to proxy via a list of names.
- * Checks for direct, "xxx*", and "*xxx" matches.
+ * 自动代理创建器，用于通过名称列表标识要代理的bean。 
+ * 检查直接匹配，"xxx*" 和 "*xxx"匹配。
  *
  * <p>For configuration details, see the javadoc of the parent class
  * AbstractAutoProxyCreator. Typically, you will specify a list of

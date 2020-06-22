@@ -40,7 +40,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Internal helper class for converting property values to target types.
+ * 内部帮助工具类，用于将属性值转换为目标类型。
  *
  * <p>Works on a given {@link PropertyEditorRegistrySupport} instance.
  * Used as a delegate by {@link BeanWrapperImpl} and {@link SimpleTypeConverter}.

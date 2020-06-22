@@ -20,13 +20,11 @@ import org.springframework.aop.Pointcut;
 import org.springframework.lang.Nullable;
 
 /**
- * Concrete BeanFactory-based PointcutAdvisor that allows for any Advice
- * to be configured as reference to an Advice bean in the BeanFactory,
- * as well as the Pointcut to be configured through a bean property.
+ * 基于具体BeanFactory的PointcutAdvisor，它允许将任何Advice配置为对BeanFactory中的Advice Bean的引用，
+ * 以及允许通过bean属性配置的Pointcut。
  *
- * <p>Specifying the name of an advice bean instead of the advice object itself
- * (if running within a BeanFactory) increases loose coupling at initialization time,
- * in order to not initialize the advice object until the pointcut actually matches.
+ * <p>指定advice bean的名称而不是advice对象本身（如果在BeanFactory中运行）将在初始化时增加松散耦合，
+ * 以便在切入点实际匹配之前不初始化advice对象。
  *
  * @author Juergen Hoeller
  * @since 2.0.2

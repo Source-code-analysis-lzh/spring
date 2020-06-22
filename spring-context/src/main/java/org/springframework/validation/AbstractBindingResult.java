@@ -34,9 +34,8 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Abstract implementation of the {@link BindingResult} interface and
- * its super-interface {@link Errors}. Encapsulates common management of
- * {@link ObjectError ObjectErrors} and {@link FieldError FieldErrors}.
+ * {@link BindingResult}接口及其超级接口{@link Errors}的抽象实现.
+ * 封装{@link ObjectError ObjectErrors}和{@link FieldError FieldErrors}的通用管理.
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

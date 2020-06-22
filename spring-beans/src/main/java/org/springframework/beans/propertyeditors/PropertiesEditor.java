@@ -26,7 +26,7 @@ import java.util.Properties;
 import org.springframework.lang.Nullable;
 
 /**
- * Custom {@link java.beans.PropertyEditor} for {@link Properties} objects.
+ * 针对{@link Properties}对象的自定义{@link java.beans.PropertyEditor}.
  *
  * <p>Handles conversion from content {@link String} to {@code Properties} object.
  * Also handles {@link Map} to {@code Properties} conversion, for populating

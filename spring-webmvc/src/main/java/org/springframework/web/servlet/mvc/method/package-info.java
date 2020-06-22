@@ -1,6 +1,5 @@
 /**
- * Servlet-based infrastructure for handler method processing,
- * building on the {@code org.springframework.web.method} package.
+ * 基于Servlet的基础架构，用于处理器方法，建立在{@code org.springframework.web.method}包上。
  */
 @NonNullApi
 @NonNullFields

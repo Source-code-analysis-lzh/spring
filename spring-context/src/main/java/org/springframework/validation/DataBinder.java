@@ -51,23 +51,17 @@ import org.springframework.util.PatternMatchUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Binder that allows for setting property values onto a target object,
- * including support for validation and binding result analysis.
- * The binding process can be customized through specifying allowed fields,
- * required fields, custom editors, etc.
+ * 允许将属性值设置到目标对象上的绑定器，包括对验证和绑定结果分析的支持.
+ * 可以通过指定允许的字段，必填字段，自定义编辑器等来自定义绑定过程.
  *
- * <p>Note that there are potential security implications in failing to set an array
- * of allowed fields. In the case of HTTP form POST data for example, malicious clients
- * can attempt to subvert an application by supplying values for fields or properties
- * that do not exist on the form. In some cases this could lead to illegal data being
- * set on command objects <i>or their nested objects</i>. For this reason, it is
- * <b>highly recommended to specify the {@link #setAllowedFields allowedFields} property</b>
- * on the DataBinder.
+ * <p>请注意，如果没有设置允许字段的数组，可能会带来安全隐患.
+ * 例如，在使用HTTP表单POST数据的情况下，恶意客户端可以通过提供表单上不存在的字段或属性的值来尝试破坏应用程序.
+ * 在某些情况下，这可能会导致在命令对象或其嵌套对象上设置非法数据.
+ * 因此，强烈建议在DataBinder上指定{@link #setAllowedFields allowedFields}属性.
  *
- * <p>The binding results can be examined via the {@link BindingResult} interface,
- * extending the {@link Errors} interface: see the {@link #getBindingResult()} method.
- * Missing fields and property access exceptions will be converted to {@link FieldError FieldErrors},
- * collected in the Errors instance, using the following error codes:
+ * <p>可以通过{@link BindingResult}接口检查绑定结果，该接口扩展{@link Errors}接口：
+ * 请参见{@link #getBindingResult()}方法.
+ * 缺少的字段和属性访问异常将使用以下错误代码转换为在Errors实例中收集的{@link FieldError FieldErrors}：
  *
  * <ul>
  * <li>Missing field error: "required"
@@ -75,21 +69,17 @@ import org.springframework.util.StringUtils;
  * <li>Method invocation error: "methodInvocation"
  * </ul>
  *
- * <p>By default, binding errors get resolved through the {@link BindingErrorProcessor}
- * strategy, processing for missing fields and property access exceptions: see the
- * {@link #setBindingErrorProcessor} method. You can override the default strategy
- * if needed, for example to generate different error codes.
+ * <p>默认情况下，绑定错误通过{@link BindingErrorProcessor}策略解析，
+ * 处理缺少字段的处理和属性访问异常：请参见{@link #setBindingErrorProcessor}方法.
+ * 如果需要，您可以覆盖默认策略，例如生成不同的错误代码.
  *
- * <p>Custom validation errors can be added afterwards. You will typically want to resolve
- * such error codes into proper user-visible error messages; this can be achieved through
- * resolving each error via a {@link org.springframework.context.MessageSource}, which is
- * able to resolve an {@link ObjectError}/{@link FieldError} through its
- * {@link org.springframework.context.MessageSource#getMessage(org.springframework.context.MessageSourceResolvable, java.util.Locale)}
- * method. The list of message codes can be customized through the {@link MessageCodesResolver}
- * strategy: see the {@link #setMessageCodesResolver} method. {@link DefaultMessageCodesResolver}'s
- * javadoc states details on the default resolution rules.
+ * <p>之后可以添加自定义验证错误. 您通常需要将此类错误代码解析为适当的用户可见的错误消息；
+ * 这可以通过使用MessageSource解决每个错误来实现，
+ * 后者可以通过其{@link org.springframework.context.MessageSource#getMessage(org.springframework.context.MessageSourceResolvable, java.util.Locale)}方法解析
+ * {@link ObjectError}/{@link FieldError}. 可以通过{@link MessageCodesResolver}策略自定义消息代码列表：
+ * 请参见{@link #setMessageCodesResolver}方法. {@link DefaultMessageCodesResolver}的javadoc声明有关默认解析规则的详细信息.
  *
- * <p>This generic data binder can be used in any kind of environment.
+ * <p>该通用数据绑定程序可以在任何类型的环境中使用.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -179,7 +169,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	 * @param objectName the name of the target object
 	 */
 	public DataBinder(@Nullable Object target, String objectName) {
-		this.target = ObjectUtils.unwrapOptional(target);
+		this.target = ObjectUtils.unwrapOptional(target); // 解封Optional
 		this.objectName = objectName;
 	}
 
@@ -200,10 +190,12 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	}
 
 	/**
-	 * Set whether this binder should attempt to "auto-grow" a nested path that contains a null value.
+	 * 设置此binder是否应尝试“自动增长”包含空值的嵌套路径。
 	 * <p>If "true", a null path location will be populated with a default object value and traversed
 	 * instead of resulting in an exception. This flag also enables auto-growth of collection elements
 	 * when accessing an out-of-bounds index.
+	 * <p>如果为"true"，则将使用默认对象值填充空路径位置并遍历空路径位置，而不是导致异常。 
+	 * 当访问越界索引时，此标志还启用集合元素的自动增长。
 	 * <p>Default is "true" on a standard DataBinder. Note that since Spring 4.1 this feature is supported
 	 * for bean property access (DataBinder's default mode) and field access.
 	 * @see #initBeanPropertyAccess()
@@ -305,8 +297,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	}
 
 	/**
-	 * Return the internal BindingResult held by this DataBinder,
-	 * as an AbstractPropertyBindingResult.
+	 * 返回此DataBinder持有的内部BindingResult，作为AbstractPropertyBindingResult。
 	 */
 	protected AbstractPropertyBindingResult getInternalBindingResult() {
 		if (this.bindingResult == null) {
@@ -361,9 +352,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	}
 
 	/**
-	 * Return the BindingResult instance created by this DataBinder.
-	 * This allows for convenient access to the binding results after
-	 * a bind operation.
+	 * 返回由此DataBinder创建的BindingResult实例。 这样可以在绑定操作之后方便地访问绑定结果。
 	 * @return the BindingResult instance, to be treated as BindingResult
 	 * or as Errors instance (Errors is a super-interface of BindingResult)
 	 * @see Errors
@@ -748,8 +737,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	}
 
 	/**
-	 * Check the given property values against the allowed fields,
-	 * removing values for fields that are not allowed.
+	 * 根据允许的字段检查给定的属性值，删除不允许的字段的值。
 	 * @param mpvs the property values to be bound (can be modified)
 	 * @see #getAllowedFields
 	 * @see #isAllowed(String)
@@ -757,10 +745,11 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	protected void checkAllowedFields(MutablePropertyValues mpvs) {
 		PropertyValue[] pvs = mpvs.getPropertyValues();
 		for (PropertyValue pv : pvs) {
+			// 规范字段名称
 			String field = PropertyAccessorUtils.canonicalPropertyName(pv.getName());
-			if (!isAllowed(field)) {
+			if (!isAllowed(field)) { // 不允许，则移除该字段值
 				mpvs.removePropertyValue(pv);
-				getBindingResult().recordSuppressedField(field);
+				getBindingResult().recordSuppressedField(field); // 表示记录已经禁用字段
 				if (logger.isDebugEnabled()) {
 					logger.debug("Field [" + field + "] has been removed from PropertyValues " +
 							"and will not be bound, because it has not been found in the list of allowed fields");
@@ -791,8 +780,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 	}
 
 	/**
-	 * Check the given property values against the required fields,
-	 * generating missing field errors where appropriate.
+	 * 根据必填字段检查给定的属性值，并在适当的地方生成缺少的字段错误。
 	 * @param mpvs the property values to be bound (can be modified)
 	 * @see #getRequiredFields
 	 * @see #getBindingErrorProcessor
@@ -819,7 +807,7 @@ public class DataBinder implements PropertyEditorRegistry, TypeConverter {
 						empty = (values.length == 0 || !StringUtils.hasText(values[0]));
 					}
 				}
-				if (empty) {
+				if (empty) { // 如果存在空值字段
 					// Use bind error processor to create FieldError.
 					getBindingErrorProcessor().processMissingFieldError(field, getInternalBindingResult());
 					// Remove property from property values to bind:

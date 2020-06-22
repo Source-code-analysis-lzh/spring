@@ -19,8 +19,8 @@ package org.springframework.scheduling;
 import org.springframework.core.task.AsyncTaskExecutor;
 
 /**
- * A {@link org.springframework.core.task.TaskExecutor} extension exposing
- * scheduling characteristics that are relevant to potential task submitters.
+ * 一个{@link org.springframework.core.task.TaskExecutor}扩展，
+ * 公开了与潜在任务提交者相关的调度特性。
  *
  * <p>Scheduling clients are encouraged to submit
  * {@link Runnable Runnables} that match the exposed preferences

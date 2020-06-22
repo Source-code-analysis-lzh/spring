@@ -24,17 +24,13 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple stop watch, allowing for timing of a number of tasks, exposing total
- * running time and running time for each named task.
+ * 简单的秒表，允许为多个任务计时，暴露总运行时间和每个命名任务的运行时间。
  *
- * <p>Conceals use of {@link System#nanoTime()}, improving the readability of
- * application code and reducing the likelihood of calculation errors.
+ * <p>隐藏{@link System#nanoTime()}的使用，从而提高了应用程序代码的可读性并减少了计算错误的可能性。
  *
- * <p>Note that this object is not designed to be thread-safe and does not use
- * synchronization.
+ * <p>请注意，此对象并非设计为线程安全的，并且不使用同步。
  *
- * <p>This class is normally used to verify performance during proof-of-concept
- * work and in development, rather than as part of production applications.
+ * <p>此类通常用于在概念验证工作和开发过程中验证性能，而不是作为生产应用程序的一部分。
  *
  * <p>As of Spring Framework 5.2, running time is tracked and reported in
  * nanoseconds.

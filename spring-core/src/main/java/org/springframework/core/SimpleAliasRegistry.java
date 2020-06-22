@@ -31,10 +31,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Simple implementation of the {@link AliasRegistry} interface.
- * <p>Serves as base class for
- * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
- * implementations.
+ * {@link AliasRegistry}接口的简单实现.
+ * <p>用作{@link org.springframework.beans.factory.support.BeanDefinitionRegistry}实现的基类.
  *
  * @author Juergen Hoeller
  * @author Qimiao Chen
@@ -45,7 +43,7 @@ public class SimpleAliasRegistry implements AliasRegistry {
 	/** Logger available to subclasses. */
 	protected final Log logger = LogFactory.getLog(getClass());
 
-	/** Map from alias to canonical name. */
+	/** 从别名映射到规范名称. */
 	private final Map<String, String> aliasMap = new ConcurrentHashMap<>(16);
 
 

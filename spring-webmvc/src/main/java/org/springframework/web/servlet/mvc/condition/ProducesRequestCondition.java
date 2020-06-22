@@ -37,11 +37,9 @@ import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.servlet.mvc.condition.HeadersRequestCondition.HeaderExpression;
 
 /**
- * A logical disjunction (' || ') request condition to match a request's 'Accept' header
- * to a list of media type expressions. Two kinds of media type expressions are
- * supported, which are described in {@link RequestMapping#produces()} and
- * {@link RequestMapping#headers()} where the header name is 'Accept'.
- * Regardless of which syntax is used, the semantics are the same.
+ * 逻辑或（'||'）请求条件，用于将请求的'Accept'标头与媒体类型表达式列表进行匹配。 
+ * 支持两种媒体类型表达式，它们在标头名称为'Accept'的{@link RequestMapping#produces()}
+ * 和{@link RequestMapping#headers()}中进行了描述。 无论使用哪种语法，语义都是相同的。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev

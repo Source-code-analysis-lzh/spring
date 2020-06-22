@@ -24,7 +24,7 @@ import java.util.concurrent.FutureTask;
 import org.springframework.lang.Nullable;
 
 /**
- * Extension of {@link FutureTask} that implements {@link ListenableFuture}.
+ * {@link FutureTask}的扩展，实现了{@link ListenableFuture}。
  *
  * @author Arjen Poutsma
  * @since 4.0

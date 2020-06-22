@@ -27,10 +27,9 @@ import org.springframework.web.servlet.support.WebContentGenerator;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Convenient superclass for controller implementations, using the Template Method
- * design pattern.
+ * 使用模板方法设计模式的控制器实现的便利超类。
  *
- * <p><b>Workflow
+ * <p><b>工作流
  * (<a href="Controller.html#workflow">and that defined by interface</a>):</b><br>
  * <ol>
  * <li>{@link #handleRequest(HttpServletRequest, HttpServletResponse) handleRequest()}
@@ -46,7 +45,7 @@ import org.springframework.web.util.WebUtils;
  * functionality to return {@link org.springframework.web.servlet.ModelAndView ModelAndView} objects.</li>
  * </ol>
  *
- * <p><b><a name="config">Exposed configuration properties</a>
+ * <p><b><a name="config">公开的配置属性</a>
  * (<a href="Controller.html#config">and those defined by interface</a>):</b><br>
  * <table border="1">
  * <tr>
@@ -81,9 +80,8 @@ import org.springframework.web.util.WebUtils;
  * <tr>
  * <td>synchronizeOnSession</td>
  * <td>false</td>
- * <td>whether the call to {@code handleRequestInternal} should be
- * synchronized around the HttpSession, to serialize invocations
- * from the same client. No effect if there is no HttpSession.
+ * <td>是否应该围绕HttpSession同步对{@code handleRequestInternal}的调用，
+ * 以串行化调用同一客户端。 如果没有HttpSession，则无效。
  * </td>
  * </tr>
  * </table>
@@ -154,13 +152,17 @@ public abstract class AbstractController extends WebContentGenerator implements 
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
+		// 如果请求是OPTIONS请求  那就直接return null了  它一般用于跨域所以设置上Allow这个请求头
+		// getAllowHeader()方法在WebContentGenerator里
 		if (HttpMethod.OPTIONS.matches(request.getMethod())) {
 			response.setHeader("Allow", getAllowHeader());
 			return null;
 		}
 
 		// Delegate to WebContentGenerator for checking and preparing.
+		// 指定supportedMethods后，看看这个request是否合法
 		checkRequest(request);
+		// 处理response的cache缓存和缓存时间等等
 		prepareResponse(response);
 
 		// Execute handleRequestInternal in synchronized block if required.

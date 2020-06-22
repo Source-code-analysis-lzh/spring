@@ -28,13 +28,12 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link CommandLinePropertySource} implementation backed by a JOpt {@link OptionSet}.
+ * 由JOpt {@link OptionSet}支持的{@link CommandLinePropertySource}实现。
  *
- * <h2>Typical usage</h2>
+ * <h2>典型用法</h2>
  *
- * Configure and execute an {@code OptionParser} against the {@code String[]} of arguments
- * supplied to the {@code main} method, and create a {@link JOptCommandLinePropertySource}
- * using the resulting {@code OptionSet} object:
+ * 针对提供给{@code main}方法的参数的{@code String[]}配置并执行{@code OptionParser}，
+ * 并使用生成的{@code OptionSet}对象创建{@link JOptCommandLinePropertySource}：
  *
  * <pre class="code">
  * public static void main(String[] args) {

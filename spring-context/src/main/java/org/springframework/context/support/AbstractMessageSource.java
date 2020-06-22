@@ -30,30 +30,22 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Abstract implementation of the {@link HierarchicalMessageSource} interface,
- * implementing common handling of message variants, making it easy
- * to implement a specific strategy for a concrete MessageSource.
+ * {@link HierarchicalMessageSource}接口的抽象实现，实现消息变体的通用处理，
+ * 使为特定的MessageSource实施特定策略变得容易.
  *
- * <p>Subclasses must implement the abstract {@link #resolveCode}
- * method. For efficient resolution of messages without arguments, the
- * {@link #resolveCodeWithoutArguments} method should be overridden
- * as well, resolving messages without a MessageFormat being involved.
+ * <p>子类必须实现抽象的{@link #resolveCode}方法.
+ * 为了有效地解析没有参数的消息，还应该重写{@link #resolveCodeWithoutArguments}方法，
+ * 从而在不涉及MessageFormat的情况下解析消息.
  *
- * <p><b>Note:</b> By default, message texts are only parsed through
- * MessageFormat if arguments have been passed in for the message. In case
- * of no arguments, message texts will be returned as-is. As a consequence,
- * you should only use MessageFormat escaping for messages with actual
- * arguments, and keep all other messages unescaped. If you prefer to
- * escape all messages, set the "alwaysUseMessageFormat" flag to "true".
+ * <p>注意：默认情况下，如果已为消息传递了参数，则仅通过MessageFormat解析消息文本.
+ * 如果没有参数，则将按原样返回消息文本. 因此，您应仅对带有实际参数的消息使用MessageFormat转义，
+ * 并保留所有其他消息不转义. 如果您希望转义所有消息，请将"alwaysUseMessageFormat"标志设置为"true".
  *
- * <p>Supports not only MessageSourceResolvables as primary messages
- * but also resolution of message arguments that are in turn
- * MessageSourceResolvables themselves.
+ * <p>不仅支持将MessageSourceResolvables作为主要消息，而且还支持解析消息参数，
+ * 而这些参数又是MessageSourceResolvables本身.
  *
- * <p>This class does not implement caching of messages per code, thus
- * subclasses can dynamically change messages over time. Subclasses are
- * encouraged to cache their messages in a modification-aware fashion,
- * allowing for hot deployment of updated messages.
+ * <p>此类未实现每个消息码的消息缓存，因此子类可以随时间动态更改消息.
+ * 鼓励子类以感知修改的方式缓存其消息，以允许热部署更新的消息.
  *
  * @author Juergen Hoeller
  * @author Rod Johnson

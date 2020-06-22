@@ -27,9 +27,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * Configurable bean class that exposes a specific JSR-303 Validator
- * through its original interface as well as through the Spring
- * {@link org.springframework.validation.Validator} interface.
+ * 可配置bean类，通过其原始接口以及通过
+ * Spring {@link org.springframework.validation.Validator}接口公开特定的JSR-303验证器.
  *
  * @author Juergen Hoeller
  * @since 3.0

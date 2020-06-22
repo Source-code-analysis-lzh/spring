@@ -31,11 +31,10 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Abstract base class for {@link HandlerExceptionResolver} implementations.
+ * {@link HandlerExceptionResolver}实现的抽象基类。
  *
- * <p>Supports mapped {@linkplain #setMappedHandlers handlers} and
- * {@linkplain #setMappedHandlerClasses handler classes} that the resolver
- * should be applied to and implements the {@link Ordered} interface.
+ * <p>支持通过{@linkplain #setMappedHandlers handlers}和{@linkplain #setMappedHandlerClasses handler classes}
+ * 配置解析器应应用的映射处理器，并实现了{@link Ordered}接口。
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

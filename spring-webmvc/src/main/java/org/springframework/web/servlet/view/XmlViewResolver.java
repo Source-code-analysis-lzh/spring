@@ -34,20 +34,16 @@ import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.View;
 
 /**
- * A {@link org.springframework.web.servlet.ViewResolver} implementation that uses
- * bean definitions in a dedicated XML file for view definitions, specified by
- * resource location. The file will typically be located in the WEB-INF directory;
- * the default is "/WEB-INF/views.xml".
+ * 一个{@link org.springframework.web.servlet.ViewResolver}实现，
+ * 该实现使用专用XML文件中的bean定义作为视图定义（由资源位置指定）。 
+ * 该文件通常位于WEB-INF目录中。 默认值为"/WEB-INF/views.xml"。
  *
- * <p>This {@code ViewResolver} does not support internationalization at the level
- * of its definition resources. Consider {@link ResourceBundleViewResolver} if you
- * need to apply different view resources per locale.
+ * <p>此{@code ViewResolver}在其定义资源级别不支持国际化。 如果您需要在每个语言环境中应用不同的视图资源，
+ * 请考虑使用{@link ResourceBundleViewResolver}。
  *
- * <p>Note: This {@code ViewResolver} implements the {@link Ordered} interface
- * in order to allow for flexible participation in {@code ViewResolver} chaining.
- * For example, some special views could be defined via this {@code ViewResolver}
- * (giving it 0 as "order" value), while all remaining views could be resolved by
- * a {@link UrlBasedViewResolver}.
+ * <p>注意：此{@code ViewResolver}实现{@link Ordered}接口，以允许灵活地参与ViewResolver链中。 
+ * 例如，可以通过此{@code ViewResolver}定义一些特殊的视图（将其设置为"order" 0值），
+ * 而所有其余视图都可以由{@link UrlBasedViewResolver}解析。
  *
  * @author Juergen Hoeller
  * @since 18.06.2003

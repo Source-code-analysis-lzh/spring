@@ -28,14 +28,11 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.lang.Nullable;
 
 /**
- * Subclass of {@link AdaptableJobFactory} that also supports Spring-style
- * dependency injection on bean properties. This is essentially the direct
- * equivalent of Spring's {@link QuartzJobBean} in the shape of a Quartz
- * {@link org.quartz.spi.JobFactory}.
+ * {@link AdaptableJobFactory}的子类，还支持对bean属性的Spring样式依赖项注入。 
+ * 从本质上讲，Spring的{@link QuartzJobBean}的直接等效形式为Quartz {@link org.quartz.spi.JobFactory}。
  *
- * <p>Applies scheduler context, job data map and trigger data map entries
- * as bean property values. If no matching bean property is found, the entry
- * is by default simply ignored. This is analogous to QuartzJobBean's behavior.
+ * <p>将调度上下文，作业数据映射和触发器数据映射条目应用为bean属性值。 
+ * 如果找不到匹配的bean属性，则默认情况下将忽略该条目。 这类似于QuartzJobBean的行为。
  *
  * <p>Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
  *
@@ -81,8 +78,7 @@ public class SpringBeanJobFactory extends AdaptableJobFactory
 
 
 	/**
-	 * Create the job instance, populating it with property values taken
-	 * from the scheduler context, job data map and trigger data map.
+	 * 创建job实例，并使用从调度程序上下文，job数据映射和触发器数据映射中获取的属性值填充该作业实例。
 	 */
 	@Override
 	protected Object createJobInstance(TriggerFiredBundle bundle) throws Exception {

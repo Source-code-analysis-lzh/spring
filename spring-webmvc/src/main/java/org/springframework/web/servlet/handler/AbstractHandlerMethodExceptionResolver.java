@@ -24,9 +24,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Abstract base class for
  * {@link org.springframework.web.servlet.HandlerExceptionResolver HandlerExceptionResolver}
- * implementations that support handling exceptions from handlers of type {@link HandlerMethod}.
+ * 实现的抽象基类，支持处理来自{@link HandlerMethod}类型的处理器的异常。
  *
  * @author Rossen Stoyanchev
  * @since 3.1

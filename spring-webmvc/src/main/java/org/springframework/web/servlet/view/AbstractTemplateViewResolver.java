@@ -17,10 +17,9 @@
 package org.springframework.web.servlet.view;
 
 /**
- * Abstract base class for template view resolvers, in particular for FreeMarker views.
+ * 模板视图解析器（尤其是FreeMarker视图）的抽象基类。
  *
- * <p>Provides a convenient way to specify {@link AbstractTemplateView}'s exposure
- * flags for request attributes, session attributes, and Spring's macro helpers.
+ * <p>提供一种方便的方法来为请求属性，会话属性和Spring的宏帮助程序指定{@link AbstractTemplateView}的公开标志。
  *
  * @author Juergen Hoeller
  * @since 1.1

@@ -22,12 +22,11 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface to be implemented by objects that can manage a number of
- * {@link ApplicationListener} objects and publish events to them.
+ * 由可以管理许多{@link ApplicationListener}对象并向其发布事件的对象实现的接口.
  *
- * <p>An {@link org.springframework.context.ApplicationEventPublisher}, typically
- * a Spring {@link org.springframework.context.ApplicationContext}, can use an
- * {@code ApplicationEventMulticaster} as a delegate for actually publishing events.
+ * <p>{@link org.springframework.context.ApplicationEventPublisher}
+ * （通常是Spring {@link org.springframework.context.ApplicationContext}）
+ * 可以将{@code ApplicationEventMulticaster}用作实际发布事件的委托.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -37,48 +36,46 @@ import org.springframework.lang.Nullable;
 public interface ApplicationEventMulticaster {
 
 	/**
-	 * Add a listener to be notified of all events.
+	 * 添加一个侦听器以通知所有事件.
 	 * @param listener the listener to add
 	 */
 	void addApplicationListener(ApplicationListener<?> listener);
 
 	/**
-	 * Add a listener bean to be notified of all events.
+	 * 添加一个侦听器bean，以通知所有事件.
 	 * @param listenerBeanName the name of the listener bean to add
 	 */
 	void addApplicationListenerBean(String listenerBeanName);
 
 	/**
-	 * Remove a listener from the notification list.
+	 * 从通知列表中删除一个侦听器.
 	 * @param listener the listener to remove
 	 */
 	void removeApplicationListener(ApplicationListener<?> listener);
 
 	/**
-	 * Remove a listener bean from the notification list.
+	 * 从通知列表中删除一个侦听器bean.
 	 * @param listenerBeanName the name of the listener bean to remove
 	 */
 	void removeApplicationListenerBean(String listenerBeanName);
 
 	/**
-	 * Remove all listeners registered with this multicaster.
-	 * <p>After a remove call, the multicaster will perform no action
-	 * on event notification until new listeners are registered.
+	 * 删除在此多播器上注册的所有侦听器.
+	 * <p>删除调用后，多播程序将不会对事件通知执行任何操作，直到注册了新的侦听器为止.
 	 */
 	void removeAllListeners();
 
 	/**
-	 * Multicast the given application event to appropriate listeners.
-	 * <p>Consider using {@link #multicastEvent(ApplicationEvent, ResolvableType)}
-	 * if possible as it provides better support for generics-based events.
+	 * 将给定的应用程序事件多播到适当的侦听器.
+	 * <p>如果可能，请考虑使用{@link #multicastEvent(ApplicationEvent, ResolvableType)}，
+	 * 因为它可以为基于泛型的事件提供更好的支持.
 	 * @param event the event to multicast
 	 */
 	void multicastEvent(ApplicationEvent event);
 
 	/**
-	 * Multicast the given application event to appropriate listeners.
-	 * <p>If the {@code eventType} is {@code null}, a default type is built
-	 * based on the {@code event} instance.
+	 * 将给定的应用程序事件多播到适当的侦听器.
+	 * <p>如果{@code eventType}为{@code null}，则基于事件实例构建默认类型.
 	 * @param event the event to multicast
 	 * @param eventType the type of event (can be {@code null})
 	 * @since 4.2

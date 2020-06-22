@@ -44,9 +44,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Extract values from "Forwarded" and "X-Forwarded-*" headers, wrap the request
- * and response, and make they reflect the client-originated protocol and
- * address in the following methods:
+ * 从"Forwarded"和"X-Forwarded-*"头中提取值，包装请求和响应，
+ * 并通过以下方法使其反映客户端最初的协议和地址：
  * <ul>
  * <li>{@link HttpServletRequest#getServerName() getServerName()}
  * <li>{@link HttpServletRequest#getServerPort() getServerPort()}
@@ -55,8 +54,8 @@ import org.springframework.web.util.UrlPathHelper;
  * <li>{@link HttpServletResponse#sendRedirect(String) sendRedirect(String)}.
  * </ul>
  *
- * <p>This filter can also be used in a {@link #setRemoveOnly removeOnly} mode
- * where "Forwarded" and "X-Forwarded-*" headers are eliminated, and not used.
+ * <p>此过滤器也可以在{@link #setRemoveOnly removeOnly}模式下使用，
+ * 在该模式下将删除"Forwarded"和"X-Forwarded-*"标头，而不使用它们。
  *
  * @author Rossen Stoyanchev
  * @author Eddú Meléndez

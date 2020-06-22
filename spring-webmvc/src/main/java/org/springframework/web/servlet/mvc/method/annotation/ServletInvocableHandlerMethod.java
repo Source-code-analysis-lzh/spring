@@ -45,10 +45,8 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.util.NestedServletException;
 
 /**
- * Extends {@link InvocableHandlerMethod} with the ability to handle return
- * values through a registered {@link HandlerMethodReturnValueHandler} and
- * also supports setting the response status based on a method-level
- * {@code @ResponseStatus} annotation.
+ * 扩展了{@link InvocableHandlerMethod}的能力，使其能够通过注册的
+ * {@link HandlerMethodReturnValueHandler}处理返回值，并且还支持基于方法级别的{@code @ResponseStatus}注解设置响应状态。
  *
  * <p>A {@code null} return value (including void) may be interpreted as the
  * end of request processing in combination with a {@code @ResponseStatus}
@@ -93,26 +91,28 @@ public class ServletInvocableHandlerMethod extends InvocableHandlerMethod {
 
 
 	/**
-	 * Invoke the method and handle the return value through one of the
-	 * configured {@link HandlerMethodReturnValueHandler HandlerMethodReturnValueHandlers}.
+	 * 调用方法并通过已配置的{@link HandlerMethodReturnValueHandler HandlerMethodReturnValueHandlers}
+	 * 中的一个来处理返回值。
 	 * @param webRequest the current request
 	 * @param mavContainer the ModelAndViewContainer for this request
 	 * @param providedArgs "given" arguments matched by type (not resolved)
 	 */
 	public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,
 			Object... providedArgs) throws Exception {
-
+		
+		// 调用处理器方法获取返回值
 		Object returnValue = invokeForRequest(webRequest, mavContainer, providedArgs);
-		setResponseStatus(webRequest);
+		setResponseStatus(webRequest); // 设置响应状态码
 
 		if (returnValue == null) {
 			if (isRequestNotModified(webRequest) || getResponseStatus() != null || mavContainer.isRequestHandled()) {
+				// 关闭内容缓存？？
 				disableContentCachingIfNecessary(webRequest);
-				mavContainer.setRequestHandled(true);
+				mavContainer.setRequestHandled(true); // 表示请求已经处理完成
 				return;
 			}
 		}
-		else if (StringUtils.hasText(getResponseStatusReason())) {
+		else if (StringUtils.hasText(getResponseStatusReason())) { // 即使有返回值，但设置响应状态原因，也会结束请求
 			mavContainer.setRequestHandled(true);
 			return;
 		}
@@ -120,6 +120,7 @@ public class ServletInvocableHandlerMethod extends InvocableHandlerMethod {
 		mavContainer.setRequestHandled(false);
 		Assert.state(this.returnValueHandlers != null, "No return value handlers");
 		try {
+			// 调用返回值处理器对处理器返回结果进行处理
 			this.returnValueHandlers.handleReturnValue(
 					returnValue, getReturnValueType(returnValue), mavContainer, webRequest);
 		}
@@ -132,10 +133,10 @@ public class ServletInvocableHandlerMethod extends InvocableHandlerMethod {
 	}
 
 	/**
-	 * Set the response status according to the {@link ResponseStatus} annotation.
+	 * 根据{@link ResponseStatus}注释设置响应状态。
 	 */
 	private void setResponseStatus(ServletWebRequest webRequest) throws IOException {
-		HttpStatus status = getResponseStatus();
+		HttpStatus status = getResponseStatus(); // 获取处理器的响应{@link ResponseStatus}注释
 		if (status == null) {
 			return;
 		}
@@ -197,6 +198,8 @@ public class ServletInvocableHandlerMethod extends InvocableHandlerMethod {
 	 * simple {@link Callable} instead of the original controller as the handler in
 	 * order to return the fixed (concurrent) result value given to it. Effectively
 	 * "resumes" processing with the asynchronously produced return value.
+	 * {@code ServletInvocableHandlerMethod}的嵌套子类使用简单的{@link Callable}而不是原始控制器作为处理器，
+	 * 以便返回给定的固定（并行）结果值。 使用异步产生的返回值有效地“恢复”处理。
 	 */
 	private class ConcurrentResultHandlerMethod extends ServletInvocableHandlerMethod {
 

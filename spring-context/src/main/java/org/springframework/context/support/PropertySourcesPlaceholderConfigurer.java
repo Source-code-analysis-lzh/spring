@@ -36,24 +36,20 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Specialization of {@link PlaceholderConfigurerSupport} that resolves ${...} placeholders
- * within bean definition property values and {@code @Value} annotations against the current
- * Spring {@link Environment} and its set of {@link PropertySources}.
+ * {@link PlaceholderConfigurerSupport}的特殊化，
+ * 可针对当前的Spring {@link Environment}及其{@link PropertySources}解析bean定义属性值和
+ * {@code @Value}注释中的${...}占位符.
  *
- * <p>This class is designed as a general replacement for {@code PropertyPlaceholderConfigurer}.
- * It is used by default to support the {@code property-placeholder} element in working against
- * the spring-context-3.1 or higher XSD; whereas, spring-context versions &lt;= 3.0 default to
- * {@code PropertyPlaceholderConfigurer} to ensure backward compatibility. See the spring-context
- * XSD documentation for complete details.
+ * <p>此类设计为{@code PropertyPlaceholderConfigurer}的常规替代.
+ * 默认情况下，它用于支持{@code property-placeholder}元素来处理spring-context-3.1或更高版本的XSD；
+ * 然而，<= 3.0的spring-context版本默认使用{@code PropertyPlaceholderConfigurer}来确保向后兼容.
+ * 有关完整的详细信息，请参见spring-context XSD文档.
  *
- * <p>Any local properties (e.g. those added via {@link #setProperties}, {@link #setLocations}
- * et al.) are added as a {@code PropertySource}. Search precedence of local properties is
- * based on the value of the {@link #setLocalOverride localOverride} property, which is by
- * default {@code false} meaning that local properties are to be searched last, after all
- * environment property sources.
+ * <p>任何本地属性（例如通过{@link #setProperties}, {@link #setLocations}等添加的本地属性）
+ * 都将作为PropertySource添加. 本地属性的搜索优先级基于localOverride属性的值，默认情况下为{@code false}，
+ * 表示在所有环境属性源之后最后搜索本地属性.
  *
- * <p>See {@link org.springframework.core.env.ConfigurableEnvironment} and related javadocs
- * for details on manipulating environment property sources.
+ * <p>有关操纵环境属性源的详细信息，请参见{@link org.springframework.core.env.ConfigurableEnvironment}和相关的Javadocs.
  *
  * @author Chris Beams
  * @author Juergen Hoeller

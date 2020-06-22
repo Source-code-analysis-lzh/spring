@@ -39,18 +39,14 @@ import org.springframework.util.ClassUtils;
 import org.springframework.validation.annotation.Validated;
 
 /**
- * An AOP Alliance {@link MethodInterceptor} implementation that delegates to a
- * JSR-303 provider for performing method-level validation on annotated methods.
+ * 一个AOP Alliance {@link MethodInterceptor}实现，委派给JSR-303提供程序以对带注释的方法执行方法级验证.
  *
- * <p>Applicable methods have JSR-303 constraint annotations on their parameters
- * and/or on their return value (in the latter case specified at the method level,
- * typically as inline annotation).
+ * <p>适用于方法在其参数和/或返回值上具有JSR-303约束注释（在后一种情况下在方法级别指定，通常作为内联注释）.
  *
  * <p>E.g.: {@code public @NotNull Object myValidMethod(@NotNull String arg1, @Max(10) int arg2)}
  *
- * <p>Validation groups can be specified through Spring's {@link Validated} annotation
- * at the type level of the containing target class, applying to all public service methods
- * of that class. By default, JSR-303 will validate against its default group only.
+ * <p>可以通过Spring的{@link Validated}注释在包含的目标类的类型级别上指定验证组，
+ * 并将其应用于该类的所有公共服务方法. 默认情况下，JSR-303将仅针对其默认组进行验证.
  *
  * <p>As of Spring 5.0, this functionality requires a Bean Validation 1.1+ provider.
  *

@@ -26,11 +26,9 @@ import java.util.Map;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * Annotation which indicates that a method parameter should be bound to a web
- * request parameter.
+ * 指示方法参数应绑定到Web请求参数(和查询参数有区别)的注释。
  *
- * <p>Supported for annotated handler methods in Spring MVC and Spring WebFlux
- * as follows:
+ * <p>在Spring MVC和Spring WebFlux中支持带注释的处理器方法，如下所示：
  * <ul>
  * <li>In Spring MVC, "request parameters" map to query parameters, form data,
  * and parts in multipart requests. This is because the Servlet API combines
@@ -41,14 +39,12 @@ import org.springframework.core.annotation.AliasFor;
  * binding to a command object annotated with {@link ModelAttribute}.
  * </ul>
  *
- * <p>If the method parameter type is {@link Map} and a request parameter name
- * is specified, then the request parameter value is converted to a {@link Map}
- * assuming an appropriate conversion strategy is available.
+ * <p>如果方法参数类型为{@link Map}并指定了请求参数名称，则假定有适当的转换策略可用，
+ * 则将请求参数值转换为{@link Map}。
  *
- * <p>If the method parameter is {@link java.util.Map Map&lt;String, String&gt;} or
+ * <p>如果方法参数是{@link java.util.Map Map&lt;String, String&gt;}或
  * {@link org.springframework.util.MultiValueMap MultiValueMap&lt;String, String&gt;}
- * and a parameter name is not specified, then the map parameter is populated
- * with all request parameter names and values.
+ * 并且未指定参数名称，则将使用所有请求参数名称和值填充该map参数。
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

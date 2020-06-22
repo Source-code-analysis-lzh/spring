@@ -25,25 +25,19 @@ import org.springframework.web.servlet.HandlerAdapter;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Adapter to use the Servlet interface with the generic DispatcherServlet.
- * Calls the Servlet's {@code service} method to handle a request.
+ * 适配器可将Servlet接口与通用DispatcherServlet一起使用。 
+ * 调用Servlet的{@code service}方法来处理请求。
  *
- * <p>Last-modified checking is not explicitly supported: This is typically
- * handled by the Servlet implementation itself (usually deriving from
- * the HttpServlet base class).
+ * <p>不明确支持最后修改(Last-modified)的检查：通常由Servlet实现本身处理（通常从HttpServlet基类派生）。
  *
- * <p>This adapter is not activated by default; it needs to be defined as a
- * bean in the DispatcherServlet context. It will automatically apply to
- * mapped handler beans that implement the Servlet interface then.
+ * <p>默认情况下，此适配器未激活。 它需要在DispatcherServlet上下文中定义为bean。 
+ * 随后它将自动应用于实现Servlet接口的映射处理器bean。
  *
- * <p>Note that Servlet instances defined as bean will not receive initialization
- * and destruction callbacks, unless a special post-processor such as
- * SimpleServletPostProcessor is defined in the DispatcherServlet context.
+ * <p>注意，除非在DispatcherServlet上下文中定义了特殊的后处理器（例如SimpleServletPostProcessor），
+ * 否则定义为bean的Servlet实例将不会接收初始化和销毁回调。
  *
- * <p><b>Alternatively, consider wrapping a Servlet with Spring's
- * ServletWrappingController.</b> This is particularly appropriate for
- * existing Servlet classes, allowing to specify Servlet initialization
- * parameters etc.
+ * <p>或者，考虑使用Spring的ServletWrappingController包装Servlet。 
+ * 这特别适用于现有的Servlet类，允许指定Servlet初始化参数等。
  *
  * @author Juergen Hoeller
  * @since 1.1.5

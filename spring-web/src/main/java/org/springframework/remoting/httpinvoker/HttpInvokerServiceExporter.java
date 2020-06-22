@@ -34,23 +34,17 @@ import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.util.NestedServletException;
 
 /**
- * Servlet-API-based HTTP request handler that exports the specified service bean
- * as HTTP invoker service endpoint, accessible via an HTTP invoker proxy.
+ * 基于Servlet-API的HTTP请求处理器，将指定的服务bean导出为HTTP调用程序服务端点，
+ * 可通过HTTP调用程序代理访问。
  *
- * <p>Deserializes remote invocation objects and serializes remote invocation
- * result objects. Uses Java serialization just like RMI, but provides the
- * same ease of setup as Caucho's HTTP-based Hessian protocol.
+ * <p>反序列化远程调用对象并序列化远程调用结果对象。 与RMI一样，使用Java序列化，
+ * 但是提供了与Caucho基于HTTP的Hessian协议相同的易于设置性。
  *
- * <p><b>HTTP invoker is the recommended protocol for Java-to-Java remoting.</b>
- * It is more powerful and more extensible than Hessian, at the expense of
- * being tied to Java. Nevertheless, it is as easy to set up as Hessian,
- * which is its main advantage compared to RMI.
+ * <p><b>HTTP调用程序是Java到Java远程处理的推荐协议。</b> 它比Hessian更强大和可扩展，但以与Java绑定为代价。 
+ * 尽管如此，它的设置就像Hessian一样容易，这是它与RMI相比的主要优势。
  *
- * <p><b>WARNING: Be aware of vulnerabilities due to unsafe Java deserialization:
- * Manipulated input streams could lead to unwanted code execution on the server
- * during the deserialization step. As a consequence, do not expose HTTP invoker
- * endpoints to untrusted clients but rather just between your own services.</b>
- * In general, we strongly recommend any other message format (e.g. JSON) instead.
+ * <p>警告：请注意由于不安全的Java反序列化而导致的漏洞：操纵的输入流可能会在反序列化步骤中导致服务器上不必要的代码执行。
+ * 因此，不要将HTTP调用者终结点暴露给不受信任的客户端，而应该暴露给您自己的服务之间。 通常，我们强烈建议您使用其它任何消息格式（例如JSON）。
  *
  * @author Juergen Hoeller
  * @since 1.1

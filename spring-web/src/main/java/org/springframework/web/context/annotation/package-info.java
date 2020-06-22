@@ -1,5 +1,5 @@
 /**
- * Provides convenience annotations for web scopes.
+ * 提供Web范围的便捷注释。
  */
 @NonNullApi
 @NonNullFields

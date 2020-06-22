@@ -22,8 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.LocaleResolver;
 
 /**
- * Abstract base class for {@link LocaleResolver} implementations.
- * Provides support for a default locale.
+ * {@link LocaleResolver}实现的抽象基类。 提供对默认语言环境的支持。
  *
  * @author Juergen Hoeller
  * @since 1.2.9

@@ -42,20 +42,16 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * Resolves method arguments annotated with an @{@link PathVariable}.
+ * 解析使用@{@link PathVariable}注释的方法参数。
  *
- * <p>An @{@link PathVariable} is a named value that gets resolved from a URI template variable.
- * It is always required and does not have a default value to fall back on. See the base class
- * {@link org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver}
- * for more information on how named values are processed.
+ * <p>@{@link PathVariable}是从URI模板变量解析的命名值。 它始终是必需的，并且没有默认值可以使用。 
+ * 有关如何处理命名值的更多信息，请参见基类
+ * {@link org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver}。
  *
- * <p>If the method parameter type is {@link Map}, the name specified in the annotation is used
- * to resolve the URI variable String value. The value is then converted to a {@link Map} via
- * type conversion, assuming a suitable {@link Converter} or {@link PropertyEditor} has been
- * registered.
+ * <p>如果方法参数类型为{@link Map}，则在注释中指定的名称用于解析URI变量String值。 
+ * 然后，假设已注册了适当的{@link Converter}或{@link PropertyEditor}，则通过类型转换将该值转换为{@link Map}。
  *
- * <p>A {@link WebDataBinder} is invoked to apply type conversion to resolved path variable
- * values that don't yet match the method parameter type.
+ * <p>调用{@link WebDataBinder}将类型转换应用于尚未与方法参数类型匹配的解析路径变量值。
  *
  * @author Rossen Stoyanchev
  * @author Arjen Poutsma
@@ -73,6 +69,7 @@ public class PathVariableMethodArgumentResolver extends AbstractNamedValueMethod
 		if (!parameter.hasParameterAnnotation(PathVariable.class)) {
 			return false;
 		}
+		// 如果参数是Map类型，则需要指定参数名称，否则也不支持
 		if (Map.class.isAssignableFrom(parameter.nestedIfOptional().getNestedParameterType())) {
 			PathVariable pathVariable = parameter.getParameterAnnotation(PathVariable.class);
 			return (pathVariable != null && StringUtils.hasText(pathVariable.value()));
@@ -87,10 +84,12 @@ public class PathVariableMethodArgumentResolver extends AbstractNamedValueMethod
 		return new PathVariableNamedValueInfo(ann);
 	}
 
+	// 从模板变量中获取指定参数值
 	@Override
 	@SuppressWarnings("unchecked")
 	@Nullable
 	protected Object resolveName(String name, MethodParameter parameter, NativeWebRequest request) throws Exception {
+		//org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleMatch中存入该值
 		Map<String, String> uriTemplateVars = (Map<String, String>) request.getAttribute(
 				HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST);
 		return (uriTemplateVars != null ? uriTemplateVars.get(name) : null);
@@ -113,7 +112,7 @@ public class PathVariableMethodArgumentResolver extends AbstractNamedValueMethod
 			pathVars = new HashMap<>();
 			request.setAttribute(key, pathVars, scope);
 		}
-		pathVars.put(name, arg);
+		pathVars.put(name, arg); // 把解析后的值存入请求的View.PATH_VARIABLES属性中
 	}
 
 	@Override

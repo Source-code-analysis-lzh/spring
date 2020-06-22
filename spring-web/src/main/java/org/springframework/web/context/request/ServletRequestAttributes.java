@@ -32,10 +32,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Servlet-based implementation of the {@link RequestAttributes} interface.
+ * {@link RequestAttributes}接口的基于Servlet的实现。
  *
- * <p>Accesses objects from servlet request and HTTP session scope,
- * with no distinction between "session" and "global session".
+ * <p>从servlet请求和HTTP会话范围访问对象，而“会话”和“全局会话”之间没有区别。
  *
  * @author Juergen Hoeller
  * @since 2.0
@@ -73,7 +72,7 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 
 
 	/**
-	 * Create a new ServletRequestAttributes instance for the given request.
+	 * 为给定请求创建一个新的ServletRequestAttributes实例。
 	 * @param request current HTTP request
 	 */
 	public ServletRequestAttributes(HttpServletRequest request) {
@@ -93,14 +92,14 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 
 
 	/**
-	 * Exposes the native {@link HttpServletRequest} that we're wrapping.
+	 * 公开我们包装的本机{@link HttpServletRequest}。
 	 */
 	public final HttpServletRequest getRequest() {
 		return this.request;
 	}
 
 	/**
-	 * Exposes the native {@link HttpServletResponse} that we're wrapping (if any).
+	 * 公开包装的本机{@link HttpServletResponse}（如果有）。
 	 */
 	@Nullable
 	public final HttpServletResponse getResponse() {
@@ -108,8 +107,8 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 	}
 
 	/**
-	 * Exposes the {@link HttpSession} that we're wrapping.
-	 * @param allowCreate whether to allow creation of a new session if none exists yet
+	 * 公开我们包装的{@link HttpSession}。
+	 * @param allowCreate 如果尚不存在，是否允许创建新会话
 	 */
 	@Nullable
 	protected final HttpSession getSession(boolean allowCreate) {
@@ -126,7 +125,7 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 					throw new IllegalStateException(
 							"No session found and request already completed - cannot create new session!");
 				}
-				else {
+				else { // 通过存储的会话引用进行访问
 					session = this.request.getSession(false);
 					this.session = session;
 				}
@@ -157,6 +156,7 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 				try {
 					Object value = session.getAttribute(name);
 					if (value != null) {
+						// 只要从会话中获取值，就表示该值可能被修改，则需要更新到会话存储中
 						this.sessionAttributesToUpdate.put(name, value);
 					}
 					return value;
@@ -180,6 +180,7 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 		}
 		else {
 			HttpSession session = obtainSession();
+			// 直接更新后就不需要自动更新了
 			this.sessionAttributesToUpdate.remove(name);
 			session.setAttribute(name, value);
 		}
@@ -189,6 +190,7 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 	public void removeAttribute(String name, int scope) {
 		if (scope == SCOPE_REQUEST) {
 			if (isRequestActive()) {
+				// 移除属性还需要移除对应销毁回调
 				removeRequestDestructionCallback(name);
 				this.request.removeAttribute(name);
 			}
@@ -196,9 +198,12 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 		else {
 			HttpSession session = getSession(false);
 			if (session != null) {
+				// 移除的属性就不需要自动更新了
 				this.sessionAttributesToUpdate.remove(name);
 				try {
+					// 移除该属性的回调
 					session.removeAttribute(DESTRUCTION_CALLBACK_NAME_PREFIX + name);
+					// 移除该属性的值
 					session.removeAttribute(name);
 				}
 				catch (IllegalStateException ex) {
@@ -294,11 +299,10 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 	}
 
 	/**
-	 * Determine whether the given value is to be considered as an immutable session
-	 * attribute, that is, doesn't have to be re-set via {@code session.setAttribute}
-	 * since its value cannot meaningfully change internally.
-	 * <p>The default implementation returns {@code true} for {@code String},
-	 * {@code Character}, {@code Boolean} and standard {@code Number} values.
+	 * 确定是否将给定值视为不可变的会话属性，即不能通过{@code session.setAttribute}对其进行重新设置，
+	 * 因为其值无法在内部有意义地更改。
+	 * <p>默认实现对{@code String},{@code Character}, {@code Boolean}和{@code Number}
+	 * 值返回{@code true}。
 	 * @param name the name of the attribute
 	 * @param value the corresponding value to check
 	 * @return {@code true} if the value is to be considered as immutable for the
@@ -310,9 +314,8 @@ public class ServletRequestAttributes extends AbstractRequestAttributes {
 	}
 
 	/**
-	 * Register the given callback as to be executed after session termination.
-	 * <p>Note: The callback object should be serializable in order to survive
-	 * web app restarts.
+	 * 将给定的回调注册为要在会话终止后执行。
+	 * <p>注意：回调对象应可序列化，以便在Web应用程序重启后继续运行。
 	 * @param name the name of the attribute to register the callback for
 	 * @param callback the callback to be executed for destruction
 	 */

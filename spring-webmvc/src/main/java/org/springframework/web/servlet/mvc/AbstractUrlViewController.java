@@ -25,12 +25,13 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Abstract base class for {@code Controllers} that return a view name
- * based on the request URL.
+ * 用于根据请求URL返回视图名称的{@code Controllers}的抽象基类。
  *
- * <p>Provides infrastructure for determining view names from URLs and configurable
- * URL lookup. For information on the latter, see {@code alwaysUseFullPath}
- * and {@code urlDecode} properties.
+ * <p>AbstractUrlViewController提供根据请求URL路径直接转化为逻辑视图名的支持基类，
+ * 即不需要功能处理，直接根据URL计算出逻辑视图名。
+ * 
+ * <p>提供用于从URL和可配置的URL查找确定视图名称的基础结构。 
+ * 有关后者的信息，请参见{@code alwaysUseFullPath}和{@code urlDecode}属性。
  *
  * @author Juergen Hoeller
  * @since 1.2.6

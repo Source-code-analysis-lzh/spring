@@ -25,14 +25,13 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * Annotation which indicates that a method parameter should be bound to a web request header.
+ * 指示方法参数应绑定到Web请求头的注释。
  *
- * <p>Supported for annotated handler methods in Spring MVC and Spring WebFlux.
+ * <p>支持在Spring MVC和Spring WebFlux中带注释的处理器方法。
  *
- * <p>If the method parameter is {@link java.util.Map Map&lt;String, String&gt;},
- * {@link org.springframework.util.MultiValueMap MultiValueMap&lt;String, String&gt;},
- * or {@link org.springframework.http.HttpHeaders HttpHeaders} then the map is
- * populated with all header names and values.
+ * <p>如果方法参数是{@link java.util.Map Map&lt;String, String&gt;}，
+ * {@link org.springframework.util.MultiValueMap MultiValueMap&lt;String, String&gt;}或
+ * {@link org.springframework.http.HttpHeaders HttpHeaders}，则将使用所有标头名称和值填充map。
  *
  * @author Juergen Hoeller
  * @author Sam Brannen

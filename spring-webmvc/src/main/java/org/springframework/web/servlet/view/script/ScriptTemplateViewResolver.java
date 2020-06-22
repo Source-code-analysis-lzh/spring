@@ -19,15 +19,11 @@ package org.springframework.web.servlet.view.script;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * Convenience subclass of {@link UrlBasedViewResolver} that supports
- * {@link ScriptTemplateView} and custom subclasses of it.
+ * {@link UrlBasedViewResolver}的便利子类，它支持{@link ScriptTemplateView}及其自定义子类。
  *
- * <p>The view class for all views created by this resolver can be specified
- * via the {@link #setViewClass(Class)} property.
+ * <p>可以通过{@link #setViewClass(Class)}属性指定此解析器创建的所有视图的视图类。
  *
- * <p><b>Note:</b> When chaining ViewResolvers this resolver will check for the
- * existence of the specified template resources and only return a non-null
- * View object if a template is actually found.
+ * <p>注意：在链ViewResolvers中时，此解析器将检查是否存在指定的模板资源，并且仅在实际找到模板时才返回非null的View对象。
  *
  * @author Sebastien Deleuze
  * @since 4.2

@@ -28,14 +28,13 @@ import org.springframework.util.PropertyPlaceholderHelper.PlaceholderResolver;
 import org.springframework.util.StringValueResolver;
 
 /**
- * {@link PlaceholderConfigurerSupport} subclass that resolves ${...} placeholders against
- * {@link #setLocation local} {@link #setProperties properties} and/or system properties
- * and environment variables.
+ * {@link PlaceholderConfigurerSupport}子类，用于根据{@link #setLocation local} {@link #setProperties properties}
+ * 或系统属性和环境变量解析${...}占位符.
  *
- * <p>{@link PropertyPlaceholderConfigurer} is still appropriate for use when:
+ * <p>{@link PropertyPlaceholderConfigurer}仍然适用于以下情况：
  * <ul>
- * <li>the {@code spring-context} module is not available (i.e., one is using Spring's
- * {@code BeanFactory} API as opposed to {@code ApplicationContext}).
+ * <li>spring {@code spring-context}模块不可用(即，使用Spring的{@code BeanFactory} API，
+ * 而不是{@code ApplicationContext}).
  * <li>existing configuration makes use of the {@link #setSystemPropertiesMode(int) "systemPropertiesMode"}
  * and/or {@link #setSystemPropertiesModeName(String) "systemPropertiesModeName"} properties.
  * Users are encouraged to move away from using these settings, and rather configure property

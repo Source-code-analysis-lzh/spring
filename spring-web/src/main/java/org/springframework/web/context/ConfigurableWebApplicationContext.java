@@ -23,14 +23,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface to be implemented by configurable web application contexts.
- * Supported by {@link ContextLoader} and
- * {@link org.springframework.web.servlet.FrameworkServlet}.
+ * 由可配置的Web应用程序上下文实现的接口。 由{@link ContextLoader}和
+ * {@link org.springframework.web.servlet.FrameworkServlet}支持。
  *
- * <p>Note: The setters of this interface need to be called before an
- * invocation of the {@link #refresh} method inherited from
- * {@link org.springframework.context.ConfigurableApplicationContext}.
- * They do not cause an initialization of the context on their own.
+ * <p>注意：在调用从{@link org.springframework.context.ConfigurableApplicationContext}
+ * 继承的{@link #refresh}方法之前，需要调用此接口的setter。 它们不会自行导致上下文初始化。
  *
  * @author Juergen Hoeller
  * @since 05.12.2003
@@ -41,7 +38,7 @@ import org.springframework.lang.Nullable;
 public interface ConfigurableWebApplicationContext extends WebApplicationContext, ConfigurableApplicationContext {
 
 	/**
-	 * Prefix for ApplicationContext ids that refer to context path and/or servlet name.
+	 * 引用上下文路径和/或Servlet名称的ApplicationContext ID的前缀。
 	 */
 	String APPLICATION_CONTEXT_ID_PREFIX = WebApplicationContext.class.getName() + ":";
 

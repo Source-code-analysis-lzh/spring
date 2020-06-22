@@ -26,7 +26,7 @@ import org.springframework.web.method.annotation.InitBinderDataBinderFactory;
 import org.springframework.web.method.support.InvocableHandlerMethod;
 
 /**
- * Creates a {@code ServletRequestDataBinder}.
+ * 创建一个{@code ServletRequestDataBinder}。
  *
  * @author Rossen Stoyanchev
  * @since 3.1

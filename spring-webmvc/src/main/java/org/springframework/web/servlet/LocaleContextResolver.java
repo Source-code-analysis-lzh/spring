@@ -25,8 +25,7 @@ import org.springframework.context.i18n.LocaleContext;
 import org.springframework.lang.Nullable;
 
 /**
- * Extension of {@link LocaleResolver}, adding support for a rich locale context
- * (potentially including locale and time zone information).
+ * 扩展了{@link LocaleResolver}，增加了对丰富的语言上下文环境的支持（可能包括语言环境和时区信息）。
  *
  * @author Juergen Hoeller
  * @since 4.0
@@ -39,17 +38,14 @@ import org.springframework.lang.Nullable;
 public interface LocaleContextResolver extends LocaleResolver {
 
 	/**
-	 * Resolve the current locale context via the given request.
-	 * <p>This is primarily intended for framework-level processing; consider using
-	 * {@link org.springframework.web.servlet.support.RequestContextUtils} or
-	 * {@link org.springframework.web.servlet.support.RequestContext} for
-	 * application-level access to the current locale and/or time zone.
-	 * <p>The returned context may be a
-	 * {@link org.springframework.context.i18n.TimeZoneAwareLocaleContext},
-	 * containing a locale with associated time zone information.
-	 * Simply apply an {@code instanceof} check and downcast accordingly.
-	 * <p>Custom resolver implementations may also return extra settings in
-	 * the returned context, which again can be accessed through downcasting.
+	 * 通过给定的请求解析当前的语言上下文环境。
+	 * <p>这主要用于框架级别的处理； 考虑使用
+	 * {@link org.springframework.web.servlet.support.RequestContextUtils}或
+	 * {@link org.springframework.web.servlet.support.RequestContext}
+	 * 对当前语言环境和/或时区进行应用程序级访问。
+	 * <p>返回的上下文可以是{@link org.springframework.context.i18n.TimeZoneAwareLocaleContext}，
+	 * 其中包含具有关联的时区信息的语言环境。 只需应用一个{@code instanceof} check并进行相应的强制类型转换。
+	 * <p>自定义解析器实现也可能会在返回的上下文中返回额外的设置，这些设置又可以通过向下转换进行访问。
 	 * @param request the request to resolve the locale context for
 	 * @return the current locale context (never {@code null}
 	 * @see #resolveLocale(HttpServletRequest)
@@ -59,8 +55,7 @@ public interface LocaleContextResolver extends LocaleResolver {
 	LocaleContext resolveLocaleContext(HttpServletRequest request);
 
 	/**
-	 * Set the current locale context to the given one,
-	 * potentially including a locale with associated time zone information.
+	 * 将当前语言环境设置为给定的语言环境，可能包括具有相关时区信息的语言环境。
 	 * @param request the request to be used for locale modification
 	 * @param response the response to be used for locale modification
 	 * @param localeContext the new locale context, or {@code null} to clear the locale

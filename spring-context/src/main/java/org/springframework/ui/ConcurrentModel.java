@@ -25,13 +25,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Implementation of the {@link Model} interface based on a {@link ConcurrentHashMap}
- * for use in concurrent scenarios.
+ * 基于{@link ConcurrentHashMap}的{@link Model}接口的实现，用于并发场景。
  *
- * <p>Exposed to handler methods by Spring WebFlux, typically via a declaration of the
- * {@link Model} interface. There is typically no need to create it within user code.
- * If necessary a handler method can return a regular {@code java.util.Map},
- * likely a {@code java.util.ConcurrentMap}, for a pre-determined model.
+ * <p>通过典型的{@link Model}接口的声明，由Spring WebFlux公开给处理器方法。 
+ * 通常无需在用户代码中创建它。 如有必要，处理程序方法可以为预定模型返回常规的{@code java.util.Map}，
+ * 可能返回{@code java.util.ConcurrentMap}。
  *
  * @author Rossen Stoyanchev
  * @since 5.0

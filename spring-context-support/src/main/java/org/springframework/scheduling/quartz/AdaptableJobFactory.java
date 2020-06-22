@@ -25,8 +25,8 @@ import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * {@link JobFactory} implementation that supports {@link java.lang.Runnable}
- * objects as well as standard Quartz {@link org.quartz.Job} instances.
+ * 支持{@link java.lang.Runnable}对象以及标准Quartz {@link org.quartz.Job}
+ * 实例的{@link JobFactory}实现。
  *
  * <p>Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
  *
@@ -62,9 +62,8 @@ public class AdaptableJobFactory implements JobFactory {
 	}
 
 	/**
-	 * Adapt the given job object to the Quartz Job interface.
-	 * <p>The default implementation supports straight Quartz Jobs
-	 * as well as Runnables, which get wrapped in a DelegatingJob.
+	 * 使给定的job对象适配Quartz Job接口。
+	 * <p>默认实现支持直接的Quartz Jobs和被包装在DelegatingJob中的Runnable。
 	 * @param jobObject the original instance of the specified job class
 	 * @return the adapted Quartz Job instance
 	 * @throws Exception if the given job could not be adapted

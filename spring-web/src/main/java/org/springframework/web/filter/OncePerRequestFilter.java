@@ -31,36 +31,27 @@ import org.springframework.web.context.request.async.WebAsyncUtils;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Filter base class that aims to guarantee a single execution per request
- * dispatch, on any servlet container. It provides a {@link #doFilterInternal}
- * method with HttpServletRequest and HttpServletResponse arguments.
+ * 过滤器基类，旨在确保在任何servlet容器上每个请求单次执行。 
+ * 它提供了带有HttpServletRequest和HttpServletResponse参数的
+ * {@link #doFilterInternal}方法。
  *
- * <p>As of Servlet 3.0, a filter may be invoked as part of a
- * {@link javax.servlet.DispatcherType#REQUEST REQUEST} or
- * {@link javax.servlet.DispatcherType#ASYNC ASYNC} dispatches that occur in
- * separate threads. A filter can be configured in {@code web.xml} whether it
- * should be involved in async dispatches. However, in some cases servlet
- * containers assume different default configuration. Therefore sub-classes can
- * override the method {@link #shouldNotFilterAsyncDispatch()} to declare
- * statically if they should indeed be invoked, <em>once</em>, during both types
- * of dispatches in order to provide thread initialization, logging, security,
- * and so on. This mechanism complements and does not replace the need to
- * configure a filter in {@code web.xml} with dispatcher types.
+ * <p>从Servlet 3.0开始，过滤器可以作为在单独线程中发生的
+ * {@link javax.servlet.DispatcherType#REQUEST REQUEST}或
+ * {@link javax.servlet.DispatcherType#ASYNC ASYNC}调度的一部分来调用。 
+ * 可以在{@code web.xml}中配置是否应将其包含在异步调度中的过滤器。 但是，在某些情况下，
+ * servlet容器采用不同的默认配置。 因此，子类可以重写方法{@link #shouldNotFilterAsyncDispatch()}
+ * 来静态声明是否确实应在两种类型的调度期间调用它们一次，以提供线程初始化，日志记录，安全性等。 
+ * 这种机制补充了并没有取代在{@code web.xml}中使用dispatcher类型配置过滤器的需求。
  *
- * <p>Subclasses may use {@link #isAsyncDispatch(HttpServletRequest)} to
- * determine when a filter is invoked as part of an async dispatch, and use
- * {@link #isAsyncStarted(HttpServletRequest)} to determine when the request
- * has been placed in async mode and therefore the current dispatch won't be
- * the last one for the given request.
+ * <p>子类可以使用{@link #isAsyncDispatch(HttpServletRequest)}
+ * 确定何时将过滤器作为异步调度的一部分来调用，并使用{@link #isAsyncStarted(HttpServletRequest)}
+ * 确定何时将请求置于异步模式，因此，对于给定的请求当前调度将不是最后一个。
  *
- * <p>Yet another dispatch type that also occurs in its own thread is
- * {@link javax.servlet.DispatcherType#ERROR ERROR}. Subclasses can override
- * {@link #shouldNotFilterErrorDispatch()} if they wish to declare statically
- * if they should be invoked <em>once</em> during error dispatches.
+ * <p>然而，在其自己的线程中也发生的另一种{@link javax.servlet.DispatcherType#ERROR ERROR}。 
+ * 如果子类希望在错误分配期间被调用一次，则可以静态声明，则子类可以重写{@link #shouldNotFilterErrorDispatch()}。
  *
- * <p>The {@link #getAlreadyFilteredAttributeName} method determines how to
- * identify that a request is already filtered. The default implementation is
- * based on the configured name of the concrete filter instance.
+ * <p>{@link #getAlreadyFilteredAttributeName}方法确定如何识别请求已被过滤。
+ * 默认实现基于具体过滤器实例的配置名称。
  *
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev

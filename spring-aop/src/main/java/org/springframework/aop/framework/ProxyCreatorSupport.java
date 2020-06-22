@@ -22,8 +22,7 @@ import java.util.List;
 import org.springframework.util.Assert;
 
 /**
- * Base class for proxy factories.
- * Provides convenient access to a configurable AopProxyFactory.
+ * 代理工厂的基类。 提供对可配置AopProxyFactory的便捷访问。
  *
  * @author Juergen Hoeller
  * @since 2.0.3

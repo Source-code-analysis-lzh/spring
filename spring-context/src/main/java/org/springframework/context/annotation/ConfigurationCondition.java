@@ -22,6 +22,14 @@ package org.springframework.context.annotation;
  * based on the configuration phase. For example, a condition that checks if a bean
  * has already been registered might choose to only be evaluated during the
  * {@link ConfigurationPhase#REGISTER_BEAN REGISTER_BEAN} {@link ConfigurationPhase}.
+ * 与{@code @Configuration}一起使用时，可以提供更细粒度控制的{@link Condition}。 
+ * 允许某些{@link Condition Conditions}在匹配时根据配置阶段进行调整。 例如，
+ * 检查bean是否已经注册的条件可能选择仅在{@link ConfigurationPhase#REGISTER_BEAN REGISTER_BEAN} 
+ * {@link ConfigurationPhase}期间进行评估。
+ * 
+ * <p>Condition可以用于判断只有当某个Bean已注册的情况下才进行Configuration，
+ * 大部分情况下直接用Condition就OK了。ConfigurationCondition只是在Condition上面加了一个东西，
+ * 就是什么时候做这个判断，也就是代码里的PARSE_CONFIGURATION和REGISTER_BEAN，具体啥意思参加这两个枚举的注释了。
  *
  * @author Phillip Webb
  * @since 4.0
@@ -30,30 +38,26 @@ package org.springframework.context.annotation;
 public interface ConfigurationCondition extends Condition {
 
 	/**
-	 * Return the {@link ConfigurationPhase} in which the condition should be evaluated.
+	 * 返回要在其中评估条件的{@link ConfigurationPhase}。
 	 */
 	ConfigurationPhase getConfigurationPhase();
 
 
 	/**
-	 * The various configuration phases where the condition could be evaluated.
+	 * 可以评估条件的各种配置阶段。
 	 */
 	enum ConfigurationPhase {
 
 		/**
-		 * The {@link Condition} should be evaluated as a {@code @Configuration}
-		 * class is being parsed.
-		 * <p>If the condition does not match at this point, the {@code @Configuration}
-		 * class will not be added.
+		 * 应该在解析{@code @Configuration}类时评估{@link Condition}。
+		 * <p>如果此时条件不匹配，则不会添加{@code @Configuration}类。
 		 */
 		PARSE_CONFIGURATION,
 
 		/**
-		 * The {@link Condition} should be evaluated when adding a regular
-		 * (non {@code @Configuration}) bean. The condition will not prevent
-		 * {@code @Configuration} classes from being added.
-		 * <p>At the time that the condition is evaluated, all {@code @Configuration}s
-		 * will have been parsed.
+		 * 添加常规（非{@code @Configuration}）bean时，应评估{@link Condition}。 
+		 * 该条件不会阻止添加{@code @Configuration}类。
+		 * <p>在评估条件时，所有{@code @Configuration}都将被解析。
 		 */
 		REGISTER_BEAN
 	}

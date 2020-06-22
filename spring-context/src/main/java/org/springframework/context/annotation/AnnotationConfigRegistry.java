@@ -17,8 +17,7 @@
 package org.springframework.context.annotation;
 
 /**
- * Common interface for annotation config application contexts,
- * defining {@link #register} and {@link #scan} methods.
+ * 注释配置应用程序上下文的通用接口，定义了{@link #register}和{@link #scan}方法。
  *
  * @author Juergen Hoeller
  * @since 4.1
@@ -26,16 +25,15 @@ package org.springframework.context.annotation;
 public interface AnnotationConfigRegistry {
 
 	/**
-	 * Register one or more component classes to be processed.
-	 * <p>Calls to {@code register} are idempotent; adding the same
-	 * component class more than once has no additional effect.
+	 * 注册一个或多个要处理的组件类。
+	 * <p>调用{@code register}是幂等的； 多次添加同一组件类不会产生任何其他影响。
 	 * @param componentClasses one or more component classes,
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
 	void register(Class<?>... componentClasses);
 
 	/**
-	 * Perform a scan within the specified base packages.
+	 * 在指定的基本程序包中执行扫描。
 	 * @param basePackages the packages to scan for component classes
 	 */
 	void scan(String... basePackages);

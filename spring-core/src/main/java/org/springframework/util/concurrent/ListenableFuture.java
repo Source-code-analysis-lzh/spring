@@ -20,9 +20,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
 /**
- * Extend {@link Future} with the capability to accept completion callbacks.
- * If the future has completed when the callback is added, the callback is
- * triggered immediately.
+ * 通过接受完成回调的功能扩展{@link Future}。 如果添加回调时将来已完成，则立即触发回调。
  *
  * <p>Inspired by {@code com.google.common.util.concurrent.ListenableFuture}.
  *

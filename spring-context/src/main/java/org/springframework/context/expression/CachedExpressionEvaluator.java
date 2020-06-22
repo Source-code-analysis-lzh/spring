@@ -27,8 +27,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Shared utility class used to evaluate and cache SpEL expressions that
- * are defined on {@link java.lang.reflect.AnnotatedElement}.
+ * 共享工具类，用于计算和缓存在{@link java.lang.reflect.AnnotatedElement}上定义的SpEL表达式.
  *
  * @author Stephane Nicoll
  * @since 4.2

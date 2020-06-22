@@ -22,9 +22,8 @@ import java.util.Map;
 import org.springframework.lang.Nullable;
 
 /**
- * Java-5-specific interface that defines a holder for model attributes.
- * Primarily designed for adding attributes to the model.
- * Allows for accessing the overall model as a {@code java.util.Map}.
+ * 特定于Java-5的接口，用于定义模型属性的持有者。 主要设计用于向模型添加属性。 
+ * 允许以{@code java.util.Map}的形式访问整个模型。
  *
  * @author Juergen Hoeller
  * @since 2.5.1
@@ -32,19 +31,18 @@ import org.springframework.lang.Nullable;
 public interface Model {
 
 	/**
-	 * Add the supplied attribute under the supplied name.
+	 * 在提供的名称下添加提供的属性。
 	 * @param attributeName the name of the model attribute (never {@code null})
 	 * @param attributeValue the model attribute value (can be {@code null})
 	 */
 	Model addAttribute(String attributeName, @Nullable Object attributeValue);
 
 	/**
-	 * Add the supplied attribute to this {@code Map} using a
-	 * {@link org.springframework.core.Conventions#getVariableName generated name}.
-	 * <p><i>Note: Empty {@link java.util.Collection Collections} are not added to
-	 * the model when using this method because we cannot correctly determine
-	 * the true convention name. View code should check for {@code null} rather
-	 * than for empty collections as is already done by JSTL tags.</i>
+	 * 使用{@link org.springframework.core.Conventions#getVariableName 生成的名称}
+	 * 将提供的属性添加到此{@code Map}。
+	 * <p>注意：使用此方法时，空{@link java.util.Collection Collections}不会添加到模型中，
+	 * 因为我们无法正确确定真实的约定名称。 查看代码应检查是否为{@code null}，
+	 * 而不是像JSTL标记那样检查空集合。
 	 * @param attributeValue the model attribute value (never {@code null})
 	 */
 	Model addAttribute(Object attributeValue);

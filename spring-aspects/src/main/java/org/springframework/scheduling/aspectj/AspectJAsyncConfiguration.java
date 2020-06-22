@@ -25,8 +25,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.config.TaskManagementConfigUtils;
 
 /**
- * {@code @Configuration} class that registers the Spring infrastructure beans necessary
- * to enable AspectJ-based asynchronous method execution.
+ * {@code @Configuration}类，用于注册启用基于AspectJ的异步方法执行所需的Spring基础结构Bean。
  *
  * @author Chris Beams
  * @author Stephane Nicoll

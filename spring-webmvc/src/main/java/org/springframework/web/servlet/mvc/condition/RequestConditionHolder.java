@@ -24,15 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.lang.Nullable;
 
 /**
- * A holder for a {@link RequestCondition} useful when the type of the request
- * condition is not known ahead of time, e.g. custom condition. Since this
- * class is also an implementation of {@code RequestCondition}, effectively it
- * decorates the held request condition and allows it to be combined and compared
- * with other request conditions in a type and null safe way.
+ * {@link RequestCondition}的持有者，在事先不知道请求条件的类型时有用，
+ * 例如 自定义条件。 由于此类也是{@code RequestCondition}的实现，
+ * 因此它有效地装饰了所保留的请求条件，并允许以类型和null安全的方式将其组合并与其它请求条件进行比较。
  *
- * <p>When two {@code RequestConditionHolder} instances are combined or compared
- * with each other, it is expected the conditions they hold are of the same type.
- * If they are not, a {@link ClassCastException} is raised.
+ * <p>当两个{@code RequestConditionHolder}实例组合或相互比较时，
+ * 期望它们所持有的条件是相同的类型。 如果不是，则引发{@link ClassCastException}。
  *
  * @author Rossen Stoyanchev
  * @since 3.1

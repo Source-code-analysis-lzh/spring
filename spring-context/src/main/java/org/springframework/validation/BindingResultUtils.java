@@ -22,7 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Convenience methods for looking up BindingResults in a model Map.
+ * 在模型Map中查找BindingResults的便捷方法.
  *
  * @author Juergen Hoeller
  * @since 2.0
@@ -31,7 +31,7 @@ import org.springframework.util.Assert;
 public abstract class BindingResultUtils {
 
 	/**
-	 * Find the BindingResult for the given name in the given model.
+	 * 在给定的模型中找到给定名称的BindingResult.
 	 * @param model the model to search
 	 * @param name the name of the target object to find a BindingResult for
 	 * @return the BindingResult, or {@code null} if none found
@@ -49,7 +49,7 @@ public abstract class BindingResultUtils {
 	}
 
 	/**
-	 * Find a required BindingResult for the given name in the given model.
+	 * 在给定模型中为给定名称找到所需的BindingResult.
 	 * @param model the model to search
 	 * @param name the name of the target object to find a BindingResult for
 	 * @return the BindingResult (never {@code null})

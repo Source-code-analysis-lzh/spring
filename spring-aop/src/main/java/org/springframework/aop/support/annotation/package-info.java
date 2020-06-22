@@ -1,5 +1,5 @@
 /**
- * Annotation support for AOP pointcuts.
+ * 对AOP切入点的注释支持。
  */
 @NonNullApi
 @NonNullFields

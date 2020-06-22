@@ -28,7 +28,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link WebRequest} adapter for a JSF {@link javax.faces.context.FacesContext}.
+ * JSF {@link javax.faces.context.FacesContext}的{@link WebRequest}适配器。
  *
  * <p>Requires JSF 2.0 or higher, as of Spring 4.0.
  *

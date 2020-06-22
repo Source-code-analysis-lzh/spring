@@ -1,7 +1,5 @@
 /**
- * Annotation support for the Application Context, including JSR-250 "common"
- * annotations, component-scanning, and Java-based metadata for creating
- * Spring-managed objects.
+ * 对应用程序上下文的注释支持，包括JSR-250“公共”注释，组件扫描和用于创建Spring管理对象的基于Java的元数据。
  */
 @NonNullApi
 @NonNullFields

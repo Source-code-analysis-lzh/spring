@@ -38,27 +38,20 @@ import org.springframework.web.context.request.async.WebAsyncManager;
 import org.springframework.web.context.request.async.WebAsyncUtils;
 
 /**
- * Spring web request interceptor that binds a Hibernate {@code Session} to the
- * thread for the entire processing of the request.
+ * Spring Web请求拦截器，它将Hibernate {@code Session}绑定到线程，以完成请求的整个处理。
  *
- * <p>This class is a concrete expression of the "Open Session in View" pattern, which
- * is a pattern that allows for the lazy loading of associations in web views despite
- * the original transactions already being completed.
+ * <p>该类是"Open Session in View"模式的具体表达，该模式允许尽管原始事务已经完成，
+ * 但也可以延迟加载Web视图中的关联。
  *
- * <p>This interceptor makes Hibernate Sessions available via the current thread,
- * which will be autodetected by transaction managers. It is suitable for service layer
- * transactions via {@link org.springframework.orm.hibernate5.HibernateTransactionManager}
- * as well as for non-transactional execution (if configured appropriately).
+ * <p>该拦截器通过当前线程使Hibernate Sessions可用，它将由事务管理器自动检测到。 
+ * 它适用于通过{@link org.springframework.orm.hibernate5.HibernateTransactionManager}
+ * 进行的服务层事务以及非事务执行（如果配置正确）。
  *
- * <p>In contrast to {@link OpenSessionInViewFilter}, this interceptor is configured
- * in a Spring application context and can thus take advantage of bean wiring.
+ * <p>与{@link OpenSessionInViewFilter}相比，此拦截器是在Spring应用程序上下文中配置的，
+ * 因此可以利用Bean自动连接。
  *
- * <p><b>WARNING:</b> Applying this interceptor to existing logic can cause issues
- * that have not appeared before, through the use of a single Hibernate
- * {@code Session} for the processing of an entire request. In particular, the
- * reassociation of persistent objects with a Hibernate {@code Session} has to
- * occur at the very beginning of request processing, to avoid clashes with already
- * loaded instances of the same objects.
+ * <p>警告：通过使用单个休Hibernate {@code Session}处理整个请求，将此拦截器应用于现有逻辑可能会导致以前未出现的问题。
+ * 特别是，持久对象与Hibernate {@code Session}的重新关联必须在请求处理的最开始就进行，以避免与已经加载的相同对象实例发生冲突。
  *
  * @author Juergen Hoeller
  * @since 4.2

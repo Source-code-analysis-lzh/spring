@@ -32,12 +32,11 @@ import org.springframework.util.Assert;
 import org.springframework.web.context.request.ServletWebRequest;
 
 /**
- * A Servlet 3.0 implementation of {@link AsyncWebRequest}.
+ * {@link AsyncWebRequest}的Servlet 3.0实现。
  *
- * <p>The servlet and all filters involved in an async request must have async
- * support enabled using the Servlet API or by adding an
- * <code>&ltasync-supported&gttrue&lt/async-supported&gt</code> element to servlet and filter
- * declarations in {@code web.xml}.
+ * <p>包含在异步请求中的servlet和所有过滤器必须开启异步，可以通过Servlet API开启或者通过在
+ * {@code web.xml}中的Servlet和过滤器声明中添加<code>&ltasync-supported&gttrue&lt/async-supported&gt</code>
+ * 元素，来启用异步请求。
  *
  * @author Rossen Stoyanchev
  * @since 3.2
@@ -68,8 +67,7 @@ public class StandardServletAsyncWebRequest extends ServletWebRequest implements
 
 
 	/**
-	 * In Servlet 3 async processing, the timeout period begins after the
-	 * container processing thread has exited.
+	 * 在Servlet 3异步处理中，超时时间段在容器处理线程退出后开始。
 	 */
 	@Override
 	public void setTimeout(Long timeout) {
@@ -98,9 +96,8 @@ public class StandardServletAsyncWebRequest extends ServletWebRequest implements
 	}
 
 	/**
-	 * Whether async request processing has completed.
-	 * <p>It is important to avoid use of request and response objects after async
-	 * processing has completed. Servlet containers often re-use them.
+	 * 异步请求处理是否已完成。
+	 * <p>重要的是要避免在异步处理完成后使用请求和响应对象。 Servlet容器经常重复使用它们。
 	 */
 	@Override
 	public boolean isAsyncComplete() {
@@ -116,12 +113,13 @@ public class StandardServletAsyncWebRequest extends ServletWebRequest implements
 				"filter declarations in web.xml.");
 		Assert.state(!isAsyncComplete(), "Async processing has already completed");
 
-		if (isAsyncStarted()) {
+		if (isAsyncStarted()) { // 如果已经开启，则直接返回
 			return;
 		}
+		// 决定this.asyncContext.dispatch()转发uri为最近一次调度uri
 		this.asyncContext = getRequest().startAsync(getRequest(), getResponse());
 		this.asyncContext.addListener(this);
-		if (this.timeout != null) {
+		if (this.timeout != null) { // 设置异步超时时间
 			this.asyncContext.setTimeout(this.timeout);
 		}
 	}
@@ -129,7 +127,7 @@ public class StandardServletAsyncWebRequest extends ServletWebRequest implements
 	@Override
 	public void dispatch() {
 		Assert.notNull(this.asyncContext, "Cannot dispatch without an AsyncContext");
-		this.asyncContext.dispatch();
+		this.asyncContext.dispatch(); // 重新让容器调度
 	}
 
 

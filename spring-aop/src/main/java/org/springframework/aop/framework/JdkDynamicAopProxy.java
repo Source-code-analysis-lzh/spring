@@ -36,16 +36,14 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * JDK-based {@link AopProxy} implementation for the Spring AOP framework,
- * based on JDK {@link java.lang.reflect.Proxy dynamic proxies}.
+ * 基于JDK {@link java.lang.reflect.Proxy 动态代理}来实现 Spring AOP框架的
+ * 基于JDK的{@link AopProxy}类。
  *
- * <p>Creates a dynamic proxy, implementing the interfaces exposed by
- * the AopProxy. Dynamic proxies <i>cannot</i> be used to proxy methods
- * defined in classes, rather than interfaces.
+ * <p>创建一个动态代理，实现AopProxy公开的接口。 
+ * 动态代理<i>不能</i>用于代理类而不是接口中定义的方法。
  *
- * <p>Objects of this type should be obtained through proxy factories,
- * configured by an {@link AdvisedSupport} class. This class is internal
- * to Spring's AOP framework and need not be used directly by client code.
+ * <p>这种类型的对象应通过由{@link AdvisedSupport}类配置的代理工厂获得。 
+ * 此类在Spring的AOP框架内部，并且不需要客户端代码直接使用。
  *
  * <p>Proxies created using this class will be thread-safe if the
  * underlying (target) class is thread-safe.

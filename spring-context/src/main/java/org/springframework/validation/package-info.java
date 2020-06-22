@@ -1,6 +1,5 @@
 /**
- * Provides data binding and validation functionality,
- * for usage in business and/or UI layers.
+ * 提供数据绑定和验证功能，以用于业务或UI层.
  */
 @NonNullApi
 @NonNullFields

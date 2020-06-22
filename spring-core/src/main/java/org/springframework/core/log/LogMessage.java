@@ -22,10 +22,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A simple log message type for use with Commons Logging, allowing
- * for convenient lazy resolution of a given {@link Supplier} instance
- * (typically bound to a Java 8 lambda expression) or a printf-style
- * format string ({@link String#format}) in its {@link #toString()}.
+ * 与Commons Logging一起使用的一种简单的日志消息类型，
+ * 允许方便地对给定的{@link Supplier}实例（通常绑定到Java 8 lambda表达式）
+ * 或printf样式的格式字符串（{@link String＃format}）进行延迟解析。)
+ * 在其{@link #toString（）}中。
  *
  * @author Juergen Hoeller
  * @since 5.2

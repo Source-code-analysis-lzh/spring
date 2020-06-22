@@ -24,10 +24,9 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 
 /**
- * An extension of {@link SimpleUrlHandlerMapping} that is also a
- * {@link SmartLifecycle} container and propagates start and stop calls to any
- * handlers that implement {@link Lifecycle}. The handlers are typically expected
- * to be {@code WebSocketHttpRequestHandler} or {@code SockJsHttpRequestHandler}.
+ * {@link SimpleUrlHandlerMapping}的扩展，它也是{@link SmartLifecycle}容器，
+ * 并将启动和停止调用传播到实现{@link Lifecycle}的任何处理器中。 
+ * 这些处理器通常应为{@code WebSocketHttpRequestHandler}或{@code SockJsHttpRequestHandler}。
  *
  * @author Rossen Stoyanchev
  * @since 4.2

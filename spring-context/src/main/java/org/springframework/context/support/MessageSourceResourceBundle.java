@@ -26,9 +26,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Helper class that allows for accessing a Spring
- * {@link org.springframework.context.MessageSource} as a {@link java.util.ResourceBundle}.
- * Used for example to expose a Spring MessageSource to JSTL web views.
+ * 允许以{@link java.util.ResourceBundle}形式访问Spring
+ * {@link org.springframework.context.MessageSource}的Helper类.
+ * 例如，用于将Spring MessageSource公开给JSTL Web视图.
  *
  * @author Juergen Hoeller
  * @since 27.02.2003

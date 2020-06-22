@@ -34,8 +34,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * {@link AnnotationMetadata} implementation that uses standard reflection
- * to introspect a given {@link Class}.
+ * 使用标准反射对给定{@link Class}进行内省的{@link AnnotationMetadata}实现。
  *
  * @author Juergen Hoeller
  * @author Mark Fisher

@@ -68,13 +68,14 @@ public class HandlerMethodReturnValueHandlerComposite implements HandlerMethodRe
 	}
 
 	/**
-	 * Iterate over registered {@link HandlerMethodReturnValueHandler HandlerMethodReturnValueHandlers} and invoke the one that supports it.
-	 * @throws IllegalStateException if no suitable {@link HandlerMethodReturnValueHandler} is found.
+	 * 遍历已注册的{@link HandlerMethodReturnValueHandler HandlerMethodReturnValueHandlers}并调用支持它的那个。 
+	 * 如果找不到合适的{@link HandlerMethodReturnValueHandler}，则@throws IllegalStateException。
 	 */
 	@Override
 	public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
 			ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
-
+		
+		// 选择支持的返回值处理器
 		HandlerMethodReturnValueHandler handler = selectHandler(returnValue, returnType);
 		if (handler == null) {
 			throw new IllegalArgumentException("Unknown return value type: " + returnType.getParameterType().getName());
@@ -86,6 +87,7 @@ public class HandlerMethodReturnValueHandlerComposite implements HandlerMethodRe
 	private HandlerMethodReturnValueHandler selectHandler(@Nullable Object value, MethodParameter returnType) {
 		boolean isAsyncValue = isAsyncReturnValue(value, returnType);
 		for (HandlerMethodReturnValueHandler handler : this.returnValueHandlers) {
+			// 对于异步返回值，则需要异步返回值处理器
 			if (isAsyncValue && !(handler instanceof AsyncHandlerMethodReturnValueHandler)) {
 				continue;
 			}
@@ -96,6 +98,7 @@ public class HandlerMethodReturnValueHandlerComposite implements HandlerMethodRe
 		return null;
 	}
 
+	// 判断是否是异步返回值
 	private boolean isAsyncReturnValue(@Nullable Object value, MethodParameter returnType) {
 		for (HandlerMethodReturnValueHandler handler : this.returnValueHandlers) {
 			if (handler instanceof AsyncHandlerMethodReturnValueHandler &&

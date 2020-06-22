@@ -21,16 +21,12 @@ import java.util.Locale;
 import org.springframework.web.servlet.view.AbstractTemplateViewResolver;
 
 /**
- * Convenience subclass of @link AbstractTemplateViewResolver} that supports
- * {@link GroovyMarkupView} (i.e. Groovy XML/XHTML markup templates) and
- * custom subclasses of it.
+ * {@link AbstractTemplateViewResolver}的便利子类，它支持{@link GroovyMarkupView}
+ * （即Groovy XML/XHTML标记模板）及其自定义子类。
  *
- * <p>The view class for all views created by this resolver can be specified
- * via the {@link #setViewClass(Class)} property.
+ * <p>可以通过{@link #setViewClass(Class)}属性指定此解析器创建的所有视图的视图类。
  *
- * <p><b>Note:</b> When chaining ViewResolvers this resolver will check for the
- * existence of the specified template resources and only return a non-null
- * View object if a template is actually found.
+ * <p>注意：在ViewResolvers链中，此解析器将检查是否存在指定的模板资源，并且仅在实际找到模板时才返回非null的View对象。
  *
  * @author Brian Clozel
  * @since 4.1

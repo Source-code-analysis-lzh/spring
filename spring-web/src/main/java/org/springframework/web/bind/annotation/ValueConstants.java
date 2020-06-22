@@ -17,7 +17,7 @@
 package org.springframework.web.bind.annotation;
 
 /**
- * Common value constants shared between bind annotations.
+ * 绑定注释之间共享的公共值常量。
  *
  * @author Juergen Hoeller
  * @since 3.0.1
@@ -25,10 +25,8 @@ package org.springframework.web.bind.annotation;
 public interface ValueConstants {
 
 	/**
-	 * Constant defining a value for no default - as a replacement for
-	 * {@code null} which we cannot use in annotation attributes.
-	 * <p>This is an artificial arrangement of 16 unicode characters,
-	 * with its sole purpose being to never match user-declared values.
+	 * 常量，用于定义没有默认值的值-替代我们不能在注释属性中使用的{@code null}。
+	 * <p>这是16个unicode字符的人工排列，其唯一目的是从不与用户声明的值匹配。
 	 * @see RequestParam#defaultValue()
 	 * @see RequestHeader#defaultValue()
 	 * @see CookieValue#defaultValue()

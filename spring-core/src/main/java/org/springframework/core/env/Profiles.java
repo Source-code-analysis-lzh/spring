@@ -19,11 +19,9 @@ package org.springframework.core.env;
 import java.util.function.Predicate;
 
 /**
- * Profile predicate that may be {@linkplain Environment#acceptsProfiles(Profiles)
- * accepted} by an {@link Environment}.
+ * {@link Environment}的{@linkplain Environment#acceptsProfiles(Profiles) 接受}的Profile谓词.
  *
- * <p>May be implemented directly or, more usually, created using the
- * {@link #of(String...) of(...)} factory method.
+ * <p>可以直接实现，或更通常地，可以使用{@link #of(String...) of(...)}工厂方法创建.
  *
  * @author Phillip Webb
  * @since 5.1
@@ -32,8 +30,7 @@ import java.util.function.Predicate;
 public interface Profiles {
 
 	/**
-	 * Test if this {@code Profiles} instance <em>matches</em> against the given
-	 * active profiles predicate.
+	 * 测试此{@code Profiles}实例是否与给定的活动Profile谓词匹配.
 	 * @param activeProfiles predicate that tests whether a given profile is
 	 * currently active
 	 */
@@ -41,15 +38,11 @@ public interface Profiles {
 
 
 	/**
-	 * Create a new {@link Profiles} instance that checks for matches against
-	 * the given <em>profile strings</em>.
-	 * <p>The returned instance will {@linkplain Profiles#matches(Predicate) match}
-	 * if any one of the given profile strings matches.
-	 * <p>A profile string may contain a simple profile name (for example
-	 * {@code "production"}) or a profile expression. A profile expression allows
-	 * for more complicated profile logic to be expressed, for example
-	 * {@code "production & cloud"}.
-	 * <p>The following operators are supported in profile expressions:
+	 * 创建一个新的{@link Profiles}实例，以检查是否与给定的<em>profile strings</em>字符串匹配.
+	 * <p>如果任何给定的配置文件字符串匹配，则返回的实例将{@linkplain Profiles#matches(Predicate) 匹配}.
+	 * <p>配置文件字符串可以包含简单的profile文件名称（例如{@code "production"}）或profile表达式.
+	 * profile表达式允许表达更复杂的配置文件逻辑，例如{@code "production & cloud"}.
+	 * <p>profile文件表达式中支持以下运算符：
 	 * <ul>
 	 * <li>{@code !} - A logical <em>not</em> of the profile</li>
 	 * <li>{@code &} - A logical <em>and</em> of the profiles</li>

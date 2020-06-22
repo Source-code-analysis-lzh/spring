@@ -22,9 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerMapping;
 
 /**
- * Additional interface that a {@link HandlerMapping} can implement to expose
- * a request matching API aligned with its internal request matching
- * configuration and implementation.
+ * {@link HandlerMapping}可以实现的附加接口，提供请求匹配配置和API。
  *
  * @author Rossen Stoyanchev
  * @since 4.3.1
@@ -33,7 +31,7 @@ import org.springframework.web.servlet.HandlerMapping;
 public interface MatchableHandlerMapping extends HandlerMapping {
 
 	/**
-	 * Determine whether the given request matches the request criteria.
+	 * 确定给定的请求是否符合请求条件。
 	 * @param request the current request
 	 * @param pattern the pattern to match
 	 * @return the result from request matching, or {@code null} if none

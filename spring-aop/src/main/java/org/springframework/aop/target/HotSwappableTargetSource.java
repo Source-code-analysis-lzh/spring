@@ -22,15 +22,11 @@ import org.springframework.aop.TargetSource;
 import org.springframework.util.Assert;
 
 /**
- * {@link org.springframework.aop.TargetSource} implementation that
- * caches a local target object, but allows the target to be swapped
- * while the application is running.
+ * {@link org.springframework.aop.TargetSource}实现缓存本地目标对象，但允许在应用程序运行时交换目标。
  *
- * <p>If configuring an object of this class in a Spring IoC container,
- * use constructor injection.
+ * <p>如果在Spring IoC容器中配置此类的对象，请使用构造函数注入。
  *
- * <p>This TargetSource is serializable if the target is at the time
- * of serialization.
+ * <p>如果目标可序列化时，则该TargetSource是可序列化的。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

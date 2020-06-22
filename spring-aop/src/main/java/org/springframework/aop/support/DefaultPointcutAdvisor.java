@@ -24,11 +24,10 @@ import org.springframework.aop.Pointcut;
 import org.springframework.lang.Nullable;
 
 /**
- * Convenient Pointcut-driven Advisor implementation.
+ * 便捷的Pointcut驱动的Advisor实现。
  *
- * <p>This is the most commonly used Advisor implementation. It can be used
- * with any pointcut and advice type, except for introductions. There is
- * normally no need to subclass this class, or to implement custom Advisors.
+ * <p>这是最常用的Advisor实施。 除引入外，它可以与任何切入点和advice类型一起使用。 
+ * 通常无需继承此类或实现自定义Advisor。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

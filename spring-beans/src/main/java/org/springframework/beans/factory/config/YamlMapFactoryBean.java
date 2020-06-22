@@ -24,16 +24,16 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * Factory for a {@code Map} that reads from a YAML source, preserving the
- * YAML-declared value types and their structure.
+ * 从YAML源读取的{@code Map}的工厂，保留了YAML声明的值类型及其结构。
  *
- * <p>YAML is a nice human-readable format for configuration, and it has some
- * useful hierarchical properties. It's more or less a superset of JSON, so it
- * has a lot of similar features.
+ * <p>YAML是一种很好的人类可读的配置格式，它具有一些有用的层次结构属性。 
+ * 它或多或少是JSON的超集，因此它具有许多相似的功能。
  *
  * <p>If multiple resources are provided the later ones will override entries in
  * the earlier ones hierarchically; that is, all entries with the same nested key
  * of type {@code Map} at any depth are merged. For example:
+ * <p>如果提供了多个资源，则后面的资源将分层覆盖前面的资源； 
+ * 也就是说，在任何深度都将合并具有{@code Map}类型的相同嵌套键的所有条目。 例如：
  *
  * <pre class="code">
  * foo:

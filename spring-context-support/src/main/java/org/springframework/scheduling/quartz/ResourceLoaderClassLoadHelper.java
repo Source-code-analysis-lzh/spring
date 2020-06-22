@@ -32,9 +32,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Wrapper that adapts from the Quartz {@link ClassLoadHelper} interface
- * onto Spring's {@link ResourceLoader} interface. Used by default when
- * the SchedulerFactoryBean runs in a Spring ApplicationContext.
+ * 从Quartz {@link ClassLoadHelper}接口适配为Spring的{@link ResourceLoader}接口的包装器。 
+ * 当SchedulerFactoryBean在Spring ApplicationContext中运行时，默认情况下使用。
  *
  * @author Juergen Hoeller
  * @since 2.5.5

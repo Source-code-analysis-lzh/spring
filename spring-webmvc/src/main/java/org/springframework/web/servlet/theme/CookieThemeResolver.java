@@ -28,12 +28,11 @@ import org.springframework.web.util.CookieGenerator;
 import org.springframework.web.util.WebUtils;
 
 /**
- * {@link ThemeResolver} implementation that uses a cookie sent back to the user
- * in case of a custom setting, with a fallback to the default theme.
  * This is particularly useful for stateless applications without user sessions.
+ * {@link ThemeResolver}实现，该实现使用用户的cookie进行自定义设置，
+ * 并回退到默认主题。 这对于没有用户会话的无状态应用程序特别有用。
  *
- * <p>Custom controllers can thus override the user's theme by calling
- * {@code setThemeName}, e.g. responding to a certain theme change request.
+ * <p>因此，自定义控制器可以通过调用{@code setThemeName}例如， 响应某个主题更改请求。
  *
  * @author Jean-Pierre Pawlak
  * @author Juergen Hoeller

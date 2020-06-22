@@ -17,21 +17,14 @@
 package org.springframework.validation;
 
 /**
- * A validator for application-specific objects.
+ * 应用程序中指定对象的验证器.
  *
- * <p>This interface is totally divorced from any infrastructure
- * or context; that is to say it is not coupled to validating
- * only objects in the web tier, the data-access tier, or the
- * whatever-tier. As such it is amenable to being used in any layer
- * of an application, and supports the encapsulation of validation
- * logic as a first-class citizen in its own right.
+ * <p>此接口与任何基础结构或上下文完全脱离；也就是说，它不仅验证Web层，还能验证数据访问层或任何层中的对象.
+ * 因此，它可以在应用程序的任何层中使用，并支持将验证逻辑本身封装为一等公民.
  *
- * <p>Find below a simple but complete {@code Validator}
- * implementation, which validates that the various {@link String}
- * properties of a {@code UserLogin} instance are not empty
- * (that is they are not {@code null} and do not consist
- * wholly of whitespace), and that any password that is present is
- * at least {@code 'MINIMUM_PASSWORD_LENGTH'} characters in length.
+ * <p>下面是一个简单但完整的{@code Validator}实现，
+ * 该实现验证{@code UserLogin}实例的各种{@link String}属性不为空（即它们不为{@code null}且不完全由空格组成），
+ * 并且存在的任何密码至少为{@code 'MINIMUM_PASSWORD_LENGTH'}长度的字符串.
  *
  * <pre class="code"> public class UserLoginValidator implements Validator {
  *
@@ -66,8 +59,7 @@ package org.springframework.validation;
 public interface Validator {
 
 	/**
-	 * Can this {@link Validator} {@link #validate(Object, Errors) validate}
-	 * instances of the supplied {@code clazz}?
+	 * 该{@link Validator}可以验证的{@code clazz}的实例.
 	 * <p>This method is <i>typically</i> implemented like so:
 	 * <pre class="code">return Foo.class.isAssignableFrom(clazz);</pre>
 	 * (Where {@code Foo} is the class (or superclass) of the actual
@@ -81,9 +73,7 @@ public interface Validator {
 	boolean supports(Class<?> clazz);
 
 	/**
-	 * Validate the supplied {@code target} object, which must be
-	 * of a {@link Class} for which the {@link #supports(Class)} method
-	 * typically has (or would) return {@code true}.
+	 * 验证提供的{@code target}对象，该对象必须是{@link #supports(Class)}方法返回{@code true}的{@link Class}.
 	 * <p>The supplied {@link Errors errors} instance can be used to report
 	 * any resulting validation errors.
 	 * @param target the object that is to be validated

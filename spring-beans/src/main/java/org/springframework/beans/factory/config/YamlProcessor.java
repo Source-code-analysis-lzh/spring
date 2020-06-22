@@ -39,7 +39,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Base class for YAML factories.
+ * YAML工厂的基类。
  *
  * <p>Requires SnakeYAML 1.18 or higher, as of Spring Framework 5.0.6.
  *

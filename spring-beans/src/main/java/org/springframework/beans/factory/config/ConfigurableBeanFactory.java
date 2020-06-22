@@ -31,16 +31,12 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Configuration interface to be implemented by most bean factories. Provides
- * facilities to configure a bean factory, in addition to the bean factory
- * client methods in the {@link org.springframework.beans.factory.BeanFactory}
- * interface.
+ * 大多数bean工厂都将实现配置接口. 除了{@link org.springframework.beans.factory.BeanFactory}
+ * 接口中的bean工厂客户端方法之外，还提供了配置bean工厂的功能.
  *
- * <p>This bean factory interface is not meant to be used in normal application
- * code: Stick to {@link org.springframework.beans.factory.BeanFactory} or
- * {@link org.springframework.beans.factory.ListableBeanFactory} for typical
- * needs. This extended interface is just meant to allow for framework-internal
- * plug'n'play and for special access to bean factory configuration methods.
+ * <p>此bean工厂接口并不打算在常规应用程序代码中使用：坚持{@link org.springframework.beans.factory.BeanFactory}
+ * 或{@link org.springframework.beans.factory.ListableBeanFactory}以满足典型需求.
+ * 此扩展接口仅用于允许在框架内部进行即插即用，并允许对bean工厂配置方法的特殊访问.
  *
  * @author Juergen Hoeller
  * @since 03.11.2003
@@ -140,15 +136,14 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	void setBeanExpressionResolver(@Nullable BeanExpressionResolver resolver);
 
 	/**
-	 * Return the resolution strategy for expressions in bean definition values.
+	 * 返回bean定义值中表达式的解析策略。
 	 * @since 3.0
 	 */
 	@Nullable
 	BeanExpressionResolver getBeanExpressionResolver();
 
 	/**
-	 * Specify a Spring 3.0 ConversionService to use for converting
-	 * property values, as an alternative to JavaBeans PropertyEditors.
+	 * 指定一个Spring 3.0 ConversionService来转换属性值，以替代JavaBeans PropertyEditor.
 	 * @since 3.0
 	 */
 	void setConversionService(@Nullable ConversionService conversionService);
@@ -161,22 +156,18 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	ConversionService getConversionService();
 
 	/**
-	 * Add a PropertyEditorRegistrar to be applied to all bean creation processes.
-	 * <p>Such a registrar creates new PropertyEditor instances and registers them
-	 * on the given registry, fresh for each bean creation attempt. This avoids
-	 * the need for synchronization on custom editors; hence, it is generally
-	 * preferable to use this method instead of {@link #registerCustomEditor}.
+	 * 添加一个PropertyEditorRegistrar以应用于所有bean创建过程.
+	 * <p>这样的注册商创建新的PropertyEditor实例，并在给定的注册表中注册它们，这样对于每次创建bean的尝试都是新的.
+	 * 这样可以避免在自定义编辑器上进行同步；
+	 * 因此，通常最好使用此方法来代替{@link #registerCustomEditor}.
 	 * @param registrar the PropertyEditorRegistrar to register
 	 */
 	void addPropertyEditorRegistrar(PropertyEditorRegistrar registrar);
 
 	/**
-	 * Register the given custom property editor for all properties of the
-	 * given type. To be invoked during factory configuration.
-	 * <p>Note that this method will register a shared custom editor instance;
-	 * access to that instance will be synchronized for thread-safety. It is
-	 * generally preferable to use {@link #addPropertyEditorRegistrar} instead
-	 * of this method, to avoid for the need for synchronization on custom editors.
+	 * 为给定类型的所有属性注册给定的定制属性编辑器. 在工厂配置期间调用.
+	 * <p>注意，此方法将注册一个共享的自定义编辑器实例. 为了线程安全，将同步对该实例的访问.
+	 * 通常最好使用{@link #addPropertyEditorRegistrar}代替此方法，以避免需要在定制编辑器上进行同步.
 	 * @param requiredType type of the property
 	 * @param propertyEditorClass the {@link PropertyEditor} class to register
 	 */
@@ -190,10 +181,8 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	void copyRegisteredEditorsTo(PropertyEditorRegistry registry);
 
 	/**
-	 * Set a custom type converter that this BeanFactory should use for converting
-	 * bean property values, constructor argument values, etc.
-	 * <p>This will override the default PropertyEditor mechanism and hence make
-	 * any custom editors or custom editor registrars irrelevant.
+	 * 设置一个自定义类型转换器，此BeanFactory应使用该转换器来转换Bean属性值，构造函数参数值等.
+	 * <p>这将覆盖默认的PropertyEditor机制，因此使任何自定义编辑器或自定义编辑器注册器都不相关.
 	 * @since 2.5
 	 * @see #addPropertyEditorRegistrar
 	 * @see #registerCustomEditor
@@ -201,10 +190,8 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	void setTypeConverter(TypeConverter typeConverter);
 
 	/**
-	 * Obtain a type converter as used by this BeanFactory. This may be a fresh
-	 * instance for each call, since TypeConverters are usually <i>not</i> thread-safe.
-	 * <p>If the default PropertyEditor mechanism is active, the returned
-	 * TypeConverter will be aware of all custom editors that have been registered.
+	 * 获取此BeanFactory使用的类型转换器. 每个调用可能是一个新实例，因为TypeConverters通常不是线程安全的.
+	 * <p>如果默认的PropertyEditor机制处于活动状态，则返回的TypeConverter将知道所有已注册的自定义编辑器.
 	 * @since 2.5
 	 */
 	TypeConverter getTypeConverter();

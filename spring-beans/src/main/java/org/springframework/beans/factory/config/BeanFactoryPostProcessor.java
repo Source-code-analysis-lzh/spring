@@ -19,39 +19,26 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeansException;
 
 /**
- * Factory hook that allows for custom modification of an application context's
- * bean definitions, adapting the bean property values of the context's underlying
- * bean factory.
+ * 工厂钩子允许对应用程序上下文的bean定义进行自定义修改，以适应上下文底层bean工厂的bean属性值.
  *
- * <p>Useful for custom config files targeted at system administrators that
- * override bean properties configured in the application context. See
- * {@link PropertyResourceConfigurer} and its concrete implementations for
- * out-of-the-box solutions that address such configuration needs.
+ * <p>对于针对系统管理员的自定义配置文件很有用，这些文件覆盖了在应用程序上下文中配置的Bean属性.
+ * 请参阅{@link PropertyResourceConfigurer}及其具体实现，以获取可解决此类配置需求的即用型解决方案.
  *
- * <p>A {@code BeanFactoryPostProcessor} may interact with and modify bean
- * definitions, but never bean instances. Doing so may cause premature bean
- * instantiation, violating the container and causing unintended side-effects.
- * If bean instance interaction is required, consider implementing
- * {@link BeanPostProcessor} instead.
+ * <p>{@code BeanFactoryPostProcessor}可以与Bean定义进行交互并对其进行修改，
+ * 但不能与Bean实例进行交互. 这样做可能会导致bean实例化过早，从而违反了容器并造成了意外的副作用.
+ * 如果需要与bean实例交互，请考虑实现{@link BeanPostProcessor}.
  *
- * <h3>Registration</h3>
- * <p>An {@code ApplicationContext} auto-detects {@code BeanFactoryPostProcessor}
- * beans in its bean definitions and applies them before any other beans get created.
- * A {@code BeanFactoryPostProcessor} may also be registered programmatically
- * with a {@code ConfigurableApplicationContext}.
+ * <h3>注册</h3>
+ * <p>{@code ApplicationContext}在其Bean定义中自动检测{@code BeanFactoryPostProcessor} Bean，
+ * 并在创建任何其他Bean之前应用它们.
+ * {@code BeanFactoryPostProcessor}也可以通过编程方式注册到{@code ConfigurableApplicationContext}.
  *
- * <h3>Ordering</h3>
- * <p>{@code BeanFactoryPostProcessor} beans that are autodetected in an
- * {@code ApplicationContext} will be ordered according to
- * {@link org.springframework.core.PriorityOrdered} and
- * {@link org.springframework.core.Ordered} semantics. In contrast,
- * {@code BeanFactoryPostProcessor} beans that are registered programmatically
- * with a {@code ConfigurableApplicationContext} will be applied in the order of
- * registration; any ordering semantics expressed through implementing the
- * {@code PriorityOrdered} or {@code Ordered} interface will be ignored for
- * programmatically registered post-processors. Furthermore, the
- * {@link org.springframework.core.annotation.Order @Order} annotation is not
- * taken into account for {@code BeanFactoryPostProcessor} beans.
+ * <h3>排序</h3>
+ * <p>在{@code ApplicationContext}中自动检测到的{@code BeanFactoryPostProcessor} Bean
+ * 将根据{@link org.springframework.core.PriorityOrdered}和{@link org.springframework.core.Ordered}语义进行排序.
+ * 相反，通过{@code ConfigurableApplicationContext}以编程方式注册的{@code BeanFactoryPostProcessor} Bean将按注册顺序应用；
+ * 以编程方式注册的后处理器将忽略通过实现{@code PriorityOrdered}或{@code Ordered}接口表示的任何排序语义.
+ * 此外，{@code BeanFactoryPostProcessor} bean不考虑{@link org.springframework.core.annotation.Order @Order}批注.
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
@@ -63,10 +50,8 @@ import org.springframework.beans.BeansException;
 public interface BeanFactoryPostProcessor {
 
 	/**
-	 * Modify the application context's internal bean factory after its standard
-	 * initialization. All bean definitions will have been loaded, but no beans
-	 * will have been instantiated yet. This allows for overriding or adding
-	 * properties even to eager-initializing beans.
+	 * bean工厂初始化后，修改应用程序上下文的内部bean工厂.
+	 * 所有bean定义都将被加载，但尚未实例化任何bean. 这甚至可以覆盖或添加属性，甚至可以用于早期初始化bean.
 	 * @param beanFactory the bean factory used by the application context
 	 * @throws org.springframework.beans.BeansException in case of errors
 	 */

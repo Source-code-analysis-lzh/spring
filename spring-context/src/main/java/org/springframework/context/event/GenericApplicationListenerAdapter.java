@@ -28,8 +28,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ConcurrentReferenceHashMap;
 
 /**
- * {@link GenericApplicationListener} adapter that determines supported event types
- * through introspecting the generically declared type of the target listener.
+ * {@link GenericApplicationListener}适配器，它可以通过内省目标侦听器的
+ * 泛型声明的类型来确定受支持的事件类型.
  *
  * @author Juergen Hoeller
  * @author Stephane Nicoll

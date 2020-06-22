@@ -1,3 +1,4 @@
+// 为该项目配置依赖项配置。
 configurations {
 	asciidoctorExt
 }
@@ -109,21 +110,24 @@ dokka {
 	}
 }
 
+// 下载任务
 task downloadResources(type: Download) {
 	def version = "0.2.2.RELEASE"
 	src "https://repo.spring.io/release/io/spring/docresources/" +
 			"spring-doc-resources/$version/spring-doc-resources-${version}.zip"
 	dest project.file("$buildDir/docs/spring-doc-resources.zip")
-	onlyIfModified true
+	onlyIfModified true // 服务端资源修改则重新下载
 	useETag "all"
 }
 
+// 解压zip文件
 task extractDocResources(type: Copy, dependsOn: downloadResources) {
 	from project.zipTree(downloadResources.dest);
 	into "$buildDir/docs/spring-docs-resources/"
 }
 
 asciidoctorj {
+	// Asciidoctorj-PDF版本。如果未指定，则asciidoctorj-pdf将不在类路径中。如果您打算使用PDF后端而不使用PDF插件，则需要在此处设置版本。
 	modules {
 		pdf {
 			version '1.5.0-beta.8'

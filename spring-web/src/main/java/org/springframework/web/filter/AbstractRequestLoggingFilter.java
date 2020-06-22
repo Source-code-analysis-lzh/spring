@@ -36,24 +36,19 @@ import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Base class for {@code Filter}s that perform logging operations before and after a request
- * is processed.
+ * 在处理请求之前和之后执行日志记录操作的{@code Filter}的基类。
  *
- * <p>Subclasses should override the {@code beforeRequest(HttpServletRequest, String)} and
- * {@code afterRequest(HttpServletRequest, String)} methods to perform the actual logging
- * around the request.
+ * <p>子类应重写{@code beforeRequest(HttpServletRequest, String)}和
+ * {@code afterRequest(HttpServletRequest, String)}方法，以对请求进行实际的日志记录。
  *
- * <p>Subclasses are passed the message to write to the log in the {@code beforeRequest} and
- * {@code afterRequest} methods. By default, only the URI of the request is logged. However,
- * setting the {@code includeQueryString} property to {@code true} will cause the query string of
- * the request to be included also; this can be further extended through {@code includeClientInfo}
- * and {@code includeHeaders}. The payload (body content) of the request can be logged via the
- * {@code includePayload} flag: Note that this will only log the part of the payload which has
- * actually been read, not necessarily the entire body of the request.
+ * <p>将子类传递的消息在{@code beforeRequest}和{@code afterRequest}方法中将其写入日志。 
+ * 默认情况下，仅记录请求的URI。 但是，将{@code includeQueryString}属性设置为{@code true}
+ * 将导致也包含请求的查询字符串； 这可以通过{@code includeClientInfo}和{@code includeHeaders}进一步扩展。
+ * 可以通过{@code includePayload}标志记录请求的有效负载（主体内容）：请注意，这只会记录实际读取的有效负载的一部分，
+ * 而不必记录整个请求的主体。
  *
- * <p>Prefixes and suffixes for the before and after messages can be configured using the
- * {@code beforeMessagePrefix}, {@code afterMessagePrefix}, {@code beforeMessageSuffix} and
- * {@code afterMessageSuffix} properties.
+ * <p>可以使用{@code beforeMessagePrefix}, {@code afterMessagePrefix}, 
+ * {@code beforeMessageSuffix}和{@code afterMessageSuffix}属性配置before和after消息的前缀和后缀。
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

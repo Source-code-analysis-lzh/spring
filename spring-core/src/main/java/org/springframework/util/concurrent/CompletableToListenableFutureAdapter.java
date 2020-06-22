@@ -23,8 +23,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * Adapts a {@link CompletableFuture} or {@link CompletionStage} into a
- * Spring {@link ListenableFuture}.
+ * 将{@link CompletableFuture}或{@link CompletionStage}适配为Spring {@link ListenableFuture}。
  *
  * @author Sebastien Deleuze
  * @author Juergen Hoeller

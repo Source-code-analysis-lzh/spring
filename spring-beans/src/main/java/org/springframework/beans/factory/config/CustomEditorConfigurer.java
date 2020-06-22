@@ -29,15 +29,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link BeanFactoryPostProcessor} implementation that allows for convenient
- * registration of custom {@link PropertyEditor property editors}.
+ * {@link BeanFactoryPostProcessor}实现，可以方便地注册自定义{@link PropertyEditor property editors}.
  *
- * <p>In case you want to register {@link PropertyEditor} instances,
- * the recommended usage as of Spring 2.0 is to use custom
- * {@link PropertyEditorRegistrar} implementations that in turn register any
- * desired editor instances on a given
- * {@link org.springframework.beans.PropertyEditorRegistry registry}. Each
- * PropertyEditorRegistrar can register any number of custom editors.
+ * <p>如果要注册{@link PropertyEditor}实例，从Spring 2.0开始，
+ * 推荐的用法是使用自定义的{@link PropertyEditorRegistrar}实现，
+ * 该实现又将给定{@link org.springframework.beans.PropertyEditorRegistry registry}
+ * 上的任何所需编辑器实例注册.
+ * 每个PropertyEditorRegistrar可以注册任意数量的自定义编辑器.
  *
  * <pre class="code">
  * &lt;bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer"&gt;
@@ -50,10 +48,8 @@ import org.springframework.util.ClassUtils;
  * &lt;/bean&gt;
  * </pre>
  *
- * <p>
- * It's perfectly fine to register {@link PropertyEditor} <em>classes</em> via
- * the {@code customEditors} property. Spring will create fresh instances of
- * them for each editing attempt then:
+ * <p>通过{@code customEditors}属性注册{@link PropertyEditor}类非常好.
+ * Spring将为每次编辑尝试创建它们的新实例，然后：
  *
  * <pre class="code">
  * &lt;bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer"&gt;
@@ -66,24 +62,18 @@ import org.springframework.util.ClassUtils;
  * &lt;/bean&gt;
  * </pre>
  *
- * <p>
- * Note, that you shouldn't register {@link PropertyEditor} bean instances via
- * the {@code customEditors} property as {@link PropertyEditor PropertyEditors} are stateful
- * and the instances will then have to be synchronized for every editing
- * attempt. In case you need control over the instantiation process of
- * {@link PropertyEditor PropertyEditors}, use a {@link PropertyEditorRegistrar} to register
- * them.
+ * <p>注意，您不应该通过{@code customEditors}属性注册{@link PropertyEditor} Bean实例，
+ * 因为{@link PropertyEditor PropertyEditors}是有状态的，因此对于每次编辑尝试，实例都必须同步.
+ * 如果您需要控制{@link PropertyEditor PropertyEditors}的实例化过程，
+ * 请使用{@link PropertyEditorRegistrar}进行注册.
  *
- * <p>
- * Also supports "java.lang.String[]"-style array class names and primitive
- * class names (e.g. "boolean"). Delegates to {@link ClassUtils} for actual
- * class name resolution.
+ * <p>还支持"java.lang.String[]"样式的数组类名称和基础类名称（例如"boolean"）.
+ * 委托{@link ClassUtils}进行实际的类名解析.
  *
- * <p><b>NOTE:</b> Custom property editors registered with this configurer do
- * <i>not</i> apply to data binding. Custom editors for data binding need to
- * be registered on the {@link org.springframework.validation.DataBinder}:
- * Use a common base class or delegate to common PropertyEditorRegistrar
- * implementations to reuse editor registration there.
+ * <p>注意：在此配置程序中注册的自定义属性编辑器不适用于数据绑定.
+ * 用于数据绑定的自定义编辑器需要在{@link org.springframework.validation.DataBinder}上注册：
+ * 可以使用公共基类或委托给常见的PropertyEditorRegistrar实现，以在此处重用编辑器注册.
+ * https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation
  *
  * @author Juergen Hoeller
  * @since 27.02.2004

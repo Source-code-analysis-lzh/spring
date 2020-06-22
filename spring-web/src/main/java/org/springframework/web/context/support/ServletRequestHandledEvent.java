@@ -19,8 +19,7 @@ package org.springframework.web.context.support;
 import org.springframework.lang.Nullable;
 
 /**
- * Servlet-specific subclass of RequestHandledEvent,
- * adding servlet-specific context information.
+ * RequestHandledEvent的特定于Servlet的子类，添加特定于Servlet的上下文信息.
  *
  * @author Juergen Hoeller
  * @since 2.0

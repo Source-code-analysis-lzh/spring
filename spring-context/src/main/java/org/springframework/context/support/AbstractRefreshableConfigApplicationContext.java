@@ -24,11 +24,9 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link AbstractRefreshableApplicationContext} subclass that adds common handling
- * of specified config locations. Serves as base class for XML-based application
- * context implementations such as {@link ClassPathXmlApplicationContext} and
- * {@link FileSystemXmlApplicationContext}, as well as
- * {@link org.springframework.web.context.support.XmlWebApplicationContext}.
+ * AbstractRefreshableApplicationContext子类，用于添加对指定配置位置的通用处理.
+ * 作为基于XML的应用程序上下文实现（例如{@link ClassPathXmlApplicationContext}和
+ * {@link FileSystemXmlApplicationContext}以及{@link org.springframework.web.context.support.XmlWebApplicationContext}）的基类.
  *
  * @author Juergen Hoeller
  * @since 2.5.2
@@ -61,17 +59,16 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 
 
 	/**
-	 * Set the config locations for this application context in init-param style,
-	 * i.e. with distinct locations separated by commas, semicolons or whitespace.
-	 * <p>If not set, the implementation may use a default as appropriate.
+	 * 使用init-param样式为此应用程序上下文设置配置位置，即以逗号，分号或空格分隔不同的配置位置.
+	 * <p>如果未设置，则实现可酌情使用默认值.
 	 */
 	public void setConfigLocation(String location) {
 		setConfigLocations(StringUtils.tokenizeToStringArray(location, CONFIG_LOCATION_DELIMITERS));
 	}
 
 	/**
-	 * Set the config locations for this application context.
-	 * <p>If not set, the implementation may use a default as appropriate.
+	 * 设置此应用程序上下文的配置位置.
+	 * <p>如果未设置，则实现可酌情使用默认值.
 	 */
 	public void setConfigLocations(@Nullable String... locations) {
 		if (locations != null) {
@@ -87,11 +84,9 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 	}
 
 	/**
-	 * Return an array of resource locations, referring to the XML bean definition
-	 * files that this context should be built with. Can also include location
-	 * patterns, which will get resolved via a ResourcePatternResolver.
-	 * <p>The default implementation returns {@code null}. Subclasses can override
-	 * this to provide a set of resource locations to load bean definitions from.
+	 * 返回一个资源位置数组，引用此上下文应使用的XML bean定义文件.
+	 * 还可以包括位置模式，这将通过ResourcePatternResolver进行解析.
+	 * <p>默认实现返回{@code null}. 子类可以重写此方法，以提供一组资源位置以从中加载bean定义.
 	 * @return an array of resource locations, or {@code null} if none
 	 * @see #getResources
 	 * @see #getResourcePatternResolver
@@ -102,10 +97,8 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 	}
 
 	/**
-	 * Return the default config locations to use, for the case where no
-	 * explicit config locations have been specified.
-	 * <p>The default implementation returns {@code null},
-	 * requiring explicit config locations.
+	 * 对于未指定显式制定配置位置的情况，返回要使用的默认配置位置.
+	 * <p>默认实现返回{@code null}，需要明确的配置位置.
 	 * @return an array of default config locations, if any
 	 * @see #setConfigLocations
 	 */
@@ -115,8 +108,7 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 	}
 
 	/**
-	 * Resolve the given path, replacing placeholders with corresponding
-	 * environment property values if necessary. Applied to config locations.
+	 * 解析给定的路径，必要时用相应的环境属性值替换占位符. 应用于配置位置.
 	 * @param path the original file path
 	 * @return the resolved file path
 	 * @see org.springframework.core.env.Environment#resolveRequiredPlaceholders(String)
@@ -133,8 +125,7 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 	}
 
 	/**
-	 * Sets the id of this context to the bean name by default,
-	 * for cases where the context instance is itself defined as a bean.
+	 * 对于将上下文实例本身定义为Bean的情况，默认情况下将此上下文的ID设置为Bean名称.
 	 */
 	@Override
 	public void setBeanName(String name) {
@@ -145,12 +136,11 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 	}
 
 	/**
-	 * Triggers {@link #refresh()} if not refreshed in the concrete context's
-	 * constructor already.
+	 * 如果尚未在具体上下文的构造函数中刷新，则触发{@link #refresh()}.
 	 */
 	@Override
 	public void afterPropertiesSet() {
-		if (!isActive()) {
+		if (!isActive()) { // 如果应用上下文没有启动，则刷新启动
 			refresh();
 		}
 	}

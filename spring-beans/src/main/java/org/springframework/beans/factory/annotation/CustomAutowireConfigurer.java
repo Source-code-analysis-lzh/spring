@@ -29,9 +29,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * A {@link org.springframework.beans.factory.config.BeanFactoryPostProcessor}
- * implementation that allows for convenient registration of custom autowire
- * qualifier types.
+ * {@link org.springframework.beans.factory.config.BeanFactoryPostProcessor}实现，
+ * 可以方便地注册自定义自动装配限定符类型。
  *
  * <pre class="code">
  * &lt;bean id="customAutowireConfigurer" class="org.springframework.beans.factory.annotation.CustomAutowireConfigurer"&gt;

@@ -35,13 +35,10 @@ import org.springframework.web.util.CookieGenerator;
 import org.springframework.web.util.WebUtils;
 
 /**
- * {@link LocaleResolver} implementation that uses a cookie sent back to the user
- * in case of a custom setting, with a fallback to the specified default locale
- * or the request's accept-header locale.
+ * {@link LocaleResolver}实现，该实现使用cookie设置语言环境，并回退到指定的默认语言环境或请求的接受标头语言环境。
  *
- * <p>This is particularly useful for stateless applications without user sessions.
- * The cookie may optionally contain an associated time zone value as well;
- * alternatively, you may specify a default time zone.
+ * <p>这对于没有用户会话的无状态应用程序特别有用。 Cookie也可以选择包含关联的时区值； 
+ * 或者，您可以指定默认时区。
  *
  * <p>Custom controllers can override the user's locale and time zone by calling
  * {@code #setLocale(Context)} on the resolver, e.g. responding to a locale change

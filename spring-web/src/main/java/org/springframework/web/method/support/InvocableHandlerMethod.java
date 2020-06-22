@@ -33,9 +33,8 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.HandlerMethod;
 
 /**
- * Extension of {@link HandlerMethod} that invokes the underlying method with
- * argument values resolved from the current HTTP request through a list of
- * {@link HandlerMethodArgumentResolver}.
+ * {@link HandlerMethod}的扩展，它使用通过{@link HandlerMethodArgumentResolver}
+ * 列表从当前HTTP请求中解析的参数值来调用底层方法。
  *
  * @author Rossen Stoyanchev
  * @author Juergen Hoeller
@@ -109,15 +108,12 @@ public class InvocableHandlerMethod extends HandlerMethod {
 
 
 	/**
-	 * Invoke the method after resolving its argument values in the context of the given request.
-	 * <p>Argument values are commonly resolved through
-	 * {@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}.
-	 * The {@code providedArgs} parameter however may supply argument values to be used directly,
-	 * i.e. without argument resolution. Examples of provided argument values include a
-	 * {@link WebDataBinder}, a {@link SessionStatus}, or a thrown exception instance.
-	 * Provided argument values are checked before argument resolvers.
-	 * <p>Delegates to {@link #getMethodArgumentValues} and calls {@link #doInvoke} with the
-	 * resolved arguments.
+	 * 在给定请求的上下文中解析其参数值后，调用该方法。
+	 * <p>通常通过{@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}解析参数值。 
+	 * 但是，{@code providedArgs}参数可以提供要直接使用的参数值，即无需参数解析。 
+	 * 提供的参数值的示例包括{@link WebDataBinder}，{@link SessionStatus}或引发的异常实例。 
+	 * 在参数解析器之前检查提供的参数值。
+	 * <p>委派给{@link #getMethodArgumentValues}并使用已解析的参数调用{@link #doInvoke}。
 	 * @param request the current request
 	 * @param mavContainer the ModelAndViewContainer for this request
 	 * @param providedArgs "given" arguments matched by type, not resolved
@@ -131,16 +127,16 @@ public class InvocableHandlerMethod extends HandlerMethod {
 	public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewContainer mavContainer,
 			Object... providedArgs) throws Exception {
 
+		// 获取解析的参数
 		Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);
 		if (logger.isTraceEnabled()) {
 			logger.trace("Arguments: " + Arrays.toString(args));
 		}
-		return doInvoke(args);
+		return doInvoke(args); // 调用处理器方法
 	}
 
 	/**
-	 * Get the method argument values for the current request, checking the provided
-	 * argument values and falling back to the configured argument resolvers.
+	 * 获取当前请求的方法参数值，检查提供的参数值，如果没有，则使用配置的参数解析器解析的参数值。
 	 * <p>The resulting array will be passed into {@link #doInvoke}.
 	 * @since 5.1.2
 	 */
@@ -156,14 +152,16 @@ public class InvocableHandlerMethod extends HandlerMethod {
 		for (int i = 0; i < parameters.length; i++) {
 			MethodParameter parameter = parameters[i];
 			parameter.initParameterNameDiscovery(this.parameterNameDiscoverer);
+			// 通过类型获取直接提供参数值
 			args[i] = findProvidedArgument(parameter, providedArgs);
 			if (args[i] != null) {
 				continue;
 			}
-			if (!this.resolvers.supportsParameter(parameter)) {
+			if (!this.resolvers.supportsParameter(parameter)) { // 如果没有找到可以解析该参数的解析器，则抛出异常
 				throw new IllegalStateException(formatArgumentError(parameter, "No suitable resolver"));
 			}
 			try {
+				// 开始解析参数，获取返回的值
 				args[i] = this.resolvers.resolveArgument(parameter, mavContainer, request, this.dataBinderFactory);
 			}
 			catch (Exception ex) {

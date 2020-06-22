@@ -10,6 +10,7 @@ plugins {
 	id "me.champeau.gradle.jmh" version "0.5.0" apply false
 }
 
+// 自定义extra属性
 ext {
 	moduleProjects = subprojects.findAll { it.name.startsWith("spring-") }
 	javaProjects = subprojects - project(":framework-bom")
@@ -18,8 +19,18 @@ ext {
 	}
 }
 
+// 所有项目配置
 configure(allprojects) { project ->
 	apply plugin: "io.spring.dependency-management"
+
+	repositories {
+		maven {
+			url 'https://maven.aliyun.com/nexus/content/groups/public/'
+		}
+		maven {
+			url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
+		}
+	}
 
 	dependencyManagement {
 		imports {
@@ -282,14 +293,16 @@ configure(allprojects) { project ->
 			maven { url "https://repo.spring.io/libs-spring-framework-build" }
 		}
 	}
+	// 所有configuration项，都修改解析策略
 	configurations.all {
 		resolutionStrategy {
-			cacheChangingModulesFor 0, "seconds"
-			cacheDynamicVersionsFor 0, "seconds"
+			cacheChangingModulesFor 0, "seconds" // 不缓存改变的模块
+			cacheDynamicVersionsFor 0, "seconds" // 不缓存动态版本号
 		}
 	}
 }
 
+// 根项目加上java子项目配置
 configure([rootProject] + javaProjects) { project ->
 	group = "org.springframework"
 
@@ -300,7 +313,9 @@ configure([rootProject] + javaProjects) { project ->
 	apply from: "${rootDir}/gradle/custom-java-home.gradle"
 	apply from: "${rootDir}/gradle/ide.gradle"
 
+	// 当应用kotlin插件时调用下面方法
 	pluginManager.withPlugin("kotlin") {
+		// 生成kotlin文档的插件
 		apply plugin: "org.jetbrains.dokka"
 		compileKotlin {
 			kotlinOptions {
@@ -317,19 +332,25 @@ configure([rootProject] + javaProjects) { project ->
 		}
 	}
 
+	// test任务配置
 	test {
+		// enable JUnit Platform (a.k.a. JUnit 5) support
 		useJUnitPlatform()
+		// explicitly include or exclude tests
 		include(["**/*Tests.class", "**/*Test.class"])
+		// set a system property for the test JVM(s)
 		systemProperty("java.awt.headless", "true")
 		systemProperty("testGroups", project.properties.get("testGroups"))
 		systemProperty("io.netty.leakDetection.level", "paranoid")
 	}
 
+	// checkstyle配置为CheckstyleExtension对象
 	checkstyle {
 		toolVersion = "8.32"
 		configDirectory.set(rootProject.file("src/checkstyle"))
 	}
 
+	// 声明依赖
 	dependencies {
 		testCompile("org.junit.jupiter:junit-jupiter-api")
 		testCompile("org.junit.jupiter:junit-jupiter-params")
@@ -349,6 +370,7 @@ configure([rootProject] + javaProjects) { project ->
 		checkstyle("io.spring.javaformat:spring-javaformat-checkstyle:0.0.15")
 	}
 
+	// 定义ext属性
 	ext.javadocLinks = [
 			"https://docs.oracle.com/javase/8/docs/api/",
 			"https://docs.oracle.com/javaee/7/api/",
@@ -375,6 +397,7 @@ configure(moduleProjects) { project ->
 	apply from: "${rootDir}/gradle/spring-module.gradle"
 }
 
+// 根项目配置
 configure(rootProject) {
 	description = "Spring Framework"
 
@@ -385,6 +408,7 @@ configure(rootProject) {
 	apply from: "${rootDir}/gradle/publications.gradle"
 	apply from: "${rootDir}/gradle/docs.gradle"
 
+	// 配置nohttp任务
 	nohttp {
 		source.exclude "**/test-output/**"
 		whitelistFile = project.file("src/nohttp/whitelist.lines")
@@ -400,10 +424,11 @@ configure(rootProject) {
 		}
 	}
 
+	// publishing发布块
 	publishing {
 		publications {
 			mavenJava(MavenPublication) {
-				artifact docsZip
+				artifact docsZip // Publish the output of the docsZip task
 				artifact schemaZip
 				artifact distZip
 			}

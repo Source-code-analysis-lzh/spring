@@ -25,8 +25,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.lang.Nullable;
 
 /**
- * Base class for {@link BeanPostProcessor} implementations that apply a
- * Spring AOP {@link Advisor} to specific beans.
+ * 将Spring AOP {@link Advisor}应用于特定bean的{@link BeanPostProcessor}实现的基类。
  *
  * @author Juergen Hoeller
  * @since 3.2

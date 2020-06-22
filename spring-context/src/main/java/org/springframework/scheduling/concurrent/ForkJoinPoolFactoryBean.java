@@ -25,7 +25,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * A Spring {@link FactoryBean} that builds and exposes a preconfigured {@link ForkJoinPool}.
+ * Spring {@link FactoryBean}，它构建并公开一个预先配置的{@link ForkJoinPool}。
  *
  * @author Juergen Hoeller
  * @since 3.1

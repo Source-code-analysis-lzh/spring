@@ -21,8 +21,7 @@ import java.beans.PropertyEditorSupport;
 import org.springframework.lang.Nullable;
 
 /**
- * Editor for byte arrays. Strings will simply be converted to
- * their corresponding byte representations.
+ * 字节数组的编辑器. 字符串将简单地转换为其相应的字节表示形式.
  *
  * @author Juergen Hoeller
  * @since 1.0.1

@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Common delegate methods for Spring's internal {@link PropertyDescriptor} implementations.
+ * Spring内部{@link PropertyDescriptor}实现的常用委托方法。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

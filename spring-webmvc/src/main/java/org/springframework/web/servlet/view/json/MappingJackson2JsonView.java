@@ -34,14 +34,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.View;
 
 /**
- * Spring MVC {@link View} that renders JSON content by serializing the model for the current request
- * using <a href="https://github.com/FasterXML/jackson">Jackson 2's</a> {@link ObjectMapper}.
+ * Spring MVC {@link View}通过使用<a href="https://github.com/FasterXML/jackson">Jackson 2's</a>
+ * 的{@link ObjectMapper}序列化当前请求的模型来呈现JSON内容。
  *
- * <p>By default, the entire contents of the model map (with the exception of framework-specific classes)
- * will be encoded as JSON. If the model contains only one key, you can have it extracted encoded as JSON
- * alone via  {@link #setExtractValueFromSingleKeyModel}.
+ * <p>默认情况下，模型映射的全部内容（特定于框架的类除外）将被编码为JSON。 
+ * 如果模型仅包含一个键，则可以通过{@link #setExtractValueFromSingleKeyModel}将其提取为单独编码为JSON。
  *
- * <p>The default constructor uses the default configuration provided by {@link Jackson2ObjectMapperBuilder}.
+ * <p>默认构造函数使用{@link Jackson2ObjectMapperBuilder}提供的默认配置。
  *
  * <p>Compatible with Jackson 2.6 and higher, as of Spring 4.3.
  *

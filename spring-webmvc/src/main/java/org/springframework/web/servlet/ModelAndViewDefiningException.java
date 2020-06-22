@@ -21,8 +21,7 @@ import javax.servlet.ServletException;
 import org.springframework.util.Assert;
 
 /**
- * Exception to be thrown on error conditions that should forward
- * to a specific view with a specific model.
+ * 在错误条件下抛出的异常，应转发给具有特定模型的特定视图。
  *
  * <p>Can be thrown at any time during handler processing.
  * This includes any template methods of pre-built controllers.

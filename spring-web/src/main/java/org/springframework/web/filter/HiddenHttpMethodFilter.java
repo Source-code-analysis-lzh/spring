@@ -34,21 +34,22 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.util.WebUtils;
 
 /**
- * {@link javax.servlet.Filter} that converts posted method parameters into HTTP methods,
- * retrievable via {@link HttpServletRequest#getMethod()}. Since browsers currently only
- * support GET and POST, a common technique - used by the Prototype library, for instance -
- * is to use a normal POST with an additional hidden form field ({@code _method})
- * to pass the "real" HTTP method along. This filter reads that parameter and changes
- * the {@link HttpServletRequestWrapper#getMethod()} return value accordingly.
- * Only {@code "PUT"}, {@code "DELETE"} and {@code "PATCH"} HTTP methods are allowed.
+ * {@link javax.servlet.Filter}，用于将提交的方法参数转换为HTTP方法，
+ * 可通过{@link HttpServletRequest#getMethod()}进行检索。 由于浏览器当前仅支持GET和POST，
+ * 因此一种通用技术（例如，原型库使用的一种技术）是使用带有附加隐藏表单字段（{@code _method}）
+ * 的普通POST来传递“真实的” HTTP方法。 该过滤器读取该参数，并相应地更改
+ * {@link HttpServletRequestWrapper#getMethod()}返回值。 
+ * 仅允许使用{@code "PUT"}, {@code "DELETE"} and {@code "PATCH"} HTTP方法。
+ * 
+ * <p>浏览器端的form表单只支持GET与POST这两个值,而不支持DELETE、PUT等，就算你硬要写成PUT它也识别不了，会默认用POST发送。
+ * 可以用js，除了js，spring3提供啦HiddenHttpMethodFilter过滤器来解决这个问题。
  *
- * <p>The name of the request parameter defaults to {@code _method}, but can be
- * adapted via the {@link #setMethodParam(String) methodParam} property.
+ * <p>请求参数的名称默认为{@code _method}，但可以通过{@link #setMethodParam(String) methodParam}属性进行修改。
  *
- * <p><b>NOTE: This filter needs to run after multipart processing in case of a multipart
- * POST request, due to its inherent need for checking a POST body parameter.</b>
- * So typically, put a Spring {@link org.springframework.web.multipart.support.MultipartFilter}
- * <i>before</i> this HiddenHttpMethodFilter in your {@code web.xml} filter chain.
+ * <p>注意：对于multipart POST请求，此过滤器需要在multipart处理后运行，
+ * 因为它固有的检查POST正文参数的需要。 因此，通常，在{@code web.xml}过滤器链中的此
+ * HiddenHttpMethodFilter之前放置一个
+ * Spring {@link org.springframework.web.multipart.support.MultipartFilter}。
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

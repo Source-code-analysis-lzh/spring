@@ -20,32 +20,22 @@ import org.springframework.beans.BeansException;
 import org.springframework.lang.Nullable;
 
 /**
- * Factory hook that allows for custom modification of new bean instances &mdash;
- * for example, checking for marker interfaces or wrapping beans with proxies.
+ * 工厂钩子允许自定义修改新的bean实例 &mdash;例如，检查标记接口或使用代理包装bean.
  *
- * <p>Typically, post-processors that populate beans via marker interfaces
- * or the like will implement {@link #postProcessBeforeInitialization},
- * while post-processors that wrap beans with proxies will normally
- * implement {@link #postProcessAfterInitialization}.
+ * <p>通常，通过标记接口等填充bean或者类似的后处理器将实现{@link #postProcessBeforeInitialization}，
+ * 而使用代理包装bean的后处理器通常将实现{@link #postProcessAfterInitialization}.
  *
- * <h3>Registration</h3>
- * <p>An {@code ApplicationContext} can autodetect {@code BeanPostProcessor} beans
- * in its bean definitions and apply those post-processors to any beans subsequently
- * created. A plain {@code BeanFactory} allows for programmatic registration of
- * post-processors, applying them to all beans created through the bean factory.
+ * <h3>注册</h3>
+ * <p>{@code ApplicationContext}可以在其bean定义中自动检测{@code BeanPostProcessor} bean，
+ * 并将那些后处理器应用于随后创建的任何bean.
+ * 一个普通的{@code BeanFactory}允许以编程方式注册后处理器，并将其应用于通过Bean工厂创建的所有Bean.
  *
- * <h3>Ordering</h3>
- * <p>{@code BeanPostProcessor} beans that are autodetected in an
- * {@code ApplicationContext} will be ordered according to
- * {@link org.springframework.core.PriorityOrdered} and
- * {@link org.springframework.core.Ordered} semantics. In contrast,
- * {@code BeanPostProcessor} beans that are registered programmatically with a
- * {@code BeanFactory} will be applied in the order of registration; any ordering
- * semantics expressed through implementing the
- * {@code PriorityOrdered} or {@code Ordered} interface will be ignored for
- * programmatically registered post-processors. Furthermore, the
- * {@link org.springframework.core.annotation.Order @Order} annotation is not
- * taken into account for {@code BeanPostProcessor} beans.
+ * <h3>排序</h3>
+ * 在{@code ApplicationContext}中自动检测到的{@code BeanPostProcessor} bean
+ * 将根据{@link org.springframework.core.PriorityOrdered}和{@link org.springframework.core.Ordered}语义进行排序.
+ * 相反，通过{@code BeanFactory}编程注册的{@code BeanPostProcessor} Bean将按注册顺序应用；
+ * 以编程方式注册的后处理器将忽略通过实现{@code PriorityOrdered}或{@code Ordered}接口表示的任何排序语义.
+ * 此外，{@code BeanPostProcessor} Bean不考虑{@link org.springframework.core.annotation.Order @Order}注解.
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
@@ -58,11 +48,9 @@ import org.springframework.lang.Nullable;
 public interface BeanPostProcessor {
 
 	/**
-	 * Apply this {@code BeanPostProcessor} to the given new bean instance <i>before</i> any bean
-	 * initialization callbacks (like InitializingBean's {@code afterPropertiesSet}
-	 * or a custom init-method). The bean will already be populated with property values.
-	 * The returned bean instance may be a wrapper around the original.
-	 * <p>The default implementation returns the given {@code bean} as-is.
+	 * 在任何bean初始化回调（例如InitializingBean的{@code afterPropertiesSet}或自定义init-method）之前，
+	 * 将此{@code BeanPostProcessor}应用于给定的新bean实例. 该bean将用属性值填充. 返回的bean实例可能是原始实例的包装.
+	 * <p>默认实现按原样返回给定的{@code bean}.
 	 * @param bean the new bean instance
 	 * @param beanName the name of the bean
 	 * @return the bean instance to use, either the original or a wrapped one;
@@ -76,18 +64,13 @@ public interface BeanPostProcessor {
 	}
 
 	/**
-	 * Apply this {@code BeanPostProcessor} to the given new bean instance <i>after</i> any bean
-	 * initialization callbacks (like InitializingBean's {@code afterPropertiesSet}
-	 * or a custom init-method). The bean will already be populated with property values.
-	 * The returned bean instance may be a wrapper around the original.
-	 * <p>In case of a FactoryBean, this callback will be invoked for both the FactoryBean
-	 * instance and the objects created by the FactoryBean (as of Spring 2.0). The
-	 * post-processor can decide whether to apply to either the FactoryBean or created
-	 * objects or both through corresponding {@code bean instanceof FactoryBean} checks.
-	 * <p>This callback will also be invoked after a short-circuiting triggered by a
-	 * {@link InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation} method,
-	 * in contrast to all other {@code BeanPostProcessor} callbacks.
-	 * <p>The default implementation returns the given {@code bean} as-is.
+	 * 在任何bean初始化回调（例如InitializingBean的{@code afterPropertiesSet}或自定义的init-method）之后，
+	 * 将此{@code BeanPostProcessor}应用于给定的新bean实例. 该bean将用属性值填充. 返回的bean实例可能是原始实例的包装.
+	 * <p>对于FactoryBean，将为FactoryBean实例和由FactoryBean创建的对象（从Spring 2.0开始）调用此回调.
+	 * 后处理器可以通过FactoryBean检查的相应bean实例来决定是应用到{@code bean instanceof FactoryBean}还是创建的对象，还是两者都应用.
+	 * <p>与所有其他{@code BeanPostProcessor}回调不同，
+	 * 在由{@link InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation}方法触发短路之后，也会调用此回调.
+	 * <p>默认实现按原样返回给定的{@code bean}.
 	 * @param bean the new bean instance
 	 * @param beanName the name of the bean
 	 * @return the bean instance to use, either the original or a wrapped one;

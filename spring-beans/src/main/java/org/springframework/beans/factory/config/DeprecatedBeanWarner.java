@@ -25,7 +25,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Bean factory post processor that logs a warning for {@link Deprecated @Deprecated} beans.
+ * 记录标注{@link Deprecated @Deprecated} Bean警告的Bean工厂后处理器。
  *
  * @author Arjen Poutsma
  * @since 3.0.3

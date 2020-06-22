@@ -21,8 +21,7 @@ import java.lang.reflect.Method;
 import org.springframework.aop.MethodMatcher;
 
 /**
- * Convenient abstract superclass for dynamic method matchers,
- * which do care about arguments at runtime.
+ * 动态方法匹配器的便捷抽象超类，它们在运行时关心参数。
  *
  * @author Rod Johnson
  */

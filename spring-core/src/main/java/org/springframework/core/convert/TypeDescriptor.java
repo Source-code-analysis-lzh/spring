@@ -36,8 +36,8 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Contextual descriptor about a type to convert from or to.
- * Capable of representing arrays and generic collection types.
+ * 有关要从或转换为类型的上下文描述符.
+ * 能够表示数组和通用集合类型.
  *
  * @author Keith Donald
  * @author Andy Clement
@@ -521,9 +521,8 @@ public class TypeDescriptor implements Serializable {
 
 
 	/**
-	 * Create a new type descriptor for an object.
-	 * <p>Use this factory method to introspect a source object before asking the
-	 * conversion system to convert it to some another type.
+	 * 为对象创建一个新的类型描述符.
+	 * <p>在要求转换系统将源对象转换为其他类型之前，请使用此工厂方法对源对象进行内部检查.
 	 * <p>If the provided object is {@code null}, returns {@code null}, else calls
 	 * {@link #valueOf(Class)} to build a TypeDescriptor from the object's class.
 	 * @param source the source object
@@ -535,10 +534,9 @@ public class TypeDescriptor implements Serializable {
 	}
 
 	/**
-	 * Create a new type descriptor from the given type.
-	 * <p>Use this to instruct the conversion system to convert an object to a
-	 * specific target type, when no type location such as a method parameter or
-	 * field is available to provide additional conversion context.
+	 * 从给定类型创建一个新的类型描述符.
+	 * <p>当没有类型位置（例如方法参数或字段）可用于提供其他转换上下文时，
+	 * 使用此命令指示转换系统将对象转换为特定的目标类型.
 	 * <p>Generally prefer use of {@link #forObject(Object)} for constructing type
 	 * descriptors from source objects, as it handles the {@code null} object case.
 	 * @param type the class (may be {@code null} to indicate {@code Object.class})
@@ -731,6 +729,8 @@ public class TypeDescriptor implements Serializable {
 	/**
 	 * Adapter class for exposing a {@code TypeDescriptor}'s annotations as an
 	 * {@link AnnotatedElement}, in particular to {@link AnnotatedElementUtils}.
+	 * 适配器类，用于将{@code TypeDescriptor}的注释公开为{@link AnnotatedElement}，
+	 * 尤其是向{@link AnnotatedElementUtils}公开。
 	 * @see AnnotatedElementUtils#isAnnotated(AnnotatedElement, Class)
 	 * @see AnnotatedElementUtils#getMergedAnnotation(AnnotatedElement, Class)
 	 */

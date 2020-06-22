@@ -23,14 +23,11 @@ import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
- * JSR-303 {@link ConstraintValidatorFactory} implementation that delegates to
- * the current Spring {@link WebApplicationContext} for creating autowired
- * {@link ConstraintValidator} instances.
+ * JSR-303 {@link ConstraintValidatorFactory}实现，委托给当前Spring {@link WebApplicationContext}
+ * 来创建自动装配(连接)的{@link ConstraintValidator}实例。
  *
- * <p>In contrast to
- * {@link org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory},
- * this variant is meant for declarative use in a standard {@code validation.xml} file,
- * e.g. in combination with JAX-RS or JAX-WS.
+ * <p>与{@link org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory}
+ * 相比，此变体旨在在标准的{@code validation.xml}文件。例如，与JAX-RS或JAX-WS结合使用。
  *
  * @author Juergen Hoeller
  * @since 4.2.1

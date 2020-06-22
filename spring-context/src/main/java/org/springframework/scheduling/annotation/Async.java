@@ -23,26 +23,19 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation that marks a method as a candidate for <i>asynchronous</i> execution.
- * Can also be used at the type level, in which case all of the type's methods are
- * considered as asynchronous. Note, however, that {@code @Async} is not supported
- * on methods declared within a
- * {@link org.springframework.context.annotation.Configuration @Configuration} class.
+ * 将方法标记为异步执行候选方法的注释。 也可以在类型级别使用，在这种情况下，类型的所有方法都被视为异步方法。 
+ * 但是请注意，{@link org.springframework.context.annotation.Configuration @Configuration}
+ * 类中声明的方法不支持{@code @Async}。
  *
- * <p>In terms of target method signatures, any parameter types are supported.
- * However, the return type is constrained to either {@code void} or
- * {@link java.util.concurrent.Future}. In the latter case, you may declare the
- * more specific {@link org.springframework.util.concurrent.ListenableFuture} or
- * {@link java.util.concurrent.CompletableFuture} types which allow for richer
- * interaction with the asynchronous task and for immediate composition with
- * further processing steps.
+ * <p>就目标方法签名而言，支持任何参数类型。 但是，返回类型被限制为{@code void}或{@link java.util.concurrent.Future}。 
+ * 在后一种情况下，您可以声明更具体的{@link org.springframework.util.concurrent.ListenableFuture}
+ * 或{@link java.util.concurrent.CompletableFuture}类型，这些类型允许与异步任务进行更丰富的交互，
+ * 并通过进一步的处理步骤立即进行合成。
  *
- * <p>A {@code Future} handle returned from the proxy will be an actual asynchronous
- * {@code Future} that can be used to track the result of the asynchronous method
- * execution. However, since the target method needs to implement the same signature,
- * it will have to return a temporary {@code Future} handle that just passes a value
- * through: e.g. Spring's {@link AsyncResult}, EJB 3.1's {@link javax.ejb.AsyncResult},
- * or {@link java.util.concurrent.CompletableFuture#completedFuture(Object)}.
+ * <p>从代理返回的{@code Future}句柄将是实际的异步{@code Future}，可用于跟踪异步方法执行的结果。 
+ * 但是，由于目标方法需要实现相同的签名，因此它必须返回一个临时的{@code Future}句柄，该句柄仅将以下对象传递返回： 
+ * Spring的{@link AsyncResult}，EJB 3.1的{@link javax.ejb.AsyncResult}
+ * 或{@link java.util.concurrent.CompletableFuture#completedFuture(Object)}。
  *
  * @author Juergen Hoeller
  * @author Chris Beams

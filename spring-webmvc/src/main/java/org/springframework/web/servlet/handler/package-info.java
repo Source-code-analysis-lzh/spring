@@ -1,6 +1,5 @@
 /**
- * Provides standard HandlerMapping implementations,
- * including abstract base classes for custom implementations.
+ * 提供标准的HandlerMapping实现，包括用于自定义实现的抽象基类。
  */
 @NonNullApi
 @NonNullFields

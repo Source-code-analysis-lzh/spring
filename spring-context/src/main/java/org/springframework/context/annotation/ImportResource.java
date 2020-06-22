@@ -26,21 +26,17 @@ import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * Indicates one or more resources containing bean definitions to import.
+ * 指示一个或多个包含要导入的bean定义的资源。
  *
- * <p>Like {@link Import @Import}, this annotation provides functionality similar to
- * the {@code <import/>} element in Spring XML. It is typically used when designing
- * {@link Configuration @Configuration} classes to be bootstrapped by an
- * {@link AnnotationConfigApplicationContext}, but where some XML functionality such
- * as namespaces is still necessary.
+ * <p>与{@link Import @Import}一样，此注释提供的功能类似于Spring XML中的{@code <import/>}元素。 
+ * 通常，在设计要由{@link AnnotationConfigApplicationContext}启动的{@link Configuration @Configuration}类时，
+ * 通常使用它，但是在某些XML功能（例如名称空间）仍是必需的情况下。
  *
- * <p>By default, arguments to the {@link #value} attribute will be processed using a
+ * <p>默认情况下，如果以{@code ".groovy"}结尾，则将使用
  * {@link org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader GroovyBeanDefinitionReader}
- * if ending in {@code ".groovy"}; otherwise, an
+ * 处理{@link #value}属性的参数。 否则，将使用
  * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader XmlBeanDefinitionReader}
- * will be used to parse Spring {@code <beans/>} XML files. Optionally, the {@link #reader}
- * attribute may be declared, allowing the user to choose a custom {@link BeanDefinitionReader}
- * implementation.
+ * 解析Spring {@code <beans/>} XML文件。 （可选）可以声明{@link #reader}属性，以允许用户选择自定义{@link BeanDefinitionReader}实现。
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -63,11 +59,9 @@ public @interface ImportResource {
 	String[] value() default {};
 
 	/**
-	 * Resource locations from which to import.
-	 * <p>Supports resource-loading prefixes such as {@code classpath:},
-	 * {@code file:}, etc.
-	 * <p>Consult the Javadoc for {@link #reader} for details on how resources
-	 * will be processed.
+	 * 导入资源的位置。
+	 * <p>支持资源加载前缀，例如{@code classpath:}，{@code file:}等。
+	 * <p>有关如何处理资源的详细信息，请查阅Javadoc的{@link #reader}。
 	 * @since 4.2
 	 * @see #value
 	 * @see #reader
@@ -76,13 +70,11 @@ public @interface ImportResource {
 	String[] locations() default {};
 
 	/**
-	 * {@link BeanDefinitionReader} implementation to use when processing
-	 * resources specified via the {@link #value} attribute.
-	 * <p>By default, the reader will be adapted to the resource path specified:
-	 * {@code ".groovy"} files will be processed with a
+	 * 在处理通过{@link #value}属性指定的资源时使用的{@link BeanDefinitionReader}实现。
+	 * <p>默认情况下，阅读器将适配于指定的资源路径：{@code ".groovy"}文件将使用
 	 * {@link org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader GroovyBeanDefinitionReader};
-	 * whereas, all other resources will be processed with an
-	 * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader XmlBeanDefinitionReader}.
+	 * 处理； 相反，所有其它资源将使用
+	 * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader XmlBeanDefinitionReader}处理。
 	 * @see #value
 	 */
 	Class<? extends BeanDefinitionReader> reader() default BeanDefinitionReader.class;

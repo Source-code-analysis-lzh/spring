@@ -25,11 +25,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Simple implementation of {@link org.springframework.context.MessageSource}
- * which allows messages to be registered programmatically.
- * This MessageSource supports basic internationalization.
+ * {@link org.springframework.context.MessageSource}的简单实现，允许以编程方式注册消息.
+ * 此MessageSource支持基本的国际化.
  *
- * <p>Intended for testing rather than for use in production systems.
+ * <p>用于测试而非用于生产系统.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

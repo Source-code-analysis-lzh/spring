@@ -33,17 +33,17 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
 
 /**
- * A {@link org.springframework.web.servlet.HandlerExceptionResolver
- * HandlerExceptionResolver} that uses the {@link ResponseStatus @ResponseStatus}
- * annotation to map exceptions to HTTP status codes.
+ * 使用{@link ResponseStatus @ResponseStatus}注释将异常映射到HTTP状态代码的
+ * {@link org.springframework.web.servlet.HandlerExceptionResolver HandlerExceptionResolver}。
  *
- * <p>This exception resolver is enabled by default in the
- * {@link org.springframework.web.servlet.DispatcherServlet DispatcherServlet}
- * and the MVC Java config and the MVC namespace.
+ * <p>默认情况下，在{@link org.springframework.web.servlet.DispatcherServlet DispatcherServlet}
+ * 和MVC Java配置以及MVC名称空间中启用了此异常解析器。
  *
  * <p>As of 4.2 this resolver also looks recursively for {@code @ResponseStatus}
  * present on cause exceptions, and as of 4.2.2 this resolver supports
  * attribute overrides for {@code @ResponseStatus} in custom composed annotations.
+ * <p>从4.2版本开始，此解析器还将递归查找原因异常上出现的{@code @ResponseStatus}，
+ * 从4.2.2版本开始，此解析器支持在自定义组合注释中{@code @ResponseStatus}的属性覆盖。
  *
  * <p>As of 5.0 this resolver also supports {@link ResponseStatusException}.
  *

@@ -23,8 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that the annotated element uses Java 7 specific API constructs,
- * without implying that it strictly requires Java 7.
+ * 指示带注释的元素使用特定于Java 7的API构造，而不意味着它严格要求Java 7.
  *
  * @author Stephane Nicoll
  * @since 4.1

@@ -46,11 +46,9 @@ import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionStatus;
 
 /**
- * Common base class for accessing a Quartz Scheduler, i.e. for registering jobs,
- * triggers and listeners on a {@link org.quartz.Scheduler} instance.
+ * 用于访问Quartz Scheduler的通用基类，即用于在{@link org.quartz.Scheduler}实例上注册作业，触发器和侦听器的类。
  *
- * <p>For concrete usage, check out the {@link SchedulerFactoryBean} and
- * {@link SchedulerAccessorBean} classes.
+ * <p>有关具体用法，请查看{@link SchedulerFactoryBean}和{@link SchedulerAccessorBean}类。
  *
  * <p>Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
  *
@@ -124,11 +122,8 @@ public abstract class SchedulerAccessor implements ResourceLoaderAware {
 	}
 
 	/**
-	 * Register a list of JobDetail objects with the Scheduler that
-	 * this FactoryBean creates, to be referenced by Triggers.
-	 * <p>This is not necessary when a Trigger determines the JobDetail
-	 * itself: In this case, the JobDetail will be implicitly registered
-	 * in combination with the Trigger.
+	 * 向此FactoryBean创建的Scheduler注册JobDetail对象的列表，以供触发器引用。
+	 * <p>当触发器确定JobDetail本身时，这不是必需的：在这种情况下，JobDetail将与触发器结合隐式注册。
 	 * @see #setTriggers
 	 * @see org.quartz.JobDetail
 	 */
@@ -150,8 +145,7 @@ public abstract class SchedulerAccessor implements ResourceLoaderAware {
 	}
 
 	/**
-	 * Register a list of Trigger objects with the Scheduler that
-	 * this FactoryBean creates.
+	 * 使用此FactoryBean创建的Scheduler注册一个Trigger对象列表。
 	 * <p>If the Trigger determines the corresponding JobDetail itself,
 	 * the job will be automatically registered with the Scheduler.
 	 * Else, the respective JobDetail needs to be registered via the

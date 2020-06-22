@@ -46,15 +46,12 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A basic {@link ConfigurablePropertyAccessor} that provides the necessary
- * infrastructure for all typical use cases.
+ * 一个基本的{@link ConfigurablePropertyAccessor}，它为所有典型的用例提供必要的基础结构。
  *
- * <p>This accessor will convert collection and array values to the corresponding
- * target collections or arrays, if necessary. Custom property editors that deal
- * with collections or arrays can either be written via PropertyEditor's
- * {@code setValue}, or against a comma-delimited String via {@code setAsText},
- * as String arrays are converted in such a format if the array itself is not
- * assignable.
+ * <p>如有必要，此访问器会将集合和数组值转换为相应的目标集合或数组。 
+ * 可以通过PropertyEditor的{@code setValue}来编写处理集合或数组的自定义属性编辑器，
+ * 也可以通过{@code setAsText}来对逗号分隔的String进行编写，因为如果数组本身不可分配，
+ * 则以这种格式转换String数组。
  *
  * @author Juergen Hoeller
  * @author Stephane Nicoll

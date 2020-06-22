@@ -28,8 +28,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.util.concurrent.SuccessCallback;
 
 /**
- * A pass-through {@code Future} handle that can be used for method signatures
- * which are declared with a {@code Future} return type for asynchronous execution.
+ * 传递的{@code Future}句柄，可用于方法签名，该方法签名使用{@code Future}返回类型声明以进行异步执行。
  *
  * <p>As of Spring 4.1, this class implements {@link ListenableFuture}, not just
  * plain {@link java.util.concurrent.Future}, along with the corresponding support

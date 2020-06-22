@@ -17,8 +17,7 @@
 package org.springframework.expression;
 
 /**
- * Parses expression strings into compiled expressions that can be evaluated.
- * Supports parsing templates as well as standard expression strings.
+ * 将表达式字符串解析为可求值的已编译表达式. 支持解析模板以及标准表达式字符串.
  *
  * @author Keith Donald
  * @author Andy Clement
@@ -27,7 +26,7 @@ package org.springframework.expression;
 public interface ExpressionParser {
 
 	/**
-	 * Parse the expression string and return an Expression object you can use for repeated evaluation.
+	 * 解析表达式字符串，并返回可用于重复求值的Expression对象.
 	 * <p>Some examples:
 	 * <pre class="code">
 	 *     3 + 4
@@ -40,14 +39,14 @@ public interface ExpressionParser {
 	Expression parseExpression(String expressionString) throws ParseException;
 
 	/**
-	 * Parse the expression string and return an Expression object you can use for repeated evaluation.
+	 * 解析表达式字符串，并返回可用于重复求值的Expression对象.
 	 * <p>Some examples:
 	 * <pre class="code">
 	 *     3 + 4
 	 *     name.firstName
 	 * </pre>
 	 * @param expressionString the raw expression string to parse
-	 * @param context a context for influencing this expression parsing routine (optional)
+	 * @param context 影响此表达式解析路径的上下文（可选）
 	 * @return an evaluator for the parsed expression
 	 * @throws ParseException an exception occurred during parsing
 	 */

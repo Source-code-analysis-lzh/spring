@@ -17,14 +17,13 @@
 package org.springframework.beans;
 
 /**
- * Simple implementation of the {@link TypeConverter} interface that does not operate on
- * a specific target object. This is an alternative to using a full-blown BeanWrapperImpl
- * instance for arbitrary type conversion needs, while using the very same conversion
- * algorithm (including delegation to {@link java.beans.PropertyEditor} and
- * {@link org.springframework.core.convert.ConversionService}) underneath.
+ * {@link TypeConverter}接口的简单实现，该接口不对特定目标对象进行操作。 
+ * 这是使用成熟的BeanWrapperImpl实例满足任意类型转换需求的一种替代方法，
+ * 同时在下面使用了完全相同的转换算法（包括委派给{@link java.beans.PropertyEditor}
+ * 和{@link org.springframework.core.convert.ConversionService})）。
  *
- * <p><b>Note:</b> Due to its reliance on {@link java.beans.PropertyEditor PropertyEditors},
- * SimpleTypeConverter is <em>not</em> thread-safe. Use a separate instance for each thread.
+ * <p>注意：由于依赖于{@link java.beans.PropertyEditor PropertyEditors}，
+ * 因此SimpleTypeConverter不是线程安全的。 为每个线程使用一个单独的实例。
  *
  * @author Juergen Hoeller
  * @since 2.0

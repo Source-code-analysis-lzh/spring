@@ -23,8 +23,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Helper class for {@link ListenableFuture} implementations that maintains a
- * of success and failure callbacks and helps to notify them.
+ * {@link ListenableFuture}实现的帮助类，用于维护成功和失败回调，并有助于通知它们。
  *
  * <p>Inspired by {@code com.google.common.util.concurrent.ExecutionList}.
  *

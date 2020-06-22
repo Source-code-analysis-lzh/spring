@@ -26,9 +26,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Simple Pointcut that looks for a specific Java 5 annotation
- * being present on a {@link #forClassAnnotation class} or
- * {@link #forMethodAnnotation method}.
+ * 简单的切入点，用于查找{@link #forClassAnnotation 类}或{@link #forMethodAnnotation 方法}上存在的特定Java 5注释。
  *
  * @author Juergen Hoeller
  * @author Sam Brannen

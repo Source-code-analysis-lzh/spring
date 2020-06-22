@@ -94,8 +94,8 @@ public class HandlerMethodArgumentResolverComposite implements HandlerMethodArgu
 
 
 	/**
-	 * Whether the given {@linkplain MethodParameter method parameter} is
-	 * supported by any registered {@link HandlerMethodArgumentResolver}.
+	 * 任何注册的{@link HandlerMethodArgumentResolver}是否支持给定的
+	 * {@linkplain MethodParameter 方法参数}。
 	 */
 	@Override
 	public boolean supportsParameter(MethodParameter parameter) {
@@ -103,9 +103,7 @@ public class HandlerMethodArgumentResolverComposite implements HandlerMethodArgu
 	}
 
 	/**
-	 * Iterate over registered
-	 * {@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}
-	 * and invoke the one that supports it.
+	 * 遍历已注册的{@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}并调用支持它的解析器。
 	 * @throws IllegalArgumentException if no suitable argument resolver is found
 	 */
 	@Override
@@ -122,8 +120,7 @@ public class HandlerMethodArgumentResolverComposite implements HandlerMethodArgu
 	}
 
 	/**
-	 * Find a registered {@link HandlerMethodArgumentResolver} that supports
-	 * the given method parameter.
+	 * 查找支持给定方法参数的注册{@link HandlerMethodArgumentResolver}。
 	 */
 	@Nullable
 	private HandlerMethodArgumentResolver getArgumentResolver(MethodParameter parameter) {
@@ -132,6 +129,7 @@ public class HandlerMethodArgumentResolverComposite implements HandlerMethodArgu
 			for (HandlerMethodArgumentResolver resolver : this.argumentResolvers) {
 				if (resolver.supportsParameter(parameter)) {
 					result = resolver;
+					// 保存要解析参数和对应解析器映射关系
 					this.argumentResolverCache.put(parameter, result);
 					break;
 				}

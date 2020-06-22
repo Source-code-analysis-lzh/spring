@@ -25,16 +25,14 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Convenient class for regexp method pointcuts that hold an Advice,
- * making them an {@link org.springframework.aop.Advisor}.
+ * regexp方法切入点的便捷类，可容纳一个Advice，使其成为{@link org.springframework.aop.Advisor}。
  *
- * <p>Configure this class using the "pattern" and "patterns"
- * pass-through properties. These are analogous to the pattern
- * and patterns properties of {@link AbstractRegexpMethodPointcut}.
+ * <p>使用"pattern"和"patterns"直通属性配置此类。 
+ * 这些类似于{@link AbstractRegexpMethodPointcut}的pattern和pattern属性。
  *
- * <p>Can delegate to any {@link AbstractRegexpMethodPointcut} subclass.
- * By default, {@link JdkRegexpMethodPointcut} will be used. To choose
- * a specific one, override the {@link #createPointcut} method.
+ * <p>可以委托给任何{@link AbstractRegexpMethodPointcut}子类。 
+ * 默认情况下，将使用 {@link JdkRegexpMethodPointcut}。 
+ * 要选择一个特定的，请覆盖{@link #createPointcut}方法。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

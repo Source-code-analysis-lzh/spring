@@ -39,12 +39,10 @@ import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.handler.AbstractHandlerMapping;
 
 /**
- * {@code HandlerMapping} implementation that supports {@link RouterFunction RouterFunctions}.
+ * 支持{@link RouterFunction RouterFunctions}的{@code HandlerMapping}实现。
  *
- * <p>If no {@link RouterFunction} is provided at
- * {@linkplain #RouterFunctionMapping(RouterFunction) construction time}, this mapping
- * will detect all router functions in the application context, and consult them in
- * {@linkplain org.springframework.core.annotation.Order order}.
+ * <p>如果在{@linkplain #RouterFunctionMapping(RouterFunction) 构造时}未提供{@link RouterFunction}，
+ * 则此映射将检测应用程序上下文中的所有路由器功能，并按{@linkplain org.springframework.core.annotation.Order 顺序}查询它们。
  *
  * @author Arjen Poutsma
  * @since 5.2

@@ -31,24 +31,17 @@ import org.springframework.core.BridgeMethodResolver;
 import org.springframework.lang.Nullable;
 
 /**
- * Spring's implementation of the AOP Alliance
- * {@link org.aopalliance.intercept.MethodInvocation} interface,
- * implementing the extended
- * {@link org.springframework.aop.ProxyMethodInvocation} interface.
+ * Spring的AOP Alliance {@link org.aopalliance.intercept.MethodInvocation}接口的实现，
+ * 实现了扩展的{@link org.springframework.aop.ProxyMethodInvocation}接口。
  *
- * <p>Invokes the target object using reflection. Subclasses can override the
- * {@link #invokeJoinpoint()} method to change this behavior, so this is also
- * a useful base class for more specialized MethodInvocation implementations.
+ * <p>使用反射调用目标对象。 子类可以重写{@link #invokeJoinpoint()}方法来更改此行为，
+ * 因此对于更专门的MethodInvocation实现，这也是有用的基类。
  *
- * <p>It is possible to clone an invocation, to invoke {@link #proceed()}
- * repeatedly (once per clone), using the {@link #invocableClone()} method.
- * It is also possible to attach custom attributes to the invocation,
- * using the {@link #setUserAttribute} / {@link #getUserAttribute} methods.
+ * <p>为了重复（每个克隆一次）调用{@link #proceed()}，使用{@link #invocableClone()}方法可以克隆一个调用。
+ * 也可以使用{@link #setUserAttribute} / {@link #getUserAttribute}方法将自定义属性附加到调用。
  *
- * <p><b>NOTE:</b> This class is considered internal and should not be
- * directly accessed. The sole reason for it being public is compatibility
- * with existing framework integrations (e.g. Pitchfork). For any other
- * purposes, use the {@link ProxyMethodInvocation} interface instead.
+ * <p>注意：此类被认为是内部的，不应直接访问。 公开的唯一原因是与现有框架集成（例如Pitchfork）的兼容性。
+ * 出于任何其他目的，请改用{@link ProxyMethodInvocation}接口。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

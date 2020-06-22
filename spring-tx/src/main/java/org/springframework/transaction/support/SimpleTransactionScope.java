@@ -25,14 +25,11 @@ import org.springframework.beans.factory.config.Scope;
 import org.springframework.lang.Nullable;
 
 /**
- * A simple transaction-backed {@link Scope} implementation, delegating to
- * {@link TransactionSynchronizationManager}'s resource binding mechanism.
+ * 一个简单的支持事务{@link Scope}实现，委托给{@link TransactionSynchronizationManager}的资源绑定机制。
  *
- * <p><b>NOTE:</b> Like {@link org.springframework.context.support.SimpleThreadScope},
- * this transaction scope is not registered by default in common contexts. Instead,
- * you need to explicitly assign it to a scope key in your setup, either through
- * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory#registerScope}
- * or through a {@link org.springframework.beans.factory.config.CustomScopeConfigurer} bean.
+ * <p>注意：与{@link org.springframework.context.support.SimpleThreadScope}一样，默认情况下，在通用上下文中未注册此事务范围。 
+ * 相反，您需要通过{@link org.springframework.beans.factory.config.ConfigurableBeanFactory#registerScope}
+ * 或通过{@link org.springframework.beans.factory.config.CustomScopeConfigurer} bean将其显式赋值给设置中的作用域键。
  *
  * @author Juergen Hoeller
  * @since 4.2

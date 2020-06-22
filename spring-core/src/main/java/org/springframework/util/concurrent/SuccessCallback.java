@@ -19,7 +19,7 @@ package org.springframework.util.concurrent;
 import org.springframework.lang.Nullable;
 
 /**
- * Success callback for a {@link ListenableFuture}.
+ * {@link ListenableFuture}的成功回调。
  *
  * @author Sebastien Deleuze
  * @since 4.1

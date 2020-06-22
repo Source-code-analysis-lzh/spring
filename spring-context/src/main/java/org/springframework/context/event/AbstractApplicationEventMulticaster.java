@@ -41,18 +41,14 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Abstract implementation of the {@link ApplicationEventMulticaster} interface,
- * providing the basic listener registration facility.
+ * {@link ApplicationEventMulticaster}接口的抽象实现，提供基本的侦听器注册功能.
  *
- * <p>Doesn't permit multiple instances of the same listener by default,
- * as it keeps listeners in a linked Set. The collection class used to hold
- * ApplicationListener objects can be overridden through the "collectionClass"
- * bean property.
+ * <p>默认情况下，不允许同一侦听器的多个实例，因为它将侦听器保留在linked Set中.
+ * 可以通过"collectionClass" bean属性覆盖用于保存ApplicationListener对象的集合类.
  *
- * <p>Implementing ApplicationEventMulticaster's actual {@link #multicastEvent} method
- * is left to subclasses. {@link SimpleApplicationEventMulticaster} simply multicasts
- * all events to all registered listeners, invoking them in the calling thread.
- * Alternative implementations could be more sophisticated in those respects.
+ * <p>实现ApplicationEventMulticaster的{@link #multicastEvent}方法留给子类.
+ * {@link SimpleApplicationEventMulticaster}只是将所有事件多播到所有注册的侦听器，
+ * 并在调用线程中调用它们. 在这些方面，替代实现可能会更复杂.
  *
  * @author Juergen Hoeller
  * @author Stephane Nicoll
@@ -65,6 +61,7 @@ public abstract class AbstractApplicationEventMulticaster
 
 	private final ListenerRetriever defaultRetriever = new ListenerRetriever(false);
 
+	// 缓存监听器事件
 	final Map<ListenerCacheKey, ListenerRetriever> retrieverCache = new ConcurrentHashMap<>(64);
 
 	@Nullable
@@ -164,6 +161,7 @@ public abstract class AbstractApplicationEventMulticaster
 	/**
 	 * Return a Collection of ApplicationListeners matching the given
 	 * event type. Non-matching listeners get excluded early.
+	 * 返回与给定事件类型匹配的ApplicationListeners的集合。 不匹配的监听器尽早被排除在外。
 	 * @param event the event to be propagated. Allows for excluding
 	 * non-matching listeners early, based on cached matching information.
 	 * @param eventType the event type
@@ -175,11 +173,12 @@ public abstract class AbstractApplicationEventMulticaster
 
 		Object source = event.getSource();
 		Class<?> sourceType = (source != null ? source.getClass() : null);
+		// 根据事件类型和事件源类型来构建查询键
 		ListenerCacheKey cacheKey = new ListenerCacheKey(eventType, sourceType);
 
 		// Quick check for existing entry on ConcurrentHashMap...
 		ListenerRetriever retriever = this.retrieverCache.get(cacheKey);
-		if (retriever != null) {
+		if (retriever != null) { // 根据键，从缓存中获取对应事件和源的事件监听器
 			return retriever.getApplicationListeners();
 		}
 
@@ -347,7 +346,7 @@ public abstract class AbstractApplicationEventMulticaster
 	 */
 	protected boolean supportsEvent(
 			ApplicationListener<?> listener, ResolvableType eventType, @Nullable Class<?> sourceType) {
-
+		//判断监听器是否是 GenericApplicationListener 的子类，如果不是就返回一个GenericApplicationListenerAdapter
 		GenericApplicationListener smartListener = (listener instanceof GenericApplicationListener ?
 				(GenericApplicationListener) listener : new GenericApplicationListenerAdapter(listener));
 		return (smartListener.supportsEventType(eventType) && smartListener.supportsSourceType(sourceType));
@@ -356,6 +355,7 @@ public abstract class AbstractApplicationEventMulticaster
 
 	/**
 	 * Cache key for ListenerRetrievers, based on event type and source type.
+	 * 基于事件类型和源类型的ListenerRetrievers的缓存键。
 	 */
 	private static final class ListenerCacheKey implements Comparable<ListenerCacheKey> {
 
@@ -411,14 +411,14 @@ public abstract class AbstractApplicationEventMulticaster
 
 
 	/**
-	 * Helper class that encapsulates a specific set of target listeners,
-	 * allowing for efficient retrieval of pre-filtered listeners.
+	 * 封装了一组特定的目标侦听器的Helper类，从而可以有效地检索预先过滤的侦听器。
 	 * <p>An instance of this helper gets cached per event type and source type.
+	 * <p>此帮助器的实例对每个事件类型和源类型都会缓存。
 	 */
 	private class ListenerRetriever {
 
 		public final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
-
+		// 存储监听器bean名称
 		public final Set<String> applicationListenerBeans = new LinkedHashSet<>();
 
 		private final boolean preFiltered;

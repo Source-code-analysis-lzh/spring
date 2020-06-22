@@ -43,7 +43,7 @@ import java.util.StringJoiner;
 import org.springframework.lang.Nullable;
 
 /**
- * Miscellaneous {@code java.lang.Class} utility methods.
+ * 其它{@code java.lang.Class}工具类方法.
  * Mainly for internal use within the framework.
  *
  * @author Juergen Hoeller

@@ -51,34 +51,25 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.springframework.beans.factory.config.BeanPostProcessor} implementation
- * that wraps each eligible bean with an AOP proxy, delegating to specified interceptors
- * before invoking the bean itself.
+ * {@link org.springframework.beans.factory.config.BeanPostProcessor}实现，
+ * 使用AOP代理包装每个合格的bean，并在调用bean本身之前委派给指定的拦截器。
  *
- * <p>This class distinguishes between "common" interceptors: shared for all proxies it
- * creates, and "specific" interceptors: unique per bean instance. There need not be any
- * common interceptors. If there are, they are set using the interceptorNames property.
- * As with {@link org.springframework.aop.framework.ProxyFactoryBean}, interceptors names
- * in the current factory are used rather than bean references to allow correct handling
- * of prototype advisors and interceptors: for example, to support stateful mixins.
- * Any advice type is supported for {@link #setInterceptorNames "interceptorNames"} entries.
+ * <p>此类区分“常见”拦截器（由它创建的所有代理共享）和“特定”拦截器（每个bean实例唯一）。 
+ * 不需要任何通用的拦截器。 如果存在，则使用interceptorNames属性设置它们。 
+ * 与{@link org.springframework.aop.framework.ProxyFactoryBean}一样，
+ * 使用当前工厂中的拦截器名称（而不是bean引用）来正确处理原型advisors和interceptors：
+ * 例如，支持有状态混合。 {@link #setInterceptorNames "interceptorNames"}配置支持任何advice类型。
  *
- * <p>Such auto-proxying is particularly useful if there's a large number of beans that
- * need to be wrapped with similar proxies, i.e. delegating to the same interceptors.
- * Instead of x repetitive proxy definitions for x target beans, you can register
- * one single such post processor with the bean factory to achieve the same effect.
+ * <p>如果存在大量需要使用相似代理进行包装的bean，即委托给相同的拦截器，则这种自动代理特别有用。 
+ * 您可以在bean工厂中注册一个这样的后处理器，而不是为x个目标bean进行x个重复的代理定义。
  *
- * <p>Subclasses can apply any strategy to decide if a bean is to be proxied, e.g. by type,
- * by name, by definition details, etc. They can also return additional interceptors that
- * should just be applied to the specific bean instance. A simple concrete implementation is
- * {@link BeanNameAutoProxyCreator}, identifying the beans to be proxied via given names.
+ * <p>子类可以应用任何策略来确定是否要代理Bean，例如 按类型，按名称，按定义详细信息等。
+ * 它们还可以返回应仅应用于特定bean实例的其它 拦截器。 一个简单的具体实现是{@link BeanNameAutoProxyCreator}，
+ * 它通过给定名称标识要代理的bean。
  *
- * <p>Any number of {@link TargetSourceCreator} implementations can be used to create
- * a custom target source: for example, to pool prototype objects. Auto-proxying will
- * occur even if there is no advice, as long as a TargetSourceCreator specifies a custom
- * {@link org.springframework.aop.TargetSource}. If there are no TargetSourceCreators set,
- * or if none matches, a {@link org.springframework.aop.target.SingletonTargetSource}
- * will be used by default to wrap the target bean instance.
+ * <p>可以使用任意数量的{@link TargetSourceCreator}实现来创建自定义目标源：例如，池化原型对象。 
+ * 即使没有advice，也会自动进行代理，只要TargetSourceCreator指定自定义{@link org.springframework.aop.TargetSource}。
+ * 如果没有设置TargetSourceCreators或没有匹配项，则默认情况下将使用{@link org.springframework.aop.target.SingletonTargetSource}包装目标bean实例。
  *
  * @author Juergen Hoeller
  * @author Rod Johnson
@@ -294,6 +285,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 	@Override
 	public Object postProcessAfterInitialization(@Nullable Object bean, String beanName) {
 		if (bean != null) {
+			// 返回用做缓存的key键
 			Object cacheKey = getCacheKey(bean.getClass(), beanName);
 			if (this.earlyProxyReferences.remove(cacheKey) != bean) {
 				return wrapIfNecessary(bean, beanName, cacheKey);
@@ -338,21 +330,25 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 		if (Boolean.FALSE.equals(this.advisedBeans.get(cacheKey))) {
 			return bean;
 		}
+		// 判断当前的Bean是否是AOP本身的系统类，是的话则跳过，不做代理操作
 		if (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) {
 			this.advisedBeans.put(cacheKey, Boolean.FALSE);
 			return bean;
 		}
 
 		// Create proxy if we have advice.
+		// 为该Bean找到一个合适的 advisor
 		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
+		// 返回不为空
 		if (specificInterceptors != DO_NOT_PROXY) {
 			this.advisedBeans.put(cacheKey, Boolean.TRUE);
+			// 创建代理对象
 			Object proxy = createProxy(
 					bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
 			this.proxyTypes.put(cacheKey, proxy.getClass());
 			return proxy;
 		}
-
+		// 没有找到合适的 advisor 则直接返回原始Bean
 		this.advisedBeans.put(cacheKey, Boolean.FALSE);
 		return bean;
 	}

@@ -19,6 +19,7 @@ package org.springframework.core.type;
 /**
  * Interface that defines abstract access to the annotations of a specific
  * class, in a form that does not require that class to be loaded yet.
+ * 该接口定义了对指定类的注释的抽象访问，不要求加载该类。
  *
  * @author Juergen Hoeller
  * @author Mark Pollack
@@ -32,42 +33,39 @@ package org.springframework.core.type;
 public interface MethodMetadata extends AnnotatedTypeMetadata {
 
 	/**
-	 * Return the name of the method.
+	 * 返回方法的名称。
 	 */
 	String getMethodName();
 
 	/**
-	 * Return the fully-qualified name of the class that declares this method.
+	 * 返回声明此方法的类的标准名称。
 	 */
 	String getDeclaringClassName();
 
 	/**
-	 * Return the fully-qualified name of this method's declared return type.
+	 * 返回此方法的声明的返回类型的全限定名称。
 	 * @since 4.2
 	 */
 	String getReturnTypeName();
 
 	/**
-	 * Return whether the underlying method is effectively abstract:
-	 * i.e. marked as abstract on a class or declared as a regular,
-	 * non-default method in an interface.
+	 * 返回底层方法是否有效地抽象：即在类上标记为抽象或在接口中声明为常规的非默认方法。
 	 * @since 4.2
 	 */
 	boolean isAbstract();
 
 	/**
-	 * Return whether the underlying method is declared as 'static'.
+	 * 返回底层方法是否声明为'static'。
 	 */
 	boolean isStatic();
 
 	/**
-	 * Return whether the underlying method is marked as 'final'.
+	 * 返回底层方法是否标记为'final'。
 	 */
 	boolean isFinal();
 
 	/**
-	 * Return whether the underlying method is overridable,
-	 * i.e. not marked as static, final or private.
+	 * 返回底层方法是否可重写，即未标记为static, final or private。
 	 */
 	boolean isOverridable();
 

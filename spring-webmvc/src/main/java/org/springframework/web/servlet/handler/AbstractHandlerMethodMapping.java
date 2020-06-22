@@ -54,11 +54,9 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerMapping;
 
 /**
- * Abstract base class for {@link HandlerMapping} implementations that define
- * a mapping between a request and a {@link HandlerMethod}.
+ * {@link HandlerMapping}实现的抽象基类，它定义了请求和{@link HandlerMethod}之间的映射。
  *
- * <p>For each registered handler method, a unique mapping is maintained with
- * subclasses defining the details of the mapping type {@code <T>}.
+ * <p>对于每个已注册的处理器方法，将维护一个唯一的定义映射类型{@code <T>}的详细信息的子类的映射。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
@@ -79,6 +77,11 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	 * reasons, while still expecting the bean to be eligible for handler methods.
 	 * <p>Originally defined in {@link org.springframework.aop.scope.ScopedProxyUtils}
 	 * but duplicated here to avoid a hard dependency on the spring-aop module.
+	 * 作用域代理后面的目标bean的bean名称前缀。 用于从处理器方法检测中排除那些目标，但采用相应的代理。 
+	 * <p>我们不在此处检查自动连接候选状态，这是在自动连接级别处理代理目标过滤问题的方式，
+	 * 因为出于其它原因，自动接线连接可能已切换为{@code false}，而仍然希望Bean有资格为处理器方法。 
+	 * <p>最初是在{@link org.springframework.aop.scope.ScopedProxyUtils}中定义的，
+	 * 但在此处进行了重复以避免对spring-aop模块的严格依赖。
 	 */
 	private static final String SCOPED_TARGET_NAME_PREFIX = "scopedTarget.";
 
@@ -94,7 +97,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 		ALLOW_CORS_CONFIG.setAllowCredentials(true);
 	}
 
-
+	// 是否在父类应用上下文搜索处理器方法
 	private boolean detectHandlerMethodsInAncestorContexts = false;
 
 	@Nullable
@@ -197,7 +200,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	// Handler method detection
 
 	/**
-	 * Detects handler methods at initialization.
+	 * 在初始化时检测处理器方法。
 	 * @see #initHandlerMethods
 	 */
 	@Override
@@ -206,7 +209,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	}
 
 	/**
-	 * Scan beans in the ApplicationContext, detect and register handler methods.
+	 * 在ApplicationContext中扫描bean，检测并注册处理器方法。
 	 * @see #getCandidateBeanNames()
 	 * @see #processCandidateBean
 	 * @see #handlerMethodsInitialized
@@ -214,30 +217,29 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	protected void initHandlerMethods() {
 		for (String beanName : getCandidateBeanNames()) {
 			if (!beanName.startsWith(SCOPED_TARGET_NAME_PREFIX)) {
-				processCandidateBean(beanName);
+				processCandidateBean(beanName); // 获取处理器方法
 			}
 		}
 		handlerMethodsInitialized(getHandlerMethods());
 	}
 
 	/**
-	 * Determine the names of candidate beans in the application context.
+	 * 确定应用程序上下文中的候选bean名称。
 	 * @since 5.1
 	 * @see #setDetectHandlerMethodsInAncestorContexts
 	 * @see BeanFactoryUtils#beanNamesForTypeIncludingAncestors
 	 */
 	protected String[] getCandidateBeanNames() {
+		// 获取应用上下文中所有类型的bean名称
 		return (this.detectHandlerMethodsInAncestorContexts ?
 				BeanFactoryUtils.beanNamesForTypeIncludingAncestors(obtainApplicationContext(), Object.class) :
 				obtainApplicationContext().getBeanNamesForType(Object.class));
 	}
 
 	/**
-	 * Determine the type of the specified candidate bean and call
-	 * {@link #detectHandlerMethods} if identified as a handler type.
-	 * <p>This implementation avoids bean creation through checking
-	 * {@link org.springframework.beans.factory.BeanFactory#getType}
-	 * and calling {@link #detectHandlerMethods} with the bean name.
+	 * 确定指定的候选bean的类型，如果标识为处理器类型，则调用{@link #detectHandlerMethods}。
+	 * <p>此实现通过检查{@link org.springframework.beans.factory.BeanFactory＃getType}
+	 * 并使用bean名称调用{@link #detectHandlerMethods}来避免创建bean。
 	 * @param beanName the name of the candidate bean
 	 * @since 5.1
 	 * @see #isHandler
@@ -254,17 +256,19 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 				logger.trace("Could not resolve type for bean '" + beanName + "'", ex);
 			}
 		}
+		// 这里的 isHandler()方法由子类实现，判断是否拥有 @Controller 注解或 @RequestMapping 注解
 		if (beanType != null && isHandler(beanType)) {
 			detectHandlerMethods(beanName);
 		}
 	}
 
 	/**
-	 * Look for handler methods in the specified handler bean.
+	 * 在指定的处理器bean中查找处理器方法。
 	 * @param handler either a bean name or an actual handler instance
 	 * @see #getMappingForMethod
 	 */
 	protected void detectHandlerMethods(Object handler) {
+		// 获取这个 Bean 的 Class 对象
 		Class<?> handlerType = (handler instanceof String ?
 				obtainApplicationContext().getType((String) handler) : handler.getClass());
 
@@ -306,8 +310,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	}
 
 	/**
-	 * Register a handler method and its unique mapping. Invoked at startup for
-	 * each detected handler method.
+	 * 注册处理器方法及其唯一映射。 在启动时对每个检测到的处理器方法调用。
 	 * @param handler the bean name of the handler or the handler instance
 	 * @param method the method to register
 	 * @param mapping the mapping conditions associated with the handler method
@@ -356,7 +359,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	// Handler method lookup
 
 	/**
-	 * Look up a handler method for the given request.
+	 * 查找给定请求的处理器方法。
 	 */
 	@Override
 	protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Exception {
@@ -373,8 +376,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	}
 
 	/**
-	 * Look up the best-matching handler method for the current request.
-	 * If multiple matches are found, the best match is selected.
+	 * 查找当前请求的最佳匹配处理器方法。 如果找到多个匹配项，则选择最佳匹配项。
 	 * @param lookupPath mapping lookup path within the current servlet mapping
 	 * @param request the current request
 	 * @return the best-matching handler method, or {@code null} if no match
@@ -402,10 +404,11 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 				if (logger.isTraceEnabled()) {
 					logger.trace(matches.size() + " matching mappings: " + matches);
 				}
-				if (CorsUtils.isPreFlightRequest(request)) {
+				if (CorsUtils.isPreFlightRequest(request)) { //如果是Cors预检，则返回一个空处理器
 					return PREFLIGHT_AMBIGUOUS_MATCH;
 				}
 				Match secondBestMatch = matches.get(1);
+				// 模糊处理器映射，只能抛出异常
 				if (comparator.compare(bestMatch, secondBestMatch) == 0) {
 					Method m1 = bestMatch.handlerMethod.getMethod();
 					Method m2 = secondBestMatch.handlerMethod.getMethod();
@@ -414,7 +417,9 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 							"Ambiguous handler methods mapped for '" + uri + "': {" + m1 + ", " + m2 + "}");
 				}
 			}
+			// 在请求属性中记录最匹配处理器
 			request.setAttribute(BEST_MATCHING_HANDLER_ATTRIBUTE, bestMatch.handlerMethod);
+			// 可以查看子类覆盖实现
 			handleMatch(bestMatch.mapping, lookupPath, request);
 			return bestMatch.handlerMethod;
 		}
@@ -489,8 +494,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	protected abstract boolean isHandler(Class<?> beanType);
 
 	/**
-	 * Provide the mapping for a handler method. A method for which no
-	 * mapping can be provided is not a handler method.
+	 * 提供处理器方法的映射。 无法提供映射的方法不是处理器方法。
 	 * @param method the method to provide a mapping for
 	 * @param handlerType the handler type, possibly a sub-type of the method's
 	 * declaring class
@@ -507,6 +511,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 	/**
 	 * Check if a mapping matches the current request and return a (potentially
 	 * new) mapping with conditions relevant to the current request.
+	 * 检查映射是否与当前请求匹配，并返回具有与当前请求相关的条件的（可能是新的）映射。
 	 * @param mapping the mapping to get a match for
 	 * @param request the current HTTP servlet request
 	 * @return the match, or {@code null} if the mapping doesn't match
@@ -524,9 +529,8 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 
 
 	/**
-	 * A registry that maintains all mappings to handler methods, exposing methods
-	 * to perform lookups and providing concurrent access.
-	 * <p>Package-private for testing purposes.
+	 * 一个注册表，用于维护到处理器方法的所有映射，公开用于执行查找的方法并提供并发访问。
+	 * <p>出于测试目的私有软件包。
 	 */
 	class MappingRegistry {
 
@@ -551,7 +555,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 		}
 
 		/**
-		 * Return matches for the given URL path. Not thread-safe.
+		 * 返回给定URL路径的匹配项。 不是线程安全的。
 		 * @see #acquireReadLock()
 		 */
 		@Nullable
@@ -600,10 +604,10 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 			this.readWriteLock.writeLock().lock();
 			try {
 				HandlerMethod handlerMethod = createHandlerMethod(handler, method);
-				validateMethodMapping(handlerMethod, mapping);
+				validateMethodMapping(handlerMethod, mapping); // 查看是否已经存在该映射
 				this.mappingLookup.put(mapping, handlerMethod);
 
-				List<String> directUrls = getDirectUrls(mapping);
+				List<String> directUrls = getDirectUrls(mapping); // 获取非模式url
 				for (String url : directUrls) {
 					this.urlLookup.add(url, mapping);
 				}
@@ -614,6 +618,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 					addMappingName(name, handlerMethod);
 				}
 
+				// 初始化跨域配置
 				CorsConfiguration corsConfig = initCorsConfiguration(handler, method, mapping);
 				if (corsConfig != null) {
 					this.corsLookup.put(handlerMethod, corsConfig);

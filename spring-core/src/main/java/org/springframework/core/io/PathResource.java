@@ -36,17 +36,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link Resource} implementation for {@link java.nio.file.Path} handles,
- * performing all operations and transformations via the {@code Path} API.
- * Supports resolution as a {@link File} and also as a {@link URL}.
- * Implements the extended {@link WritableResource} interface.
+ * {@link java.nio.file.Path}句柄的{@link Resource}实现，通过{@code Path} API执行所有操作和转换.
+ * 支持解析为{@link File}和{@link URL}. 实现扩展的{@link WritableResource}接口.
  *
- * <p>Note: As of 5.1, {@link java.nio.file.Path} support is also available
- * in {@link FileSystemResource#FileSystemResource(Path) FileSystemResource},
- * applying Spring's standard String-based path transformations but
- * performing all operations via the {@link java.nio.file.Files} API.
- * This {@code PathResource} is effectively a pure {@code java.nio.path.Path}
- * based alternative with different {@code createRelative} behavior.
+ * <p>注意：从5.1版本开始，{@link FileSystemResource#FileSystemResource(Path) FileSystemResource}
+ * 中也提供了{@link java.nio.file.Path}支持，它应用了Spring基于标准的基于String的路径转换，
+ * 但通过{@link java.nio.file.Files} API执行了所有操作.
+ * 此{@code PathResource}实际上是具有不同{@code createRelative}行为的纯{@code java.nio.path.Path}替代方案.
  *
  * @author Philippe Marschall
  * @author Juergen Hoeller

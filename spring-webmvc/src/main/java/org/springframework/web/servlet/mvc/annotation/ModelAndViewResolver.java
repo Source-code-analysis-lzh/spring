@@ -24,11 +24,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * SPI for resolving custom return values from a specific handler method.
- * Typically implemented to detect special return types, resolving
- * well-known result values for them.
+ * SPI，用于解析特定处理器方法中的自定义返回值。 通常用于检测特殊的返回类型，以解决它们的知名结果值。
  *
- * <p>A typical implementation could look like as follows:
+ * <p>一个典型的实现可能如下所示：
  *
  * <pre class="code">
  * public class MyModelAndViewResolver implements ModelAndViewResolver {

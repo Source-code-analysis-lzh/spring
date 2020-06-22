@@ -29,19 +29,19 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 
 /**
- * Records model and view related decisions made by
- * {@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers} and
- * {@link HandlerMethodReturnValueHandler HandlerMethodReturnValueHandlers} during the course of invocation of
- * a controller method.
+ * 记录模型和视图在调用控制器方法的过程中{@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}
+ * 和{@link HandlerMethodReturnValueHandler HandlerMethodReturnValueHandlers}做出的相关决策。
  *
- * <p>The {@link #setRequestHandled} flag can be used to indicate the request
- * has been handled directly and view resolution is not required.
+ * <p>{@link #setRequestHandled}标志可用于指示请求已直接处理，并且不需要视图解析。
  *
  * <p>A default {@link Model} is automatically created at instantiation.
  * An alternate model instance may be provided via {@link #setRedirectModel}
  * for use in a redirect scenario. When {@link #setRedirectModelScenario} is set
  * to {@code true} signalling a redirect scenario, the {@link #getModel()}
  * returns the redirect model instead of the default model.
+ * <p>实例化时会自动创建一个默认模型{@link Model}。 可以通过{@link #setRedirectModel}提供替代模型实例，
+ * 以用于重定向场景。 当{@link #setRedirectModelScenario}设置为{@code true}表示重定向场景时，
+ * {@link #getModel()}返回重定向模型，而不是默认模型。
  *
  * @author Rossen Stoyanchev
  * @author Juergen Hoeller
@@ -124,8 +124,7 @@ public class ModelAndViewContainer {
 	}
 
 	/**
-	 * Whether the view is a view reference specified via a name to be
-	 * resolved by the DispatcherServlet via a ViewResolver.
+	 * 该视图是否是通过名称指定的视图引用，该名称由DispatcherServlet通过ViewResolver解析。
 	 */
 	public boolean isViewReference() {
 		return (this.view instanceof String);
@@ -157,12 +156,15 @@ public class ModelAndViewContainer {
 	}
 
 	/**
-	 * Return the "default" model created at instantiation.
+	 * 返回实例化时创建的“默认”模型。
 	 * <p>In general it is recommended to use {@link #getModel()} instead which
 	 * returns either the "default" model (template rendering) or the "redirect"
 	 * model (redirect URL preparation). Use of this method may be needed for
 	 * advanced cases when access to the "default" model is needed regardless,
 	 * e.g. to save model attributes specified via {@code @SessionAttributes}.
+	 * <p>通常，建议使用{@link #getModel()}代替它返回“默认”模型（模板渲染）
+	 * 或“重定向”模型（重定向URL准备）。 在高级情况下，无论是否需要访问“默认”模型，都可能需要使用此方法。 
+	 * 如，保存通过{@code @SessionAttributes}指定的模型属性。
 	 * @return the default model (never {@code null})
 	 * @since 4.1.4
 	 */
@@ -286,7 +288,7 @@ public class ModelAndViewContainer {
 	}
 
 	/**
-	 * Copy all attributes to the underlying model.
+	 * 将所有属性复制到底层模型。
 	 * A shortcut for {@code getModel().addAllAttributes(Map)}.
 	 */
 	public ModelAndViewContainer addAllAttributes(@Nullable Map<String, ?> attributes) {

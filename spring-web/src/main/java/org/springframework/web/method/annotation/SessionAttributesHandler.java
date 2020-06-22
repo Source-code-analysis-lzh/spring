@@ -32,15 +32,12 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
 /**
- * Manages controller-specific session attributes declared via
- * {@link SessionAttributes @SessionAttributes}. Actual storage is
- * delegated to a {@link SessionAttributeStore} instance.
+ * 管理通过{@link SessionAttributes @SessionAttributes}声明的特定的控制器的会话属性。 
+ * 实际的存储委托给{@link SessionAttributeStore}实例。
  *
- * <p>When a controller annotated with {@code @SessionAttributes} adds
- * attributes to its model, those attributes are checked against names and
- * types specified via {@code @SessionAttributes}. Matching model attributes
- * are saved in the HTTP session and remain there until the controller calls
- * {@link SessionStatus#setComplete()}.
+ * <p>当使用{@code @SessionAttributes}注释的控制器向其模型添加属性时，
+ * 将根据通过{@code @SessionAttributes}指定的名称和类型检查这些属性。 
+ * 匹配的模型属性保存在HTTP会话中，并保持在那里直到该控制器调用{@link SessionStatus#setComplete()}为止。
  *
  * @author Rossen Stoyanchev
  * @author Juergen Hoeller
@@ -106,8 +103,7 @@ public class SessionAttributesHandler {
 	}
 
 	/**
-	 * Store a subset of the given attributes in the session. Attributes not
-	 * declared as session attributes via {@code @SessionAttributes} are ignored.
+	 * 在会话中存储给定属性的子集。 未通过{@code @SessionAttributes}声明的会话属性将被忽略。
 	 * @param request the current request
 	 * @param attributes candidate attributes for session storage
 	 */
@@ -138,9 +134,8 @@ public class SessionAttributesHandler {
 	}
 
 	/**
-	 * Remove "known" attributes from the session, i.e. attributes listed
-	 * by name in {@code @SessionAttributes} or attributes previously stored
-	 * in the model that matched by type.
+	 * 从会话中删除“已知”属性，即{@code @SessionAttributes}中按名称列出的属性，
+	 * 或先前存储在模型中按类型匹配的属性。
 	 * @param request the current request
 	 */
 	public void cleanupAttributes(WebRequest request) {

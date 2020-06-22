@@ -34,17 +34,13 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Abstract base class for {@link Environment} implementations. Supports the notion of
- * reserved default profile names and enables specifying active and default profiles
- * through the {@link #ACTIVE_PROFILES_PROPERTY_NAME} and
- * {@link #DEFAULT_PROFILES_PROPERTY_NAME} properties.
+ * {@link Environment}实现的抽象基类。 支持保留的默认配置(profile)文件名称的概念，
+ * 并允许通过{@link #ACTIVE_PROFILES_PROPERTY_NAME}和{@link #DEFAULT_PROFILES_PROPERTY_NAME}属性指定活动和默认配置文件。
  *
- * <p>Concrete subclasses differ primarily on which {@link PropertySource} objects they
- * add by default. {@code AbstractEnvironment} adds none. Subclasses should contribute
- * property sources through the protected {@link #customizePropertySources(MutablePropertySources)}
- * hook, while clients should customize using {@link ConfigurableEnvironment#getPropertySources()}
- * and working against the {@link MutablePropertySources} API.
- * See {@link ConfigurableEnvironment} javadoc for usage examples.
+ * <p>具体的子类主要区别在于默认情况下添加的{@link PropertySource}对象。 {@code AbstractEnvironment}不添加任何内容。 
+ * 子类应通过受保护的{@link #customizePropertySources(MutablePropertySources)}挂钩提供属性源，
+ * 而客户端应使用{@link ConfigurableEnvironment#getPropertySources()}进行自定义，并使用{@link MutablePropertySources} API。 
+ * 有关用法示例，请参见{@link ConfigurableEnvironment} javadoc。
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -55,43 +51,35 @@ import org.springframework.util.StringUtils;
 public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 	/**
-	 * System property that instructs Spring to ignore system environment variables,
-	 * i.e. to never attempt to retrieve such a variable via {@link System#getenv()}.
-	 * <p>The default is "false", falling back to system environment variable checks if a
-	 * Spring environment property (e.g. a placeholder in a configuration String) isn't
-	 * resolvable otherwise. Consider switching this flag to "true" if you experience
-	 * log warnings from {@code getenv} calls coming from Spring, e.g. on WebSphere
-	 * with strict SecurityManager settings and AccessControlExceptions warnings.
+	 * 指示Spring忽略系统环境变量的系统属性，即从不尝试通过{@link System#getenv()}检索此类变量。
+	 * <p>默认值为"false"，回退到系统环境变量，检查Spring环境属性（例如配置字符串中的占位符）是否不可解析。 
+	 * 如果您遇到来自Spring的{@code getenv}调用的日志警告，请考虑将此标志设置为"true"，例如 
+	 * 在WebSphere上具有严格的SecurityManager设置和AccessControlExceptions警告。
 	 * @see #suppressGetenvAccess()
 	 */
 	public static final String IGNORE_GETENV_PROPERTY_NAME = "spring.getenv.ignore";
 
 	/**
-	 * Name of property to set to specify active profiles: {@value}. Value may be comma
-	 * delimited.
-	 * <p>Note that certain shell environments such as Bash disallow the use of the period
-	 * character in variable names. Assuming that Spring's {@link SystemEnvironmentPropertySource}
-	 * is in use, this property may be specified as an environment variable as
-	 * {@code SPRING_PROFILES_ACTIVE}.
+	 * 要设置为指定活动配置(profiles)文件的属性名称：{@value}。 值可以用逗号分隔。
+	 * <p>请注意，某些shell环境（例如Bash）不允许在变量名称中使用句点字符。 
+	 * 假设正在使用Spring的{@link SystemEnvironmentPropertySource}，
+	 * 则可以将此属性指定为{@code SPRING_PROFILES_ACTIVE}作为环境变量。
 	 * @see ConfigurableEnvironment#setActiveProfiles
 	 */
 	public static final String ACTIVE_PROFILES_PROPERTY_NAME = "spring.profiles.active";
 
 	/**
-	 * Name of property to set to specify profiles active by default: {@value}. Value may
-	 * be comma delimited.
-	 * <p>Note that certain shell environments such as Bash disallow the use of the period
-	 * character in variable names. Assuming that Spring's {@link SystemEnvironmentPropertySource}
-	 * is in use, this property may be specified as an environment variable as
-	 * {@code SPRING_PROFILES_DEFAULT}.
+	 * 设置为指定默认情况下处于活动状态的配置(profiles)文件的属性名称：{@value}。 值可以用逗号分隔。
+	 * <p>请注意，某些shell环境（例如Bash）不允许在变量名称中使用句点字符。 
+	 * 假设正在使用Spring的{@link SystemEnvironmentPropertySource}，
+	 * 则可以将此属性指定为{@code SPRING_PROFILES_DEFAULT}作为环境变量。
 	 * @see ConfigurableEnvironment#setDefaultProfiles
 	 */
 	public static final String DEFAULT_PROFILES_PROPERTY_NAME = "spring.profiles.default";
 
 	/**
-	 * Name of reserved default profile name: {@value}. If no default profile names are
-	 * explicitly and no active profile names are explicitly set, this profile will
-	 * automatically be activated by default.
+	 * 保留的默认配置文件名称的名称：{@value}。 如果未明确指定默认配置文件名称，也未明确设置活动配置文件名称，
+	 * 则默认情况下将自动激活此配置文件。
 	 * @see #getReservedDefaultProfiles
 	 * @see ConfigurableEnvironment#setDefaultProfiles
 	 * @see ConfigurableEnvironment#setActiveProfiles
@@ -114,10 +102,8 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 
 	/**
-	 * Create a new {@code Environment} instance, calling back to
-	 * {@link #customizePropertySources(MutablePropertySources)} during construction to
-	 * allow subclasses to contribute or manipulate {@link PropertySource} instances as
-	 * appropriate.
+	 * 创建一个新的{@code Environment}实例，在构造过程中回调{@link #customizePropertySources(MutablePropertySources)}，
+	 * 以允许子类酌情提供或操纵{@link PropertySource}实例。
 	 * @see #customizePropertySources(MutablePropertySources)
 	 */
 	public AbstractEnvironment() {
@@ -126,14 +112,11 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 
 	/**
-	 * Customize the set of {@link PropertySource} objects to be searched by this
-	 * {@code Environment} during calls to {@link #getProperty(String)} and related
-	 * methods.
+	 * 自定义在调用{@link #getProperty(String)}和相关方法期间此{@code Environment}
+	 * 要搜索的{@link PropertySource}对象集。
 	 *
-	 * <p>Subclasses that override this method are encouraged to add property
-	 * sources using {@link MutablePropertySources#addLast(PropertySource)} such that
-	 * further subclasses may call {@code super.customizePropertySources()} with
-	 * predictable results. For example:
+	 * <p>鼓励重写此方法的子类使用{@link MutablePropertySources#addLast(PropertySource)}添加属性源，
+	 * 以便其它子类可以调用具有可预测结果的{@code super.customizePropertySources()}。 例如：
 	 * <pre class="code">
 	 * public class Level1Environment extends AbstractEnvironment {
 	 *     &#064;Override
@@ -153,11 +136,9 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	 *     }
 	 * }
 	 * </pre>
-	 * In this arrangement, properties will be resolved against sources A, B, C, D in that
-	 * order. That is to say that property source "A" has precedence over property source
-	 * "D". If the {@code Level2Environment} subclass wished to give property sources C
-	 * and D higher precedence than A and B, it could simply call
-	 * {@code super.customizePropertySources} after, rather than before adding its own:
+	 * 在这种安排下，将按照源A，B，C，D的顺序解析属性。 也就是说，属性源"A"优先于属性源"D"。 
+	 * 如果{@code Level2Environment}子类希望为属性源C和D提供比A和B更高的优先级，
+	 * 则可以在之后而不是在添加其自身之前简单地调用{@code super.customizePropertySources}：
 	 * <pre class="code">
 	 * public class Level2Environment extends Level1Environment {
 	 *     &#064;Override
@@ -168,24 +149,22 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	 *     }
 	 * }
 	 * </pre>
-	 * The search order is now C, D, A, B as desired.
+	 * 现在，根据需要，搜索顺序为C，D，A，B。
 	 *
-	 * <p>Beyond these recommendations, subclasses may use any of the {@code add&#42;},
-	 * {@code remove}, or {@code replace} methods exposed by {@link MutablePropertySources}
-	 * in order to create the exact arrangement of property sources desired.
+	 * <p>除了这些建议之外，子类可以使用{@link MutablePropertySources}公开的任何{@code add&#42;}，
+	 * {@code remove}或{@code replace}方法来创建所需属性源的精确排列。
 	 *
-	 * <p>The base implementation registers no property sources.
+	 * <p>基类实现未注册任何属性源。
 	 *
-	 * <p>Note that clients of any {@link ConfigurableEnvironment} may further customize
-	 * property sources via the {@link #getPropertySources()} accessor, typically within
-	 * an {@link org.springframework.context.ApplicationContextInitializer
-	 * ApplicationContextInitializer}. For example:
+	 * <p>请注意，任何{@link ConfigurableEnvironment}的客户端都可以通过{@link #getPropertySources()}
+	 * 访问器（通常在{@link org.springframework.context.ApplicationContextInitializer
+	 * ApplicationContextInitializer}中）进一步自定义属性源。 例如：
 	 * <pre class="code">
 	 * ConfigurableEnvironment env = new StandardEnvironment();
 	 * env.getPropertySources().addLast(new PropertySourceX(...));
 	 * </pre>
 	 *
-	 * <h2>A warning about instance variable access</h2>
+	 * <h2>有关实例变量访问的警告</h2>
 	 * Instance variables declared in subclasses and having default initial values should
 	 * <em>not</em> be accessed from within this method. Due to Java object creation
 	 * lifecycle constraints, any initial value will not yet be assigned when this
@@ -195,6 +174,10 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	 * property source manipulation and instance variable access directly within the
 	 * subclass constructor. Note that <em>assigning</em> values to instance variables is
 	 * not problematic; it is only attempting to read default values that must be avoided.
+	 * 在子类中声明的具有默认初始值的实例变量不应在此方法内访问。 由于Java对象创建生命周期的限制，
+	 * 当{@link #AbstractEnvironment()}构造函数调用此回调时，尚未分配任何初始值，这可能导致{@code NullPointerException}
+	 * 或其他问题。 如果需要访问实例变量的默认值，请将此方法保留为空操作，并直接在子类构造函数中执行属性源操作和实例变量访问。 
+	 * 注意，给实例变量赋值是没有问题的。 它只是试图读取必须避免的默认值。
 	 *
 	 * @see MutablePropertySources
 	 * @see PropertySourcesPropertyResolver
@@ -204,9 +187,8 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	}
 
 	/**
-	 * Return the set of reserved default profile names. This implementation returns
-	 * {@value #RESERVED_DEFAULT_PROFILE_NAME}. Subclasses may override in order to
-	 * customize the set of reserved names.
+	 * 返回保留的默认配置文件名称集。 此实现返回{@value #RESERVED_DEFAULT_PROFILE_NAME}。 
+	 * 子类可以重写以自定义保留名称集。
 	 * @see #RESERVED_DEFAULT_PROFILE_NAME
 	 * @see #doGetDefaultProfiles()
 	 */
@@ -225,10 +207,8 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	}
 
 	/**
-	 * Return the set of active profiles as explicitly set through
-	 * {@link #setActiveProfiles} or if the current set of active profiles
-	 * is empty, check for the presence of the {@value #ACTIVE_PROFILES_PROPERTY_NAME}
-	 * property and assign its value to the set of active profiles.
+	 * 返回通过{@link #setActiveProfiles}显式设置的活动配置文件集，或者如果当前活动配置文件集为空，
+	 * 请检查是否存在{@value #ACTIVE_PROFILES_PROPERTY_NAME}属性并赋予其值为活动配置文件集。
 	 * @see #getActiveProfiles()
 	 * @see #ACTIVE_PROFILES_PROPERTY_NAME
 	 */
@@ -279,12 +259,9 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	}
 
 	/**
-	 * Return the set of default profiles explicitly set via
-	 * {@link #setDefaultProfiles(String...)} or if the current set of default profiles
-	 * consists only of {@linkplain #getReservedDefaultProfiles() reserved default
-	 * profiles}, then check for the presence of the
-	 * {@value #DEFAULT_PROFILES_PROPERTY_NAME} property and assign its value (if any)
-	 * to the set of default profiles.
+	 * 返回通过{@link #setDefaultProfiles(String...)}显式设置的默认配置文件集，
+	 * 或者如果当前的默认配置文件集仅由{@linkplain #getReservedDefaultProfiles() 保留的默认配置}文件组成，
+	 * 则检查是否存在{@value #DEFAULT_PROFILES_PROPERTY_NAME}属性并赋予其值 （如果有）为默认配置文件集。
 	 * @see #AbstractEnvironment()
 	 * @see #getDefaultProfiles()
 	 * @see #DEFAULT_PROFILES_PROPERTY_NAME
@@ -304,10 +281,8 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	}
 
 	/**
-	 * Specify the set of profiles to be made active by default if no other profiles
-	 * are explicitly made active through {@link #setActiveProfiles}.
-	 * <p>Calling this method removes overrides any reserved default profiles
-	 * that may have been added during construction of the environment.
+	 * 如果没有通过{@link #setActiveProfiles}显式激活其他配置文件，则指定默认情况下将其激活的配置文件集。
+	 * <p>调用此方法将删除覆盖在构造环境期间可能已添加的所有保留的默认profiles文件。
 	 * @see #AbstractEnvironment()
 	 * @see #getReservedDefaultProfiles()
 	 */
@@ -438,13 +413,10 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	}
 
 	/**
-	 * Determine whether to suppress {@link System#getenv()}/{@link System#getenv(String)}
-	 * access for the purposes of {@link #getSystemEnvironment()}.
-	 * <p>If this method returns {@code true}, an empty dummy Map will be used instead
-	 * of the regular system environment Map, never even trying to call {@code getenv}
-	 * and therefore avoiding security manager warnings (if any).
-	 * <p>The default implementation checks for the "spring.getenv.ignore" system property,
-	 * returning {@code true} if its value equals "true" in any case.
+	 * 确定是否出于{@link #getSystemEnvironment()}的目的抑制{@link System#getenv()}/{@link System#getenv(String)}访问。
+	 * <p>如果此方法返回{@code true}，则将使用空的虚拟Map代替常规的系统环境Map，
+	 * 甚至从不尝试调用{@code getenv}，因此避免了安全管理器警告（如果有）。
+	 * <p>默认实现检查"spring.getenv.ignore"系统属性，如果在任何情况下其值等于"true"，则返回{@code true}。
 	 * @see #IGNORE_GETENV_PROPERTY_NAME
 	 * @see SpringProperties#getFlag
 	 */

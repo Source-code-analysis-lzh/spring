@@ -24,8 +24,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * A Pointcut that matches if the underlying {@link JCacheOperationSource}
- * has an operation for a given method.
+ * 如果底层{@link JCacheOperationSource}具有给定方法的操作，则该Pointcut匹配。
  *
  * @author Stephane Nicoll
  * @since 4.1

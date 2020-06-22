@@ -40,29 +40,23 @@ import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.StringUtils;
 
 /**
- * Internal class that caches JavaBeans {@link java.beans.PropertyDescriptor}
- * information for a Java class. Not intended for direct use by application code.
+ * 缓存Java类的JavaBeans {@link java.beans.PropertyDescriptor}信息的内部类。 
+ * 不适用于应用程序代码直接使用。
  *
- * <p>Necessary for Spring's own caching of bean descriptors within the application
- * {@link ClassLoader}, rather than relying on the JDK's system-wide {@link BeanInfo}
- * cache (in order to avoid leaks on individual application shutdown in a shared JVM).
+ * <p>Spring自己在应用程序{@link ClassLoader}中缓存bean描述符是必要的，
+ * 而不是依赖JDK的系统范围的{@link BeanInfo}缓存（以避免在共享JVM中关闭单个应用程序时发生泄漏）。
  *
- * <p>Information is cached statically, so we don't need to create new
- * objects of this class for every JavaBean we manipulate. Hence, this class
- * implements the factory design pattern, using a private constructor and
- * a static {@link #forClass(Class)} factory method to obtain instances.
+ * <p>信息是静态缓存的，因此我们不需要为我们处理的每个JavaBean创建此类的新对象。 
+ * 因此，此类使用私有构造函数和静态的{@link #forClass(Class)}工厂方法来获取实例，从而实现工厂设计模式。
  *
- * <p>Note that for caching to work effectively, some preconditions need to be met:
- * Prefer an arrangement where the Spring jars live in the same ClassLoader as the
- * application classes, which allows for clean caching along with the application's
- * lifecycle in any case. For a web application, consider declaring a local
- * {@link org.springframework.web.util.IntrospectorCleanupListener} in {@code web.xml}
- * in case of a multi-ClassLoader layout, which will allow for effective caching as well.
+ * <p>请注意，为了使缓存有效地工作，需要满足一些先决条件：首选一种安排，
+ * 即Spring jar与应用程序类位于同一ClassLoader中，这样无论在任何情况下都可以进行干净的缓存以及应用程序的生命周期。 
+ * 对于Web应用程序，考虑使用MultiClassLoader布局，
+ * 请考虑在web.xml中声明本地{@link org.springframework.web.util.IntrospectorCleanupListener}，这也将允许有效的缓存。
  *
- * <p>In case of a non-clean ClassLoader arrangement without a cleanup listener having
- * been set up, this class will fall back to a weak-reference-based caching model that
- * recreates much-requested entries every time the garbage collector removed them. In
- * such a scenario, consider the {@link #IGNORE_BEANINFO_PROPERTY_NAME} system property.
+ * <p>如果使用的是不干净的ClassLoader安排，而没有设置清理侦听器，
+ * 则此类将退回到基于弱引用的缓存模型，该模型在每次垃圾回收器删除它们时都会重新创建要求很高的条目。 
+ * 在这种情况下，请考虑{@link #IGNORE_BEANINFO_PROPERTY_NAME}系统属性。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

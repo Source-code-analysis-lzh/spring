@@ -20,7 +20,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.context.request.WebRequest;
 
 /**
- * Strategy interface for storing model attributes in a backend session.
+ * 策略接口，用于在后端会话中存储模型属性。
  *
  * @author Juergen Hoeller
  * @since 2.5
@@ -29,9 +29,8 @@ import org.springframework.web.context.request.WebRequest;
 public interface SessionAttributeStore {
 
 	/**
-	 * Store the supplied attribute in the backend session.
-	 * <p>Can be called for new attributes as well as for existing attributes.
-	 * In the latter case, this signals that the attribute value may have been modified.
+	 * 将提供的属性存储在后端会话中。
+	 * <p>可以为新属性以及现有属性调用。 在后一种情况下，这表明属性值可能已被修改。
 	 * @param request the current request
 	 * @param attributeName the name of the attribute
 	 * @param attributeValue the attribute value to store
@@ -39,10 +38,11 @@ public interface SessionAttributeStore {
 	void storeAttribute(WebRequest request, String attributeName, Object attributeValue);
 
 	/**
-	 * Retrieve the specified attribute from the backend session.
+	 * 从后端会话中检索指定的属性。
 	 * <p>This will typically be called with the expectation that the
 	 * attribute is already present, with an exception to be thrown
 	 * if this method returns {@code null}.
+	 * <p>通常会在期望属性已经存在的情况下调用此方法，如果此方法返回{@code null}，则会抛出异常。
 	 * @param request the current request
 	 * @param attributeName the name of the attribute
 	 * @return the current attribute value, or {@code null} if none
@@ -51,8 +51,8 @@ public interface SessionAttributeStore {
 	Object retrieveAttribute(WebRequest request, String attributeName);
 
 	/**
-	 * Clean up the specified attribute in the backend session.
-	 * <p>Indicates that the attribute name will not be used anymore.
+	 * 清理后端会话中的指定属性。
+	 * <p>指示将不再使用属性名称。
 	 * @param request the current request
 	 * @param attributeName the name of the attribute
 	 */

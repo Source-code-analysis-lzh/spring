@@ -25,10 +25,9 @@ import java.util.function.IntPredicate;
 import org.springframework.util.Assert;
 
 /**
- * Provides a convenient implementation of the {@link DataBuffer} interface
- * that can be overridden to adapt the delegate.
+ * 提供{@link DataBuffer}接口的便捷实现，可以重写该接口以适应委托.
  *
- * <p>These methods default to calling through to the wrapped delegate object.
+ * <p>这些方法默认为调用包装的委托对象.
  *
  * @author Arjen Poutsma
  * @since 5.2

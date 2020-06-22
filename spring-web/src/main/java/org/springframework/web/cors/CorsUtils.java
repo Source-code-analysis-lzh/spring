@@ -26,8 +26,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * Utility class for CORS request handling based on the
- * <a href="https://www.w3.org/TR/cors/">CORS W3C recommendation</a>.
+ * 基于<a href="https://www.w3.org/TR/cors/"> CORS W3C建议</a>的CORS请求处理工具类。
  *
  * @author Sebastien Deleuze
  * @since 4.2

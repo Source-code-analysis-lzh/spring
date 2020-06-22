@@ -27,7 +27,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Internal parser used by {@link Profiles#of}.
+ * {@link Profiles＃of}使用的内部解析器。
  *
  * @author Phillip Webb
  * @since 5.1

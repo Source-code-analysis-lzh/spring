@@ -33,8 +33,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.server.ServerWebExchange;
 
 /**
- * Specialized {@link org.springframework.validation.DataBinder} to perform data
- * binding from URL query params or form data in the request data to Java objects.
+ * 专门的{@link org.springframework.validation.DataBinder}执行从URL查询参数的数据绑定
+ * 或将请求数据中的表单数据形成Java对象。
  *
  * @author Rossen Stoyanchev
  * @since 5.0

@@ -52,7 +52,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Utility class for working with {@link DataBuffer DataBuffers}.
+ * 用于处理{@link DataBuffer DataBuffers}的工具类.
  *
  * @author Arjen Poutsma
  * @author Brian Clozel

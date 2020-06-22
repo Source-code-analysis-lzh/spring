@@ -29,9 +29,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * A {@link UriComponentsContributor} containing a list of other contributors
- * to delegate and also encapsulating a specific {@link ConversionService} to
- * use for formatting method argument values to Strings.
+ * 一个{@link UriComponentsContributor}，其中包含要委托的其他贡献者列表，
+ * 并且还封装了一个指定的{@link ConversionService}，用于将方法参数值格式化为String。
  *
  * @author Rossen Stoyanchev
  * @since 4.0
@@ -44,11 +43,10 @@ public class CompositeUriComponentsContributor implements UriComponentsContribut
 
 
 	/**
-	 * Create an instance from a collection of {@link UriComponentsContributor UriComponentsContributors} or
-	 * {@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}. Since both of these tend to be implemented
-	 * by the same class, the most convenient option is to obtain the configured
-	 * {@code HandlerMethodArgumentResolvers} in {@code RequestMappingHandlerAdapter}
-	 * and provide that to this constructor.
+	 * 从{@link UriComponentsContributor UriComponentsContributors}或
+	 * {@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}的集合创建实例。 
+	 * 由于这两种接口都一般由同一个类实现，所以最方便的选择是在{@code RequestMappingHandlerAdapter}中获取已配置的
+	 * {@code HandlerMethodArgumentResolvers}并将其提供给此构造函数。
 	 * @param contributors a collection of {@link UriComponentsContributor}
 	 * or {@link HandlerMethodArgumentResolver HandlerMethodArgumentResolvers}.
 	 */

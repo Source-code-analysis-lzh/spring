@@ -28,19 +28,16 @@ import org.springframework.util.StringUtils;
 
 /**
  * Abstract base regular expression pointcut bean. JavaBean properties are:
+ * 切入点bean的抽象正则表达式基类。 JavaBean属性是：
  * <ul>
- * <li>pattern: regular expression for the fully-qualified method names to match.
- * The exact regexp syntax will depend on the subclass (e.g. Perl5 regular expressions)
- * <li>patterns: alternative property taking a String array of patterns.
- * The result will be the union of these patterns.
+ * <li>pattern：正则表达式，用于完全匹配的方法名称。 确切的regexp语法将取决于子类（例如Perl5正则表达式）
+ * <li>pattern：替代属性，采用String数组模式。 结果将是这些模式的结合。
  * </ul>
  *
- * <p>Note: the regular expressions must be a match. For example,
- * {@code .*get.*} will match com.mycom.Foo.getBar().
- * {@code get.*} will not.
+ * <p>注意：正则表达式必须匹配。 例如，{@code .*get.*}将匹配com.mycom.Foo.getBar()。 {@code get.*}不会。
  *
- * <p>This base class is serializable. Subclasses should declare all fields transient;
- * the {@link #initPatternRepresentation} method will be invoked again on deserialization.
+ * <p>该基类是可序列化的。 子类应声明所有字段都是瞬态的； 
+ * {@link #initPatternRepresentation}方法将在反序列化时再次调用。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

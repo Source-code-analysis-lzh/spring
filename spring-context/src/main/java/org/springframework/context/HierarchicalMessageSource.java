@@ -19,8 +19,7 @@ package org.springframework.context;
 import org.springframework.lang.Nullable;
 
 /**
- * Sub-interface of MessageSource to be implemented by objects that
- * can resolve messages hierarchically.
+ * 由可以分层解析消息的对象实现的MessageSource子接口.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -28,8 +27,7 @@ import org.springframework.lang.Nullable;
 public interface HierarchicalMessageSource extends MessageSource {
 
 	/**
-	 * Set the parent that will be used to try to resolve messages
-	 * that this object can't resolve.
+	 * 设置将用于尝试解析该对象无法解析的消息的父对象.
 	 * @param parent the parent MessageSource that will be used to
 	 * resolve messages that this object can't resolve.
 	 * May be {@code null}, in which case no further resolution is possible.
@@ -37,7 +35,7 @@ public interface HierarchicalMessageSource extends MessageSource {
 	void setParentMessageSource(@Nullable MessageSource parent);
 
 	/**
-	 * Return the parent of this MessageSource, or {@code null} if none.
+	 * 返回此MessageSource的父级；如果没有，则返回{@code null}.
 	 */
 	@Nullable
 	MessageSource getParentMessageSource();

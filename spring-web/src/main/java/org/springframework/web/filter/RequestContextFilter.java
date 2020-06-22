@@ -28,16 +28,14 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
- * Servlet Filter that exposes the request to the current thread,
- * through both {@link org.springframework.context.i18n.LocaleContextHolder} and
- * {@link RequestContextHolder}. To be registered as filter in {@code web.xml}.
+ * Servlet 过滤器，它通过{@link org.springframework.context.i18n.LocaleContextHolder}
+ * 和{@link RequestContextHolder}将请求公开给当前线程。 要在{@code web.xml}中注册为过滤器。
  *
- * <p>Alternatively, Spring's {@link org.springframework.web.context.request.RequestContextListener}
- * and Spring's {@link org.springframework.web.servlet.DispatcherServlet} also expose
- * the same request context to the current thread.
+ * <p>另外，Spring的{@link org.springframework.web.context.request.RequestContextListener}
+ * 和Spring的{@link org.springframework.web.servlet.DispatcherServlet}也向当前线程公开相同的请求上下文。
  *
- * <p>This filter is mainly for use with third-party servlets, e.g. the JSF FacesServlet.
- * Within Spring's own web support, DispatcherServlet's processing is perfectly sufficient.
+ * <p>此过滤器主要用于第三方servlet，例如 JSF FacesServlet。 
+ * 在Spring自己的Web支持中，DispatcherServlet的处理就足够了。
  *
  * @author Juergen Hoeller
  * @author Rod Johnson

@@ -17,20 +17,16 @@
 package org.springframework.core;
 
 /**
- * {@code Ordered} is an interface that can be implemented by objects that
- * should be <em>orderable</em>, for example in a {@code Collection}.
+ * {@code Ordered}接口是可以由应该可排序的对象（例如在{@code Collection}中）实现的接口.
  *
- * <p>The actual {@link #getOrder() order} can be interpreted as prioritization,
- * with the first object (with the lowest order value) having the highest
- * priority.
+ * <p>实际{@link #getOrder() order}可以解释为优先级排序，第一个对象（具有最低顺序值）具有最高优先级.
  *
- * <p>Note that there is also a <em>priority</em> marker for this interface:
- * {@link PriorityOrdered}. Consult the Javadoc for {@code PriorityOrdered} for
- * details on how {@code PriorityOrdered} objects are ordered relative to
- * <em>plain</em> {@link Ordered} objects.
+ * <p>请注意，此接口还有一个<em>priority</em>标记接口：{@link PriorityOrdered}.
+ * 有关{@code PriorityOrdered}对象相对于普通{@link Ordered}对象如何排序的详细信息，请查阅Javadoc.
  *
  * <p>Consult the Javadoc for {@link OrderComparator} for details on the
  * sort semantics for non-ordered objects.
+ * <p>有关{@link OrderComparator}的信息，请查阅Javadoc，以获取有关非排序对象的排序语义的详细信息.
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
@@ -43,25 +39,23 @@ package org.springframework.core;
 public interface Ordered {
 
 	/**
-	 * Useful constant for the highest precedence value.
+	 * 最高优先级值的有用常数.
 	 * @see java.lang.Integer#MIN_VALUE
 	 */
 	int HIGHEST_PRECEDENCE = Integer.MIN_VALUE;
 
 	/**
-	 * Useful constant for the lowest precedence value.
+	 * 最低优先级值的有用常数.
 	 * @see java.lang.Integer#MAX_VALUE
 	 */
 	int LOWEST_PRECEDENCE = Integer.MAX_VALUE;
 
 
 	/**
-	 * Get the order value of this object.
-	 * <p>Higher values are interpreted as lower priority. As a consequence,
-	 * the object with the lowest value has the highest priority (somewhat
-	 * analogous to Servlet {@code load-on-startup} values).
-	 * <p>Same order values will result in arbitrary sort positions for the
-	 * affected objects.
+	 * 获取此对象的顺序值.
+	 * <p>较高的值将解释为较低的优先级.
+	 * 结果，具有最低值的对象具有最高优先级（与Servlet加载时{@code load-on-startup}值类似）.
+	 * <p>相同的顺序值将导致受影响对象的任意排序位置.
 	 * @return the order value
 	 * @see #HIGHEST_PRECEDENCE
 	 * @see #LOWEST_PRECEDENCE

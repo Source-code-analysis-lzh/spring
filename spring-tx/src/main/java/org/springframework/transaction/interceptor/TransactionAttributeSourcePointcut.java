@@ -27,8 +27,7 @@ import org.springframework.transaction.TransactionManager;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Abstract class that implements a Pointcut that matches if the underlying
- * {@link TransactionAttributeSource} has an attribute for a given method.
+ * 如果底层{@link TransactionAttributeSource}具有给定方法的属性，则实现该Pointcut的抽象类的类将与之匹配。
  *
  * @author Juergen Hoeller
  * @since 2.5.5

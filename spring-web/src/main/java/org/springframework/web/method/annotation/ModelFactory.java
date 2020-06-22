@@ -47,14 +47,15 @@ import org.springframework.web.method.support.InvocableHandlerMethod;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
- * Assist with initialization of the {@link Model} before controller method
- * invocation and with updates to it after the invocation.
+ * 在控制器方法调用之前协助初始化模型{@link Model}，并在调用之后协助对其进行更新。
  *
  * <p>On initialization the model is populated with attributes temporarily stored
  * in the session and through the invocation of {@code @ModelAttribute} methods.
+ * <p>在初始化时，通过使用{@code @ModelAttribute}方法的调用将临时存储在会话中的属性填充到模型中。
  *
  * <p>On update model attributes are synchronized with the session and also
  * {@link BindingResult} attributes are added if missing.
+ * <p>在更新时，模型属性与会话同步，并且如果缺少，还会添加{@link BindingResult}属性。
  *
  * @author Rossen Stoyanchev
  * @since 3.1
@@ -91,7 +92,7 @@ public final class ModelFactory {
 
 
 	/**
-	 * Populate the model in the following order:
+	 * 按以下顺序填充模型：
 	 * <ol>
 	 * <li>Retrieve "known" session attributes listed as {@code @SessionAttributes}.
 	 * <li>Invoke {@code @ModelAttribute} methods
@@ -191,27 +192,28 @@ public final class ModelFactory {
 	}
 
 	/**
-	 * Promote model attributes listed as {@code @SessionAttributes} to the session.
-	 * Add {@link BindingResult} attributes where necessary.
+	 * 将{@code @SessionAttributes}中列出的模型属性保存到会话。 如有必要，添加{@link BindingResult}属性。
 	 * @param request the current request
 	 * @param container contains the model to update
 	 * @throws Exception if creating BindingResult attributes fails
 	 */
 	public void updateModel(NativeWebRequest request, ModelAndViewContainer container) throws Exception {
 		ModelMap defaultModel = container.getDefaultModel();
+		// 如果会话完成，则清除会话中经过@SessionAttributes声明过的属性
 		if (container.getSessionStatus().isComplete()){
 			this.sessionAttributesHandler.cleanupAttributes(request);
 		}
-		else {
+		else { // 存储经过@SessionAttributes声明过的属性
 			this.sessionAttributesHandler.storeAttributes(request, defaultModel);
 		}
+		// 如果容器没有处理完成且不是重定向模型
 		if (!container.isRequestHandled() && container.getModel() == defaultModel) {
 			updateBindingResult(request, defaultModel);
 		}
 	}
 
 	/**
-	 * Add {@link BindingResult} attributes to the model for attributes that require it.
+	 * 将{@link BindingResult}属性添加到模型中，以获取需要的属性。
 	 */
 	private void updateBindingResult(NativeWebRequest request, ModelMap model) throws Exception {
 		List<String> keyNames = new ArrayList<>(model.keySet());

@@ -23,6 +23,8 @@ import org.springframework.util.StringUtils;
 
 /**
  * {@link PropertySource} that reads keys and values from a {@code Map} object.
+ * 从{@code Map}对象读取键和值的{@link PropertySource}。 底层map不应包含任何null值，
+ * 以便符合getProperty（java.lang.String）并包含Property（java.lang.String）语义。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

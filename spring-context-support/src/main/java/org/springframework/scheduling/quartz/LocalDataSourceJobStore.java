@@ -35,23 +35,18 @@ import org.springframework.jdbc.support.MetaDataAccessException;
 import org.springframework.lang.Nullable;
 
 /**
- * Subclass of Quartz's {@link JobStoreCMT} class that delegates to a Spring-managed
- * {@link DataSource} instead of using a Quartz-managed JDBC connection pool.
- * This JobStore will be used if SchedulerFactoryBean's "dataSource" property is set.
+ * Quartz的{@link JobStoreCMT}类的子类，该类委派给Spring管理的数据源，
+ * 而不是使用Quartz管理的JDBC连接池。 如果设置了SchedulerFactoryBean的"dataSource"属性，
+ * 则将使用此JobStore。
  *
- * <p>Supports both transactional and non-transactional DataSource access.
- * With a non-XA DataSource and local Spring transactions, a single DataSource
- * argument is sufficient. In case of an XA DataSource and global JTA transactions,
- * SchedulerFactoryBean's "nonTransactionalDataSource" property should be set,
- * passing in a non-XA DataSource that will not participate in global transactions.
+ * <p>支持事务和非事务数据源访问。 对于非XA DataSource和本地Spring事务，单个DataSource参数就足够了。 
+ * 如果是XA数据源和全局JTA事务，则应设置SchedulerFactoryBean的"nonTransactionalDataSource"属性，
+ * 并传入不参与全局事务的非XA数据源。
  *
- * <p>Operations performed by this JobStore will properly participate in any
- * kind of Spring-managed transaction, as it uses Spring's DataSourceUtils
- * connection handling methods that are aware of a current transaction.
+ * <p>此JobStore执行的操作将正确地参与任何类型的Spring托管事务，
+ * 因为它使用知道当前事务的Spring的DataSourceUtils连接处理方法。
  *
- * <p>Note that all Quartz Scheduler operations that affect the persistent
- * job store should usually be performed within active transactions,
- * as they assume to get proper locks etc.
+ * <p>请注意，所有影响持久性作业存储的Quartz Scheduler操作通常应在活动事务中执行，因为它们假定会获得适当的锁定等。
  *
  * @author Juergen Hoeller
  * @since 1.1

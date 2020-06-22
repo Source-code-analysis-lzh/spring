@@ -47,12 +47,11 @@ import org.springframework.web.socket.server.HandshakeHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
 /**
- * A {@link HttpRequestHandler} for processing WebSocket handshake requests.
+ * 一个用于处理WebSocket握手请求的{@link HttpRequestHandler}。
  *
- * <p>This is the main class to use when configuring a server WebSocket at a specific URL.
- * It is a very thin wrapper around a {@link WebSocketHandler} and a {@link HandshakeHandler},
- * also adapting the {@link HttpServletRequest} and {@link HttpServletResponse} to
- * {@link ServerHttpRequest} and {@link ServerHttpResponse}, respectively.
+ * <p>这是在特定URL上配置服务器WebSocket时要使用的主要类。
+ * 它是围绕{@link WebSocketHandler}和{@link HandshakeHandler}的非常薄的包装，
+ * 还分别使{@link HttpServletRequest}和{@link HttpServletResponse}适应{@link ServerHttpRequest}和{@link ServerHttpResponse}。
  *
  * @author Rossen Stoyanchev
  * @since 4.0

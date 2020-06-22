@@ -30,14 +30,13 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A {@code Predicate} to match request handling component types if
- * <strong>any</strong> of the following selectors match:
+ * 如果以下任何选择器匹配，则{@code Predicate}匹配请求处理组件类型：
  * <ul>
  * <li>Base packages -- for selecting handlers by their package.
  * <li>Assignable types -- for selecting handlers by super type.
  * <li>Annotations -- for selecting handlers annotated in a specific way.
  * </ul>
- * <p>Composability methods on {@link Predicate} can be used :
+ * <p>可以使用{@link Predicate}上的可组合性方法：
  * <pre class="code">
  * Predicate&lt;Class&lt;?&gt;&gt; predicate =
  * 		HandlerTypePredicate.forAnnotation(RestController.class)

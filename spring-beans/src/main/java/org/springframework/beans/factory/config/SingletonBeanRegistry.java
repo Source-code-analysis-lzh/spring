@@ -19,12 +19,9 @@ package org.springframework.beans.factory.config;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface that defines a registry for shared bean instances.
- * Can be implemented by {@link org.springframework.beans.factory.BeanFactory}
- * implementations in order to expose their singleton management facility
- * in a uniform manner.
+ * 为共享bean实例定义注册表的接口. 可以由{@link org.springframework.beans.factory.BeanFactory}实现，以便以统一的方式公开其单例管理工具.
  *
- * <p>The {@link ConfigurableBeanFactory} interface extends this interface.
+ * <p>{@link ConfigurableBeanFactory}接口扩展了此接口.
  *
  * @author Juergen Hoeller
  * @since 2.0

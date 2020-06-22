@@ -33,7 +33,7 @@ import org.springframework.util.PropertyPlaceholderHelper;
 import org.springframework.util.SystemPropertyUtils;
 
 /**
- * Abstract base class for resolving properties against any underlying source.
+ * 用于针对任何底层源属性解析的抽象基类。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

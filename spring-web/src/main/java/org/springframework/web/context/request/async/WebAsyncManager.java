@@ -38,18 +38,12 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.async.DeferredResult.DeferredResultHandler;
 
 /**
- * The central class for managing asynchronous request processing, mainly intended
- * as an SPI and not typically used directly by application classes.
+ * 用于管理异步请求处理的中心类，主要用作SPI，通常不被应用程序类直接使用。
  *
- * <p>An async scenario starts with request processing as usual in a thread (T1).
- * Concurrent request handling can be initiated by calling
- * {@link #startCallableProcessing(Callable, Object...) startCallableProcessing} or
- * {@link #startDeferredResultProcessing(DeferredResult, Object...) startDeferredResultProcessing},
- * both of which produce a result in a separate thread (T2). The result is saved
- * and the request dispatched to the container, to resume processing with the saved
- * result in a third thread (T3). Within the dispatched thread (T3), the saved
- * result can be accessed via {@link #getConcurrentResult()} or its presence
- * detected via {@link #hasConcurrentResult()}.
+ * <p>异步场景从线程（T1）中的常规请求处理开始。 可以通过调用{@link #startCallableProcessing(Callable, Object...) startCallableProcessing}
+ * 或{@link #startDeferredResultProcessing(DeferredResult, Object...) startDeferredResultProcessing}来启动并发请求处理，
+ * 这两种方法都会在单独的线程（T2）中产生结果。 保存结果，并将请求分派到容器，以在第三个线程（T3）中使用保存的结果恢复处理。 
+ * 在分派的线程（T3）中，可以通过{@link #getConcurrentResult()}访问保存的结果，也可以通过{@link #hasConcurrentResult()}检测到保存的结果。
  *
  * @author Rossen Stoyanchev
  * @author Juergen Hoeller
@@ -132,19 +126,15 @@ public final class WebAsyncManager {
 	}
 
 	/**
-	 * Whether the selected handler for the current request chose to handle the
-	 * request asynchronously. A return value of "true" indicates concurrent
-	 * handling is under way and the response will remain open. A return value
-	 * of "false" means concurrent handling was either not started or possibly
-	 * that it has completed and the request was dispatched for further
-	 * processing of the concurrent result.
+	 * 当前请求的选定处理器是否选择异步处理请求。 返回值为"true"表示正在进行并发处理，并且响应将保持打开状态。 
+	 * 返回值"false"表示并发处理未开始或可能已经完成，并且已调度请求以进一步处理并发结果。
 	 */
 	public boolean isConcurrentHandlingStarted() {
 		return (this.asyncWebRequest != null && this.asyncWebRequest.isAsyncStarted());
 	}
 
 	/**
-	 * Whether a result value exists as a result of concurrent handling.
+	 * 结果值是否由于并发处理而存在。
 	 */
 	public boolean hasConcurrentResult() {
 		return (this.concurrentResult != RESULT_NONE);

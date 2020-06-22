@@ -17,8 +17,7 @@
 package org.springframework.core.env;
 
 /**
- * Parses a {@code String[]} of command line arguments in order to populate a
- * {@link CommandLineArgs} object.
+ * 解析命令行参数的{@code String []}，以便填充{@link CommandLineArgs}对象。
  *
  * <h3>Working with option arguments</h3>
  * <p>Option arguments must adhere to the exact syntax:

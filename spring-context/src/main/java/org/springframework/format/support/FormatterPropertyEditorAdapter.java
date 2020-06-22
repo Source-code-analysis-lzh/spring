@@ -25,7 +25,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Adapter that bridges between {@link Formatter} and {@link PropertyEditor}.
+ * 在{@link Formatter}和{@link PropertyEditor}之间架桥的适配器.
  *
  * @author Juergen Hoeller
  * @since 4.2

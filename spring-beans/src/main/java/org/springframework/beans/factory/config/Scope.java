@@ -20,33 +20,25 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.lang.Nullable;
 
 /**
- * Strategy interface used by a {@link ConfigurableBeanFactory},
- * representing a target scope to hold bean instances in.
- * This allows for extending the BeanFactory's standard scopes
- * {@link ConfigurableBeanFactory#SCOPE_SINGLETON "singleton"} and
- * {@link ConfigurableBeanFactory#SCOPE_PROTOTYPE "prototype"}
- * with custom further scopes, registered for a
- * {@link ConfigurableBeanFactory#registerScope(String, Scope) specific key}.
+ * {@link ConfigurableBeanFactory}使用的策略接口，代表用于容纳Bean实例的目标范围。
+ * 这允许使用自定义的其它范围扩展BeanFactory的标准范围
+ * {@link ConfigurableBeanFactory#SCOPE_SINGLETON "singleton"}
+ * 和{@link ConfigurableBeanFactory#SCOPE_PROTOTYPE "prototype"}，
+ * 并使用{@link ConfigurableBeanFactory#registerScope(String, Scope) specific key}注册。
  *
- * <p>{@link org.springframework.context.ApplicationContext} implementations
- * such as a {@link org.springframework.web.context.WebApplicationContext}
- * may register additional standard scopes specific to their environment,
- * e.g. {@link org.springframework.web.context.WebApplicationContext#SCOPE_REQUEST "request"}
- * and {@link org.springframework.web.context.WebApplicationContext#SCOPE_SESSION "session"},
- * based on this Scope SPI.
+ * <p>诸如{@link org.springframework.web.context.WebApplicationContext}
+ * 之类的{@link org.springframework.context.ApplicationContext}
+ * 实现可以注册特定于其环境的其它标准范围，例如 基于此Scope SPI的
+ * {@link org.springframework.web.context.WebApplicationContext#SCOPE_REQUEST "request"}
+ * 和{@link org.springframework.web.context.WebApplicationContext#SCOPE_SESSION "session"}。
  *
- * <p>Even if its primary use is for extended scopes in a web environment,
- * this SPI is completely generic: It provides the ability to get and put
- * objects from any underlying storage mechanism, such as an HTTP session
- * or a custom conversation mechanism. The name passed into this class's
- * {@code get} and {@code remove} methods will identify the
- * target object in the current scope.
+ * <p>即使其主要用途是用于Web环境中的扩展范围，此SPI也是完全通用的：
+ * 它提供了从任何底层存储机制（例如HTTP会话或自定义对话机制）获取和放置对象的能力。 
+ * 传递给此类的{@code get}和{@code remove}方法的名称将标识当前作用域中的目标对象。
  *
- * <p>{@code Scope} implementations are expected to be thread-safe.
- * One {@code Scope} instance can be used with multiple bean factories
- * at the same time, if desired (unless it explicitly wants to be aware of
- * the containing BeanFactory), with any number of threads accessing
- * the {@code Scope} concurrently from any number of factories.
+ * <p>{@code Scope}实现应该是线程安全的。 
+ * 如果需要，一个Scope实例可以同时与多个Bean工厂一起使用（除非它明确希望知道包含的BeanFactory），
+ * 并且任何数量的线程可以从任意数量的工厂同时访问{@code Scope}。
  *
  * @author Juergen Hoeller
  * @author Rob Harrop
@@ -60,11 +52,9 @@ import org.springframework.lang.Nullable;
 public interface Scope {
 
 	/**
-	 * Return the object with the given name from the underlying scope,
-	 * {@link org.springframework.beans.factory.ObjectFactory#getObject() creating it}
-	 * if not found in the underlying storage mechanism.
-	 * <p>This is the central operation of a Scope, and the only operation
-	 * that is absolutely required.
+	 * 从底层范围返回具有给定名称的对象，如果在底层存储机制中找不到该对象，则
+	 * {@link org.springframework.beans.factory.ObjectFactory#getObject() 创建该对象}。
+	 * <p>这是Scope的中心操作，并且是绝对必需的唯一操作。
 	 * @param name the name of the object to retrieve
 	 * @param objectFactory the {@link ObjectFactory} to use to create the scoped
 	 * object if it is not present in the underlying storage mechanism
@@ -74,16 +64,12 @@ public interface Scope {
 	Object get(String name, ObjectFactory<?> objectFactory);
 
 	/**
-	 * Remove the object with the given {@code name} from the underlying scope.
-	 * <p>Returns {@code null} if no object was found; otherwise
-	 * returns the removed {@code Object}.
-	 * <p>Note that an implementation should also remove a registered destruction
-	 * callback for the specified object, if any. It does, however, <i>not</i>
-	 * need to <i>execute</i> a registered destruction callback in this case,
-	 * since the object will be destroyed by the caller (if appropriate).
-	 * <p><b>Note: This is an optional operation.</b> Implementations may throw
-	 * {@link UnsupportedOperationException} if they do not support explicitly
-	 * removing an object.
+	 * 从底层范围中删除具有给定{@code name}的对象。
+	 * <p>如果未找到对象，则返回{@code null}；否则返回移除的{@code Object}。
+	 * <p>请注意，实现还应删除指定对象的已注册销毁回调（如果有）。 但是，在这种情况下，
+	 * 它不需要执行已注册的销毁回调，因为调用方将主动销毁该对象（如果适用）。
+	 * <p>注意：这是可选操作。 如果实现不支持显式删除对象，则它们可能引发
+	 * {@link UnsupportedOperationException}。
 	 * @param name the name of the object to remove
 	 * @return the removed object, or {@code null} if no object was present
 	 * @throws IllegalStateException if the underlying scope is not currently active
@@ -93,23 +79,15 @@ public interface Scope {
 	Object remove(String name);
 
 	/**
-	 * Register a callback to be executed on destruction of the specified
-	 * object in the scope (or at destruction of the entire scope, if the
-	 * scope does not destroy individual objects but rather only terminates
-	 * in its entirety).
-	 * <p><b>Note: This is an optional operation.</b> This method will only
-	 * be called for scoped beans with actual destruction configuration
-	 * (DisposableBean, destroy-method, DestructionAwareBeanPostProcessor).
-	 * Implementations should do their best to execute a given callback
-	 * at the appropriate time. If such a callback is not supported by the
-	 * underlying runtime environment at all, the callback <i>must be
-	 * ignored and a corresponding warning should be logged</i>.
-	 * <p>Note that 'destruction' refers to automatic destruction of
-	 * the object as part of the scope's own lifecycle, not to the individual
-	 * scoped object having been explicitly removed by the application.
-	 * If a scoped object gets removed via this facade's {@link #remove(String)}
-	 * method, any registered destruction callback should be removed as well,
-	 * assuming that the removed object will be reused or manually destroyed.
+	 * 注册一个回调，以在销毁范围内的指定对象时执行（或销毁整个范围，如果该不是销毁单个对象，
+	 * 而只是终止整个范围对象）。
+	 * <p>注意：这是可选操作。 仅对具有实际销毁配置的范围内的bean
+	 * （DisposableBean，destroy-method，DestructionAwareBeanPostProcessor）调用此方法。 
+	 * 实现应尽力在适当的时间执行给定的回调。 如果底层运行时环境完全不支持此类回调，则必须忽略该回调，
+	 * 并记录相应的警告。
+	 * <p>请注意，“销毁”是指将对象自动销毁为作用域自身生命周期的一部分，
+	 * 而不是指已被应用程序明确删除的单个作用域对象。 如果通过此门面的{@link #remove(String)}
+	 * 方法删除了一个范围对象，则假定已删除的对象将被重用或手动销毁，所有注册的销毁回调也应被删除。
 	 * @param name the name of the object to execute the destruction callback for
 	 * @param callback the destruction callback to be executed.
 	 * Note that the passed-in Runnable will never throw an exception,
@@ -124,8 +102,7 @@ public interface Scope {
 	void registerDestructionCallback(String name, Runnable callback);
 
 	/**
-	 * Resolve the contextual object for the given key, if any.
-	 * E.g. the HttpServletRequest object for key "request".
+	 * 解析给定键的上下文对象（如果有）。 例如。 键值为"request"的HttpServletRequest对象。
 	 * @param key the contextual key
 	 * @return the corresponding object, or {@code null} if none found
 	 * @throws IllegalStateException if the underlying scope is not currently active
@@ -134,13 +111,16 @@ public interface Scope {
 	Object resolveContextualObject(String key);
 
 	/**
-	 * Return the <em>conversation ID</em> for the current underlying scope, if any.
+	 * 返回当前底层范围的对话ID（如果有）。
 	 * <p>The exact meaning of the conversation ID depends on the underlying
 	 * storage mechanism. In the case of session-scoped objects, the
 	 * conversation ID would typically be equal to (or derived from) the
-	 * {@link javax.servlet.http.HttpSession#getId() session ID}; in the
+	 * {@link javax.servlet.http.HttpSession#getId() 会话ID}; in the
 	 * case of a custom conversation that sits within the overall session,
 	 * the specific ID for the current conversation would be appropriate.
+	 * <p>对话ID的确切含义取决于底层存储机制。 对于会话范围的对象，会话ID通常等于
+	 * {@link javax.servlet.http.HttpSession#getId() 会话ID}（或从会话ID派生）。
+	 * 如果自定义对话位于整个会话中，则当前对话的特定ID是合适的。
 	 * <p><b>Note: This is an optional operation.</b> It is perfectly valid to
 	 * return {@code null} in an implementation of this method if the
 	 * underlying storage mechanism has no obvious candidate for such an ID.

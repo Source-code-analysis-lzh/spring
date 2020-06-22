@@ -42,29 +42,22 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link org.springframework.beans.factory.config.BeanPostProcessor} implementation
- * that enforces required JavaBean properties to have been configured.
- * Required bean properties are detected through a Java 5 annotation:
- * by default, Spring's {@link Required} annotation.
+ * {@link org.springframework.beans.factory.config.BeanPostProcessor}实现，
+ * 用于强制配置必需的JavaBean属性. 通过Java 5注释检测必需的bean属性：
+ * 默认情况下，是Spring的{@link Required}注释.
  *
- * <p>The motivation for the existence of this BeanPostProcessor is to allow
- * developers to annotate the setter properties of their own classes with an
- * arbitrary JDK 1.5 annotation to indicate that the container must check
- * for the configuration of a dependency injected value. This neatly pushes
- * responsibility for such checking onto the container (where it arguably belongs),
- * and obviates the need (<b>in part</b>) for a developer to code a method that
- * simply checks that all required properties have actually been set.
+ * <p>存在此BeanPostProcessor的动机是允许开发人员使用任意JDK 1.5注释来注解
+ * 其自己的类的setter属性，以指示容器必须检查依赖项注入值的配置.
+ * 这巧妙地将这种检查的责任推到了容器（可以说是它所属的容器）上，
+ * 并且消除了（部分地）开发人员编写简单地检查所有必需属性已被设置的方法的需求.
  *
- * <p>Please note that an 'init' method may still need to be implemented (and may
- * still be desirable), because all that this class does is enforcing that a
- * 'required' property has actually been configured with a value. It does
- * <b>not</b> check anything else... In particular, it does not check that a
- * configured value is not {@code null}.
+ * <p>请注意，可能仍然需要实现'init'方法（并且仍然可能是理想的），
+ * 因为此类所做的所有事情都是在强制'required'属性实际上已配置了一个值.
+ * 它不会检查其他任何内容.尤其是，它不会检查配置的值是否不为{@code null}.
  *
- * <p>Note: A default RequiredAnnotationBeanPostProcessor will be registered
- * by the "context:annotation-config" and "context:component-scan" XML tags.
- * Remove or turn off the default annotation configuration there if you intend
- * to specify a custom RequiredAnnotationBeanPostProcessor bean definition.
+ * <p>注意：默认的RequiredAnnotationBeanPostProcessor将通过"context:annotation-config"
+ * 和"context:component-scan" XML标签进行注册.
+ * 如果要指定自定义的RequiredAnnotationBeanPostProcessor bean定义，请删除或关闭那里的默认注释配置.
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

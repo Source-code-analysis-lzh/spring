@@ -83,27 +83,17 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Abstract base class for {@link org.springframework.beans.factory.BeanFactory}
- * implementations, providing the full capabilities of the
- * {@link org.springframework.beans.factory.config.ConfigurableBeanFactory} SPI.
- * Does <i>not</i> assume a listable bean factory: can therefore also be used
- * as base class for bean factory implementations which obtain bean definitions
- * from some backend resource (where bean definition access is an expensive operation).
+ * {@link org.springframework.beans.factory.BeanFactory}实现的抽象基类，
+ * 提供{@link org.springframework.beans.factory.config.ConfigurableBeanFactory} SPI的全部功能.
+ * 不假定有一个可列出的bean工厂：因此也可以用作bean工厂实现的基类，该实现从某些后端资源（其中bean定义访问是一项昂贵的操作）获取bean定义.
  *
- * <p>This class provides a singleton cache (through its base class
- * {@link org.springframework.beans.factory.support.DefaultSingletonBeanRegistry},
- * singleton/prototype determination, {@link org.springframework.beans.factory.FactoryBean}
- * handling, aliases, bean definition merging for child bean definitions,
- * and bean destruction ({@link org.springframework.beans.factory.DisposableBean}
- * interface, custom destroy methods). Furthermore, it can manage a bean factory
- * hierarchy (delegating to the parent in case of an unknown bean), through implementing
- * the {@link org.springframework.beans.factory.HierarchicalBeanFactory} interface.
+ * <p>此类提供单例缓存（通过其基类DefaultSingletonBeanRegistry，单例/原型确定，
+ * FactoryBean处理，别名，用于子bean定义的bean定义合并以及bean销毁（{@link org.springframework.beans.factory.DisposableBean}接口，自定义销毁方法）.
+ * 此外，它可以管理bean. 通过实现{@link org.springframework.beans.factory.HierarchicalBeanFactory}接口，
+ * 实现工厂层次结构（在未知bean的情况下，委托给父级）.
  *
- * <p>The main template methods to be implemented by subclasses are
- * {@link #getBeanDefinition} and {@link #createBean}, retrieving a bean definition
- * for a given bean name and creating a bean instance for a given bean definition,
- * respectively. Default implementations of those operations can be found in
- * {@link DefaultListableBeanFactory} and {@link AbstractAutowireCapableBeanFactory}.
+ * <p>子类要实现的主要模板方法是{@link #getBeanDefinition}和{@link #createBean}，检索一个 给定bean名称的bean定义和给定bean定义的bean实例的创建.
+ * 这些操作的默认实现可以在{@link DefaultListableBeanFactory}和{@link AbstractAutowireCapableBeanFactory}中找到.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -248,6 +238,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 		Object bean;
 
 		// Eagerly check singleton cache for manually registered singletons.
+		// 首先检查单例缓存是否有，有则直接取
 		Object sharedInstance = getSingleton(beanName);
 		if (sharedInstance != null && args == null) {
 			if (logger.isTraceEnabled()) {
@@ -261,18 +252,21 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 			}
 			bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);
 		}
-
+		// 缓存里没有 第一次初始化Bean
 		else {
 			// Fail if we're already creating this bean instance:
 			// We're assumably within a circular reference.
+			// 判断是不是处于循环依赖当中，有则直接报错
 			if (isPrototypeCurrentlyInCreation(beanName)) {
 				throw new BeanCurrentlyInCreationException(beanName);
 			}
 
 			// Check if bean definition exists in this factory.
+			// 检查父容器是否存在此Bean的定义
 			BeanFactory parentBeanFactory = getParentBeanFactory();
 			if (parentBeanFactory != null && !containsBeanDefinition(beanName)) {
 				// Not found -> check parent.
+				// 返回原始的名称 加上FactoryBean符号
 				String nameToLookup = originalBeanName(name);
 				if (parentBeanFactory instanceof AbstractBeanFactory) {
 					return ((AbstractBeanFactory) parentBeanFactory).doGetBean(
@@ -291,15 +285,17 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 				}
 			}
 
-			if (!typeCheckOnly) {
+			if (!typeCheckOnly) {// 把Bean的状态改为已创建，并从mergedBeanDefinitions 中移除
 				markBeanAsCreated(beanName);
 			}
 
 			try {
+				// 合并BeanDefinition转化成RootBeanDefinition
 				final RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
 				checkMergedBeanDefinition(mbd, beanName, args);
 
 				// Guarantee initialization of beans that the current bean depends on.
+				// 获取配置的 depends-On 依赖,优先加载
 				String[] dependsOn = mbd.getDependsOn();
 				if (dependsOn != null) {
 					for (String dep : dependsOn) {
@@ -309,6 +305,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 						}
 						registerDependentBean(dep, beanName);
 						try {
+							// 递归获取
 							getBean(dep);
 						}
 						catch (NoSuchBeanDefinitionException ex) {
@@ -319,7 +316,8 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 				}
 
 				// Create bean instance.
-				if (mbd.isSingleton()) {
+				if (mbd.isSingleton()) {// 如果是单例
+					// 这里会把创建完成的bean加入缓存
 					sharedInstance = getSingleton(beanName, () -> {
 						try {
 							return createBean(beanName, mbd, args);
@@ -1299,6 +1297,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	/**
 	 * Return a merged RootBeanDefinition, traversing the parent bean definition
 	 * if the specified bean corresponds to a child bean definition.
+	 * 返回合并的RootBeanDefinition，如果指定的bean对应于子bean定义，则遍历父bean定义。
 	 * @param beanName the name of the bean to retrieve the merged definition for
 	 * @return a (potentially merged) RootBeanDefinition for the given bean
 	 * @throws NoSuchBeanDefinitionException if there is no bean with the given name

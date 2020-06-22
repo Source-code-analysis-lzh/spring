@@ -26,8 +26,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A {@link ListenableFuture} whose value can be set via {@link #set(Object)}
- * or {@link #setException(Throwable)}. It may also get cancelled.
+ * 可通过{@link #set(Object)}或{@link #setException(Throwable)}设置其值的{@link ListenableFuture}。 
+ * 它也可能被取消。
  *
  * <p>Inspired by {@code com.google.common.util.concurrent.SettableFuture}.
  *

@@ -26,13 +26,10 @@ import java.util.stream.Stream;
 import org.springframework.lang.Nullable;
 
 /**
- * The default implementation of the {@link PropertySources} interface.
- * Allows manipulation of contained property sources and provides a constructor
- * for copying an existing {@code PropertySources} instance.
+ * {@link PropertySources}接口的默认实现。 允许操纵包含的属性源，
+ * 并提供用于复制现有{@code PropertySources}实例的构造函数。
  *
- * <p>Where <em>precedence</em> is mentioned in methods such as {@link #addFirst}
- * and {@link #addLast}, this is with regard to the order in which property sources
- * will be searched when resolving a given property with a {@link PropertyResolver}.
+ * <p>在诸如{@link #addFirst}和{@link #addLast}之类的方法于优先级有关，可以使用{@link PropertyResolver}解析给定属性。
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -51,8 +48,8 @@ public class MutablePropertySources implements PropertySources {
 	}
 
 	/**
-	 * Create a new {@code MutablePropertySources} from the given propertySources
-	 * object, preserving the original order of contained {@code PropertySource} objects.
+	 * 从给定的{@code PropertySource}对象创建一个新的{@code MutablePropertySources}，
+	 * 并保留包含的{@code PropertySource}对象的原始顺序。
 	 */
 	public MutablePropertySources(PropertySources propertySources) {
 		this();
@@ -84,7 +81,7 @@ public class MutablePropertySources implements PropertySources {
 
 	@Override
 	@Nullable
-	public PropertySource<?> get(String name) {
+	public PropertySource<?> get(String name) { // 根据名称获取PropertySource实例对象
 		int index = this.propertySourceList.indexOf(PropertySource.named(name));
 		return (index != -1 ? this.propertySourceList.get(index) : null);
 	}

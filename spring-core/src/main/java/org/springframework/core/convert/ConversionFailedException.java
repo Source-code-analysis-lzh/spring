@@ -20,7 +20,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Exception to be thrown when an actual type conversion attempt fails.
+ * 实际类型转换尝试失败时将引发异常.
  *
  * @author Keith Donald
  * @author Juergen Hoeller

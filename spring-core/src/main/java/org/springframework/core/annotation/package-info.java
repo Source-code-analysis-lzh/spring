@@ -1,6 +1,5 @@
 /**
- * Core support package for annotations, meta-annotations, and merged
- * annotations with attribute overrides.
+ * 注解，元注解以及具有属性覆盖的合并注解的核心支持包.
  */
 @NonNullApi
 @NonNullFields

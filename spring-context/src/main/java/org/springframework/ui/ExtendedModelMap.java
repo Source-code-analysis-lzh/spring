@@ -24,11 +24,11 @@ import org.springframework.lang.Nullable;
 /**
  * Subclass of {@link ModelMap} that implements the {@link Model} interface.
  * Java 5 specific like the {@code Model} interface itself.
+ * 实现{@link Model}接口的{@link ModelMap}的子类。 Java 5特有的{@code Model}接口本身。
  *
- * <p>This is an implementation class exposed to handler methods by Spring MVC, typically via
- * a declaration of the {@link org.springframework.ui.Model} interface. There is no need to
- * build it within user code; a plain {@link org.springframework.ui.ModelMap} or even a just
- * a regular {@link Map} with String keys will be good enough to return a user model.
+ * <p>这是Spring MVC公开给处理器方法的实现类，通常是通过{@link org.springframework.ui.Model}接口的声明来实现的。 
+ * 无需在用户代码中构建它； 一个普通的{@link org.springframework.ui.ModelMap}
+ * 甚至只是一个带有String键的常规{@link Map}都足以返回用户模型。
  *
  * @author Juergen Hoeller
  * @since 2.5.1

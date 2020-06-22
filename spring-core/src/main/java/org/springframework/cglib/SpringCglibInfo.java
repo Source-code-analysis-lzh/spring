@@ -17,8 +17,7 @@
 package org.springframework.cglib;
 
 /**
- * Empty class used to ensure that the {@code org.springframework.cglib}
- * package is processed during javadoc generation.
+ * 空类，用于确保在javadoc生成期间处理{@code org.springframework.cglib}包.
  *
  * <p>See <a href="package-summary.html">package-level javadocs</a> for more
  * information on {@code org.springframework.cglib}.

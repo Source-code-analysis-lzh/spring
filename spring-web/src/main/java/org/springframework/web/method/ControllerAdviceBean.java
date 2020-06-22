@@ -33,12 +33,11 @@ import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 /**
- * Encapsulates information about an {@link ControllerAdvice @ControllerAdvice}
- * Spring-managed bean without necessarily requiring it to be instantiated.
+ * 封装有关{@link ControllerAdvice @ControllerAdvice} Spring托管Bean的信息，
+ * 而不必要求对其进行实例化。
  *
- * <p>The {@link #findAnnotatedBeans(ApplicationContext)} method can be used to
- * discover such beans. However, a {@code ControllerAdviceBean} may be created
- * from any object, including ones without an {@code @ControllerAdvice} annotation.
+ * <p>{@link #findAnnotatedBeans(ApplicationContext)}方法可用于发现此类bean。 
+ * 但是，可以从任何对象创建{@code ControllerAdviceBean}，包括没有{@code @ControllerAdvice}注释的对象。
  *
  * @author Rossen Stoyanchev
  * @author Brian Clozel
@@ -215,8 +214,7 @@ public class ControllerAdviceBean implements Ordered {
 	}
 
 	/**
-	 * Check whether the given bean type should be advised by this
-	 * {@code ControllerAdviceBean}.
+	 * 检查此{@code ControllerAdviceBean}是否应advise给定的bean类型。
 	 * @param beanType the type of the bean to check
 	 * @since 4.0
 	 * @see ControllerAdvice
@@ -250,11 +248,10 @@ public class ControllerAdviceBean implements Ordered {
 
 
 	/**
-	 * Find beans annotated with {@link ControllerAdvice @ControllerAdvice} in the
-	 * given {@link ApplicationContext} and wrap them as {@code ControllerAdviceBean}
-	 * instances.
-	 * <p>As of Spring Framework 5.2, the {@code ControllerAdviceBean} instances
-	 * in the returned list are sorted using {@link OrderComparator#sort(List)}.
+	 * 在给定的{@link ApplicationContext}中找到用{@link ControllerAdvice @ControllerAdvice}注释的bean，
+	 * 并将它们包装为{@code ControllerAdviceBean}实例。
+	 * <p>从Spring Framework 5.2开始，使用{@link OrderComparator#sort(List)}
+	 * 对返回列表中的{@code ControllerAdviceBean}实例进行排序。
 	 * @see #getOrder()
 	 * @see OrderComparator
 	 * @see Ordered
@@ -262,7 +259,7 @@ public class ControllerAdviceBean implements Ordered {
 	public static List<ControllerAdviceBean> findAnnotatedBeans(ApplicationContext context) {
 		List<ControllerAdviceBean> adviceBeans = new ArrayList<>();
 		for (String name : BeanFactoryUtils.beanNamesForTypeIncludingAncestors(context, Object.class)) {
-			if (!ScopedProxyUtils.isScopedTarget(name)) {
+			if (!ScopedProxyUtils.isScopedTarget(name)) { // 不是范围代理目标
 				ControllerAdvice controllerAdvice = context.findAnnotationOnBean(name, ControllerAdvice.class);
 				if (controllerAdvice != null) {
 					// Use the @ControllerAdvice annotation found by findAnnotationOnBean()

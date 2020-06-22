@@ -25,11 +25,11 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.lang.Nullable;
 
 /**
- * Empty {@link MessageSource} that delegates all calls to the parent MessageSource.
- * If no parent is available, it simply won't resolve any message.
+ * 空的{@link MessageSource}，将所有调用委派给父MessageSource.
+ * 如果没有父MessageSource可用，它将根本无法解决任何消息.
  *
- * <p>Used as placeholder by AbstractApplicationContext, if the context doesn't
- * define its own MessageSource. Not intended for direct use in applications.
+ * <p>如果上下文未定义其自己的MessageSource，则AbstractApplicationContext用作占位符(默认实现).
+ * 不适用于直接在应用程序中使用.
  *
  * @author Juergen Hoeller
  * @since 1.1.5

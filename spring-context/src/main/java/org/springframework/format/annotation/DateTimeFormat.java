@@ -23,27 +23,25 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares that a field or method parameter should be formatted as a date or time.
+ * 声明字段或方法参数应格式化为日期或时间.
  *
- * <p>Supports formatting by style pattern, ISO date time pattern, or custom format pattern string.
- * Can be applied to {@code java.util.Date}, {@code java.util.Calendar}, {@code Long} (for
- * millisecond timestamps) as well as JSR-310 <code>java.time</code> and Joda-Time value types.
+ * <p>支持按样式模式，ISO日期时间模式或自定义格式模式字符串格式化.
+ * 可以应用于{@code java.util.Date}, {@code java.util.Calendar}, {@code Long}（用于毫秒时间戳）
+ * 以及JSR-310 <code>java.time</code>和Joda-Time值类型.
  *
- * <p>For style-based formatting, set the {@link #style} attribute to be the style pattern code.
- * The first character of the code is the date style, and the second character is the time style.
- * Specify a character of 'S' for short style, 'M' for medium, 'L' for long, and 'F' for full.
- * A date or time may be omitted by specifying the style character '-'.
+ * <p>对于基于样式的格式设置，将{@link #style}属性设置为样式模式代码.
+ * 代码的第一个字符是日期样式，第二个字符是时间样式.
+ * 指定字符'S'表示短样式，'M'表示中号，'L'表示长号，'F'表示完整. 通过指定样式字符'-'可以省略日期或时间.
  *
  * <p>For ISO-based formatting, set the {@link #iso} attribute to be the desired {@link ISO} format,
  * such as {@link ISO#DATE}. For custom formatting, set the {@link #pattern} attribute to be the
  * DateTime pattern, such as {@code yyyy/MM/dd hh:mm:ss a}.
+ * <p>对于基于ISO的格式，请将{@link #iso}属性设置为所需的{@link ISO}格式，
+ * 例如{@link ISO#DATE}. 对于自定义格式，请将{@link #pattern}属性设置为DateTime模式，例如{@code yyyy/MM/dd hh:mm:ss a}.
  *
- * <p>Each attribute is mutually exclusive, so only set one attribute per annotation instance
- * (the one most convenient one for your formatting needs).
- * When the pattern attribute is specified, it takes precedence over both the style and ISO attribute.
- * When the {@link #iso} attribute is specified, it takes precedence over the style attribute.
- * When no annotation attributes are specified, the default format applied is style-based
- * with a style code of 'SS' (short date, short time).
+ * <p>每个属性都是互斥的，因此每个注释实例仅设置一个属性（一种最方便的格式设置）.
+ * 指定pattern属性时，它优先于style和ISO属性. 指定{@link #iso}属性时，它优先于style属性.
+ * 如果未指定注释属性，则应用的默认格式是基于样式的样式代码，样式代码为'SS'（短日期，短时间）.
  *
  * @author Keith Donald
  * @author Juergen Hoeller
@@ -57,17 +55,15 @@ import java.lang.annotation.Target;
 public @interface DateTimeFormat {
 
 	/**
-	 * The style pattern to use to format the field.
-	 * <p>Defaults to 'SS' for short date time. Set this attribute when you wish to format
-	 * your field in accordance with a common style other than the default style.
+	 * 用于格式化字段的样式模式.
+	 * <p>短日期时间默认为'SS'. 当您希望按照默认样式以外的常见样式设置字段格式时，请设置此属性.
 	 */
 	String style() default "SS";
 
 	/**
-	 * The ISO pattern to use to format the field.
-	 * <p>The possible ISO patterns are defined in the {@link ISO} enum.
-	 * <p>Defaults to {@link ISO#NONE}, indicating this attribute should be ignored.
-	 * Set this attribute when you wish to format your field in accordance with an ISO format.
+	 * 用于格式化字段的ISO模式.
+	 * <p>可能的ISO模式在{@link ISO}枚举中定义.
+	 * <p>默认值为{@link ISO#NONE}，指示应忽略此属性. 当您希望按照ISO格式设置字段格式时，请设置此属性.
 	 */
 	ISO iso() default ISO.NONE;
 
@@ -82,6 +78,11 @@ public @interface DateTimeFormat {
 	 * characters indicate a year in the traditional style, not a "year-of-era" as in the
 	 * {@link java.time.format.DateTimeFormatter} specification (i.e. 'yy' turns into 'uu'
 	 * when going through that {@code DateTimeFormatter} with strict resolution mode).
+	 * 用于格式化字段的自定义模式.
+	 * <p>默认为空字符串，表示未指定自定义模式字符串. 当您希望根据样式或ISO格式未表示的自定义日期时间格式设置字段格式时，请设置此属性.
+	 * <p>注意：此模式遵循原始的{@link java.text.SimpleDateFormat}样式（Joda-Time也支持该样式），
+	 * 并且对溢出进行严格的语法解析（例如，对于非闰年则拒绝2月29日的值）. 因此，'yy'字符表示传统风格的年份，
+	 * 而不是{@link java.time.format.DateTimeFormatter}规范中的“年份”（即，在严格解析模式下通过该{@code DateTimeFormatter}时，“ yy”变成“ uu”） .
 	 */
 	String pattern() default "";
 

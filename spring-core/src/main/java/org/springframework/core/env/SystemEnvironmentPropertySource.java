@@ -22,39 +22,32 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Specialization of {@link MapPropertySource} designed for use with
- * {@linkplain AbstractEnvironment#getSystemEnvironment() system environment variables}.
- * Compensates for constraints in Bash and other shells that do not allow for variables
- * containing the period character and/or hyphen character; also allows for uppercase
- * variations on property names for more idiomatic shell use.
+ * 专为与{@linkplain AbstractEnvironment#getSystemEnvironment() 系统环境变量}一起使用而设计的{@link MapPropertySource}。 
+ * 补全Bash和其他shell中的约束，这些约束不允许包含句点字符和/或连字符的变量； 还允许在属性名称上使用大写形式，以更方便地使用shell。
  *
- * <p>For example, a call to {@code getProperty("foo.bar")} will attempt to find a value
- * for the original property or any 'equivalent' property, returning the first found:
+ * <p>例如，对{@code getProperty("foo.bar")}的调用将尝试查找原始属性或任何“等效”属性的值，并返回找到的第一个：
  * <ul>
  * <li>{@code foo.bar} - the original name</li>
  * <li>{@code foo_bar} - with underscores for periods (if any)</li>
  * <li>{@code FOO.BAR} - original, with upper case</li>
  * <li>{@code FOO_BAR} - with underscores and upper case</li>
  * </ul>
- * Any hyphen variant of the above would work as well, or even mix dot/hyphen variants.
+ * 上面的任何连字符变体也可以使用，甚至可以混合点/连字符变体。
  *
- * <p>The same applies for calls to {@link #containsProperty(String)}, which returns
- * {@code true} if any of the above properties are present, otherwise {@code false}.
+ * <p>对于{@link #containsProperty(String)}的调用也是如此，如果存在以上任何属性，
+ * 则返回{@code true}，否则返回{@code false}。
  *
- * <p>This feature is particularly useful when specifying active or default profiles as
- * environment variables. The following is not allowable under Bash:
+ * <p>当指定活动或默认配置(profiles)文件作为环境变量时，此功能特别有用。 Bash不允许以下内容：
  *
  * <pre class="code">spring.profiles.active=p1 java -classpath ... MyApp</pre>
  *
- * However, the following syntax is permitted and is also more conventional:
+ * 但是，以下语法是允许的，也是更常规的语法：
  *
  * <pre class="code">SPRING_PROFILES_ACTIVE=p1 java -classpath ... MyApp</pre>
  *
- * <p>Enable debug- or trace-level logging for this class (or package) for messages
- * explaining when these 'property name resolutions' occur.
+ * <p>为此类（或程序包）启用调试或跟踪级别的日志记录，以获取解释何时发生这些“属性名称解析”的消息。
  *
- * <p>This property source is included by default in {@link StandardEnvironment}
- * and all its subclasses.
+ * <p>默认情况下，此属性源包含在{@link StandardEnvironment}及其所有子类中。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

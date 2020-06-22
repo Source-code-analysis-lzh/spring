@@ -17,7 +17,7 @@
 package org.springframework.aop.target;
 
 /**
- * Config interface for a pooling target source.
+ * 池目标源的配置接口。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

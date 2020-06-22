@@ -28,9 +28,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Abstract implementation of the {@link Errors} interface. Provides common
- * access to evaluated errors; however, does not define concrete management
- * of {@link ObjectError ObjectErrors} and {@link FieldError FieldErrors}.
+ * {@link Errors}接口的抽象实现. 提供对计算错误的通用访问权限；
+ * 但是，没有定义{@link ObjectError ObjectErrors}和{@link FieldError FieldErrors}的具体管理.
  *
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev

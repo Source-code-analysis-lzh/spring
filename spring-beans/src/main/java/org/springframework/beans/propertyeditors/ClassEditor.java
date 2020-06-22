@@ -23,9 +23,8 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Property editor for {@link Class java.lang.Class}, to enable the direct
- * population of a {@code Class} property without recourse to having to use a
- * String class name property as bridge.
+ * {@link Class java.lang.Class}的属性编辑器，用于启用直接填充{@code Class}属性，
+ * 而不必求助于使用String类名属性作为桥接.
  *
  * <p>Also supports "java.lang.String[]"-style array class names, in contrast to the
  * standard {@link Class#forName(String)} method.

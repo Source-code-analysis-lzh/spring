@@ -25,11 +25,9 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.lang.Nullable;
 
 /**
- * Abstract base class for pooling {@link org.springframework.aop.TargetSource}
- * implementations which maintain a pool of target instances, acquiring and
- * releasing a target object from the pool for each method invocation.
- * This abstract base class is independent of concrete pooling technology;
- * see the subclass {@link CommonsPool2TargetSource} for a concrete example.
+ * 用于池化{@link org.springframework.aop.TargetSource}实现的抽象基类，这些实现维护目标实例的池，
+ * 为每次方法调用从池中获取和释放目标对象。 该抽象基类独立于具体的池技术。 
+ * 有关具体示例，请参见{@link CommonsPool2TargetSource}子类。
  *
  * <p>Subclasses must implement the {@link #getTarget} and
  * {@link #releaseTarget} methods based on their chosen object pool.

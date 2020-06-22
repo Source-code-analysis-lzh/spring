@@ -48,29 +48,21 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 /**
- * View that redirects to an absolute, context relative, or current request
- * relative URL. The URL may be a URI template in which case the URI template
- * variables will be replaced with values available in the model. By default
- * all primitive model attributes (or collections thereof) are exposed as HTTP
- * query parameters (assuming they've not been used as URI template variables),
- * but this behavior can be changed by overriding the
- * {@link #isEligibleProperty(String, Object)} method.
+ * 重定向到绝对，上下文相关或当前请求相关URL的视图。
+ * URL可以是URI模板，在这种情况下，URI模板变量将被模型中可用的值替换。 
+ * 默认情况下，所有原始模型属性（或其集合）都作为HTTP查询参数公开（假设它们未被用作URI模板变量），
+ * 但是可以通过重写{@link #isEligibleProperty(String, Object)}方法来更改此行为。
  *
- * <p>A URL for this view is supposed to be an HTTP redirect URL, i.e.
- * suitable for HttpServletResponse's {@code sendRedirect} method, which
- * is what actually does the redirect if the HTTP 1.0 flag is on, or via sending
- * back an HTTP 303 code - if the HTTP 1.0 compatibility flag is off.
+ * <p>该视图的URL应该是HTTP重定向URL，即适用于HttpServletResponse的{@code sendRedirect}方法，
+ * 如果HTTP 1.0标志处于启用状态，则该重定向实际上是进行重定向的方法，
+ * 或者如果HTTP 1.0兼容标志已关闭，则通过发送回HTTP 303代码进行重定向。
  *
- * <p>Note that while the default value for the "contextRelative" flag is off,
- * you will probably want to almost always set it to true. With the flag off,
- * URLs starting with "/" are considered relative to the web server root, while
- * with the flag on, they are considered relative to the web application root.
- * Since most web applications will never know or care what their context path
- * actually is, they are much better off setting this flag to true, and submitting
- * paths which are to be considered relative to the web application root.
+ * <p>请注意，虽然"contextRelative"标志的默认值是关闭的，但您可能希望几乎始终将其设置为true。 
+ * 禁用该标记时，以"/"开头的URL被视为相对于Web服务器根目录，而启用该标记时，
+ * 它们被视为相对于Web应用程序根目录。 由于大多数Web应用程序永远不会知道或不在乎其上下文路径实际是什么，
+ * 因此最好将此标志设置为true，然后提交要相对于Web应用程序根目录考虑的路径。
  *
- * <p><b>NOTE when using this redirect view in a Portlet environment:</b> Make sure
- * that your controller respects the Portlet {@code sendRedirect} constraints.
+ * <p>注意在Portlet环境中使用此重定向视图时：确保控制器遵守Portlet {@code sendRedirect}约束。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

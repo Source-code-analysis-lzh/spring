@@ -35,28 +35,21 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * AOP Alliance {@code MethodInterceptor} that processes method invocations
- * asynchronously, using a given {@link org.springframework.core.task.AsyncTaskExecutor}.
- * Typically used with the {@link org.springframework.scheduling.annotation.Async} annotation.
+ * AOP Alliance {@code MethodInterceptor}，
+ * 它使用给定的{@link org.springframework.core.task.AsyncTaskExecutor}异步处理方法调用。 
+ * 通常与{@link org.springframework.scheduling.annotation.Async}注释一起使用。
  *
- * <p>In terms of target method signatures, any parameter types are supported.
- * However, the return type is constrained to either {@code void} or
- * {@code java.util.concurrent.Future}. In the latter case, the Future handle
- * returned from the proxy will be an actual asynchronous Future that can be used
- * to track the result of the asynchronous method execution. However, since the
- * target method needs to implement the same signature, it will have to return
- * a temporary Future handle that just passes the return value through
- * (like Spring's {@link org.springframework.scheduling.annotation.AsyncResult}
- * or EJB 3.1's {@code javax.ejb.AsyncResult}).
+ * <p>就目标方法签名而言，支持任何参数类型。 但是，返回类型被限制为{@code void}或{@code java.util.concurrent.Future}。 
+ * 在后一种情况下，从代理返回的Future句柄将是实际的异步Future，可用于跟踪异步方法执行的结果。 
+ * 但是，由于目标方法需要实现相同的签名，因此它必须返回一个临时的Future句柄，该句柄仅将返回值通过
+ * （例如Spring的{@link org.springframework.scheduling.annotation.AsyncResult}
+ * 或EJB 3.1的{@code javax.ejb.AsyncResult}）传递。
  *
- * <p>When the return type is {@code java.util.concurrent.Future}, any exception thrown
- * during the execution can be accessed and managed by the caller. With {@code void}
- * return type however, such exceptions cannot be transmitted back. In that case an
- * {@link AsyncUncaughtExceptionHandler} can be registered to process such exceptions.
+ * <p>当返回类型为{@code java.util.concurrent.Future}时，调用者可以访问和管理执行期间抛出的任何异常。 
+ * 但是，对于{@code void}返回类型，无法将此类异常传回。 在那种情况下，可以注册{@link AsyncUncaughtExceptionHandler}来处理此类异常。
  *
- * <p>As of Spring 3.1.2 the {@code AnnotationAsyncExecutionInterceptor} subclass is
- * preferred for use due to its support for executor qualification in conjunction with
- * Spring's {@code @Async} annotation.
+ * <p>从Spring 3.1.2开始，首选使用{@code AnnotationAsyncExecutionInterceptor}子类，
+ * 因为它支持执行程序联合Spring的@Async注释一起使用。
  *
  * @author Juergen Hoeller
  * @author Chris Beams

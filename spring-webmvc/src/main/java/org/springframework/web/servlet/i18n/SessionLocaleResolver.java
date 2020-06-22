@@ -28,30 +28,21 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.util.WebUtils;
 
 /**
- * {@link org.springframework.web.servlet.LocaleResolver} implementation that
- * uses a locale attribute in the user's session in case of a custom setting,
- * with a fallback to the specified default locale or the request's
- * accept-header locale.
+ * {@link org.springframework.web.servlet.LocaleResolver}实现，
+ * 在自定义设置的情况下在用户会话中使用locale属性，并回退到指定的默认语言环境或请求的接受标头语言环境。
  *
- * <p>This is most appropriate if the application needs user sessions anyway,
- * i.e. when the {@code HttpSession} does not have to be created just for storing
- * the user's locale. The session may optionally contain an associated time zone
- * attribute as well; alternatively, you may specify a default time zone.
+ * <p>如果应用程序需要用户会话，这是最合适的，但不必仅为了存储用户的语言环境而创建HttpSession。 
+ * 会话也可以选择包含关联的时区属性； 或者，您可以指定默认时区。
  *
- * <p>Custom controllers can override the user's locale and time zone by calling
- * {@code #setLocale(Context)} on the resolver, e.g. responding to a locale change
- * request. As a more convenient alternative, consider using
- * {@link org.springframework.web.servlet.support.RequestContext#changeLocale}.
+ * <p>自定义控制器可以通过在解析器上调用{@code #setLocale(Context)}来覆盖用户的语言环境和时区，
+ * 例如 响应语言环境更改请求。 作为更方便的替代方法，请考虑使用
+ * {@link org.springframework.web.servlet.support.RequestContext#changeLocale}。
  *
- * <p>In contrast to {@link CookieLocaleResolver}, this strategy stores locally
- * chosen locale settings in the Servlet container's {@code HttpSession}. As a
- * consequence, those settings are just temporary for each session and therefore
- * lost when each session terminates.
+ * <p>与{@link CookieLocaleResolver}相比，此策略将本地选择的语言环境设置存储在Servlet容器的{@code HttpSession}中。
+ * 因此，这些设置对于每个会话来说都是临时的，因此在每个会话终止时都会丢失。
  *
- * <p>Note that there is no direct relationship with external session management
- * mechanisms such as the "Spring Session" project. This {@code LocaleResolver}
- * will simply evaluate and modify corresponding {@code HttpSession} attributes
- * against the current {@code HttpServletRequest}.
+ * <p>请注意，与外部会话管理机制（例如“ Spring Session”项目）没有直接关系。 
+ * 该{@code LocaleResolver}将仅针对当前的{@code HttpServletRequest}评估并修改相应的HttpSession属性。
  *
  * @author Juergen Hoeller
  * @since 27.02.2003

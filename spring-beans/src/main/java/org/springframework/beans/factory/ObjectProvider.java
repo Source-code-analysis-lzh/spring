@@ -27,6 +27,7 @@ import org.springframework.lang.Nullable;
 /**
  * A variant of {@link ObjectFactory} designed specifically for injection points,
  * allowing for programmatic optionality and lenient not-unique handling.
+ * {@link ObjectFactory}的一种变体，专门为注入点设计，允许程序选择和宽大的非唯一处理。
  *
  * <p>As of 5.1, this interface extends {@link Iterable} and provides {@link Stream}
  * support. It can be therefore be used in {@code for} loops, provides {@link #forEach}

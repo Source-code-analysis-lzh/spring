@@ -38,28 +38,18 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Generic registry for shared bean instances, implementing the
- * {@link org.springframework.beans.factory.config.SingletonBeanRegistry}.
- * Allows for registering singleton instances that should be shared
- * for all callers of the registry, to be obtained via bean name.
+ * 共享bean实例的通用注册表，实现{@link org.springframework.beans.factory.config.SingletonBeanRegistry}.
+ * 允许注册应该通过Bean名称获得的注册中心所有调用者共享的单例实例.
  *
- * <p>Also supports registration of
- * {@link org.springframework.beans.factory.DisposableBean} instances,
- * (which might or might not correspond to registered singletons),
- * to be destroyed on shutdown of the registry. Dependencies between
- * beans can be registered to enforce an appropriate shutdown order.
+ * <p>还支持在注册表关闭时销毁{@link org.springframework.beans.factory.DisposableBean}实例（可能与已注册的单例相对应）的注册.
+ * 可以注册bean之间的依赖关系以强制执行适当的关闭顺序.
  *
- * <p>This class mainly serves as base class for
- * {@link org.springframework.beans.factory.BeanFactory} implementations,
- * factoring out the common management of singleton bean instances. Note that
- * the {@link org.springframework.beans.factory.config.ConfigurableBeanFactory}
- * interface extends the {@link SingletonBeanRegistry} interface.
+ * <p>此类主要用作{@link org.springframework.beans.factory.BeanFactory}实现的基类，
+ * 从而负责单例bean实例的常见管理. 请注意，{@link org.springframework.beans.factory.config.ConfigurableBeanFactory}
+ * 接口扩展了{@link SingletonBeanRegistry}接口.
  *
- * <p>Note that this class assumes neither a bean definition concept
- * nor a specific creation process for bean instances, in contrast to
- * {@link AbstractBeanFactory} and {@link DefaultListableBeanFactory}
- * (which inherit from it). Can alternatively also be used as a nested
- * helper to delegate to.
+ * <p>请注意，与{@link AbstractBeanFactory}和{@link DefaultListableBeanFactory}（从其继承）相比，
+ * 此类既不假定bean定义概念也不为bean实例指定创建过程. 也可以用作委托的嵌套帮助器.
  *
  * @author Juergen Hoeller
  * @since 2.0
@@ -75,12 +65,15 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 
 
 	/** Cache of singleton objects: bean name to bean instance. */
+	// 用于存放创建完成的单例对象
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
 
 	/** Cache of singleton factories: bean name to ObjectFactory. */
+	// 用于存放对象工厂类，这里是解决循环依赖的
 	private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
 
 	/** Cache of early singleton objects: bean name to bean instance. */
+	// 用于存放提前暴露的单例对象。指的是已经完成Bean的实例化，但还未完成属性注入的不完整对象
 	private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
 
 	/** Set of registered singletons, containing the bean names in registration order. */
@@ -178,21 +171,27 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	 */
 	@Nullable
 	protected Object getSingleton(String beanName, boolean allowEarlyReference) {
+		// 从创建完成的bean缓存中获取bean
 		Object singletonObject = this.singletonObjects.get(beanName);
+		// 判断该bean是否仍在创建中，意思是Bean已经完成实例化，但还不完整。属性还未完全注入
 		if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
 			synchronized (this.singletonObjects) {
+				// 从提前暴露的Bean缓存容器（earlySingletonObjects）中获取
 				singletonObject = this.earlySingletonObjects.get(beanName);
+				// 仍未获取到则从singletonFactories缓存中获取
 				if (singletonObject == null && allowEarlyReference) {
 					ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);
 					if (singletonFactory != null) {
 						singletonObject = singletonFactory.getObject();
+						// 加入到提前暴露Bean缓存（earlySingletonObjects）中
 						this.earlySingletonObjects.put(beanName, singletonObject);
+						// 从singletonFactories缓存中移除
 						this.singletonFactories.remove(beanName);
 					}
 				}
 			}
 		}
-		return singletonObject;
+		return singletonObject;  // 返回对象，这里返回的不一定是完全创建的对象
 	}
 
 	/**

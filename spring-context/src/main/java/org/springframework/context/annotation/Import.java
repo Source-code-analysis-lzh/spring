@@ -23,24 +23,34 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates one or more <em>component classes</em> to import &mdash; typically
- * {@link Configuration @Configuration} classes.
+ * 指示要导入的一个或多个组件类，通常是{@link Configuration @Configuration}类。
  *
- * <p>Provides functionality equivalent to the {@code <import/>} element in Spring XML.
- * Allows for importing {@code @Configuration} classes, {@link ImportSelector} and
- * {@link ImportBeanDefinitionRegistrar} implementations, as well as regular component
- * classes (as of 4.2; analogous to {@link AnnotationConfigApplicationContext#register}).
+ * <p>提供与Spring XML中的{@code <import/>}元素等效的功能。 允许导入{@code @Configuration}类，
+ * {@link ImportSelector}和{@link ImportBeanDefinitionRegistrar}实现以及常规组件类
+ * （从4.2开始；类似于{@link AnnotationConfigApplicationContext#register}）。
  *
- * <p>{@code @Bean} definitions declared in imported {@code @Configuration} classes should be
- * accessed by using {@link org.springframework.beans.factory.annotation.Autowired @Autowired}
- * injection. Either the bean itself can be autowired, or the configuration class instance
- * declaring the bean can be autowired. The latter approach allows for explicit, IDE-friendly
- * navigation between {@code @Configuration} class methods.
+ * <p>导入的{@code @Configuration}类中声明的{@code @Bean}定义应使用
+ * {@link org.springframework.beans.factory.annotation.Autowired @Autowired}注入进行访问。 
+ * 可以对bean本身进行自动装配，也可以对声明bean的配置类实例进行自动装配。 
+ * 后一种方法允许在{@code @Configuration}类方法之间进行显式的，IDE友好的导航。
  *
- * <p>May be declared at the class level or as a meta-annotation.
+ * <p>可以在类级别或作为元注释声明。
  *
- * <p>If XML or other non-{@code @Configuration} bean definition resources need to be
- * imported, use the {@link ImportResource @ImportResource} annotation instead.
+ * <p>如果需要导入XML或其他非{@code @Configuration} bean定义资源，
+ * 请改用{@link ImportResource @ImportResource}注释。
+ * 
+ * <p>@Import注解的作用和在使用spring的xml配置时用到的<import/>类似。但应注意是@Import在使用时必须要保证能被IOC容器扫描到，所以通常它会和@Configuration或者@ComponentScan配套使用。
+ *
+ * <p>@Import可以用来如下四种方式的导入：
+ *
+ * 带有@Configuration注解的类
+ * 实现了ImportSelector接口的类
+ * 实现了ImportBeanDefinitionRegistrar接口的类
+ * 被IOC容器注册的bean的class 
+ * 
+ * <p>@Import在使用时可以声明在JAVA类上，或者作为元注解使用（即声明在其他注解上）
+ * 
+ * 参考： https://www.jianshu.com/p/640a339474fb
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -57,7 +67,7 @@ public @interface Import {
 
 	/**
 	 * {@link Configuration @Configuration}, {@link ImportSelector},
-	 * {@link ImportBeanDefinitionRegistrar}, or regular component classes to import.
+	 * {@link ImportBeanDefinitionRegistrar}或要导入的常规组件类。
 	 */
 	Class<?>[] value();
 

@@ -27,11 +27,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.LocaleContextResolver;
 
 /**
- * Abstract base class for {@link LocaleContextResolver} implementations.
- * Provides support for a default locale and a default time zone.
+ * {@link LocaleContextResolver}实现的抽象基类。 提供对默认语言环境和默认时区的支持。
  *
- * <p>Also provides pre-implemented versions of {@link #resolveLocale} and {@link #setLocale},
- * delegating to {@link #resolveLocaleContext} and {@link #setLocaleContext}.
+ * <p>还提供了{@link #resolveLocale}和{@link #setLocale}的预实现版本，
+ * 委托给{@link #resolveLocaleContext}和{@link #setLocaleContext}。
  *
  * @author Juergen Hoeller
  * @since 4.0

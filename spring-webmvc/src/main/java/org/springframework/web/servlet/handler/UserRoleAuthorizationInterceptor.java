@@ -25,8 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.lang.Nullable;
 
 /**
- * Interceptor that checks the authorization of the current user via the
- * user's roles, as evaluated by HttpServletRequest's isUserInRole method.
+ * 拦截器，它通过HttpServletRequest的isUserInRole方法评估的用户角色来检查当前用户的授权。
  *
  * @author Juergen Hoeller
  * @since 20.06.2003

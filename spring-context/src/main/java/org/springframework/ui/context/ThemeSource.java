@@ -19,9 +19,7 @@ package org.springframework.ui.context;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface to be implemented by objects that can resolve {@link Theme Themes}.
- * This enables parameterization and internationalization of messages
- * for a given 'theme'.
+ * 由可以解析{@link Theme Themes}的对象实现的接口。 这样就可以针对给定的“主题”对消息进行参数化和国际化。
  *
  * @author Jean-Pierre Pawlak
  * @author Juergen Hoeller
@@ -30,9 +28,8 @@ import org.springframework.lang.Nullable;
 public interface ThemeSource {
 
 	/**
-	 * Return the Theme instance for the given theme name.
-	 * <p>The returned Theme will resolve theme-specific messages, codes,
-	 * file paths, etc (e.g. CSS and image files in a web environment).
+	 * 返回给定主题名称的Theme实例。
+	 * <p>返回的主题将解析主题特定的消息，代码，文件路径等（例如，网络环境中的CSS和图像文件）。
 	 * @param themeName the name of the theme
 	 * @return the corresponding Theme, or {@code null} if none defined.
 	 * Note that, by convention, a ThemeSource should at least be able to

@@ -25,8 +25,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
- * Interceptor that allows for changing the current theme on every request,
- * via a configurable request parameter (default parameter name: "theme").
+ * 拦截器，可通过可配置的请求参数（默认参数名称："theme"）更改每个请求的当前主题。
  *
  * @author Juergen Hoeller
  * @since 20.06.2003

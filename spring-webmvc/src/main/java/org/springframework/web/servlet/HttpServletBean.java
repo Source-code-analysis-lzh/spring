@@ -48,29 +48,21 @@ import org.springframework.web.context.support.ServletContextResourceLoader;
 import org.springframework.web.context.support.StandardServletEnvironment;
 
 /**
- * Simple extension of {@link javax.servlet.http.HttpServlet} which treats
- * its config parameters ({@code init-param} entries within the
- * {@code servlet} tag in {@code web.xml}) as bean properties.
+ * {@link javax.servlet.http.HttpServlet}的简单扩展，
+ * 将其配置参数（{@code web.xml}中{@code servlet}标记内的{@code init-param}条目）视为bean属性。
  *
- * <p>A handy superclass for any type of servlet. Type conversion of config
- * parameters is automatic, with the corresponding setter method getting
- * invoked with the converted value. It is also possible for subclasses to
- * specify required properties. Parameters without matching bean property
- * setter will simply be ignored.
+ * <p>任何类型的servlet的便捷超类。 配置参数的类型转换是自动的，将使用转换后的值调用相应的setter方法。 
+ * 子类也可以指定所需的属性。 没有匹配的bean属性设置器的参数将被忽略。
  *
- * <p>This servlet leaves request handling to subclasses, inheriting the default
- * behavior of HttpServlet ({@code doGet}, {@code doPost}, etc).
+ * <p>该Servlet继承HttpServlet的默认行为（{@code doGet}, {@code doPost}等）并将请求处理留给子类。
  *
- * <p>This generic servlet base class has no dependency on the Spring
- * {@link org.springframework.context.ApplicationContext} concept. Simple
- * servlets usually don't load their own context but rather access service
- * beans from the Spring root application context, accessible via the
- * filter's {@link #getServletContext() ServletContext} (see
- * {@link org.springframework.web.context.support.WebApplicationContextUtils}).
+ * <p>这个通用的servlet基类不依赖于Spring {@link org.springframework.context.ApplicationContext}
+ * 概念。 简单的servlet通常不加载自己的上下文，而是从Spring根应用程序上下文访问服务bean，
+ * 可通过过滤器的{@link #getServletContext() ServletContext}访问（请参阅
+ * {@link org.springframework.web.context.support.WebApplicationContextUtils}）。
  *
- * <p>The {@link FrameworkServlet} class is a more specific servlet base
- * class which loads its own application context. FrameworkServlet serves
- * as direct base class of Spring's full-fledged {@link DispatcherServlet}.
+ * <p>{@link FrameworkServlet}类是更特殊的servlet基类，它加载其自己的应用程序上下文。
+ * FrameworkServlet是Spring完整的{@link DispatcherServlet}的直接基类。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

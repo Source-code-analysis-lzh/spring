@@ -64,10 +64,12 @@ public abstract class AopNamespaceUtils {
 
 	public static void registerAspectJAutoProxyCreatorIfNecessary(
 			ParserContext parserContext, Element sourceElement) {
-
+		// 获取代理创建类 AspectJAwareAdvisorAutoProxyCreator并命名为org.springframework.aop.config.internalAutoProxyCreator
 		BeanDefinition beanDefinition = AopConfigUtils.registerAspectJAutoProxyCreatorIfNecessary(
 				parserContext.getRegistry(), parserContext.extractSource(sourceElement));
+		// 判断是否使用 CGLIB 创建代理，指定proxy-target-class=true则使用CGLIB，否则使用JDK动态代理
 		useClassProxyingIfNecessary(parserContext.getRegistry(), sourceElement);
+		// 往 spring ioc 容器注册AspectJAwareAdvisorAutoProxyCreator代理创建器
 		registerComponentIfNecessary(beanDefinition, parserContext);
 	}
 

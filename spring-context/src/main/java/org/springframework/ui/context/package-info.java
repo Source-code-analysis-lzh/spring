@@ -1,6 +1,5 @@
 /**
- * Contains classes defining the application context subinterface
- * for UI applications. The theme feature is added here.
+ * 包含定义UI应用程序的应用程序上下文子接口的类。 在此添加了主题功能。
  */
 @NonNullApi
 @NonNullFields

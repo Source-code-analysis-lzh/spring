@@ -23,12 +23,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Map-based implementation of the BindingResult interface,
- * supporting registration and evaluation of binding errors on
- * Map attributes.
+ * BindingResult接口的基于Map的实现，支持注册和计算Map属性上的绑定错误.
  *
  * <p>Can be used as errors holder for custom binding onto a
  * Map, for example when invoking a Validator for a Map object.
+ * <p>可以用作错误绑定，用于自定义绑定到Map，例如，当为Map对象调用Validator时.
  *
  * @author Juergen Hoeller
  * @since 2.0

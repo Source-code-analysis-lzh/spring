@@ -22,26 +22,20 @@ import java.util.List;
 import org.springframework.util.StringUtils;
 
 /**
- * Implementation of the {@link org.springframework.web.servlet.HandlerMapping}
- * interface that maps from URLs to beans with names that start with a slash ("/"),
- * similar to how Struts maps URLs to action names.
+ * {@link org.springframework.web.servlet.HandlerMapping}接口的实现，
+ * 该接口从URL映射到以反斜杠（"/"）开头的bean名称，类似于Struts如何将URL映射到动作名称。
  *
- * <p>This is the default implementation used by the
- * {@link org.springframework.web.servlet.DispatcherServlet}, along with
- * {@link org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping}.
- * Alternatively, {@link SimpleUrlHandlerMapping} allows for customizing a
- * handler mapping declaratively.
+ * <p>这是{@link org.springframework.web.servlet.DispatcherServlet}
+ * 和{@link org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping}
+ * 一起使用时的默认实现。 另外，{@link SimpleUrlHandlerMapping}允许声明性地自定义处理器映射。
  *
- * <p>The mapping is from URL to bean name. Thus an incoming URL "/foo" would map
- * to a handler named "/foo", or to "/foo /foo2" in case of multiple mappings to
- * a single handler.
+ * <p>映射是从URL到bean名称。 因此，传入URL "/foo"将映射到名为"/foo"的处理器，
+ * 或者在多个映射到单个处理器的情况下，将映射到"/foo /foo2"。
  *
- * <p>Supports direct matches (given "/test" -&gt; registered "/test") and "*"
- * matches (given "/test" -&gt; registered "/t*"). Note that the default is
- * to map within the current servlet mapping if applicable; see the
- * {@link #setAlwaysUseFullPath "alwaysUseFullPath"} property for details.
- * For details on the pattern options, see the
- * {@link org.springframework.util.AntPathMatcher} javadoc.
+ * <p>支持直接匹配（给定为"/test" -&gt; 已注册的"/test"）和"*"匹配项（给定为"/test" -&gt; 已注册"/t*"）。 
+ * 请注意，如果适用，默认值是在当前servlet映射中进行映射。 
+ * 有关详细信息，请参见{@link #setAlwaysUseFullPath "alwaysUseFullPath"}属性。 
+ * 有关模式选项的详细信息，请参见{@link org.springframework.util.AntPathMatcher} javadoc。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

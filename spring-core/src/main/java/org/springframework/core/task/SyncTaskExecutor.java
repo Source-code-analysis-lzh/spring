@@ -21,16 +21,12 @@ import java.io.Serializable;
 import org.springframework.util.Assert;
 
 /**
- * {@link TaskExecutor} implementation that executes each task <i>synchronously</i>
- * in the calling thread.
+ * {@link TaskExecutor}实现，可在调用线程中同步执行每个任务。
  *
- * <p>Mainly intended for testing scenarios.
+ * <p>主要用于测试场景。
  *
- * <p>Execution in the calling thread does have the advantage of participating
- * in it's thread context, for example the thread context class loader or the
- * thread's current transaction association. That said, in many cases,
- * asynchronous execution will be preferable: choose an asynchronous
- * {@code TaskExecutor} instead for such scenarios.
+ * <p>在调用线程中执行确实具有参与线程上下文的优势，例如，线程上下文类加载器或线程的当前事务关联。 
+ * 但是，在许多情况下，异步执行将是更可取的：针对此类情况，请选择异步{@code TaskExecutor}。
  *
  * @author Juergen Hoeller
  * @since 2.0

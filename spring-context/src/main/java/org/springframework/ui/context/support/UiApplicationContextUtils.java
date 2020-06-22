@@ -24,9 +24,8 @@ import org.springframework.ui.context.HierarchicalThemeSource;
 import org.springframework.ui.context.ThemeSource;
 
 /**
- * Utility class for UI application context implementations.
- * Provides support for a special bean named "themeSource",
- * of type {@link org.springframework.ui.context.ThemeSource}.
+ * UI应用程序上下文实现的工具类。 提供对名为
+ * {@link org.springframework.ui.context.ThemeSource}类型的特殊bean "themeSource"的支持。
  *
  * @author Jean-Pierre Pawlak
  * @author Juergen Hoeller

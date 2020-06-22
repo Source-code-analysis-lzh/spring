@@ -28,12 +28,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.cors.CorsUtils;
 
 /**
- * A logical conjunction (' && ') request condition that matches a request against
- * a set of header expressions with syntax defined in {@link RequestMapping#headers()}.
+ * 逻辑连接（'&&'）请求条件，该条件将请求与使用{@link RequestMapping#headers()}
+ * 中定义的语法的一组标头表达式进行匹配。
  *
- * <p>Expressions passed to the constructor with header names 'Accept' or
- * 'Content-Type' are ignored. See {@link ConsumesRequestCondition} and
- * {@link ProducesRequestCondition} for those.
+ * <p>传递给带有标题名称'Accept'或'Content-Type'的构造函数的表达式将被忽略。 
+ * 有关这些信息，请参见{@link ConsumesRequestCondition}和{@link ProducesRequestCondition}。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev

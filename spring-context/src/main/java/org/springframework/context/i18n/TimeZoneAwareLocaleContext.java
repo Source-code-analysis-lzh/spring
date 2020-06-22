@@ -21,11 +21,10 @@ import java.util.TimeZone;
 import org.springframework.lang.Nullable;
 
 /**
- * Extension of {@link LocaleContext}, adding awareness of the current time zone.
+ * 扩展{@link LocaleContext}，增加对当前时区的了解.
  *
- * <p>Having this variant of LocaleContext set to {@link LocaleContextHolder} means
- * that some TimeZone-aware infrastructure has been configured, even if it may not
- * be able to produce a non-null TimeZone at the moment.
+ * <p>将LocaleContext的此变量设置为{@link LocaleContextHolder}
+ * 意味着已配置了一些支持TimeZone的基础结构，即使该基础结构当前可能无法生成非null的TimeZone.
  *
  * @author Juergen Hoeller
  * @author Nicholas Williams
@@ -35,8 +34,7 @@ import org.springframework.lang.Nullable;
 public interface TimeZoneAwareLocaleContext extends LocaleContext {
 
 	/**
-	 * Return the current TimeZone, which can be fixed or determined dynamically,
-	 * depending on the implementation strategy.
+	 * 返回当前的TimeZone，可以根据实现策略对其进行固定或动态确定.
 	 * @return the current TimeZone, or {@code null} if no specific TimeZone associated
 	 */
 	@Nullable

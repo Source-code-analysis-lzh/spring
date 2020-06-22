@@ -27,10 +27,9 @@ import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanInitializationException;
 
 /**
- * Property resource configurer that overrides bean property values in an application
- * context definition. It <i>pushes</i> values from a properties file into bean definitions.
+ * 在应用程序上下文定义中覆盖bean属性值的属性资源配置器。 它将值从属性文件推送到bean定义中。
  *
- * <p>Configuration lines are expected to be of the following form:
+ * <p>配置行应采用以下形式：
  *
  * <pre class="code">beanName.property=value</pre>
  *
@@ -39,22 +38,20 @@ import org.springframework.beans.factory.BeanInitializationException;
  * <pre class="code">dataSource.driverClassName=com.mysql.jdbc.Driver
  * dataSource.url=jdbc:mysql:mydb</pre>
  *
- * In contrast to PropertyPlaceholderConfigurer, the original definition can have default
- * values or no values at all for such bean properties. If an overriding properties file does
- * not have an entry for a certain bean property, the default context definition is used.
+ * <p>与PropertyPlaceholderConfigurer相比，此类bean属性的原始定义可以具有默认值或完全没有值。 
+ * 如果覆盖的属性文件没有某个bean属性的条目，则使用默认的上下文定义。
  *
- * <p>Note that the context definition <i>is not</i> aware of being overridden;
- * so this is not immediately obvious when looking at the XML definition file.
- * Furthermore, note that specified override values are always <i>literal</i> values;
- * they are not translated into bean references. This also applies when the original
- * value in the XML bean definition specifies a bean reference.
+ * <p>请注意，上下文定义不知道会被覆盖。 因此，在查看XML定义文件时，这并不是立即显而易见的。 
+ * 此外，请注意，指定的替代值始终是文字值； 它们不会转换为bean引用。 
+ * 当XML bean定义中的原始值指定bean引用时，这也适用。
  *
- * <p>In case of multiple PropertyOverrideConfigurers that define different values for
- * the same bean property, the <i>last</i> one will win (due to the overriding mechanism).
+ * <p>如果有多个PropertyOverrideConfigurer为同一个bean属性定义了不同的值，则最后一个将获胜（由于覆盖机制）。
  *
  * <p>Property values can be converted after reading them in, through overriding
  * the {@code convertPropertyValue} method. For example, encrypted values
  * can be detected and decrypted accordingly before processing them.
+ * <p>通过覆盖{@code convertPropertyValue}方法，可以在读入属性值后对其进行转换。
+ * 例如，可以在处理加密值之前对它们进行检测和解密。
  *
  * @author Juergen Hoeller
  * @author Rod Johnson

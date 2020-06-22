@@ -23,23 +23,17 @@ import java.util.function.Supplier;
 import org.springframework.lang.Nullable;
 
 /**
- * Assertion utility class that assists in validating arguments.
+ * 断言工具类，有助于验证参数.
  *
- * <p>Useful for identifying programmer errors early and clearly at runtime.
+ * <p>用于在运行时及早清晰地识别程序员错误很有用.
  *
- * <p>For example, if the contract of a public method states it does not
- * allow {@code null} arguments, {@code Assert} can be used to validate that
- * contract. Doing this clearly indicates a contract violation when it
- * occurs and protects the class's invariants.
+ * <p>例如，如果公共方法的约定不允许使用{@code null}参数，则可以使用{@code Assert}来验证该约定.
+ * 这样做清楚表明发生违约并保护类的不变式.
  *
- * <p>Typically used to validate method arguments rather than configuration
- * properties, to check for cases that are usually programmer errors rather
- * than configuration errors. In contrast to configuration initialization
- * code, there is usually no point in falling back to defaults in such methods.
+ * <p>通常用于验证方法参数而不是配置属性，以检查通常是程序员错误而不是配置错误的情况.
+ * 与配置初始化代码相反，在这种方法中通常没有必要退回到默认值.
  *
- * <p>This class is similar to JUnit's assertion library. If an argument value is
- * deemed invalid, an {@link IllegalArgumentException} is thrown (typically).
- * For example:
+ * <p>此类类似于JUnit的断言库. 如果将参数值视为无效，则将抛出{@link IllegalArgumentException}（通常）. 例如：
  *
  * <pre class="code">
  * Assert.notNull(clazz, "The class must not be null");
@@ -59,10 +53,8 @@ import org.springframework.lang.Nullable;
 public abstract class Assert {
 
 	/**
-	 * Assert a boolean expression, throwing an {@code IllegalStateException}
-	 * if the expression evaluates to {@code false}.
-	 * <p>Call {@link #isTrue} if you wish to throw an {@code IllegalArgumentException}
-	 * on an assertion failure.
+	 * 声明一个布尔表达式，如果该表达式的计算结果为{@code false}，则抛出{@code IllegalStateException}.
+	 * <p>如果希望在断言失败时抛出{@code IllegalArgumentException}，请调用{@link #isTrue}.
 	 * <pre class="code">Assert.state(id == null, "The id property must not already be initialized");</pre>
 	 * @param expression a boolean expression
 	 * @param message the exception message to use if the assertion fails
@@ -75,10 +67,8 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert a boolean expression, throwing an {@code IllegalStateException}
-	 * if the expression evaluates to {@code false}.
-	 * <p>Call {@link #isTrue} if you wish to throw an {@code IllegalArgumentException}
-	 * on an assertion failure.
+	 * 声明一个布尔表达式，如果该表达式的计算结果为{@code false}，则抛出{@code IllegalStateException}.
+	 * <p>如果希望在断言失败时抛出{@code IllegalArgumentException}，请调用{@link #isTrue}.
 	 * <pre class="code">
 	 * Assert.state(id == null,
 	 *     () -&gt; "ID for " + entity.getName() + " must not already be initialized");
@@ -106,8 +96,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert a boolean expression, throwing an {@code IllegalArgumentException}
-	 * if the expression evaluates to {@code false}.
+	 * 声明一个布尔表达式，如果该表达式的计算结果为{@code false}，则抛出{@code IllegalArgumentException}.
 	 * <pre class="code">Assert.isTrue(i &gt; 0, "The value must be greater than zero");</pre>
 	 * @param expression a boolean expression
 	 * @param message the exception message to use if the assertion fails
@@ -120,8 +109,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert a boolean expression, throwing an {@code IllegalArgumentException}
-	 * if the expression evaluates to {@code false}.
+	 * 声明一个布尔表达式，如果该表达式的计算结果为{@code false}，则抛出{@code IllegalArgumentException}.
 	 * <pre class="code">
 	 * Assert.isTrue(i &gt; 0, () -&gt; "The value '" + i + "' must be greater than zero");
 	 * </pre>
@@ -148,7 +136,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that an object is {@code null}.
+	 * 断言一个对象为{@code null}.
 	 * <pre class="code">Assert.isNull(value, "The value must be null");</pre>
 	 * @param object the object to check
 	 * @param message the exception message to use if the assertion fails
@@ -187,7 +175,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that an object is not {@code null}.
+	 * 断言对象不是{@code null}.
 	 * <pre class="code">Assert.notNull(clazz, "The class must not be null");</pre>
 	 * @param object the object to check
 	 * @param message the exception message to use if the assertion fails
@@ -226,8 +214,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that the given String is not empty; that is,
-	 * it must not be {@code null} and not the empty String.
+	 * 断言给定的String不为空； 也就是说，它不能为{@code null}，也不能为空的String.
 	 * <pre class="code">Assert.hasLength(name, "Name must not be empty");</pre>
 	 * @param text the String to check
 	 * @param message the exception message to use if the assertion fails
@@ -271,8 +258,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that the given String contains valid text content; that is, it must not
-	 * be {@code null} and must contain at least one non-whitespace character.
+	 * 断言给定的字符串包含有效的文本内容； 也就是说，它不能为{@code null}，并且必须至少包含一个非空白字符.
 	 * <pre class="code">Assert.hasText(name, "'name' must not be empty");</pre>
 	 * @param text the String to check
 	 * @param message the exception message to use if the assertion fails
@@ -316,7 +302,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that the given text does not contain the given substring.
+	 * 断言给定的文本不包含给定的子字符串.
 	 * <pre class="code">Assert.doesNotContain(name, "rod", "Name must not contain 'rod'");</pre>
 	 * @param textToSearch the text to search
 	 * @param substring the substring to find within the text
@@ -360,8 +346,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that an array contains elements; that is, it must not be
-	 * {@code null} and must contain at least one element.
+	 * 断言一个数组包含元素； 也就是说，它不能为{@code null}，并且必须至少包含一个元素.
 	 * <pre class="code">Assert.notEmpty(array, "The array must contain elements");</pre>
 	 * @param array the array to check
 	 * @param message the exception message to use if the assertion fails
@@ -402,7 +387,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that an array contains no {@code null} elements.
+	 * 断言数组不包含{@code null}元素.
 	 * <p>Note: Does not complain if the array is empty!
 	 * <pre class="code">Assert.noNullElements(array, "The array must contain non-null elements");</pre>
 	 * @param array the array to check
@@ -451,8 +436,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that a collection contains elements; that is, it must not be
-	 * {@code null} and must contain at least one element.
+	 * 断言一个集合包含元素； 也就是说，它不能为{@code null}，并且必须至少包含一个元素.
 	 * <pre class="code">Assert.notEmpty(collection, "Collection must contain elements");</pre>
 	 * @param collection the collection to check
 	 * @param message the exception message to use if the assertion fails
@@ -496,7 +480,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that a collection contains no {@code null} elements.
+	 * 断言一个集合不包含任何{@code null}元素.
 	 * <p>Note: Does not complain if the collection is empty!
 	 * <pre class="code">Assert.noNullElements(collection, "Collection must contain non-null elements");</pre>
 	 * @param collection the collection to check
@@ -537,8 +521,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that a Map contains entries; that is, it must not be {@code null}
-	 * and must contain at least one entry.
+	 * 断言一个map包含条目； 也就是说，它不能为{@code null}，并且必须至少包含一个条目.
 	 * <pre class="code">Assert.notEmpty(map, "Map must contain entries");</pre>
 	 * @param map the map to check
 	 * @param message the exception message to use if the assertion fails
@@ -579,7 +562,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that the provided object is an instance of the provided class.
+	 * 断言所提供的对象是所提供类的实例.
 	 * <pre class="code">Assert.instanceOf(Foo.class, foo, "Foo expected");</pre>
 	 * @param type the type to check against
 	 * @param obj the object to check
@@ -628,7 +611,7 @@ public abstract class Assert {
 	}
 
 	/**
-	 * Assert that {@code superType.isAssignableFrom(subType)} is {@code true}.
+	 * 断言{@code superType.isAssignableFrom(subType)}为{@code true}. 判断是否是指定类的子类
 	 * <pre class="code">Assert.isAssignable(Number.class, myClass, "Number expected");</pre>
 	 * @param superType the super type to check against
 	 * @param subType the sub type to check

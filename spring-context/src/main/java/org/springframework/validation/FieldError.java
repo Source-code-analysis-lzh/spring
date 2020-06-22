@@ -21,11 +21,9 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Encapsulates a field error, that is, a reason for rejecting a specific
- * field value.
+ * 封装字段错误，即拒绝特定字段值的原因.
  *
- * <p>See the {@link DefaultMessageCodesResolver} javadoc for details on
- * how a message code list is built for a {@code FieldError}.
+ * <p>有关如何为{@code FieldError}构建消息代码列表的详细信息，请参见{@link DefaultMessageCodesResolver} Javadoc.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

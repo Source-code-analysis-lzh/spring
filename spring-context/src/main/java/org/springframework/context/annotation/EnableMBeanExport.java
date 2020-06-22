@@ -26,15 +26,12 @@ import org.springframework.jmx.export.annotation.AnnotationMBeanExporter;
 import org.springframework.jmx.support.RegistrationPolicy;
 
 /**
- * Enables default exporting of all standard {@code MBean}s from the Spring context, as
- * well as well all {@code @ManagedResource} annotated beans.
+ * 启用从Spring上下文以及所有{@code @ManagedResource}注释的bean的默认导出所有标准{@code MBean}。
  *
- * <p>The resulting {@link org.springframework.jmx.export.MBeanExporter MBeanExporter}
- * bean is defined under the name "mbeanExporter". Alternatively, consider defining a
- * custom {@link AnnotationMBeanExporter} bean explicitly.
+ * <p>生成的{@link org.springframework.jmx.export.MBeanExporter MBeanExporter} bean
+ * 的名称为"mbeanExporter"。 或者，考虑显式定义自定义{@link AnnotationMBeanExporter} bean。
  *
- * <p>This annotation is modeled after and functionally equivalent to Spring XML's
- * {@code <context:mbean-export/>} element.
+ * <p>该注释的功能等效于Spring XML的{@code <context:mbean-export/>}元素。
  *
  * @author Phillip Webb
  * @since 3.2

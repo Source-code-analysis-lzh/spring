@@ -31,13 +31,11 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 /**
- * Convenient base class for {@link org.springframework.web.servlet.ViewResolver}
- * implementations. Caches {@link org.springframework.web.servlet.View} objects
- * once resolved: This means that view resolution won't be a performance problem,
- * no matter how costly initial view retrieval is.
+ * {@link org.springframework.web.servlet.ViewResolver}实现的便捷基类。 
+ * 一旦解析就缓存{@link org.springframework.web.servlet.View}对象：
+ * 这意味着无论初始视图检索的成本如何，视图解析都不会成为性能问题。
  *
- * <p>Subclasses need to implement the {@link #loadView} template method,
- * building the View object for a specific view name and locale.
+ * <p>子类需要实现{@link #loadView}模板方法，为特定的视图名称和语言环境构建View对象。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

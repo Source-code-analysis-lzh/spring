@@ -1,6 +1,6 @@
 /**
- * Common infrastructure for handler method processing, as used by
- * Spring MVC's {@code org.springframework.web.servlet.mvc.method} package.
+ * Spring MVC的{@code org.springframework.web.servlet.mvc.method}
+ * 包所使用的用于处理器方法处理的通用基础结构。
  */
 @NonNullApi
 @NonNullFields

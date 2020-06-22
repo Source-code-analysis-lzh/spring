@@ -19,7 +19,7 @@ package org.aopalliance.intercept;
 import javax.annotation.Nonnull;
 
 /**
- * Intercepts the construction of a new object.
+ * 拦截新对象的构造。
  *
  * <p>The user should implement the {@link
  * #construct(ConstructorInvocation)} method to modify the original

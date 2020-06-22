@@ -1,25 +1,19 @@
 /**
- * Spring's variant of the
- * <a href="https://commons.apache.org/logging">Commons Logging API</a>:
- * with special support for Log4J 2, SLF4J and {@code java.util.logging}.
+ * <a href="https://commons.apache.org/logging"> Commons Logging API </a>的Spring变体：
+ * 对Log4J 2，SLF4J和{@code java.util.logging}的特殊支持。
  *
- * <p>This is a custom bridge along the lines of {@code jcl-over-slf4j}.
- * You may exclude {@code spring-jcl} and switch to {@code jcl-over-slf4j}
- * instead if you prefer the hard-bound SLF4J bridge. However, Spring's own
- * bridge provides a better out-of-the-box experience when using Log4J 2
- * or {@code java.util.logging}, with no extra bridge jars necessary, and
- * also easier setup of SLF4J with Logback (no JCL exclude, no JCL bridge).
+ * <p>这是和{@code jcl-over-slf4j}类似的自定义桥。
+ * 如果您更喜欢硬绑定SLF4J桥，则可以排除{@code spring-jcl}并切换到{@code jcl-over-slf4j}。 
+ * 但是，当使用Log4J 2或{@code java.util.logging}时，Spring自己的桥提供了更好的即用即用体验，
+ * 无需额外的网jar包，并且通过Logback设置SLF4J更加容易（不包括JCL，没有JCL桥）。
  *
- * <p>{@link org.apache.commons.logging.Log} is equivalent to the original.
- * However, {@link org.apache.commons.logging.LogFactory} is a very different
- * implementation which is minimized and optimized for Spring's purposes,
- * detecting Log4J 2.x and SLF4J 1.7 in the framework classpath and falling
- * back to {@code java.util.logging}. If you run into any issues with this
- * implementation, consider excluding {@code spring-jcl} and switching to the
- * standard {@code commons-logging} artifact or to {@code jcl-over-slf4j}.
+ * <p>{@link org.apache.commons.logging.Log}等同于原始版本。
+ * 但是，{@link org.apache.commons.logging.LogFactory}是一个非常不同的实现，
+ * 已针对Spring的目的对其进行了最小化和优化，在框架类路径中检测到Log4J 2.x和SLF4J 1.7，
+ * 并退回到{@code java.util.logging}。 如果您对此实现遇到任何问题，
+ * 请考虑排除{@code spring-jcl}并切换到标准{@code commons-logging}包或切换到{@code jcl-over-slf4j}。
  *
- * <p>Note that this Commons Logging bridge is only meant to be used for
- * framework logging purposes, both in the core framework and in extensions.
- * For applications, prefer direct use of Log4J/SLF4J or {@code java.util.logging}.
+ * <p>请注意，此Commons Logging桥仅用于核心框架和扩展中的框架日志记录。
+ * 对于应用程序，最好直接使用Log4J/SLF4J或{@code java.util.logging}。
  */
 package org.apache.commons.logging;

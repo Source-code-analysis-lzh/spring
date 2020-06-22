@@ -26,9 +26,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * Special ObjectInputStream subclass that resolves class names
- * against a specific ClassLoader. Serves as base class for
- * {@link org.springframework.remoting.rmi.CodebaseAwareObjectInputStream}.
+ * ObjectInputStream子类，它根据指定的ClassLoader解析类名称。 
+ * 用作{@link org.springframework.remoting.rmi.CodebaseAwareObjectInputStream}的基类。
  *
  * @author Juergen Hoeller
  * @since 2.5.5

@@ -1,5 +1,5 @@
 /**
- * Provides web-specific data binding functionality.
+ * 提供特定于Web的数据绑定功能。
  */
 @NonNullApi
 @NonNullFields

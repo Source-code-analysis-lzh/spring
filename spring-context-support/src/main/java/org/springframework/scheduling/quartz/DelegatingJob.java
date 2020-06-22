@@ -23,12 +23,10 @@ import org.quartz.JobExecutionException;
 import org.springframework.util.Assert;
 
 /**
- * Simple Quartz {@link org.quartz.Job} adapter that delegates to a
- * given {@link java.lang.Runnable} instance.
+ * 委托给定{@link java.lang.Runnable}实例的简单Quartz {@link org.quartz.Job}适配器。
  *
- * <p>Typically used in combination with property injection on the
- * Runnable instance, receiving parameters from the Quartz JobDataMap
- * that way instead of via the JobExecutionContext.
+ * <p>通常与Runnable实例上的属性注入结合使用，
+ * 而不是通过JobExecutionContext从Quartz JobDataMap接收参数。
  *
  * @author Juergen Hoeller
  * @since 2.0

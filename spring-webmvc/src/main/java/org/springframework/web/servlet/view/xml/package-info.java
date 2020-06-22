@@ -1,5 +1,5 @@
 /**
- * Support classes for providing a View implementation based on XML Marshalling.
+ * 用于提供基于XML编组的View实现的支持类。
  */
 @NonNullApi
 @NonNullFields

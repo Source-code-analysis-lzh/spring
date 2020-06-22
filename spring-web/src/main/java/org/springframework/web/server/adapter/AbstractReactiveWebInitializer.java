@@ -31,14 +31,12 @@ import org.springframework.util.Assert;
 import org.springframework.web.WebApplicationInitializer;
 
 /**
- * Base class for a {@link org.springframework.web.WebApplicationInitializer}
- * that installs a Spring Reactive Web Application on a Servlet container.
+ * {@link org.springframework.web.WebApplicationInitializer}的基类，
+ * 该类在Servlet容器上安装Spring Reactive Web Application。
  *
- * <p>Spring configuration is loaded and given to
- * {@link WebHttpHandlerBuilder#applicationContext WebHttpHandlerBuilder}
- * which scans the context looking for specific beans and creates a reactive
- * {@link HttpHandler}. The resulting handler is installed as a Servlet through
- * the {@link ServletHttpHandlerAdapter}.
+ * <p>加载Spring配置，并将其提供给{@link WebHttpHandlerBuilder#applicationContext WebHttpHandlerBuilder}，
+ * {@link WebHttpHandlerBuilder#applicationContext WebHttpHandlerBuilder}扫描上下文以查找特定的bean，
+ * 并创建一个响应式{@link HttpHandler}。 生成的处理程序通过{@link ServletHttpHandlerAdapter}作为Servlet安装。
  *
  * @author Rossen Stoyanchev
  * @since 5.0.2

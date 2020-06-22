@@ -23,12 +23,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for handling exceptions in specific handler classes and/or
- * handler methods.
+ * 用于在特定处理器类和/或处理器方法中处理异常的注释。
  *
- * <p>Handler methods which are annotated with this annotation are allowed to
- * have very flexible signatures. They may have parameters of the following
- * types, in arbitrary order:
+ * <p>使用此注释的处理器方法具有非常灵活的签名。 它们可以具有任意类型的以下类型的参数：
  * <ul>
  * <li>An exception argument: declared as a general Exception or as a more
  * specific exception. This also serves as a mapping hint if the annotation
@@ -64,7 +61,7 @@ import java.lang.annotation.Target;
  * as a convenience for preparing the model for an exception-specific view.
  * </ul>
  *
- * <p>The following return types are supported for handler methods:
+ * <p>处理器方法支持以下返回类型：
  * <ul>
  * <li>A {@code ModelAndView} object (from Servlet MVC).
  * <li>A {@link org.springframework.ui.Model} object, with the view name implicitly
@@ -91,8 +88,8 @@ import java.lang.annotation.Target;
  * (not declaring a response argument in the handler method signature).
  * </ul>
  *
- * <p>You may combine the {@code ExceptionHandler} annotation with
- * {@link ResponseStatus @ResponseStatus} for a specific HTTP error status.
+ * <p>您可以将{@code ExceptionHandler}注释与{@link ResponseStatus @ResponseStatus}
+ * 结合使用以获得特定的HTTP错误状态。
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller
@@ -105,8 +102,7 @@ import java.lang.annotation.Target;
 public @interface ExceptionHandler {
 
 	/**
-	 * Exceptions handled by the annotated method. If empty, will default to any
-	 * exceptions listed in the method argument list.
+	 * 带注释的方法处理的异常。 如果为空，则默认为方法参数列表中列出的任何异常。
 	 */
 	Class<? extends Throwable>[] value() default {};
 

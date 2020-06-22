@@ -30,27 +30,20 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
 
 /**
- * Annotation that can be used to associate the part of a "multipart/form-data" request
- * with a method argument.
+ * 可用于将"multipart/form-data"请求的part与方法参数关联的注释。
  *
- * <p>Supported method argument types include {@link MultipartFile} in conjunction with
- * Spring's {@link MultipartResolver} abstraction, {@code javax.servlet.http.Part} in
- * conjunction with Servlet 3.0 multipart requests, or otherwise for any other method
- * argument, the content of the part is passed through an {@link HttpMessageConverter}
- * taking into consideration the 'Content-Type' header of the request part. This is
- * analogous to what @{@link RequestBody} does to resolve an argument based on the
- * content of a non-multipart regular request.
+ * <p>支持的方法参数类型包括和Spring的MultipartResolver结合的{@link MultipartFile}，
+ * 以及和Servlet 3.0 multipart请求结合的{@code javax.servlet.http.Part}，
+ * 或者通过HttpMessageConverter参考请求部分的'Content-Type'标头转换为的其它任何方法参数。
+ * 这类似于@RequestBody基于非分段常规请求的内容来解析参数的操作。
  *
- * <p>Note that @{@link RequestParam} annotation can also be used to associate the part
- * of a "multipart/form-data" request with a method argument supporting the same method
- * argument types. The main difference is that when the method argument is not a String
- * or raw {@code MultipartFile} / {@code Part}, {@code @RequestParam} relies on type
- * conversion via a registered {@link Converter} or {@link PropertyEditor} while
- * {@link RequestPart} relies on {@link HttpMessageConverter HttpMessageConverters}
- * taking into consideration the 'Content-Type' header of the request part.
- * {@link RequestParam} is likely to be used with name-value form fields while
- * {@link RequestPart} is likely to be used with parts containing more complex content
- * e.g. JSON, XML).
+ * <p>请注意，@{@link RequestParam}注释也可用于将"multipart/form-data"请求的一部分
+ * 与支持相同方法参数类型的方法参数相关联。 主要区别在于，当方法参数不是字符串或原始
+ * {@code MultipartFile} / {@code Part}时，{@code @RequestParam}依赖于通过注册的
+ * {@link Converter} or {@link PropertyEditor}进行的类型转换，而{@link RequestPart}
+ * 则依赖于{@link HttpMessageConverter HttpMessageConverters}并参考请求部分(part)的'Content-Type'标头 。 
+ * {@link RequestParam}可能与名称-值表单字段一起使用，而{@link RequestPart}可能与包含更复杂内容的部分(part)
+ * 一起使用，例如 JSON，XML。
  *
  * @author Rossen Stoyanchev
  * @author Arjen Poutsma

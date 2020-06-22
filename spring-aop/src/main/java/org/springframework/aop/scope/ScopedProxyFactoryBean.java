@@ -33,18 +33,21 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Convenient proxy factory bean for scoped objects.
+ * 方便的代理工厂bean，用于范围对象。
  *
  * <p>Proxies created using this factory bean are thread-safe singletons
  * and may be injected into shared objects, with transparent scoping behavior.
+ * <p>使用此工厂bean创建的代理是线程安全的单例，并且可以以透明的作用域行为注入到共享对象中。
  *
  * <p>Proxies returned by this class implement the {@link ScopedObject} interface.
  * This presently allows for removing the corresponding object from the scope,
  * seamlessly creating a new instance in the scope on next access.
+ * <p>此类返回的代理实现{@link ScopedObject}接口。 当前，这允许从范围中删除相应的对象，并在下次访问时在范围中无缝创建新实例。
  *
  * <p>Please note that the proxies created by this factory are
  * <i>class-based</i> proxies by default. This can be customized
  * through switching the "proxyTargetClass" property to "false".
+ * <p>请注意，默认情况下，此工厂创建的代理是基于类的代理。 可以通过将"proxyTargetClass"属性切换为"false"来自定义。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -107,6 +110,7 @@ public class ScopedProxyFactoryBean extends ProxyConfig
 		}
 
 		// Add an introduction that implements only the methods on ScopedObject.
+		// 为增加DefaultScopedObject能力，增加introduction 
 		ScopedObject scopedObject = new DefaultScopedObject(cbf, this.scopedTargetSource.getTargetBeanName());
 		pf.addAdvice(new DelegatingIntroductionInterceptor(scopedObject));
 

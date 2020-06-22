@@ -25,14 +25,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Thrown when binding errors are considered fatal. Implements the
- * {@link BindingResult} interface (and its super-interface {@link Errors})
- * to allow for the direct analysis of binding errors.
+ * 当绑定错误被认为是致命的时抛出. 实现{@link BindingResult}接口（及其超级接口{@link Errors}）以允许直接分析绑定错误.
  *
- * <p>As of Spring 2.0, this is a special-purpose class. Normally,
- * application code will work with the {@link BindingResult} interface,
- * or with a {@link DataBinder} that in turn exposes a BindingResult via
- * {@link org.springframework.validation.DataBinder#getBindingResult()}.
+ * <p>从Spring 2.0开始，这是一个特殊用途的类.
+ * 通常，应用程序代码将与{@link BindingResult}接口配合使用，或者与{@link DataBinder}配合使用，
+ * 后者又通过{@link org.springframework.validation.DataBinder#getBindingResult()}公开BindingResult.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

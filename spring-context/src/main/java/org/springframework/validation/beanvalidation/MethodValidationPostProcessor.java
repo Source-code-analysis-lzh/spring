@@ -34,21 +34,17 @@ import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 
 /**
- * A convenient {@link BeanPostProcessor} implementation that delegates to a
- * JSR-303 provider for performing method-level validation on annotated methods.
+ * 便捷的{@link BeanPostProcessor}实现，委派给JSR-303提供程序以对带注释的方法执行方法级验证.
  *
- * <p>Applicable methods have JSR-303 constraint annotations on their parameters
- * and/or on their return value (in the latter case specified at the method level,
- * typically as inline annotation), e.g.:
+ * <p>适用于方法在其参数和/或返回值上具有JSR-303约束注释（在后一种情况下在方法级别指定，通常作为内联注释），例如：
  *
  * <pre class="code">
  * public @NotNull Object myValidMethod(@NotNull String arg1, @Max(10) int arg2)
  * </pre>
  *
- * <p>Target classes with such annotated methods need to be annotated with Spring's
- * {@link Validated} annotation at the type level, for their methods to be searched for
- * inline constraint annotations. Validation groups can be specified through {@code @Validated}
- * as well. By default, JSR-303 will validate against its default group only.
+ * <p>具有此类带注释方法的目标类需要在类型级别使用Spring的{@link Validated}注释进行注释，
+ * 以便在其方法中搜索内联约束注释. 验证组也可以通过{@code @Validated}指定.
+ * 默认情况下，JSR-303将仅针对其默认组进行验证.
  *
  * <p>As of Spring 5.0, this functionality requires a Bean Validation 1.1+ provider.
  *

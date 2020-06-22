@@ -49,8 +49,7 @@ import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Abstract base class for classes for which {@link RequestMappingInfo} defines
- * the mapping between a request and a handler method.
+ * {@link RequestMappingInfo}定义了请求和处理器方法之间的映射的类的抽象基类。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
@@ -116,6 +115,7 @@ public abstract class RequestMappingInfoHandlerMapping extends AbstractHandlerMe
 
 	/**
 	 * Expose URI template variables, matrix variables, and producible media types in the request.
+	 * 在请求中公开URI模板变量，矩阵变量和可生产的媒体类型。
 	 * @see HandlerMapping#URI_TEMPLATE_VARIABLES_ATTRIBUTE
 	 * @see HandlerMapping#MATRIX_VARIABLES_ATTRIBUTE
 	 * @see HandlerMapping#PRODUCIBLE_MEDIA_TYPES_ATTRIBUTE
@@ -134,6 +134,7 @@ public abstract class RequestMappingInfoHandlerMapping extends AbstractHandlerMe
 		}
 		else {
 			bestPattern = patterns.iterator().next();
+			// 抽取uri模板变量
 			uriVariables = getPathMatcher().extractUriTemplateVariables(bestPattern, lookupPath);
 		}
 
@@ -144,9 +145,12 @@ public abstract class RequestMappingInfoHandlerMapping extends AbstractHandlerMe
 			request.setAttribute(HandlerMapping.MATRIX_VARIABLES_ATTRIBUTE, matrixVars);
 		}
 
+		// 对变量解码
 		Map<String, String> decodedUriVariables = getUrlPathHelper().decodePathVariables(request, uriVariables);
+		// 放入到请求属性中
 		request.setAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, decodedUriVariables);
 
+		// 获取accept中媒体类型，并存入请求属性中
 		if (!info.getProducesCondition().getProducibleMediaTypes().isEmpty()) {
 			Set<MediaType> mediaTypes = info.getProducesCondition().getProducibleMediaTypes();
 			request.setAttribute(PRODUCIBLE_MEDIA_TYPES_ATTRIBUTE, mediaTypes);
@@ -157,6 +161,7 @@ public abstract class RequestMappingInfoHandlerMapping extends AbstractHandlerMe
 		return !getUrlPathHelper().shouldRemoveSemicolonContent();
 	}
 
+	// 抽取uri中矩阵变量
 	private Map<String, MultiValueMap<String, String>> extractMatrixVariables(
 			HttpServletRequest request, Map<String, String> uriVariables) {
 

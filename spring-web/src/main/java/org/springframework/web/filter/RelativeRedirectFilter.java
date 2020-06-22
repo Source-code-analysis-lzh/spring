@@ -33,9 +33,14 @@ import org.springframework.util.Assert;
  * Servlet containers are required to do that but against the recommendation of
  * <a href="https://tools.ietf.org/html/rfc7231#section-7.1.2"> RFC 7231 Section 7.1.2</a>,
  * and furthermore not necessarily taking into account "X-Forwarded" headers.
+ * 重写{@link HttpServletResponse#sendRedirect(String)}并通过设置HTTP状态和"Location"标头
+ * 来处理它，以防止Servlet容器将相对重定向URL重写为绝对URL。 需要Servlet容器来执行此操作，
+ * 但要违反<a href="https://tools.ietf.org/html/rfc7231#section-7.1.2"> RFC 7231 Section 7.1.2</a>
+ * 的建议，并且不必考虑"X-Forwarded"标头。
+ * 
+ * <p>通过RelativeRedirectResponseWrapper包装原Response对象,重写默认的sendRedirect重定向方法改为相对路径重定向。
  *
- * <p><strong>Note:</strong> While relative redirects are recommended in the
- * RFC, under some configurations with reverse proxies they may not work.
+ * <p>注意：虽然在RFC中建议使用相对重定向，但在某些具有反向代理的配置下，它们可能无法正常工作。
  *
  * @author Rob Winch
  * @author Rossen Stoyanchev

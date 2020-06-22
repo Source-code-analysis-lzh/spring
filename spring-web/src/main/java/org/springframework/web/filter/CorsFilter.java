@@ -32,20 +32,16 @@ import org.springframework.web.cors.DefaultCorsProcessor;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 /**
- * {@link javax.servlet.Filter} that handles CORS preflight requests and intercepts
- * CORS simple and actual requests thanks to a {@link CorsProcessor} implementation
- * ({@link DefaultCorsProcessor} by default) in order to add the relevant CORS
- * response headers (like {@code Access-Control-Allow-Origin}) using the provided
- * {@link CorsConfigurationSource} (for example an {@link UrlBasedCorsConfigurationSource}
- * instance.
+ * 借助{@link CorsProcessor}实现（默认情况下为{@link DefaultCorsProcessor}），
+ * 用于处理CORS预检请求并拦截CORS简单请求和实际请求的{@link javax.servlet.Filter}，
+ * 以便使用提供的{@link CorsConfigurationSource}（例如，{@link UrlBasedCorsConfigurationSource}实例）
+ * 增加关于CORS响应头(如 {@code Access-Control-Allow-Origin})。
  *
- * <p>This is an alternative to Spring MVC Java config and XML namespace CORS configuration,
- * useful for applications depending only on spring-web (not on spring-webmvc) or for
- * security constraints requiring CORS checks to be performed at {@link javax.servlet.Filter}
- * level.
+ * <p>这是Spring MVC Java配置和XML名称空间CORS配置的替代方法，
+ * 对仅依赖于spring-web（不依赖spring-webmvc）的应用程序
+ * 或需要在{@link javax.servlet.Filter}级别执行CORS检查的安全性约束很有用。
  *
- * <p>This filter could be used in conjunction with {@link DelegatingFilterProxy} in order
- * to help with its initialization.
+ * <p>该过滤器可以与{@link DelegatingFilterProxy}结合使用，以帮助其初始化。
  *
  * @author Sebastien Deleuze
  * @since 4.2

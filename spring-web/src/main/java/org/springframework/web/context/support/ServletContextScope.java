@@ -28,17 +28,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link Scope} wrapper for a ServletContext, i.e. for global web application attributes.
+ * ServletContext的{@link Scope}包装器，即全局Web应用程序属性的范围包装器。
  *
- * <p>This differs from traditional Spring singletons in that it exposes attributes in the
- * ServletContext. Those attributes will get destroyed whenever the entire application
- * shuts down, which might be earlier or later than the shutdown of the containing Spring
- * ApplicationContext.
+ * <p>这与传统的Spring单例不同，它在ServletContext中公开属性。 每当关闭整个应用程序时，这些属性将被销毁，
+ * 这可能早或晚于包含Spring ApplicationContext的关闭。
  *
- * <p>The associated destruction mechanism relies on a
- * {@link org.springframework.web.context.ContextCleanupListener} being registered in
- * {@code web.xml}. Note that {@link org.springframework.web.context.ContextLoaderListener}
- * includes ContextCleanupListener's functionality.
+ * <p>关联的销毁机制依赖于在{@code web.xml}中注册的{@link org.springframework.web.context.ContextCleanupListener}。 
+ * 请注意，{@link org.springframework.web.context.ContextLoaderListener}包含ContextCleanupListener的功能。
  *
  * <p>This scope is registered as default scope with key
  * {@link org.springframework.web.context.WebApplicationContext#SCOPE_APPLICATION "application"}.

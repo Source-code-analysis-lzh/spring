@@ -23,18 +23,15 @@ import java.util.function.Predicate;
 import reactor.core.publisher.Flux;
 
 /**
- * Custom {@link List} to collect data buffers with and enforce a
- * limit on the total number of bytes buffered. For use with "collect" or
- * other buffering operators in declarative APIs, e.g. {@link Flux}.
+ * 自定义{@link List}，用于收集数据缓冲区，并限制缓冲区的总字节数.
+ * 用于声明性API中的"collect"或其他缓冲运算符，例如 {@link Flux}.
  *
- * <p>Adding elements increases the byte count and if the limit is exceeded,
- * {@link DataBufferLimitException} is raised.  {@link #clear()} resets the
- * count. Remove and set are not supported.
+ * <p>添加元素会增加字节数，如果超出限制，则会引发{@link DataBufferLimitException}.
+ *  {@link #clear()}重置计数. 不支持删除和设置.
  *
- * <p><strong>Note:</strong> This class does not automatically release the
- * buffers it contains. It is usually preferable to use hooks such as
- * {@link Flux#doOnDiscard} that also take care of cancel and error signals,
- * or otherwise {@link #releaseAndClear()} can be used.
+ * <p>注意：此类不会自动释放其包含的缓冲区.
+ * 通常最好使用诸如{@link Flux#doOnDiscard}之类的钩子，这些钩子还要处理取消和错误信号，
+ * 或者另外还要考虑{@link #releaseAndClear()}可以使用.
  *
  * @author Rossen Stoyanchev
  * @since 5.1.11

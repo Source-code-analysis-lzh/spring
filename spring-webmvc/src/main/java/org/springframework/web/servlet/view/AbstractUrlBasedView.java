@@ -22,8 +22,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * Abstract base class for URL-based views. Provides a consistent way of
- * holding the URL that a View wraps, in the form of a "url" bean property.
+ * 基于URL的视图的抽象基类。 提供一种以"url" bean属性形式保存View包装的URL的一致方法。
  *
  * @author Juergen Hoeller
  * @since 13.12.2003

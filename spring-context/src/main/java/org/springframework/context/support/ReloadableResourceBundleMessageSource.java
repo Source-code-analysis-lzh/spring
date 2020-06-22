@@ -39,36 +39,28 @@ import org.springframework.util.PropertiesPersister;
 import org.springframework.util.StringUtils;
 
 /**
- * Spring-specific {@link org.springframework.context.MessageSource} implementation
- * that accesses resource bundles using specified basenames, participating in the
- * Spring {@link org.springframework.context.ApplicationContext}'s resource loading.
+ * 特定于Spring的{@link org.springframework.context.MessageSource}实现，
+ * 该实现使用指定的basenames访问资源包，
+ * 并参与Spring {@link org.springframework.context.ApplicationContext}的资源加载.
  *
- * <p>In contrast to the JDK-based {@link ResourceBundleMessageSource}, this class uses
- * {@link java.util.Properties} instances as its custom data structure for messages,
- * loading them via a {@link org.springframework.util.PropertiesPersister} strategy
- * from Spring {@link Resource} handles. This strategy is not only capable of
- * reloading files based on timestamp changes, but also of loading properties files
- * with a specific character encoding. It will detect XML property files as well.
+ * <p>与基于JDK的{@link ResourceBundleMessageSource}相比，此类使用{@link java.util.Properties}实例作为其消息的自定义数据结构，
+ * 并通过Spring {@link Resource}句柄中的{@link org.springframework.util.PropertiesPersister}策略加载它们.
+ * 此策略不仅能够根据时间戳更改重新加载文件，而且能够加载具有特定字符编码的属性文件.
+ * 它还将检测XML属性文件.
  *
- * <p>Note that the basenames set as {@link #setBasenames "basenames"} property
- * are treated in a slightly different fashion than the "basenames" property of
- * {@link ResourceBundleMessageSource}. It follows the basic ResourceBundle rule of not
- * specifying file extension or language codes, but can refer to any Spring resource
- * location (instead of being restricted to classpath resources). With a "classpath:"
- * prefix, resources can still be loaded from the classpath, but "cacheSeconds" values
- * other than "-1" (caching forever) might not work reliably in this case.
+ * <p>请注意，设置为{@link #setBasenames "basenames"}属性的基本名称的方式与
+ * {@link ResourceBundleMessageSource}的"basenames"属性略有不同. 它遵循不指定文件扩展名或语言代码的基本ResourceBundle规则，
+ * 但可以引用任何Spring资源位置（而不是局限于类路径资源）. 使用"classpath:"前缀，仍然可以从类路径加载资源，
+ * 但是在这种情况下，除"-1"（永远缓存）以外的"cacheSeconds"值可能无法可靠地工作.
  *
- * <p>For a typical web application, message files could be placed in {@code WEB-INF}:
- * e.g. a "WEB-INF/messages" basename would find a "WEB-INF/messages.properties",
- * "WEB-INF/messages_en.properties" etc arrangement as well as "WEB-INF/messages.xml",
- * "WEB-INF/messages_en.xml" etc. Note that message definitions in a <i>previous</i>
- * resource bundle will override ones in a later bundle, due to sequential lookup.
+ * <p>对于典型的Web应用程序，可以将消息文件放置在{@code WEB-INF}中： "WEB-INF/messages"
+ * 基本名称将按照"WEB-INF/messages.properties"，"WEB-INF/messages_en.properties"以及
+ * "WEB-INF/messages.xml"，"WEB-INF/messages_en.xml"等顺序查找.
+ * 请注意，由于顺序查找，前一个资源包中的消息定义将覆盖后一个包中的消息定义.
 
- * <p>This MessageSource can easily be used outside of an
- * {@link org.springframework.context.ApplicationContext}: it will use a
- * {@link org.springframework.core.io.DefaultResourceLoader} as default,
- * simply getting overridden with the ApplicationContext's resource loader
- * if running in a context. It does not have any other specific dependencies.
+ * <p>该MessageSource可以在{@link org.springframework.context.ApplicationContext}之外轻松使用：
+ * 它将默认使用{@link org.springframework.core.io.DefaultResourceLoader}，
+ * 如果在上下文中运行，将被ApplicationContext的资源加载器简单地覆盖. 它没有任何其他特定的依赖关系.
  *
  * <p>Thanks to Thomas Achleitner for providing the initial implementation of
  * this message source!

@@ -20,17 +20,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.aop.TargetSource} that lazily accesses a
- * singleton bean from a {@link org.springframework.beans.factory.BeanFactory}.
+ * 懒惰地从{@link org.springframework.beans.factory.BeanFactory}
+ * 访问Singleton Bean的{@link org.springframework.aop.TargetSource}。
  *
- * <p>Useful when a proxy reference is needed on initialization but
- * the actual target object should not be initialized until first use.
- * When the target bean is defined in an
- * {@link org.springframework.context.ApplicationContext} (or a
- * {@code BeanFactory} that is eagerly pre-instantiating singleton beans)
- * it must be marked as "lazy-init" too, else it will be instantiated by said
- * {@code ApplicationContext} (or {@code BeanFactory}) on startup.
- * <p>For example:
+ * <p>当初始化时需要代理引用但实际的目标对象要在首次使用之前才进行初始化时很有用。 
+ * 当在{@link org.springframework.context.ApplicationContext}（或渴望预先实例化单例bean的{@code BeanFactory}）
+ * 中定义目标bean时，也必须将其标记为"lazy-init"，
+ * 否则它将在启动时由所述{@code ApplicationContext}（或{@code BeanFactory}）实例化。
+ * <p>例如:
  *
  * <pre class="code">
  * &lt;bean id="serviceTarget" class="example.MyService" lazy-init="true"&gt;
@@ -45,11 +42,9 @@ import org.springframework.lang.Nullable;
  *   &lt;/property&gt;
  * &lt;/bean&gt;</pre>
  *
- * The "serviceTarget" bean will not get initialized until a method on the
- * "service" proxy gets invoked.
+ * 在调用“服务”代理上的方法之前，不会初始化"serviceTarget" bean。
  *
- * <p>Subclasses can extend this class and override the {@link #postProcessTargetObject(Object)} to
- * perform some additional processing with the target object when it is first loaded.
+ * <p>子类可以扩展此类，并覆盖{@link #postProcessTargetObject(Object)}以在首次加载目标对象时执行一些其他处理。
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

@@ -32,25 +32,17 @@ import org.springframework.util.Assert;
 import org.springframework.util.function.SingletonSupplier;
 
 /**
- * Bean post-processor that automatically applies asynchronous invocation
- * behavior to any bean that carries the {@link Async} annotation at class or
- * method-level by adding a corresponding {@link AsyncAnnotationAdvisor} to the
- * exposed proxy (either an existing AOP proxy or a newly generated proxy that
- * implements all of the target's interfaces).
+ * Bean后处理器，通过扫描在类或方法级别上带有{@link Async}注释的任何Bean，
+ * 将相应的{@link AsyncAnnotationAdvisor}添加到公开的代理（现有的AOP代理或实现目标的所有接口的新生成的代理）中，
+ * 这样的Bean将具有异步调用行为。
  *
- * <p>The {@link TaskExecutor} responsible for the asynchronous execution may
- * be provided as well as the annotation type that indicates a method should be
- * invoked asynchronously. If no annotation type is specified, this post-
- * processor will detect both Spring's {@link Async @Async} annotation as well
- * as the EJB 3.1 {@code javax.ejb.Asynchronous} annotation.
+ * <p>可以提供负责异步执行的{@link TaskExecutor}和指示应异步调用方法的注释类型。 
+ * 如果未指定注释类型，则此后处理器将检测Spring的{@link Async @Async}注释以及EJB 3.1 {@code javax.ejb.Asynchronous}注释。
  *
- * <p>For methods having a {@code void} return type, any exception thrown
- * during the asynchronous method invocation cannot be accessed by the
- * caller. An {@link AsyncUncaughtExceptionHandler} can be specified to handle
- * these cases.
+ * <p>对于具有{@code void}返回类型的方法，调用者无法访问在异步方法调用期间引发的任何异常。 
+ * 可以指定{@link AsyncUncaughtExceptionHandler}来处理这些情况。
  *
- * <p>Note: The underlying async advisor applies before existing advisors by default,
- * in order to switch to async execution as early as possible in the invocation chain.
+ * <p>注意：默认情况下，底层异步advisor先于现有advisors应用，以便在调用链中尽早切换到异步执行。
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

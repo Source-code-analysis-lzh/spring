@@ -23,16 +23,13 @@ import org.springframework.aop.TargetSource;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.aop.TargetSource} implementation that will
- * lazily create a user-managed object.
+ * 延迟创建用户管理对象的{@link org.springframework.aop.TargetSource}实现。
  *
- * <p>Creation of the lazy target object is controlled by the user by implementing
- * the {@link #createObject()} method. This {@code TargetSource} will invoke
- * this method the first time the proxy is accessed.
+ * <p>用户通过实现{@link #createObject()}方法来控制惰性目标对象的创建。 
+ * 第一次访问代理时，此{@code TargetSource}将调用此方法。
  *
- * <p>Useful when you need to pass a reference to some dependency to an object
- * but you don't actually want the dependency to be created until it is first used.
- * A typical scenario for this is a connection to a remote resource.
+ * <p>当您需要将对某个依赖项的引用传递给对象，但实际上您不希望在首次使用依赖项之前就创建依赖项时，
+ * 此选项很有用。 一个典型的方案是连接到远程资源。
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

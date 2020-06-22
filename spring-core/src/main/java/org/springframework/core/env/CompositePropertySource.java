@@ -27,13 +27,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Composite {@link PropertySource} implementation that iterates over a set of
- * {@link PropertySource} instances. Necessary in cases where multiple property sources
- * share the same name, e.g. when multiple values are supplied to {@code @PropertySource}.
+ * 在一组{@link PropertySource}实例上进行迭代的Composite {@link PropertySource}实现。 
+ * 在多个属性来源共享相同名称的情况下，例如 当多个值提供给{@code @PropertySource}时。
  *
- * <p>As of Spring 4.1.2, this class extends {@link EnumerablePropertySource} instead
- * of plain {@link PropertySource}, exposing {@link #getPropertyNames()} based on the
- * accumulated property names from all contained sources (as far as possible).
+ * <p>从Spring 4.1.2开始，此类扩展了{@link EnumerablePropertySource}而不是普通的{@link PropertySource}，
+ * 并公开了获取所有包含的源（尽可能）的累积属性名称的{@link #getPropertyNames()}。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

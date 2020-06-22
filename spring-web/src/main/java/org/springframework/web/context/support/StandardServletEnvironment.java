@@ -30,13 +30,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.context.ConfigurableWebEnvironment;
 
 /**
- * {@link Environment} implementation to be used by {@code Servlet}-based web
- * applications. All web-related (servlet-based) {@code ApplicationContext} classes
- * initialize an instance by default.
+ * 基于{@code Servlet}的Web应用程序将使用的{@link Environment}实现。 默认情况下，所有与Web相关的（基于Servlet的）
+ * {@code ApplicationContext}类都将初始化这个实例。
  *
- * <p>Contributes {@code ServletConfig}, {@code ServletContext}, and JNDI-based
- * {@link PropertySource} instances. See {@link #customizePropertySources} method
- * documentation for details.
+ * <p>借助于{@code ServletConfig}，{@code ServletContext}和基于JNDI的{@link PropertySource}实例。 
+ * 有关详细信息，请参见{@link #customizePropertySources}方法文档。
  *
  * @author Chris Beams
  * @since 3.1
@@ -55,23 +53,18 @@ public class StandardServletEnvironment extends StandardEnvironment implements C
 
 
 	/**
-	 * Customize the set of property sources with those contributed by superclasses as
-	 * well as those appropriate for standard servlet-based environments:
+	 * 使用超类提供的属性源以及适用于基于servlet的标准环境的属性源来定制属性源集：
 	 * <ul>
 	 * <li>{@value #SERVLET_CONFIG_PROPERTY_SOURCE_NAME}
 	 * <li>{@value #SERVLET_CONTEXT_PROPERTY_SOURCE_NAME}
 	 * <li>{@value #JNDI_PROPERTY_SOURCE_NAME}
 	 * </ul>
-	 * <p>Properties present in {@value #SERVLET_CONFIG_PROPERTY_SOURCE_NAME} will
-	 * take precedence over those in {@value #SERVLET_CONTEXT_PROPERTY_SOURCE_NAME}, and
-	 * properties found in either of the above take precedence over those found in
-	 * {@value #JNDI_PROPERTY_SOURCE_NAME}.
-	 * <p>Properties in any of the above will take precedence over system properties and
-	 * environment variables contributed by the {@link StandardEnvironment} superclass.
-	 * <p>The {@code Servlet}-related property sources are added as
-	 * {@link StubPropertySource stubs} at this stage, and will be
-	 * {@linkplain #initPropertySources(ServletContext, ServletConfig) fully initialized}
-	 * once the actual {@link ServletContext} object becomes available.
+	 * <p>{@value #SERVLET_CONFIG_PROPERTY_SOURCE_NAME}中存在的属性将优先于{@value #SERVLET_CONTEXT_PROPERTY_SOURCE_NAME}
+	 * 中的属性，而在上述任一方法中发现的属性都将优先于{@value #JNDI_PROPERTY_SOURCE_NAME}中发现的属性。
+	 * <p>以上任何一项中的属性都将优先于{@link StandardEnvironment}超类提供的系统属性和环境变量。
+	 * <p>与{@code Servlet}相关的属性源在此阶段作为{@link StubPropertySource stubs}添加，
+	 * 并且在实际的{@link ServletContext}对象可用时将
+	 * {@linkplain #initPropertySources(ServletContext, ServletConfig) 完全初始化}。
 	 * @see StandardEnvironment#customizePropertySources
 	 * @see org.springframework.core.env.AbstractEnvironment#customizePropertySources
 	 * @see ServletConfigPropertySource

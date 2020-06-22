@@ -31,15 +31,15 @@ import org.springframework.web.multipart.MultipartResolver;
  * based on the Servlet 3.0 {@link javax.servlet.http.Part} API.
  * To be added as "multipartResolver" bean to a Spring DispatcherServlet context,
  * without any extra configuration at the bean level (see below).
+ * {@link MultipartResolver}接口的标准实现，基于Servlet 3.0 {@link javax.servlet.http.Part} API。 
+ * 可以作为"multipartResolver" bean添加到Spring DispatcherServlet上下文中，
+ * 而无需在bean级别进行任何额外配置（请参见下文）。
  *
- * <p><b>Note:</b> In order to use Servlet 3.0 based multipart parsing,
- * you need to mark the affected servlet with a "multipart-config" section in
- * {@code web.xml}, or with a {@link javax.servlet.MultipartConfigElement}
- * in programmatic servlet registration, or (in case of a custom servlet class)
- * possibly with a {@link javax.servlet.annotation.MultipartConfig} annotation
- * on your servlet class. Configuration settings such as maximum sizes or
- * storage locations need to be applied at that servlet registration level;
- * Servlet 3.0 does not allow for them to be set at the MultipartResolver level.
+ * <p>注意：为了使用基于Servlet 3.0的multipart解析，您需要在{@code web.xml}中用"multipart-config"
+ * 部分或在编程性servlet注册中用{@link javax.servlet.MultipartConfigElement}标记受影响的servlet，
+ * 或者（对于自定义servlet类），可能在servlet类上带有{@link javax.servlet.annotation.MultipartConfig}
+ * 注释。 需要在该servlet注册级别应用配置设置，例如最大大小或存储位置； 
+ * Servlet 3.0不允许在MultipartResolver级别上设置它们。
  *
  * <pre class="code">
  * public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

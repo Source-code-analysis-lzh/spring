@@ -39,15 +39,12 @@ import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.context.support.WebApplicationObjectSupport;
 
 /**
- * Convenient superclass for any kind of web content generator,
- * like {@link org.springframework.web.servlet.mvc.AbstractController}
- * and {@link org.springframework.web.servlet.mvc.WebContentInterceptor}.
- * Can also be used for custom handlers that have their own
- * {@link org.springframework.web.servlet.HandlerAdapter}.
+ * 任何类型的Web内容生成器（如{@link org.springframework.web.servlet.mvc.AbstractController}
+ * 和{@link org.springframework.web.servlet.mvc.WebContentInterceptor}）的便捷超类。 
+ * 也可以用于具有自己的{@link org.springframework.web.servlet.HandlerAdapter}的自定义处理器。
  *
- * <p>Supports HTTP cache control options. The usage of corresponding HTTP
- * headers can be controlled via the {@link #setCacheSeconds "cacheSeconds"}
- * and {@link #setCacheControl "cacheControl"} properties.
+ * <p>支持HTTP缓存控制选项。 可以通过{@link #setCacheSeconds "cacheSeconds"}和
+ * {@link #setCacheControl "cacheControl"}属性来控制相应HTTP标头的使用。
  *
  * <p><b>NOTE:</b> As of Spring 4.2, this generator's default behavior changed when
  * using only {@link #setCacheSeconds}, sending HTTP response headers that are in line
@@ -55,6 +52,11 @@ import org.springframework.web.context.support.WebApplicationObjectSupport;
  * Reverting to the previous behavior can be easily done by using one of the newly
  * deprecated methods {@link #setUseExpiresHeader}, {@link #setUseCacheControlHeader},
  * {@link #setUseCacheControlNoStore} or {@link #setAlwaysMustRevalidate}.
+ * <p>注意：从Spring 4.2开始，仅使用{@link #setCacheSeconds}时，此生成器的默认行为已更改，
+ * 发送与当前浏览器和代理实现一致的HTTP响应标头（即不再有HTTP 1.0标头），
+ * 可以很容易地恢复到先前的行为 通过使用不建议使用的过时方法{@link #setUseExpiresHeader}, 
+ * {@link #setUseCacheControlHeader}, {@link #setUseCacheControlNoStore} 或 
+ * {@link #setAlwaysMustRevalidate}中的一种来完成。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -370,6 +372,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 
 	/**
 	 * Check the given request for supported methods and a required session, if any.
+	 * 检查给定的请求以获取受支持的方法和所需的会话（如果有）。
 	 * @param request current HTTP request
 	 * @throws ServletException if the request cannot be handled because a check failed
 	 * @since 4.2
@@ -388,8 +391,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Prepare the given response according to the settings of this generator.
-	 * Applies the number of cache seconds specified for this generator.
+	 * 根据此生成器的设置准备给定的响应。应用为此生成器指定的缓存秒数。
 	 * @param response current HTTP response
 	 * @since 4.2
 	 */
@@ -401,6 +403,8 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 			applyCacheSeconds(response, this.cacheSeconds);
 		}
 		if (this.varyByRequestHeaders != null) {
+			// 官方解释Vary头：告知下游的代理服务器，应当如何对以后的请求协议头进行匹配，
+			// 以决定是否可使用已缓存的响应内容而不是重新从原服务器请求新的内容。
 			for (String value : getVaryRequestHeadersToAdd(response, this.varyByRequestHeaders)) {
 				response.addHeader("Vary", value);
 			}
@@ -408,7 +412,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Set the HTTP Cache-Control header according to the given settings.
+	 * 根据给定的设置设置HTTP Cache-Control标头。
 	 * @param response current HTTP response
 	 * @param cacheControl the pre-configured cache control settings
 	 * @since 4.2
@@ -431,10 +435,8 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Apply the given cache seconds and generate corresponding HTTP headers,
-	 * i.e. allow caching for the given number of seconds in case of a positive
-	 * value, prevent caching if given a 0 value, do nothing else.
-	 * Does not tell the browser to revalidate the resource.
+	 * 应用给定的缓存秒数并生成相应的HTTP标头，即在为正数的情况下允许缓存给定的秒数，
+	 * 如果给定值为0则阻止缓存。 不告诉浏览器重新验证资源。
 	 * @param response current HTTP response
 	 * @param cacheSeconds positive number of seconds into the future that the
 	 * response should be cacheable for, 0 to prevent caching
@@ -444,10 +446,10 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 		if (this.useExpiresHeader || !this.useCacheControlHeader) {
 			// Deprecated HTTP 1.0 cache behavior, as in previous Spring versions
 			if (cacheSeconds > 0) {
-				cacheForSeconds(response, cacheSeconds);
+				cacheForSeconds(response, cacheSeconds); // 缓存指定时间
 			}
 			else if (cacheSeconds == 0) {
-				preventCaching(response);
+				preventCaching(response); // 不缓存
 			}
 		}
 		else {
@@ -526,8 +528,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Set HTTP headers to allow caching for the given number of seconds.
-	 * Does not tell the browser to revalidate the resource.
+	 * 设置HTTP标头以允许缓存给定的秒数。 不告诉浏览器重新验证资源。
 	 * @param response current HTTP response
 	 * @param seconds number of seconds into the future that the response
 	 * should be cacheable for
@@ -539,9 +540,7 @@ public abstract class WebContentGenerator extends WebApplicationObjectSupport {
 	}
 
 	/**
-	 * Set HTTP headers to allow caching for the given number of seconds.
-	 * Tells the browser to revalidate the resource if mustRevalidate is
-	 * {@code true}.
+	 * 设置HTTP标头以允许缓存给定的秒数。 如果mustRevalidate为{@code true}，则告诉浏览器重新验证资源。
 	 * @param response the current HTTP response
 	 * @param seconds number of seconds into the future that the response
 	 * should be cacheable for

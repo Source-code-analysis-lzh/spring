@@ -22,8 +22,7 @@ import org.springframework.aop.ClassFilter;
 import org.springframework.aop.Pointcut;
 
 /**
- * Convenient class for name-match method pointcuts that hold an Advice,
- * making them an Advisor.
+ * 名称匹配方法切入点的便捷类，其中包含一个Advice，使其成为Advisor。
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

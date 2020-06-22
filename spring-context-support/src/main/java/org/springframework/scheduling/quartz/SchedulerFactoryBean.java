@@ -50,33 +50,24 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 /**
- * {@link FactoryBean} that creates and configures a Quartz {@link org.quartz.Scheduler},
- * manages its lifecycle as part of the Spring application context, and exposes the
- * Scheduler as bean reference for dependency injection.
+ * {@link FactoryBean}创建并配置Quartz {@link org.quartz.Scheduler}，
+ * 将其生命周期作为Spring应用程序上下文的一部分进行管理，并将Scheduler作为bean引用公开给依赖项注入。
  *
- * <p>Allows registration of JobDetails, Calendars and Triggers, automatically
- * starting the scheduler on initialization and shutting it down on destruction.
- * In scenarios that just require static registration of jobs at startup, there
- * is no need to access the Scheduler instance itself in application code.
+ * <p>允许注册JobDetails，Calendars和Triggers，在初始化时自动启动调度程序，并在销毁时将其关闭。 
+ * 在只需要在启动时静态注册作业的情况下，无需在应用程序代码中访问Scheduler实例本身。
  *
- * <p>For dynamic registration of jobs at runtime, use a bean reference to
- * this SchedulerFactoryBean to get direct access to the Quartz Scheduler
- * ({@code org.quartz.Scheduler}). This allows you to create new jobs
- * and triggers, and also to control and monitor the entire Scheduler.
+ * <p>为了在运行时动态注册作业，请使用对此SchedulerFactoryBean的
+ * Bean引用来直接访问({@code org.quartz.Scheduler})。 
+ * 这使您可以创建新的作业和触发器，还可以控制和监视整个Scheduler。
  *
- * <p>Note that Quartz instantiates a new Job for each execution, in
- * contrast to Timer which uses a TimerTask instance that is shared
- * between repeated executions. Just JobDetail descriptors are shared.
+ * <p>请注意，与使用在重复执行之间共享的TimerTask实例的Timer相比，
+ * Quartz为每个执行实例化一个新的Job。 只是JobDetail描述符是共享的。
  *
- * <p>When using persistent jobs, it is strongly recommended to perform all
- * operations on the Scheduler within Spring-managed (or plain JTA) transactions.
- * Else, database locking will not properly work and might even break.
- * (See {@link #setDataSource setDataSource} javadoc for details.)
+ * <p>使用持久性作业时，强烈建议在Spring托管（或普通JTA）事务中对Scheduler执行所有操作。 
+ * 否则，数据库锁定将无法正常工作，甚至可能中断。 （有关详细信息，请参见{@link #setDataSource setDataSource} javadoc。）
  *
- * <p>The preferred way to achieve transactional execution is to demarcate
- * declarative transactions at the business facade level, which will
- * automatically apply to Scheduler operations performed within those scopes.
- * Alternatively, you may add transactional advice for the Scheduler itself.
+ * <p>实现事务执行的首选方法是在业务门面级别划分声明性事务，这
+ * 将自动应用于在这些范围内执行的Scheduler操作。 或者，您可以为调度程序本身添加事务 advice。
  *
  * <p>Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
  *

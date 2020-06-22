@@ -29,14 +29,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Spring Controller implementation that forwards to a named servlet,
- * i.e. the "servlet-name" in web.xml rather than a URL path mapping.
- * A target servlet doesn't even need a "servlet-mapping" in web.xml
- * in the first place: A "servlet" declaration is sufficient.
+ * Spring Controller实现可转发到命名的servlet，即web.xml中的"servlet-name"，
+ * 而不是URL路径映射。 首先，目标servlet甚至不需要在web.xml中进行"servlet-mapping"：
+ * 一个"servlet"声明就足够了。
+ * 
+ * <p>将拦截的请求交由某个servlet来处理。和ServletWrappingController类似，它也是一个Servlet相关的controller，
+ * 他们都实现将HTTP请求适配到一个已存的Servlet实现。
  *
- * <p>Useful to invoke an existing servlet via Spring's dispatching infrastructure,
- * for example to apply Spring HandlerInterceptors to its requests. This will work
- * even in a minimal Servlet container that does not support Servlet filters.
+ * <p>通过Spring的调度基础结构调用现有servlet很有用，例如将Spring HandlerInterceptors应用于其请求。 
+ * 即使在不支持Servlet过滤器的最小Servlet容器中，这也将工作。
  *
  * <p><b>Example:</b> web.xml, mapping all "/myservlet" requests to a Spring dispatcher.
  * Also defines a custom "myServlet", but <i>without</i> servlet mapping.
@@ -149,11 +150,9 @@ public class ServletForwardingController extends AbstractController implements B
 	}
 
 	/**
-	 * Determine whether to use RequestDispatcher's {@code include} or
-	 * {@code forward} method.
-	 * <p>Performs a check whether an include URI attribute is found in the request,
-	 * indicating an include request, and whether the response has already been committed.
-	 * In both cases, an include will be performed, as a forward is not possible anymore.
+	 * 确定是使用RequestDispatcher的{@code include}还是{@code forward}方法。
+	 * <p>执行检查是否在请求中找到包含URI属性（指示包含请求），以及响应是否已经提交。 
+	 * 在这两种情况下，都将执行包含操作，因为不再可能进行转发。
 	 * @param request current HTTP request
 	 * @param response current HTTP response
 	 * @return {@code true} for include, {@code false} for forward

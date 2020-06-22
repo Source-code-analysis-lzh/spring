@@ -51,6 +51,7 @@ publishing {
 
 configureDeploymentRepository(project)
 
+// 配置部署仓库地址
 void configureDeploymentRepository(Project project) {
 	project.plugins.withType(MavenPublishPlugin.class).all {
 		PublishingExtension publishing = project.getExtensions().getByType(PublishingExtension.class);

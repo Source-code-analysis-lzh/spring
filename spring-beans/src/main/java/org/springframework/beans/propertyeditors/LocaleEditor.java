@@ -21,11 +21,10 @@ import java.beans.PropertyEditorSupport;
 import org.springframework.util.StringUtils;
 
 /**
- * Editor for {@code java.util.Locale}, to directly populate a Locale property.
+ * {@code java.util.Locale}的编辑器，以直接填充Locale属性.
  *
- * <p>Expects the same syntax as Locale's {@code toString}, i.e. language +
- * optionally country + optionally variant, separated by "_" (e.g. "en", "en_US").
- * Also accepts spaces as separators, as alternative to underscores.
+ * <p>期望使用与语言环境的{@code toString}相同的语法，
+ * 即语言+可选国家/地区+可选变体，并用"_" (e.g. "en", "en_US")分隔. 还接受空格作为分隔符，以代替下划线.
  *
  * @author Juergen Hoeller
  * @since 26.05.2003

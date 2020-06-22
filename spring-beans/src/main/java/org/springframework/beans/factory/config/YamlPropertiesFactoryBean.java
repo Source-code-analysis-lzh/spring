@@ -24,20 +24,16 @@ import org.springframework.core.CollectionFactory;
 import org.springframework.lang.Nullable;
 
 /**
- * Factory for {@link java.util.Properties} that reads from a YAML source,
- * exposing a flat structure of String property values.
+ * 从YAML源读取的{@link java.util.Properties}的工厂，公开了String属性值的平滑结构。
  *
- * <p>YAML is a nice human-readable format for configuration, and it has some
- * useful hierarchical properties. It's more or less a superset of JSON, so it
- * has a lot of similar features.
+ * <p>YAML是一种很好的人类可读的配置格式，它具有一些有用的层次结构属性。 
+ * 它或多或少是JSON的超集，因此它具有许多相似的功能。
  *
- * <p><b>Note: All exposed values are of type {@code String}</b> for access through
- * the common {@link Properties#getProperty} method (e.g. in configuration property
- * resolution through {@link PropertyResourceConfigurer#setProperties(Properties)}).
- * If this is not desirable, use {@link YamlMapFactoryBean} instead.
+ * <p>注意：所有公开的值均为{@code String}类型，可通过常用的{@link Properties#getProperty}
+ * 方法访问（例如，通过{@link PropertyResourceConfigurer#setProperties(Properties)}进行配置属性解析）。
+ * 如果不希望这样做，请改用{@link YamlMapFactoryBean}。
  *
- * <p>The Properties created by this factory have nested paths for hierarchical
- * objects, so for instance this YAML
+ * <p>此工厂创建的属性具有层次结构对象的嵌套路径，此YAML例子。
  *
  * <pre class="code">
  * environments:

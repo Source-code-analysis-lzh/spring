@@ -34,22 +34,21 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Spring Controller implementation that wraps a servlet instance which it manages
- * internally. Such a wrapped servlet is not known outside of this controller;
- * its entire lifecycle is covered here (in contrast to {@link ServletForwardingController}).
+ * Spring Controller实现包装了它在内部管理的servlet实例。 这种包装的servlet在此控制器之外是未知的。 
+ * 它的整个生命周期都在这里进行（与{@link ServletForwardingController}相反）。
+ * 
+ * <p>ServletWrappingController则是将当前应用中的某个 Servlet直接包装为一个Controller，
+ * 所有到ServletWrappingController的请求实际上是由它内部所包装的这个Servlet来处理的。
  *
- * <p>Useful to invoke an existing servlet via Spring's dispatching infrastructure,
- * for example to apply Spring HandlerInterceptors to its requests.
+ * <p>通过Spring的调度基础结构调用现有servlet很有用，例如将Spring HandlerInterceptors应用于其请求。
  *
- * <p>Note that Struts has a special requirement in that it parses {@code web.xml}
- * to find its servlet mapping. Therefore, you need to specify the DispatcherServlet's
- * servlet name as "servletName" on this controller, so that Struts finds the
- * DispatcherServlet's mapping (thinking that it refers to the ActionServlet).
+ * <p>请注意，Struts有一个特殊要求，因为它解析{@code web.xml}来查找其servlet映射。 
+ * 因此，您需要在此控制器上将DispatcherServlet的servlet名称指定为"servletName"，
+ * 以便Struts找到DispatcherServlet的映射（认为它引用了ActionServlet）。
  *
- * <p><b>Example:</b> a DispatcherServlet XML context, forwarding "*.do" to the Struts
- * ActionServlet wrapped by a ServletWrappingController. All such requests will go
- * through the configured HandlerInterceptor chain (e.g. an OpenSessionInViewInterceptor).
- * From the Struts point of view, everything will work as usual.
+ * <p>示例：DispatcherServlet XML上下文，将"*.do"转发到由ServletWrappingController包装的Struts ActionServlet。 
+ * 所有此类请求将通过已配置的HandlerInterceptor链（例如，OpenSessionInViewInterceptor）进行。 
+ * 从Struts的角度来看，一切都会照常进行。
  *
  * <pre class="code">
  * &lt;bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"&gt;
@@ -143,12 +142,15 @@ public class ServletWrappingController extends AbstractController
 	 */
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		// 必须制定它关联的是哪个Servlet
 		if (this.servletClass == null) {
 			throw new IllegalArgumentException("'servletClass' is required");
 		}
+		// 如果没有指定servlet的名字，就用beanName作为名字
 		if (this.servletName == null) {
 			this.servletName = this.beanName;
 		}
+		// 对servlet进行init方法  初始化
 		this.servletInstance = ReflectionUtils.accessibleConstructor(this.servletClass).newInstance();
 		this.servletInstance.init(new DelegatingServletConfig());
 	}
@@ -163,6 +165,7 @@ public class ServletWrappingController extends AbstractController
 			throws Exception {
 
 		Assert.state(this.servletInstance != null, "No Servlet instance");
+		// 最终请求是交给了这个servlet去真正处理的
 		this.servletInstance.service(request, response);
 		return null;
 	}

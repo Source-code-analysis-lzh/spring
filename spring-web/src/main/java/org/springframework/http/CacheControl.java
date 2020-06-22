@@ -23,11 +23,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * A builder for creating "Cache-Control" HTTP response headers.
+ * 用于创建"Cache-Control" HTTP响应标头的构建器。
  *
- * <p>Adding Cache-Control directives to HTTP responses can significantly improve the client
- * experience when interacting with a web application. This builder creates opinionated
- * "Cache-Control" headers with response directives only, with several use cases in mind.
+ * <p>在与Web应用程序交互时，将Cache-Control指令添加到HTTP响应可以显着改善客户端体验。 
+ * 该构建器仅考虑响应用例，创建带有响应指令的自带"Cache-Control"标头。
  *
  * <ul>
  * <li>Caching HTTP responses with {@code CacheControl cc = CacheControl.maxAge(1, TimeUnit.HOURS)}
@@ -38,8 +37,7 @@ import org.springframework.util.StringUtils;
  * will result in {@code Cache-Control: "max-age=3600, no-transform, public"}</li>
  * </ul>
  *
- * <p>Note that to be efficient, Cache-Control headers should be written along HTTP validators
- * such as "Last-Modified" or "ETag" headers.
+ * <p>请注意，为了有效，Cache-Control标头应与HTTP验证器（例如"Last-Modified"或"ETag"标头）一起编写。
  *
  * @author Brian Clozel
  * @author Juergen Hoeller

@@ -33,10 +33,10 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * Base class for setting up a {@link java.util.concurrent.ExecutorService}
- * (typically a {@link java.util.concurrent.ThreadPoolExecutor} or
- * {@link java.util.concurrent.ScheduledThreadPoolExecutor}).
- * Defines common configuration settings and common lifecycle handling.
+ * 设置{@link java.util.concurrent.ExecutorService}的基类
+ * （通常是{@link java.util.concurrent.ThreadPoolExecutor}或
+ * {@link java.util.concurrent.ScheduledThreadPoolExecutor}）。 
+ * 定义通用配置设置和通用生命周期处理。
  *
  * @author Juergen Hoeller
  * @since 3.0

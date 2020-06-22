@@ -25,10 +25,9 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * Annotation which indicates that a method parameter should be bound to an HTTP cookie.
+ * 指示方法参数应绑定到HTTP cookie的注释。
  *
- * <p>The method parameter may be declared as type {@link javax.servlet.http.Cookie}
- * or as cookie value type (String, int, etc.).
+ * <p>方法参数可以声明为{@link javax.servlet.http.Cookie}类型或Cookie值类型（字符串，整数等）。
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
@@ -50,27 +49,23 @@ public @interface CookieValue {
 	String value() default "";
 
 	/**
-	 * The name of the cookie to bind to.
+	 * 要绑定的cookie的名称。
 	 * @since 4.2
 	 */
 	@AliasFor("value")
 	String name() default "";
 
 	/**
-	 * Whether the cookie is required.
-	 * <p>Defaults to {@code true}, leading to an exception being thrown
-	 * if the cookie is missing in the request. Switch this to
-	 * {@code false} if you prefer a {@code null} value if the cookie is
-	 * not present in the request.
-	 * <p>Alternatively, provide a {@link #defaultValue}, which implicitly
-	 * sets this flag to {@code false}.
+	 * cookie是否是必需的。
+	 * <p>默认为{@code true}，如果请求中缺少该cookie值，则会引发异常。 
+	 * 如果在请求中该cookie的值为{@code null}，则希望将其设置为{@code false}。
+	 * <p>或者，提供一个{@link #defaultValue}，它将该标志隐式设置为{@code false}。
 	 */
 	boolean required() default true;
 
 	/**
-	 * The default value to use as a fallback.
-	 * <p>Supplying a default value implicitly sets {@link #required} to
-	 * {@code false}.
+	 * 用作后备的默认值。
+	 * <p>提供默认值会隐式将{@link #required}设置为{@code false}。
 	 */
 	String defaultValue() default ValueConstants.DEFAULT_NONE;
 

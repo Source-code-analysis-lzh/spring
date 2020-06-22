@@ -23,12 +23,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Container annotation that aggregates several {@link ComponentScan} annotations.
+ * 容器注释聚合了几个{@link ComponentScan}注释。
  *
- * <p>Can be used natively, declaring several nested {@link ComponentScan} annotations.
- * Can also be used in conjunction with Java 8's support for repeatable annotations,
- * where {@link ComponentScan} can simply be declared several times on the same method,
- * implicitly generating this container annotation.
+ * <p>可以本地使用，声明几个嵌套的{@link ComponentScan}注解。 也可以与Java 8对可重复注释的支持结合使用，
+ * 在Java 8中，可以简单地在同一方法上多次声明{@link ComponentScan}，从而隐式生成此容器注释。
  *
  * @author Juergen Hoeller
  * @since 4.3

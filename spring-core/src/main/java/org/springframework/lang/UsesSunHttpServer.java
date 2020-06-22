@@ -23,8 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that the annotated element uses the Http Server available in
- * {@code com.sun.*} classes, which is only available on a Sun/Oracle JVM.
+ * 指示带该注释的元素使用Http Server中可用的{@code com.sun.*}类，这些类仅在Sun/Oracle JVM上可用.
  *
  * @author Stephane Nicoll
  * @since 4.1

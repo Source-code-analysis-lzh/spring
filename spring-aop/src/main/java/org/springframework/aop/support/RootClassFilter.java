@@ -22,7 +22,7 @@ import org.springframework.aop.ClassFilter;
 import org.springframework.util.Assert;
 
 /**
- * Simple ClassFilter implementation that passes classes (and optionally subclasses).
+ * 传递一个类（以及子类）的简单ClassFilter实现。
  *
  * @author Rod Johnson
  * @author Sam Brannen

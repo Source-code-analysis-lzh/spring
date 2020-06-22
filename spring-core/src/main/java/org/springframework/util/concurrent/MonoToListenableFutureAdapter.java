@@ -26,7 +26,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Adapts a {@link Mono} into a {@link ListenableFuture}.
+ * 适配{@link Mono}为{@link ListenableFuture}。
  *
  * @author Rossen Stoyanchev
  * @author Stephane Maldini

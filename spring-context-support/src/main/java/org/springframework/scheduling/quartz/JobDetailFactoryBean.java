@@ -33,12 +33,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A Spring {@link FactoryBean} for creating a Quartz {@link org.quartz.JobDetail}
- * instance, supporting bean-style usage for JobDetail configuration.
+ * 一个用于创建Quartz {@link org.quartz.JobDetail}实例的Spring {@link FactoryBean}，它支持bean风格配置JobDetail的用法。
  *
- * <p>{@code JobDetail(Impl)} itself is already a JavaBean but lacks
- * sensible defaults. This class uses the Spring bean name as job name,
- * and the Quartz default group ("DEFAULT") as job group if not specified.
+ * <p>{@code JobDetail(Impl)}本身已经是JavaBean，但是缺少合理的默认值。 
+ * 此类使用Spring bean名称作为作业名称，并使用Quartz默认组("DEFAULT")作为作业组（如果未指定）。
  *
  * @author Juergen Hoeller
  * @since 3.1

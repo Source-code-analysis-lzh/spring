@@ -29,13 +29,10 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.util.WebUtils;
 
 /**
- * Convenient superclass for application objects running in a {@link WebApplicationContext}.
- * Provides {@code getWebApplicationContext()}, {@code getServletContext()}, and
- * {@code getTempDir()} accessors.
+ * 在{@link WebApplicationContext}中运行的应用程序对象的便捷超类。
+ * 提供{@code getWebApplicationContext()}，{@code getServletContext()}和{@code getTempDir()}访问器。
  *
- * <p>Note: It is generally recommended to use individual callback interfaces for the actual
- * callbacks needed. This broad base class is primarily intended for use within the framework,
- * in case of {@link ServletContext} access etc typically being needed.
+ * <p>注意：通常建议将单个回调接口用于所需的实际回调。 在需要{@link ServletContext}访问等的情况下，这种基类主要用于框架内。
  *
  * @author Juergen Hoeller
  * @since 28.08.2003

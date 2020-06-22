@@ -19,7 +19,7 @@ package org.springframework.context.event;
 import org.springframework.context.ApplicationContext;
 
 /**
- * Event raised when an {@code ApplicationContext} gets stopped.
+ * {@code ApplicationContext}停止时引发的事件.停止的上下文可以通过start()调用重新启动.
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

@@ -21,15 +21,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * GenericBeanDefinition is a one-stop shop for standard bean definition purposes.
- * Like any bean definition, it allows for specifying a class plus optionally
- * constructor argument values and property values. Additionally, deriving from a
- * parent bean definition can be flexibly configured through the "parentName" property.
+ * GenericBeanDefinition是一站式商店，用于标准bean定义。 
+ * 像任何bean定义一样，它允许指定一个类以及可选的构造函数参数值和属性值。 
+ * 另外，可以通过"parentName"属性灵活地配置从父bean定义派生的内容。（好像ChildBeanDefinition也是可以的）
  *
- * <p>In general, use this {@code GenericBeanDefinition} class for the purpose of
- * registering user-visible bean definitions (which a post-processor might operate on,
- * potentially even reconfiguring the parent name). Use {@code RootBeanDefinition} /
- * {@code ChildBeanDefinition} where parent/child relationships happen to be pre-determined.
+ * <p>通常，使用此{@code GenericBeanDefinition}类用于注册用户可见的bean定义
+ * （后处理器可能对其进行操作，甚至可能重新配置其父名称）。 
+ * 在父/子关系恰好是预先确定的地方使用{@code RootBeanDefinition}/{@code ChildBeanDefinition}。
  *
  * @author Juergen Hoeller
  * @since 2.5

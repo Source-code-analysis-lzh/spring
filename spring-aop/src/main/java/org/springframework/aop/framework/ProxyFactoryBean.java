@@ -49,36 +49,25 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
- * {@link org.springframework.beans.factory.FactoryBean} implementation that builds an
- * AOP proxy based on beans in Spring {@link org.springframework.beans.factory.BeanFactory}.
+ * {@link org.springframework.beans.factory.FactoryBean}实现基于
+ * Spring {@link org.springframework.beans.factory.BeanFactory}中的bean构建AOP代理。
  *
- * <p>{@link org.aopalliance.intercept.MethodInterceptor MethodInterceptors} and
- * {@link org.springframework.aop.Advisor Advisors} are identified by a list of bean
- * names in the current bean factory, specified through the "interceptorNames" property.
- * The last entry in the list can be the name of a target bean or a
- * {@link org.springframework.aop.TargetSource}; however, it is normally preferable
- * to use the "targetName"/"target"/"targetSource" properties instead.
+ * <p>{@link org.aopalliance.intercept.MethodInterceptor MethodInterceptors}
+ * 和{@link org.springframework.aop.Advisor Advisors}由当前bean工厂中的bean名称列表标识，
+ * 该列表通过"interceptorNames"属性指定。 列表中的最后一个条目可以是目标bean或{@link org.springframework.aop.TargetSource}的名称。 
+ * 但是，通常最好改用"targetName"/"target"/"targetSource"属性。
  *
- * <p>Global interceptors and advisors can be added at the factory level. The specified
- * ones are expanded in an interceptor list where an "xxx*" entry is included in the
- * list, matching the given prefix with the bean names (e.g. "global*" would match
- * both "globalBean1" and "globalBean2", "*" all defined interceptors). The matching
- * interceptors get applied according to their returned order value, if they implement
- * the {@link org.springframework.core.Ordered} interface.
+ * <p>全局拦截器和advisors可以在工厂级别添加。 指定的扩展名在拦截器列表中扩展，该列表中包含"xxx*"条目，
+ * 将给定前缀与Bean名称匹配（例如，"global*"将同时匹配"globalBean1"和"globalBean2"，"*" 所有已定义的拦截器）。 
+ * 如果匹配的拦截器实现了Ordered接口，则根据它们返回的{@link org.springframework.core.Ordered}值来应用它们。
  *
- * <p>Creates a JDK proxy when proxy interfaces are given, and a CGLIB proxy for the
- * actual target class if not. Note that the latter will only work if the target class
- * does not have final methods, as a dynamic subclass will be created at runtime.
+ * <p>给定代理接口时，将创建JDK代理；如果未提供，则为实际目标类创建CGLIB代理。 
+ * 注意，后者仅在目标类没有final方法时才起作用，因为动态子类将在运行时创建。
  *
- * <p>It's possible to cast a proxy obtained from this factory to {@link Advised},
- * or to obtain the ProxyFactoryBean reference and programmatically manipulate it.
- * This won't work for existing prototype references, which are independent. However,
- * it will work for prototypes subsequently obtained from the factory. Changes to
- * interception will work immediately on singletons (including existing references).
- * However, to change interfaces or target it's necessary to obtain a new instance
- * from the factory. This means that singleton instances obtained from the factory
- * do not have the same object identity. However, they do have the same interceptors
- * and target, and changing any reference will change all objects.
+ * <p>可以将从该工厂获得的代理转换为{@link Advised}，或获得ProxyFactoryBean引用并以编程方式对其进行操作。 
+ * 这对于独立的现有原型引用无效。 但是，它将适用于随后从工厂获得的原型。 拦截器的更改将立即适用于单例（包括现有引用）。 
+ * 但是，要更改接口或目标，必须从工厂获取新实例。 这意味着从工厂获得的单例实例没有相同的对象标识。 
+ * 但是，它们确实具有相同的拦截器和目标，并且更改任何引用都会更改所有对象。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

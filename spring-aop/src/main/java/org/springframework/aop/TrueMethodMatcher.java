@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 
 /**
- * Canonical MethodMatcher instance that matches all methods.
+ * 与所有方法匹配的Canonical MethodMatcher实例。
  *
  * @author Rod Johnson
  */

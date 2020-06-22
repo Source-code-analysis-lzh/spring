@@ -22,7 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Property editor that trims Strings.
+ * 修剪字符串的属性编辑器.
  *
  * <p>Optionally allows transforming an empty string into a {@code null} value.
  * Needs to be explicitly registered, e.g. for command binding.

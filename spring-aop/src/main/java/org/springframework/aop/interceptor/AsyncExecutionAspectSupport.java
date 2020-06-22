@@ -45,14 +45,12 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.function.SingletonSupplier;
 
 /**
- * Base class for asynchronous method execution aspects, such as
- * {@code org.springframework.scheduling.annotation.AnnotationAsyncExecutionInterceptor}
- * or {@code org.springframework.scheduling.aspectj.AnnotationAsyncExecutionAspect}.
+ * 异步方法执行aspects的基类，
+ * 例如{@code org.springframework.scheduling.annotation.AnnotationAsyncExecutionInterceptor}
+ * 或{@code org.springframework.scheduling.aspectj.AnnotationAsyncExecutionAspect}。
  *
- * <p>Provides support for <i>executor qualification</i> on a method-by-method basis.
- * {@code AsyncExecutionAspectSupport} objects must be constructed with a default {@code
- * Executor}, but each individual method may further qualify a specific {@code Executor}
- * bean to be used when executing it, e.g. through an annotation attribute.
+ * <p>根据方法为有资格执行者提供支持。 {@code AsyncExecutionAspectSupport}对象必须使用默认的{@code Executor}构造，
+ * 但是每个单独的方法都可以进一步限定要在执行时使用的特定Executor bean，例如， 通过注释属性。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

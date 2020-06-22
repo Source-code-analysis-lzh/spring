@@ -1,13 +1,10 @@
 /**
- * Bean post-processors for use in ApplicationContexts to simplify AOP usage
- * by automatically creating AOP proxies without the need to use a ProxyFactoryBean.
+ * 通过自动创建AOP代理而不需要使用ProxyFactoryBean，可在ApplicationContexts中使用的Bean后处理器可以简化AOP的使用。
  *
- * <p>The various post-processors in this package need only be added to an ApplicationContext
- * (typically in an XML bean definition document) to automatically proxy selected beans.
+ * <p>仅需要将此包中的各种后处理器添加到ApplicationContext（通常在XML bean定义文档中），即可自动代理选定的bean。
  *
- * <p><b>NB</b>: Automatic auto-proxying is not supported for BeanFactory implementations,
- * as post-processors beans are only automatically detected in application contexts.
- * Post-processors can be explicitly registered on a ConfigurableBeanFactory instead.
+ * <p><b>NB</b>:BeanFactory实现不支持自动自动代理，因为仅在应用程序上下文中自动检测后处理器Bean。 
+ * 可以将后处理器显式注册在ConfigurableBeanFactory上。
  */
 @NonNullApi
 @NonNullFields

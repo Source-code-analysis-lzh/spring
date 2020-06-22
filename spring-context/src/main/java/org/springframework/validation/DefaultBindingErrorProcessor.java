@@ -23,14 +23,12 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Default {@link BindingErrorProcessor} implementation.
+ * 默认的{@link BindingErrorProcessor}实现.
  *
- * <p>Uses the "required" error code and the field name to resolve message codes
- * for a missing field error.
+ * <p>使用"required"错误代码和字段名称来解决缺少字段错误的消息代码.
  *
- * <p>Creates a {@code FieldError} for each {@code PropertyAccessException}
- * given, using the {@code PropertyAccessException}'s error code ("typeMismatch",
- * "methodInvocation") for resolving message codes.
+ * <p>使用给定的每个{@code PropertyAccessException}的错误代码（"typeMismatch","methodInvocation"）
+ * 来解析消息代码，从而为每个给定的{@code PropertyAccessException}创建一个{@code FieldError}.
  *
  * @author Alef Arendsen
  * @author Juergen Hoeller
@@ -46,9 +44,7 @@ import org.springframework.util.StringUtils;
 public class DefaultBindingErrorProcessor implements BindingErrorProcessor {
 
 	/**
-	 * Error code that a missing field error (i.e. a required field not
-	 * found in the list of property values) will be registered with:
-	 * "required".
+	 * 缺少字段错误（即，在属性值列表中找不到的必填字段）的错误代码将被注册："required".
 	 */
 	public static final String MISSING_FIELD_ERROR_CODE = "required";
 

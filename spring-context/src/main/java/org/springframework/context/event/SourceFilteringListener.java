@@ -23,12 +23,10 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.context.ApplicationListener} decorator that filters
- * events from a specified event source, invoking its delegate listener for
- * matching {@link org.springframework.context.ApplicationEvent} objects only.
+ * {@link org.springframework.context.ApplicationListener}装饰器，
+ * 用于过滤来自指定事件源的事件，并仅匹配{@link org.springframework.context.ApplicationEvent}对象时才调用其委托侦听器.
  *
- * <p>Can also be used as base class, overriding the {@link #onApplicationEventInternal}
- * method instead of specifying a delegate listener.
+ * <p>也可以用作基类，重写{@link #onApplicationEventInternal}方法，而不是指定委托侦听器.
  *
  * @author Juergen Hoeller
  * @author Stephane Nicoll

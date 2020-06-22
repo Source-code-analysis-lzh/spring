@@ -19,7 +19,7 @@ package org.springframework.format;
 import java.util.Locale;
 
 /**
- * Prints objects of type T for display.
+ * 打印类型为T的对象以显示.
  *
  * @author Keith Donald
  * @since 3.0

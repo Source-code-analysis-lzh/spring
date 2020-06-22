@@ -17,7 +17,7 @@
 package org.springframework.aop.target;
 
 /**
- * Statistics for a ThreadLocal TargetSource.
+ * ThreadLocal TargetSource的统计信息。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

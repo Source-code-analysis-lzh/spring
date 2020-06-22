@@ -49,9 +49,8 @@ import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.StringUtils;
 
 /**
- * Base {@link ConversionService} implementation suitable for use in most environments.
- * Indirectly implements {@link ConverterRegistry} as registration API through the
- * {@link ConfigurableConversionService} interface.
+ * 适用于大多数环境的基本{@link ConversionService}实现。 
+ * 通过{@link ConfigurableConversionService}接口间接实现{@link ConverterRegistry}来作为注册转换器的类。
  *
  * @author Keith Donald
  * @author Juergen Hoeller

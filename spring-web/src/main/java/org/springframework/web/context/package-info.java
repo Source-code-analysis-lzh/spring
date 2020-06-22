@@ -1,6 +1,6 @@
 /**
- * Contains a variant of the application context interface for web applications,
- * and the ContextLoaderListener that bootstraps a root web application context.
+ * 包含用于Web应用程序的应用程序上下文接口的变体，
+ * 以及用于启动根Web应用程序上下文的ContextLoaderListener。
  */
 @NonNullApi
 @NonNullFields

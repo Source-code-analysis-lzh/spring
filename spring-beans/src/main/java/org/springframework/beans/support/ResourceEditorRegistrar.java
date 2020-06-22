@@ -47,12 +47,11 @@ import org.springframework.core.io.support.ResourceArrayPropertyEditor;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
- * PropertyEditorRegistrar implementation that populates a given
+ * PropertyEditorRegistrar实现，该实现使用资源编辑器填充给定的
  * {@link org.springframework.beans.PropertyEditorRegistry}
- * (typically a {@link org.springframework.beans.BeanWrapper} used for bean
- * creation within an {@link org.springframework.context.ApplicationContext})
- * with resource editors. Used by
- * {@link org.springframework.context.support.AbstractApplicationContext}.
+ * （通常是在{@link org.springframework.context.ApplicationContext}中用于
+ * Bean创建的{@link org.springframework.beans.BeanWrapper}）.
+ * 由{@link org.springframework.context.support.AbstractApplicationContext}使用.
  *
  * @author Juergen Hoeller
  * @author Chris Beams

@@ -29,8 +29,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.MultiValueMap;
 
 /**
- * {@link MethodMetadata} implementation that uses standard reflection
- * to introspect a given {@code Method}.
+ * 使用标准反射对给定{@code Method}进行内省的{@link MethodMetadata}实现。
  *
  * @author Juergen Hoeller
  * @author Mark Pollack
@@ -48,7 +47,7 @@ public class StandardMethodMetadata implements MethodMetadata {
 
 
 	/**
-	 * Create a new StandardMethodMetadata wrapper for the given Method.
+	 * 为给定方法创建一个新的StandardMethodMetadata包装器。
 	 * @param introspectedMethod the Method to introspect
 	 * @deprecated since 5.2 in favor of obtaining instances via {@link AnnotationMetadata}
 	 */
@@ -62,6 +61,8 @@ public class StandardMethodMetadata implements MethodMetadata {
 	 * providing the option to return any nested annotations or annotation arrays in the
 	 * form of {@link org.springframework.core.annotation.AnnotationAttributes} instead
 	 * of actual {@link java.lang.annotation.Annotation} instances.
+	 * 为给定方法创建一个新的StandardMethodMetadata包装器，
+	 * 并提供以AnnotationAttributes而不是实际Annotation实例的形式返回任何嵌套注释或注释数组的选项。
 	 * @param introspectedMethod the Method to introspect
 	 * @param nestedAnnotationsAsMap return nested annotations and annotation arrays as
 	 * {@link org.springframework.core.annotation.AnnotationAttributes} for compatibility

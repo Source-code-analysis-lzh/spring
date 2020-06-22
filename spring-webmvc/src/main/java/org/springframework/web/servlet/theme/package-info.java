@@ -1,12 +1,11 @@
 /**
- * Theme support classes for Spring's web MVC framework.
- * Provides standard ThemeResolver implementations,
- * and a HandlerInterceptor for theme changes.
+ * Spring的Web MVC框架的主题支持类。 提供标准的ThemeResolver实现，
+ * 以及用于主题更改的HandlerInterceptor。
  *
  * <p>
  * <ul>
- * <li>If you don't provide a bean of one of these classes as {@code themeResolver},
- * a {@code FixedThemeResolver} will be provided with the default theme name 'theme'.</li>
+ * <li>如果您不提供这些类之一的bean作为{@code themeResolver}，
+ * 则将为{@code FixedThemeResolver}提供默认主题名称'theme'。</li>
  * <li>If you use a defined {@code FixedThemeResolver}, you will able to use another theme
  * name for default, but the users will stick on this theme.</li>
  * <li>With a {@code CookieThemeResolver} or {@code SessionThemeResolver}, you can allow

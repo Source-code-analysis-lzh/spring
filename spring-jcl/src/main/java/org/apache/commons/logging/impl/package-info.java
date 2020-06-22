@@ -1,11 +1,9 @@
 /**
- * Spring's variant of the
- * <a href="https://commons.apache.org/logging">Commons Logging API</a>:
- * with special support for Log4J 2, SLF4J and {@code java.util.logging}.
+ * <a href="https://commons.apache.org/logging"> Commons Logging API </a>的Spring变体：
+ * 对Log4J 2，SLF4J和{@code java.util.logging}的特殊支持。
  *
- * <p>This {@code impl} package is only present for binary compatibility
- * with existing Commons Logging usage, e.g. in Commons Configuration.
- * {@code NoOpLog} can be used as a {@code Log} fallback instance, and
- * {@code SimpleLog} is not meant to work (issuing a warning when used).
+ * <p>仅提供此{@code impl}软件包是为了与现有的Commons Logging用法二进制兼容。
+ * 如，在Commons Configuration中。 {@code NoOpLog}可以用作{@code Log}的后备实例，
+ * 而{@code SimpleLog}并不起作用（使用时发出警告）。
  */
 package org.apache.commons.logging.impl;

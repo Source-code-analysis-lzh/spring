@@ -21,12 +21,11 @@ import org.quartz.SchedulerContext;
 import org.springframework.beans.factory.Aware;
 
 /**
- * Callback interface to be implemented by Spring-managed
- * Quartz artifacts that need access to the SchedulerContext
- * (without having natural access to it).
+ * 回调接口由需要访问SchedulerContext的Spring托管Quartz工件实现（没有自然访问权限）。
  *
  * <p>Currently only supported for custom JobFactory implementations
  * that are passed in via Spring's SchedulerFactoryBean.
+ * <p>当前仅支持通过Spring的SchedulerFactoryBean传入的自定义JobFactory实现。
  *
  * @author Juergen Hoeller
  * @author Chris Beams

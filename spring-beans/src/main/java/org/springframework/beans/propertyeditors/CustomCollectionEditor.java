@@ -30,12 +30,10 @@ import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Property editor for Collections, converting any source Collection
- * to a given target Collection type.
+ * 集合的属性编辑器，可将任何源集合转换为给定的目标集合类型.
  *
- * <p>By default registered for Set, SortedSet and List,
- * to automatically convert any given Collection to one of those
- * target types if the type does not match the target property.
+ * <p>默认情况下，已注册Set，SortedSet和List，
+ * 以在类型与目标属性不匹配时自动将任何给定的Collection转换为这些目标类型之一.
  *
  * @author Juergen Hoeller
  * @since 1.1.3

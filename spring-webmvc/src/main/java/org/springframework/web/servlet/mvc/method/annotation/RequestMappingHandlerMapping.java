@@ -54,18 +54,15 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping;
 
 /**
- * Creates {@link RequestMappingInfo} instances from type and method-level
- * {@link RequestMapping @RequestMapping} annotations in
- * {@link Controller @Controller} classes.
+ * 根据{@link Controller @Controller}类中的类型和方法级别的{@link RequestMapping @RequestMapping}
+ * 注释创建{@link RequestMappingInfo}实例。
  *
  * <p><strong>Deprecation Note:</strong></p> In 5.2.4,
- * {@link #setUseSuffixPatternMatch(boolean) useSuffixPatternMatch} and
- * {@link #setUseRegisteredSuffixPatternMatch(boolean) useRegisteredSuffixPatternMatch}
- * were deprecated in order to discourage use of path extensions for request
- * mapping and for content negotiation (with similar deprecations in
- * {@link org.springframework.web.accept.ContentNegotiationManagerFactoryBean
- * ContentNegotiationManagerFactoryBean}). For further context, please read issue
- * <a href="https://github.com/spring-projects/spring-framework/issues/24179">#24719</a>.
+ * 在5.2.4中，不赞成使用{@link #setUseSuffixPatternMatch(boolean) useSuffixPatternMatch}
+ * 和{@link #setUseRegisteredSuffixPatternMatch(boolean) useRegisteredSuffixPatternMatch}，
+ * 以防止使用路径扩展进行请求映射和内容协商（{@link org.springframework.web.accept.ContentNegotiationManagerFactoryBean
+ * ContentNegotiationManagerFactoryBean}中的类似弃用）。 有关更多背景信息，请阅读问题
+ * <a href="https://github.com/spring-projects/spring-framework/issues/24179">#24719</a>。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
@@ -177,6 +174,7 @@ public class RequestMappingHandlerMapping extends RequestMappingInfoHandlerMappi
 	@Override
 	@SuppressWarnings("deprecation")
 	public void afterPropertiesSet() {
+		// 初始化并配置RequestMappingInfo构建配置器
 		this.config = new RequestMappingInfo.BuilderConfiguration();
 		this.config.setUrlPathHelper(getUrlPathHelper());
 		this.config.setPathMatcher(getPathMatcher());
@@ -241,8 +239,7 @@ public class RequestMappingHandlerMapping extends RequestMappingInfoHandlerMappi
 	}
 
 	/**
-	 * Uses method and type-level @{@link RequestMapping} annotations to create
-	 * the RequestMappingInfo.
+	 * 使用方法和类型级别的@@{@link RequestMapping}注释创建RequestMappingInfo。
 	 * @return the created RequestMappingInfo, or {@code null} if the method
 	 * does not have a {@code @RequestMapping} annotation.
 	 * @see #getCustomMethodCondition(Method)
@@ -255,7 +252,7 @@ public class RequestMappingHandlerMapping extends RequestMappingInfoHandlerMappi
 		if (info != null) {
 			RequestMappingInfo typeInfo = createRequestMappingInfo(handlerType);
 			if (typeInfo != null) {
-				info = typeInfo.combine(info);
+				info = typeInfo.combine(info); // 合并类和方法的@RequestMapping信息
 			}
 			String prefix = getPathPrefix(handlerType);
 			if (prefix != null) {
@@ -407,6 +404,7 @@ public class RequestMappingHandlerMapping extends RequestMappingInfoHandlerMappi
 	protected CorsConfiguration initCorsConfiguration(Object handler, Method method, RequestMappingInfo mappingInfo) {
 		HandlerMethod handlerMethod = createHandlerMethod(handler, method);
 		Class<?> beanType = handlerMethod.getBeanType();
+		// 查找@CrossOrigin配置
 		CrossOrigin typeAnnotation = AnnotatedElementUtils.findMergedAnnotation(beanType, CrossOrigin.class);
 		CrossOrigin methodAnnotation = AnnotatedElementUtils.findMergedAnnotation(method, CrossOrigin.class);
 

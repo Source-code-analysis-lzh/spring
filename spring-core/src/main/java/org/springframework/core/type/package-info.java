@@ -1,5 +1,5 @@
 /**
- * Core support package for type introspection.
+ * 类型自省的核心支持包.
  */
 @NonNullApi
 @NonNullFields

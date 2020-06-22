@@ -24,15 +24,11 @@ import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.lang.Nullable;
 
 /**
- * Default implementation of the {@link Errors} and {@link BindingResult}
- * interfaces, for the registration and evaluation of binding errors on
- * JavaBean objects.
+ * {@link Errors}和{@link BindingResult}接口的默认实现，用于注册和计算JavaBean对象上的绑定错误.
  *
- * <p>Performs standard JavaBean property access, also supporting nested
- * properties. Normally, application code will work with the
- * {@code Errors} interface or the {@code BindingResult} interface.
- * A {@link DataBinder} returns its {@code BindingResult} via
- * {@link DataBinder#getBindingResult()}.
+ * <p>执行标准JavaBean属性访问，还支持嵌套属性.
+ * 通常，应用程序代码将与{@code Errors}接口或{@code BindingResult}接口一起使用.
+ * {@link DataBinder}通过{@link DataBinder#getBindingResult()}返回其{@code BindingResult}.
  *
  * @author Juergen Hoeller
  * @since 2.0

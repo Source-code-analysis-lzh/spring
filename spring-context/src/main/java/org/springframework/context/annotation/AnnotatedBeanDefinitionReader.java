@@ -34,10 +34,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Convenient adapter for programmatic registration of bean classes.
+ * 方便的适配器，用于以编程方式注册Bean类。
  *
  * <p>This is an alternative to {@link ClassPathBeanDefinitionScanner}, applying
  * the same resolution of annotations but for explicitly registered classes only.
+ * 这是{@link ClassPathBeanDefinitionScanner}的替代方法，它应用注释的相同分辨率，但仅适用于显式注册的类。
  *
  * @author Juergen Hoeller
  * @author Chris Beams
@@ -58,10 +59,9 @@ public class AnnotatedBeanDefinitionReader {
 
 
 	/**
-	 * Create a new {@code AnnotatedBeanDefinitionReader} for the given registry.
-	 * <p>If the registry is {@link EnvironmentCapable}, e.g. is an {@code ApplicationContext},
-	 * the {@link Environment} will be inherited, otherwise a new
-	 * {@link StandardEnvironment} will be created and used.
+	 * 为给定的注册表创建一个新的{@code AnnotatedBeanDefinitionReader}。
+	 * <p>如果注册表是{@link EnvironmentCapable}，例如 是{@code ApplicationContext}，
+	 * 它继承{@link Environment}，否则将创建并使用新的{@link StandardEnvironment}。
 	 * @param registry the {@code BeanFactory} to load bean definitions into,
 	 * in the form of a {@code BeanDefinitionRegistry}
 	 * @see #AnnotatedBeanDefinitionReader(BeanDefinitionRegistry, Environment)
@@ -84,6 +84,7 @@ public class AnnotatedBeanDefinitionReader {
 		Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
 		Assert.notNull(environment, "Environment must not be null");
 		this.registry = registry;
+		// 条件评估器
 		this.conditionEvaluator = new ConditionEvaluator(registry, environment, null);
 		AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
 	}
@@ -126,9 +127,8 @@ public class AnnotatedBeanDefinitionReader {
 
 
 	/**
-	 * Register one or more component classes to be processed.
-	 * <p>Calls to {@code register} are idempotent; adding the same
-	 * component class more than once has no additional effect.
+	 * 注册一个或多个要处理的组件类。
+	 * <p>对{@code register}的调用是幂等的； 多次添加同一组件类不会产生任何其他影响。
 	 * @param componentClasses one or more component classes,
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
@@ -139,8 +139,7 @@ public class AnnotatedBeanDefinitionReader {
 	}
 
 	/**
-	 * Register a bean from the given bean class, deriving its metadata from
-	 * class-declared annotations.
+	 * 从给定的bean类中注册一个bean，并从类声明的注释中派生其元数据。
 	 * @param beanClass the class of the bean
 	 */
 	public void registerBean(Class<?> beanClass) {
@@ -251,6 +250,7 @@ public class AnnotatedBeanDefinitionReader {
 			@Nullable BeanDefinitionCustomizer[] customizers) {
 
 		AnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(beanClass);
+		// 条件评估
 		if (this.conditionEvaluator.shouldSkip(abd.getMetadata())) {
 			return;
 		}
@@ -281,6 +281,9 @@ public class AnnotatedBeanDefinitionReader {
 		}
 
 		BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(abd, beanName);
+		// <aop:scoped-proxy  proxy-target-class="true"/>
+		// @Scope(value="session",proxyMode= ScopedProxyMode.TARGET_CLASS)
+		// 代理的工作就是——暴露这个bean令其符合其自身作用域。
 		definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
 		BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry);
 	}

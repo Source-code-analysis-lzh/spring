@@ -39,7 +39,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Request mapping information. Encapsulates the following request mapping conditions:
+ * 请求映射信息。 封装以下请求映射条件：
  * <ol>
  * <li>{@link PatternsRequestCondition}
  * <li>{@link RequestMethodsRequestCondition}
@@ -367,7 +367,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 
 
 	/**
-	 * Defines a builder for creating a RequestMappingInfo.
+	 * 定义用于创建RequestMappingInfo的构建器。
 	 * @since 4.2
 	 */
 	public interface Builder {
@@ -527,9 +527,8 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 
 
 	/**
-	 * Container for configuration options used for request mapping purposes.
-	 * Such configuration is required to create RequestMappingInfo instances but
-	 * is typically used across all RequestMappingInfo instances.
+	 * 用于请求映射的配置选项的容器。 这种配置是创建RequestMappingInfo实例所必需的，
+	 * 但通常在所有RequestMappingInfo实例中使用。
 	 * @since 4.2
 	 * @see Builder#options
 	 */
@@ -584,7 +583,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 		}
 
 		/**
-		 * Set whether to apply trailing slash matching in PatternsRequestCondition.
+		 * 设置是否在PatternsRequestCondition中应用尾部斜杠匹配。
 		 * <p>By default this is set to 'true'.
 		 */
 		public void setTrailingSlashMatch(boolean trailingSlashMatch) {

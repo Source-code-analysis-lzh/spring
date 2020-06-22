@@ -21,11 +21,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Encapsulates an object error, that is, a global reason for rejecting
- * an object.
+ * 封装对象错误，即拒绝对象的全局原因.
  *
- * <p>See the {@link DefaultMessageCodesResolver} javadoc for details on
- * how a message code list is built for an {@code ObjectError}.
+ * <p>有关如何为{@code ObjectError}构建消息代码列表的详细信息，请参见{@link DefaultMessageCodesResolver} Javadoc.
  *
  * @author Juergen Hoeller
  * @since 10.03.2003

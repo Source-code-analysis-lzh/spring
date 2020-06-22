@@ -29,8 +29,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.AbstractView;
 
 /**
- * Convenient superclass for Excel document views in traditional XLS format.
- * Compatible with Apache POI 3.5 and higher.
+ * 传统XLS格式的Excel文档视图的便捷超类。 与Apache POI 3.5及更高版本兼容。
  *
  * <p>For working with the workbook in the subclass, see
  * <a href="https://poi.apache.org">Apache's POI site</a>

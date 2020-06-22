@@ -26,8 +26,7 @@ import java.util.Set;
 import org.springframework.lang.Nullable;
 
 /**
- * A simple representation of command line arguments, broken into "option arguments" and
- * "non-option arguments".
+ * 命令行参数的简单表示形式，分为“选项参数”和“非选项参数”。
  *
  * @author Chris Beams
  * @since 3.1
@@ -39,10 +38,8 @@ class CommandLineArgs {
 	private final List<String> nonOptionArgs = new ArrayList<>();
 
 	/**
-	 * Add an option argument for the given option name and add the given value to the
-	 * list of values associated with this option (of which there may be zero or more).
-	 * The given value may be {@code null}, indicating that the option was specified
-	 * without an associated value (e.g. "--foo" vs. "--foo=bar").
+	 * 为给定的选项名称添加一个选项参数，并将给定的值添加到与此选项关联的值列表中（其中可能有零个或多个）。 
+	 * 给定的值可以为{@code null}，表示指定的选项没有关联的值（例如"--foo" vs. "--foo=bar"）。
 	 */
 	public void addOptionArg(String optionName, @Nullable String optionValue) {
 		if (!this.optionArgs.containsKey(optionName)) {
@@ -54,23 +51,21 @@ class CommandLineArgs {
 	}
 
 	/**
-	 * Return the set of all option arguments present on the command line.
+	 * 返回命令行中所有选项参数的集合。
 	 */
 	public Set<String> getOptionNames() {
 		return Collections.unmodifiableSet(this.optionArgs.keySet());
 	}
 
 	/**
-	 * Return whether the option with the given name was present on the command line.
+	 * 返回命令行上是否存在具有给定名称的选项。
 	 */
 	public boolean containsOption(String optionName) {
 		return this.optionArgs.containsKey(optionName);
 	}
 
 	/**
-	 * Return the list of values associated with the given option. {@code null} signifies
-	 * that the option was not present; empty list signifies that no values were associated
-	 * with this option.
+	 * 返回与给定选项关联的值列表。 {@code null}表示该选项不存在； 空列表表示没有值与此选项关联。
 	 */
 	@Nullable
 	public List<String> getOptionValues(String optionName) {
@@ -78,14 +73,14 @@ class CommandLineArgs {
 	}
 
 	/**
-	 * Add the given value to the list of non-option arguments.
+	 * 将给定值添加到非选项参数列表中。
 	 */
 	public void addNonOptionArg(String value) {
 		this.nonOptionArgs.add(value);
 	}
 
 	/**
-	 * Return the list of non-option arguments specified on the command line.
+	 * 返回在命令行上指定的非选项参数的列表。
 	 */
 	public List<String> getNonOptionArgs() {
 		return Collections.unmodifiableList(this.nonOptionArgs);

@@ -27,9 +27,19 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
- * Trivial controller that always returns a pre-configured view and optionally
- * sets the response status code. The view and status can be configured using
- * the provided configuration properties.
+ * 普通的控制器，始终返回预配置的视图，并可以选择设置响应状态代码。 
+ * 可以使用提供的配置属性来配置视图和状态。
+ * 
+ * <p>这个controller可以选择直接将一个request请求到JSP页面。
+ * 这样做的好处就是不用向客户端暴露具体的视图技术而只是给出了具体的controller URL，
+ * 而具体的视图则由视图解析器来决定
+ * 
+ * &lt;bean name=&quot;/index.action&quot; class=&quot;org.springframework.web.servlet.mvc.ParameterizableViewController&quot;&gt;
+ *      &lt;property name=&quot;viewName&quot; value=&quot;/index.jsp&quot;/&gt;
+ * &lt;/bean&gt;
+ * 
+ * 这样子这个请求：/index.action就直接被定位到/index.jsp这个页面里了~~~页面跳转非常方便。
+ * 不用自己写Controller了
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

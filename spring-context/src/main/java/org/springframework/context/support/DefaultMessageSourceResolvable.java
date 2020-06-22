@@ -24,9 +24,8 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Spring's default implementation of the {@link MessageSourceResolvable} interface.
- * Offers an easy way to store all the necessary values needed to resolve
- * a message via a {@link org.springframework.context.MessageSource}.
+ * Spring的{@link MessageSourceResolvable}接口的默认实现.
+ * 提供一种简单的方法来存储通过{@link org.springframework.context.MessageSource}解析消息所需的所有必要值.
  *
  * @author Juergen Hoeller
  * @since 13.02.2004

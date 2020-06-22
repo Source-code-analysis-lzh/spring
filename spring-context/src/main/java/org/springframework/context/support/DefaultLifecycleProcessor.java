@@ -44,7 +44,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Default implementation of the {@link LifecycleProcessor} strategy.
+ * {@link LifecycleProcessor}策略的默认实现.
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

@@ -26,9 +26,8 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * {@link org.springframework.web.servlet.ViewResolver} implementation that
- * resolves instances of {@link XsltView} by translating the supplied view name
- * into the URL of the XSLT stylesheet.
+ * 通过将提供的视图名称转换为XSLT样式表的URL来解析{@link XsltView}实例的
+ * {@link org.springframework.web.servlet.ViewResolver}实现。
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

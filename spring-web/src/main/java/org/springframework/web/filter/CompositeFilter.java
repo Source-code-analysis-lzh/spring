@@ -28,14 +28,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * A generic composite servlet {@link Filter} that just delegates its behavior
- * to a chain (list) of user-supplied filters, achieving the functionality of a
- * {@link FilterChain}, but conveniently using only {@link Filter} instances.
+ * 一个通用的复合Servlet {@link Filter}，它仅将其行为委托给用户提供的过滤器链（列表），
+ * 从而实现{@link FilterChain}的功能，但是仅使用{@link Filter}实例也很方便。
  *
- * <p>This is useful for filters that require dependency injection, and can
- * therefore be set up in a Spring application context. Typically, this
- * composite would be used in conjunction with {@link DelegatingFilterProxy},
- * so that it can be declared in Spring but applied to a servlet context.
+ * <p>这对于需要依赖注入的过滤器很有用，因此可以在Spring应用程序上下文中进行设置。 
+ * 通常，此组合将与{@link DelegatingFilterProxy}结合使用，以便可以在Spring中声明它，
+ * 但将其应用于Servlet上下文。
  *
  * @author Dave Syer
  * @since 3.1

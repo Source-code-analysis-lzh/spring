@@ -32,10 +32,8 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
 import org.springframework.lang.Nullable;
 
 /**
- * Post-processor that registers AspectJ's
- * {@link org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter}
- * with the Spring application context's default
- * {@link org.springframework.instrument.classloading.LoadTimeWeaver}.
+ * 向Spring应用程序上下文的默认{@link org.springframework.instrument.classloading.LoadTimeWeaver}
+ * 注册AspectJ的{@link org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter}的后处理器。
  *
  * @author Juergen Hoeller
  * @author Ramnivas Laddad

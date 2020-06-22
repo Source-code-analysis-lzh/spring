@@ -37,15 +37,12 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link Resource} implementation for {@code java.io.File} and
- * {@code java.nio.file.Path} handles with a file system target.
- * Supports resolution as a {@code File} and also as a {@code URL}.
- * Implements the extended {@link WritableResource} interface.
+ * {@code java.io.File}和{@code java.nio.file.Path}的{@link Resource}实现带有文件系统目标.
+ * 支持解析为{@code File}和{@code URL}. 实现扩展的{@link WritableResource}接口.
  *
- * <p>Note: As of Spring Framework 5.0, this {@link Resource} implementation uses
- * NIO.2 API for read/write interactions. As of 5.1, it may be constructed with a
- * {@link java.nio.file.Path} handle in which case it will perform all file system
- * interactions via NIO.2, only resorting to {@link File} on {@link #getFile()}.
+ * <p>注意：从Spring Framework 5.0开始，此{@link Resource}实现使用NIO.2 API进行读/写交互.
+ * 从5.1开始，它可以使用{@link java.nio.file.Path}句柄构造，在这种情况下，它将通过NIO.2执行所有文件系统交互，
+ * 仅求助于{@link #getFile()}上的{@link File}.
  *
  * @author Juergen Hoeller
  * @since 28.12.2003

@@ -25,7 +25,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Convenient class for building up pointcuts.
+ * 建立切入点的便捷类。
  *
  * <p>All methods return {@code ComposablePointcut}, so we can use concise idioms
  * like in the following example.

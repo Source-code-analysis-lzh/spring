@@ -19,7 +19,7 @@ package org.springframework.aop;
 import org.springframework.lang.Nullable;
 
 /**
- * Minimal interface for exposing the target class behind a proxy.
+ * 用于将代理之后的目标类暴露的最小接口。
  *
  * <p>Implemented by AOP proxy objects and proxy factories
  * (via {@link org.springframework.aop.framework.Advised})

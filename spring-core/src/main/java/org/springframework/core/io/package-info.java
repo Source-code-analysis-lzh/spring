@@ -1,5 +1,5 @@
 /**
- * Generic abstraction for (file-based) resources, used throughout the framework.
+ * 整个框架中使用的（基于文件的）资源的通用抽象.
  */
 @NonNullApi
 @NonNullFields

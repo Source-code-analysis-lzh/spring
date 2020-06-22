@@ -23,19 +23,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation that identifies methods which initialize the
- * {@link org.springframework.web.bind.WebDataBinder} which
- * will be used for populating command and form object arguments
- * of annotated handler methods.
+ * 该注释用于初始化{@link org.springframework.web.bind.WebDataBinder}的方法，
+ * 该方法将用于填充带注释的处理器方法的命令(command)和表单对象参数。
  *
- * <p>Such init-binder methods support all arguments that {@link RequestMapping}
- * supports, except for command/form objects and corresponding validation result
- * objects. Init-binder methods must not have a return value; they are usually
- * declared as {@code void}.
+ * <p>此类init-binder方法支持{@link RequestMapping}支持的所有参数，
+ * 但命令/表单对象和相应的验证结果对象除外。 初始化绑定器方法不能具有返回值； 通常将它们声明为{@code void}。
  *
- * <p>Typical arguments are {@link org.springframework.web.bind.WebDataBinder}
- * in combination with {@link org.springframework.web.context.request.WebRequest}
- * or {@link java.util.Locale}, allowing to register context-specific editors.
+ * <p>典型的参数是将{@link org.springframework.web.bind.WebDataBinder}
+ * 与{@link org.springframework.web.context.request.WebRequest}或{@link java.util.Locale}
+ * 结合使用，从而允许注册特定于上下文的编辑器。
  *
  * @author Juergen Hoeller
  * @since 2.5
@@ -48,13 +44,10 @@ import java.lang.annotation.Target;
 public @interface InitBinder {
 
 	/**
-	 * The names of command/form attributes and/or request parameters
-	 * that this init-binder method is supposed to apply to.
-	 * <p>Default is to apply to all command/form attributes and all request parameters
-	 * processed by the annotated handler class. Specifying model attribute names or
-	 * request parameter names here restricts the init-binder method to those specific
-	 * attributes/parameters, with different init-binder methods typically applying to
-	 * different groups of attributes or parameters.
+	 * 应该使用此init-binder方法的命令/表单属性和/或请求参数的名称。
+	 * <p>默认值是应用于由注释的处理器类处理的所有命令/表单属性和所有请求参数。 
+	 * 在此指定模型属性名称或请求参数名称会将init-binder方法限制为那些特定的属性/参数，
+	 * 并且通常将不同的init-binder方法应用于不同的属性或参数组。
 	 */
 	String[] value() default {};
 

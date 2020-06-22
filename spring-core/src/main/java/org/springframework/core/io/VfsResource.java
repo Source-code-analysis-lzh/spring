@@ -27,11 +27,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * JBoss VFS based {@link Resource} implementation.
+ * 基于JBoss VFS的{@link Resource}实现.
  *
- * <p>As of Spring 4.0, this class supports VFS 3.x on JBoss AS 6+
- * (package {@code org.jboss.vfs}) and is in particular compatible with
- * JBoss AS 7 and WildFly 8+.
+ * <p>从Spring 4.0开始，该类在JBoss AS 6+（软件包{@code org.jboss.vfs}）上支持VFS 3.x，
+ * 特别是与JBoss AS 7和WildFly 8+兼容.
  *
  * @author Ales Justin
  * @author Juergen Hoeller

@@ -28,13 +28,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Base class for message source implementations, providing support infrastructure
- * such as {@link java.text.MessageFormat} handling but not implementing concrete
- * methods defined in the {@link org.springframework.context.MessageSource}.
+ * 消息源实现的基类，提供支持基础结构，例如{@link java.text.MessageFormat}处理，
+ * 但不实现{@link org.springframework.context.MessageSource}中定义的具体方法.
  *
- * <p>{@link AbstractMessageSource} derives from this class, providing concrete
- * {@code getMessage} implementations that delegate to a central template
- * method for message code resolution.
+ * <p>{@link AbstractMessageSource}派生自此类，提供了具体的{@code getMessage}实现，
+ * 这些实现委派给用于消息代码解析的中心模板方法.
  *
  * @author Juergen Hoeller
  * @since 2.5.5

@@ -31,9 +31,7 @@ import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.web.servlet.view.AbstractView;
 
 /**
- * Abstract superclass for PDF views. Application-specific view classes
- * will extend this class. The view will be held in the subclass itself,
- * not in a template.
+ * PDF视图的抽象超类。 特定于应用程序的视图类将扩展此类。 视图将保存在子类本身中，而不是模板中。
  *
  * <p>This view implementation uses Bruno Lowagie's
  * <a href="https://www.lowagie.com/iText">iText</a> API.

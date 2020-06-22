@@ -21,12 +21,10 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
- * Regular expression pointcut based on the {@code java.util.regex} package.
- * Supports the following JavaBean properties:
+ * 基于{@code java.util.regex}包的正则表达式切入点。 支持以下JavaBean属性：
  * <ul>
- * <li>pattern: regular expression for the fully-qualified method names to match
- * <li>patterns: alternative property taking a String array of patterns. The result will
- * be the union of these patterns.
+ * <li>pattern: 用于完全匹配的方法名称的正则表达式
+ * <li>patterns: 另一种属性，它采用字符串数组模式。 结果将是这些模式的结合。
  * </ul>
  *
  * <p>Note: the regular expressions must be a match. For example,

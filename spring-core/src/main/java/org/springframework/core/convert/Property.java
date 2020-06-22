@@ -31,13 +31,11 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A description of a JavaBeans Property that allows us to avoid a dependency on
- * {@code java.beans.PropertyDescriptor}. The {@code java.beans} package
- * is not available in a number of environments (e.g. Android, Java ME), so this is
- * desirable for portability of Spring's core conversion facility.
+ * {@code java.beans}属性的描述，该属性使我们能够避免依赖于{@code java.beans.PropertyDescriptor}.
+ * {@code java.beans}软件包在许多环境（例如Android，Java ME）中不可用，
+ * 因此对于Spring核心转换工具的可移植性而言，这是理想的类型.
  *
- * <p>Used to build a {@link TypeDescriptor} from a property location. The built
- * {@code TypeDescriptor} can then be used to convert from/to the property type.
+ * <p>用于从属性位置构建{@link TypeDescriptor}. 然后可以使用内置的{@code TypeDescriptor}从属性类型转换为属性类型.
  *
  * @author Keith Donald
  * @author Phillip Webb

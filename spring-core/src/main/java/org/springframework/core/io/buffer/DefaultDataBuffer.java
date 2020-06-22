@@ -30,12 +30,10 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Default implementation of the {@link DataBuffer} interface that uses a
- * {@link ByteBuffer} internally. with separate read and write positions.
- * Constructed using the {@link DefaultDataBufferFactory}.
+ * 内部使用{@link ByteBuffer}的{@link DataBuffer}接口的默认实现.
+ * 具有独立的读写位置. 使用{@link DefaultDataBufferFactory}构造.
  *
- * <p>Inspired by Netty's {@code ByteBuf}. Introduced so that non-Netty runtimes
- * (i.e. Servlet) do not require Netty on the classpath.
+ * 受Netty的{@code ByteBuf}启发. 引入以便在类路径上不需要Netty非Netty环境运行（即Servlet）.
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

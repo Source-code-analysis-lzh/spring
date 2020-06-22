@@ -20,9 +20,8 @@ import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.lang.Nullable;
 
 /**
- * An expression capable of evaluating itself against context objects.
- * Encapsulates the details of a previously parsed expression string.
- * Provides a common abstraction for expression evaluation.
+ * 一种能够根据上下文对象求值的表达式.
+ * 封装先前解析的表达式字符串的详细信息. 提供用于表达式计算的通用抽象.
  *
  * @author Keith Donald
  * @author Andy Clement
@@ -32,13 +31,13 @@ import org.springframework.lang.Nullable;
 public interface Expression {
 
 	/**
-	 * Return the original string used to create this expression (unmodified).
+	 * 返回用于创建此表达式的原始字符串（未修改）.
 	 * @return the original expression string
 	 */
 	String getExpressionString();
 
 	/**
-	 * Evaluate this expression in the default standard context.
+	 * 在默认标准上下文中计算此表达式.
 	 * @return the evaluation result
 	 * @throws EvaluationException if there is a problem during evaluation
 	 */
@@ -46,9 +45,7 @@ public interface Expression {
 	Object getValue() throws EvaluationException;
 
 	/**
-	 * Evaluate the expression in the default context. If the result
-	 * of the evaluation does not match (and cannot be converted to)
-	 * the expected result type then an exception will be returned.
+	 * 在默认上下文中计算表达式. 如果计算结果与预期结果类型不匹配（并且无法转换为预期结果类型），则将返回异常.
 	 * @param desiredResultType the class the caller would like the result to be
 	 * @return the evaluation result
 	 * @throws EvaluationException if there is a problem during evaluation
@@ -57,7 +54,7 @@ public interface Expression {
 	<T> T getValue(@Nullable Class<T> desiredResultType) throws EvaluationException;
 
 	/**
-	 * Evaluate this expression against the specified root object.
+	 * 针对指定的根对象计算此表达式.
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @return the evaluation result
 	 * @throws EvaluationException if there is a problem during evaluation
@@ -66,9 +63,8 @@ public interface Expression {
 	Object getValue(@Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Evaluate the expression in the default context against the specified root
-	 * object. If the result of the evaluation does not match (and cannot be
-	 * converted to) the expected result type then an exception will be returned.
+	 * 在默认上下文中针对指定的根对象计算表达式.
+	 * 如果计算结果与预期结果类型不匹配（并且无法转换为预期结果类型），则将返回异常.
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @param desiredResultType the class the caller would like the result to be
 	 * @return the evaluation result
@@ -78,8 +74,7 @@ public interface Expression {
 	<T> T getValue(@Nullable Object rootObject, @Nullable Class<T> desiredResultType) throws EvaluationException;
 
 	/**
-	 * Evaluate this expression in the provided context and return the result
-	 * of evaluation.
+	 * 在提供的上下文中计算此表达式并返回计算结果.
 	 * @param context the context in which to evaluate the expression
 	 * @return the evaluation result
 	 * @throws EvaluationException if there is a problem during evaluation
@@ -88,9 +83,7 @@ public interface Expression {
 	Object getValue(EvaluationContext context) throws EvaluationException;
 
 	/**
-	 * Evaluate this expression in the provided context and return the result
-	 * of evaluation, but use the supplied root context as an override for any
-	 * default root object specified in the context.
+	 * 在提供的上下文中计算此表达式并返回计算结果，但是将提供的根上下文用作该上下文中指定的任何默认根对象的替代.
 	 * @param context the context in which to evaluate the expression
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @return the evaluation result
@@ -100,10 +93,8 @@ public interface Expression {
 	Object getValue(EvaluationContext context, @Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Evaluate the expression in a specified context which can resolve references
-	 * to properties, methods, types, etc. The type of the evaluation result is
-	 * expected to be of a particular class and an exception will be thrown if it
-	 * is not and cannot be converted to that type.
+	 * 在指定的上下文中计算表达式，该表达式可以解析对属性，方法，类型等的引用.
+	 * 计算结果的类型应为指定类，否则将引发异常，并且不能将其转换为该类型则抛出异常.
 	 * @param context the context in which to evaluate the expression
 	 * @param desiredResultType the class the caller would like the result to be
 	 * @return the evaluation result
@@ -113,11 +104,8 @@ public interface Expression {
 	<T> T getValue(EvaluationContext context, @Nullable Class<T> desiredResultType) throws EvaluationException;
 
 	/**
-	 * Evaluate the expression in a specified context which can resolve references
-	 * to properties, methods, types, etc. The type of the evaluation result is
-	 * expected to be of a particular class and an exception will be thrown if it
-	 * is not and cannot be converted to that type. The supplied root object
-	 * overrides any default specified on the supplied context.
+	 * 在指定的上下文中计算表达式，该表达式可以解析对属性，方法，类型等的引用.
+	 * 计算结果的类型应为指定类，否则将引发异常.提供的根对象将覆盖提供的上下文上指定的任何默认值.
 	 * @param context the context in which to evaluate the expression
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @param desiredResultType the class the caller would like the result to be
@@ -129,8 +117,7 @@ public interface Expression {
 			throws EvaluationException;
 
 	/**
-	 * Return the most general type that can be passed to a {@link #setValue}
-	 * method using the default context.
+	 * 返回使用默认上下文且可以传递给{@link #setValue}方法的最通用类型.
 	 * @return the most general type of value that can be set on this context
 	 * @throws EvaluationException if there is a problem determining the type
 	 */
@@ -138,8 +125,7 @@ public interface Expression {
 	Class<?> getValueType() throws EvaluationException;
 
 	/**
-	 * Return the most general type that can be passed to the
-	 * {@link #setValue(Object, Object)} method using the default context.
+	 * 返回使用默认上下文且可以传递给{@link #setValue(Object, Object)}方法的最通用类型.
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @return the most general type of value that can be set on this context
 	 * @throws EvaluationException if there is a problem determining the type
@@ -148,8 +134,7 @@ public interface Expression {
 	Class<?> getValueType(@Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Return the most general type that can be passed to the
-	 * {@link #setValue(EvaluationContext, Object)} method for the given context.
+	 * 返回使用给定上下文且可以传递给{@link #setValue(EvaluationContext, Object)}方法的最通用类型.
 	 * @param context the context in which to evaluate the expression
 	 * @return the most general type of value that can be set on this context
 	 * @throws EvaluationException if there is a problem determining the type
@@ -158,9 +143,8 @@ public interface Expression {
 	Class<?> getValueType(EvaluationContext context) throws EvaluationException;
 
 	/**
-	 * Return the most general type that can be passed to the
-	 * {@link #setValue(EvaluationContext, Object, Object)} method for the given
-	 * context. The supplied root object overrides any specified in the context.
+	 * 返回使用给定上下文且可以传递给{@link #setValue(EvaluationContext, Object, Object)}方法的最通用类型.
+	 * 提供的根对象将覆盖上下文中指定的任何对象.
 	 * @param context the context in which to evaluate the expression
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @return the most general type of value that can be set on this context
@@ -170,8 +154,7 @@ public interface Expression {
 	Class<?> getValueType(EvaluationContext context, @Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Return the most general type that can be passed to a {@link #setValue}
-	 * method using the default context.
+	 * 返回使用默认上下文且可以传递给{@link #setValue}方法的最通用类型.
 	 * @return a type descriptor for values that can be set on this context
 	 * @throws EvaluationException if there is a problem determining the type
 	 */
@@ -211,7 +194,7 @@ public interface Expression {
 	TypeDescriptor getValueTypeDescriptor(EvaluationContext context, @Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Determine if an expression can be written to, i.e. setValue() can be called.
+	 * 确定是否可以写入表达式，即可以调用setValue().
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @return {@code true} if the expression is writable; {@code false} otherwise
 	 * @throws EvaluationException if there is a problem determining if it is writable
@@ -219,7 +202,7 @@ public interface Expression {
 	boolean isWritable(@Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Determine if an expression can be written to, i.e. setValue() can be called.
+	 * 确定是否可以写入表达式，即可以调用setValue().
 	 * @param context the context in which the expression should be checked
 	 * @return {@code true} if the expression is writable; {@code false} otherwise
 	 * @throws EvaluationException if there is a problem determining if it is writable
@@ -227,8 +210,7 @@ public interface Expression {
 	boolean isWritable(EvaluationContext context) throws EvaluationException;
 
 	/**
-	 * Determine if an expression can be written to, i.e. setValue() can be called.
-	 * The supplied root object overrides any specified in the context.
+	 * 确定是否可以写入表达式，即可以调用setValue(). 提供的根对象将覆盖上下文中指定的任何对象.
 	 * @param context the context in which the expression should be checked
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @return {@code true} if the expression is writable; {@code false} otherwise
@@ -237,7 +219,7 @@ public interface Expression {
 	boolean isWritable(EvaluationContext context, @Nullable Object rootObject) throws EvaluationException;
 
 	/**
-	 * Set this expression in the provided context to the value provided.
+	 * 在提供的上下文中将此表达式设置为提供的值.
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @param value the new value
 	 * @throws EvaluationException if there is a problem during evaluation
@@ -245,7 +227,7 @@ public interface Expression {
 	void setValue(@Nullable Object rootObject, @Nullable Object value) throws EvaluationException;
 
 	/**
-	 * Set this expression in the provided context to the value provided.
+	 * 在提供的上下文中将此表达式设置为提供的值.
 	 * @param context the context in which to set the value of the expression
 	 * @param value the new value
 	 * @throws EvaluationException if there is a problem during evaluation
@@ -253,8 +235,7 @@ public interface Expression {
 	void setValue(EvaluationContext context, @Nullable Object value) throws EvaluationException;
 
 	/**
-	 * Set this expression in the provided context to the value provided.
-	 * The supplied root object overrides any specified in the context.
+	 * 在提供的上下文中将此表达式设置为提供的值. 提供的根对象将覆盖上下文中指定的任何对象.
 	 * @param context the context in which to set the value of the expression
 	 * @param rootObject the root object against which to evaluate the expression
 	 * @param value the new value

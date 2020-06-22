@@ -37,22 +37,18 @@ import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.View;
 
 /**
- * A {@link org.springframework.web.servlet.ViewResolver} implementation that uses
- * bean definitions in a {@link ResourceBundle}, specified by the bundle basename.
+ * 一个{@link org.springframework.web.servlet.ViewResolver}实现，
+ * 该实现使用{@link ResourceBundle}中的bean定义，由包(bundle)基本名称指定。
  *
- * <p>The bundle is typically defined in a properties file, located in the classpath.
- * The default bundle basename is "views".
+ * <p>通常在位于类路径中的属性文件中定义捆绑软件。 默认捆绑(bundle)软件的基本名称是"views"。
  *
- * <p>This {@code ViewResolver} supports localized view definitions, using the
- * default support of {@link java.util.PropertyResourceBundle}. For example, the
- * basename "views" will be resolved as class path resources "views_de_AT.properties",
- * "views_de.properties", "views.properties" - for a given Locale "de_AT".
+ * <p>该{@code ViewResolver}使用{@link java.util.PropertyResourceBundle}的默认支持来支持本地化的视图定义。 
+ * 例如，对于给定的语言环境"de_AT"，基本名称"views"将解析为类路径资源"views_de_AT.properties"，
+ * "views_de.properties", "views.properties"。
  *
- * <p>Note: This {@code ViewResolver} implements the {@link Ordered} interface
- * in order to allow for flexible participation in {@code ViewResolver} chaining.
- * For example, some special views could be defined via this {@code ViewResolver}
- * (giving it 0 as "order" value), while all remaining views could be resolved by
- * a {@link UrlBasedViewResolver}.
+ * <p>注意：此{@code ViewResolver}实现{@link Ordered}接口，以允许灵活地参与{@code ViewResolver}链。 
+ * 例如，可以通过此{@code ViewResolver}定义一些特殊的视图（将其"order"值设置为0），
+ * 而所有其余视图都可以由{@link UrlBasedViewResolver}解析。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

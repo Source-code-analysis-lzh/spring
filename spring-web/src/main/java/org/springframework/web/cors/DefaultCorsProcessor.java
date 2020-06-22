@@ -39,13 +39,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.CollectionUtils;
 
 /**
- * The default implementation of {@link CorsProcessor}, as defined by the
- * <a href="https://www.w3.org/TR/cors/">CORS W3C recommendation</a>.
+ * 由<a href="https://www.w3.org/TR/cors/">CORS W3C recommendation</a>
+ * 定义的{@link CorsProcessor}的默认实现。
  *
- * <p>Note that when input {@link CorsConfiguration} is {@code null}, this
- * implementation does not reject simple or actual requests outright but simply
- * avoid adding CORS headers to the response. CORS processing is also skipped
- * if the response already contains CORS headers.
+ * <p>请注意，当输入{@link CorsConfiguration}为{@code null}时，此实现不会直接拒绝简单或实际请求，
+ * 而只是避免在响应中添加CORS标头。 如果响应中已经包含CORS标头，则也将跳过CORS处理。
  *
  * @author Sebastien Deleuze
  * @author Rossen Stoyanchev
@@ -72,22 +70,24 @@ public class DefaultCorsProcessor implements CorsProcessor {
 			response.addHeader(HttpHeaders.VARY, HttpHeaders.ACCESS_CONTROL_REQUEST_HEADERS);
 		}
 
-		if (!CorsUtils.isCorsRequest(request)) {
+		if (!CorsUtils.isCorsRequest(request)) { // 不是cors请求，则通过，这是针对拦截器中功能
 			return true;
 		}
 
+		// 已经被Cors拦截器处理过
 		if (response.getHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN) != null) {
 			logger.trace("Skip: response already contains \"Access-Control-Allow-Origin\"");
 			return true;
 		}
 
+		// 对于非简单请求的预检请求
 		boolean preFlightRequest = CorsUtils.isPreFlightRequest(request);
-		if (config == null) {
+		if (config == null) { // 如果没有配置且是pre flight请求，则拒绝
 			if (preFlightRequest) {
 				rejectRequest(new ServletServerHttpResponse(response));
 				return false;
 			}
-			else {
+			else { // 简单请求通过，没有配置也通过？？
 				return true;
 			}
 		}

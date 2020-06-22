@@ -40,23 +40,17 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link org.springframework.context.MessageSource} implementation that
- * accesses resource bundles using specified basenames. This class relies
- * on the underlying JDK's {@link java.util.ResourceBundle} implementation,
- * in combination with the JDK's standard message parsing provided by
- * {@link java.text.MessageFormat}.
+ * 使用指定的basenames访问资源包的{@link org.springframework.context.MessageSource}实现.
+ * 此类依赖于底层JDK的{@link java.util.ResourceBundle}实现，
+ * 以及{@link java.text.MessageFormat}提供的JDK标准消息解析.
  *
- * <p>This MessageSource caches both the accessed ResourceBundle instances and
- * the generated MessageFormats for each message. It also implements rendering of
- * no-arg messages without MessageFormat, as supported by the AbstractMessageSource
- * base class. The caching provided by this MessageSource is significantly faster
- * than the built-in caching of the {@code java.util.ResourceBundle} class.
+ * <p>此MessageSource缓存访问的ResourceBundle实例和为每个消息生成的MessageFormats.
+ * 如AbstractMessageSource基类所支持，它还实现了不带MessageFormat的无参数消息的渲染.
+ * 此MessageSource提供的缓存比{@code java.util.ResourceBundle}类的内置缓存要快得多.
  *
- * <p>The basenames follow {@link java.util.ResourceBundle} conventions: essentially,
- * a fully-qualified classpath location. If it doesn't contain a package qualifier
- * (such as {@code org.mypackage}), it will be resolved from the classpath root.
- * Note that the JDK's standard ResourceBundle treats dots as package separators:
- * This means that "test.theme" is effectively equivalent to "test/theme".
+ * <p>basenames遵循{@link java.util.ResourceBundle}约定：本质上是完全合格的类路径位置.
+ * 如果它不包含包限定符（例如{@code org.mypackage}），它将从类路径根目录解析.
+ * 请注意，JDK的标准ResourceBundle将点视为包分隔符：这意味着"test.theme"实际上等效于"test/theme".
  *
  * <p>On the classpath, bundle resources will be read with the locally configured
  * {@link #setDefaultEncoding encoding}: by default, ISO-8859-1; consider switching
@@ -68,6 +62,13 @@ import org.springframework.util.ClassUtils;
  * property). Note that {@link #loadBundle(Reader)}/{@link #loadBundle(InputStream)}
  * won't be called in this case either, effectively ignoring overrides in subclasses.
  * Consider implementing a JDK 9 {@code java.util.spi.ResourceBundleProvider} instead.
+ * <p>在类路径上，将使用本地配置的{@link #setDefaultEncoding 编码}读取捆绑包资源：
+ * 默认情况下为ISO-8859-1； 考虑将其切换为UTF-8，对于平台默认编码，请切换为{@code null}.
+ * 在不支持本地提供的{@code ResourceBundle.Control}句柄的JDK 9+模块路径上，
+ * 此MessageSource始终回退到{@link ResourceBundle#getBundle}，其使用平台默认编码：
+ * UTF-8和ISO-8859- JDK 9+上的1个后备广告（可通过"java.util.PropertyResourceBundle.encoding"系统属性进行配置）.
+ * 请注意，在这种情况下，也不会调用{@link #loadBundle(Reader)}/{@link #loadBundle(InputStream)}，
+ * 从而有效地忽略了子类中的重写. 考虑改用JDK 9 {@code java.util.spi.ResourceBundleProvider}.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

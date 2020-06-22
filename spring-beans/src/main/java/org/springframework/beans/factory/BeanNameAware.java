@@ -17,11 +17,8 @@
 package org.springframework.beans.factory;
 
 /**
- * Interface to be implemented by beans that want to be aware of their
- * bean name in a bean factory. Note that it is not usually recommended
- * that an object depends on its bean name, as this represents a potentially
- * brittle dependence on external configuration, as well as a possibly
- * unnecessary dependence on a Spring API.
+ * 想要在Bean工厂中知道其Bean名称的Bean将实现的接口。 
+ * 注意，通常不建议对象依赖于其bean名称，因为这表示对外部配置的潜在脆弱依赖，以及对Spring API的不必要依赖。
  *
  * <p>For a list of all bean lifecycle methods, see the
  * {@link BeanFactory BeanFactory javadocs}.

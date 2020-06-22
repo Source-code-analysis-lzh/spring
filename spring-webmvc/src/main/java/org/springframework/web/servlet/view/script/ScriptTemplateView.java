@@ -54,16 +54,14 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
 /**
- * An {@link AbstractUrlBasedView} subclass designed to run any template library
- * based on a JSR-223 script engine.
+ * 一个{@link AbstractUrlBasedView}子类，旨在运行基于JSR-223脚本引擎的任何模板库。
  *
- * <p>If not set, each property is auto-detected by looking up a single
- * {@link ScriptTemplateConfig} bean in the web application context and using
- * it to obtain the configured properties.
+ * <p>如果未设置，则通过在Web应用程序上下文中查找单个{@link ScriptTemplateConfig} bean
+ * 并使用它获取已配置的属性来自动检测每个属性。
  *
- * <p>The Nashorn JavaScript engine requires Java 8+ and may require setting the
- * {@code sharedEngine} property to {@code false} in order to run properly. See
- * {@link ScriptTemplateConfigurer#setSharedEngine(Boolean)} for more details.
+ * <p>Nashorn JavaScript引擎需要Java 8+，并且可能需要将{@code sharedEngine}属性设置为
+ * {@code false}才能正常运行。 有关更多详细信息，
+ * 请参见{@link ScriptTemplateConfigurer#setSharedEngine(Boolean)}。
  *
  * @author Sebastien Deleuze
  * @author Juergen Hoeller

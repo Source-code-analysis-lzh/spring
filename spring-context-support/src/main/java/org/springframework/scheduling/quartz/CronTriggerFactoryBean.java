@@ -35,17 +35,15 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A Spring {@link FactoryBean} for creating a Quartz {@link org.quartz.CronTrigger}
- * instance, supporting bean-style usage for trigger configuration.
+ * 一个用于创建Quartz {@link org.quartz.CronTrigger}实例的Spring {@link FactoryBean}，
+ * 支持Bean风格的触发器配置使用。
  *
- * <p>{@code CronTrigger(Impl)} itself is already a JavaBean but lacks sensible defaults.
- * This class uses the Spring bean name as job name, the Quartz default group ("DEFAULT")
- * as job group, the current time as start time, and indefinite repetition, if not specified.
+ * <p>{@code CronTrigger(Impl)}本身已经是JavaBean，但是缺少合理的默认值。 
+ * 此类使用Spring bean名称作为作业名称，使用Quartz默认组("DEFAULT")作为作业组，
+ * 将当前时间用作开始时间，并使用不确定的重复次数（如果未指定）。
  *
- * <p>This class will also register the trigger with the job name and group of
- * a given {@link org.quartz.JobDetail}. This allows {@link SchedulerFactoryBean}
- * to automatically register a trigger for the corresponding JobDetail,
- * instead of registering the JobDetail separately.
+ * <p>该类还将使用给定{@link org.quartz.JobDetail}的作业名称和组来注册触发器。 
+ * 这允许{@link SchedulerFactoryBean}自动为相应的JobDetail注册触发器，而不是分别注册JobDetail。
  *
  * @author Juergen Hoeller
  * @since 3.1
@@ -116,7 +114,7 @@ public class CronTriggerFactoryBean implements FactoryBean<CronTrigger>, BeanNam
 	}
 
 	/**
-	 * Set the JobDetail that this trigger should be associated with.
+	 * 设置此触发器应与之关联的JobDetail。
 	 */
 	public void setJobDetail(JobDetail jobDetail) {
 		this.jobDetail = jobDetail;

@@ -26,13 +26,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * {@link ConfigurablePropertyAccessor} implementation that directly accesses
- * instance fields. Allows for direct binding to fields instead of going through
- * JavaBean setters.
+ * 直接访问实例字段的{@link ConfigurablePropertyAccessor}实现。 
+ * 允许直接绑定到字段，而不是通过JavaBean setter。
  *
- * <p>As of Spring 4.2, the vast majority of the {@link BeanWrapper} features have
- * been merged to {@link AbstractPropertyAccessor}, which means that property
- * traversal as well as collections and map access is now supported here as well.
+ * <p>从Spring 4.2开始，绝大多数{@link BeanWrapper}功能已合并到{@link AbstractPropertyAccessor}中，
+ * 这意味着现在也支持属性遍历以及集合和映射访问。
  *
  * <p>A DirectFieldAccessor's default for the "extractOldValueForEditor" setting
  * is "true", since a field can always be read without side effects.

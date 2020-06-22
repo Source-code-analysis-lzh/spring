@@ -19,7 +19,7 @@ package org.springframework.aop;
 import java.io.Serializable;
 
 /**
- * Canonical Pointcut instance that always matches.
+ * 始终匹配的Canonical Pointcut实例。
  *
  * @author Rod Johnson
  */

@@ -30,8 +30,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
 /**
- * A logical conjunction (' && ') request condition that matches a request against
- * a set parameter expressions with syntax defined in {@link RequestMapping#params()}.
+ * 逻辑与（'&&'）请求条件，该条件将请求与使用{@link RequestMapping#params()}
+ * 中定义的语法的设置参数表达式进行匹配。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev

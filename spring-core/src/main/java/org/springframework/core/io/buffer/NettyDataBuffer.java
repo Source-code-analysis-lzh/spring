@@ -33,8 +33,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Implementation of the {@code DataBuffer} interface that wraps a Netty
- * {@link ByteBuf}. Typically constructed with {@link NettyDataBufferFactory}.
+ * 包装Netty {@link ByteBuf}的{@code DataBuffer}接口的实现. 通常用{@link NettyDataBufferFactory}构造.
  *
  * @author Arjen Poutsma
  * @author Brian Clozel

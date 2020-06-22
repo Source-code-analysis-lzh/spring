@@ -25,10 +25,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Abstract base class for {@code MessageSource} implementations based on
- * resource bundle conventions, such as {@link ResourceBundleMessageSource}
- * and {@link ReloadableResourceBundleMessageSource}. Provides common
- * configuration methods and corresponding semantic definitions.
+ * 基于资源包约定的MessageSource实现的抽象基类（例如{@link ResourceBundleMessageSource}
+ * 和{@link ReloadableResourceBundleMessageSource}.提供常见的配置方法和相应的语义定义.
  *
  * @author Juergen Hoeller
  * @since 4.3

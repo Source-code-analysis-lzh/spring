@@ -20,7 +20,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 /**
- * Parses text strings to produce instances of T.
+ * 解析文本字符串以生成T的实例.
  *
  * @author Keith Donald
  * @since 3.0

@@ -20,11 +20,10 @@ import java.lang.annotation.Annotation;
 import java.util.Set;
 
 /**
- * A factory that creates formatters to format values of fields annotated with a particular
- * {@link Annotation}.
+ * 一个工厂，该工厂创建格式化器以格式化带有特定{@link Annotation}的字段的值.
  *
- * <p>For example, a {@code DateTimeFormatAnnotationFormatterFactory} might create a formatter
- * that formats {@code Date} values set on fields annotated with {@code @DateTimeFormat}.
+ * <p>例如，{@code DateTimeFormatAnnotationFormatterFactory}可能会创建一个格式化器，
+ * 该格式化器对用{@code @DateTimeFormat}注释的字段上设置的日期值进行格式化.
  *
  * @author Keith Donald
  * @since 3.0
@@ -33,15 +32,14 @@ import java.util.Set;
 public interface AnnotationFormatterFactory<A extends Annotation> {
 
 	/**
-	 * The types of fields that may be annotated with the &lt;A&gt; annotation.
+	 * 可以用 &lt;A&gt; 注释的字段类型.
 	 */
 	Set<Class<?>> getFieldTypes();
 
 	/**
-	 * Get the Printer to print the value of a field of {@code fieldType} annotated with
-	 * {@code annotation}.
-	 * <p>If the type T the printer accepts is not assignable to {@code fieldType}, a
-	 * coercion from {@code fieldType} to T will be attempted before the Printer is invoked.
+	 * 获取打印机以打印带有{@code annotation}的{@code fieldType}字段的值.
+	 * <p>如果打印机接受的类型T不是继承于{@code fieldType}，
+	 * 则在调用打印机之前将尝试从{@code fieldType}强制转换为T.
 	 * @param annotation the annotation instance
 	 * @param fieldType the type of field that was annotated
 	 * @return the printer
@@ -49,10 +47,9 @@ public interface AnnotationFormatterFactory<A extends Annotation> {
 	Printer<?> getPrinter(A annotation, Class<?> fieldType);
 
 	/**
-	 * Get the Parser to parse a submitted value for a field of {@code fieldType}
-	 * annotated with {@code annotation}.
-	 * <p>If the object the parser returns is not assignable to {@code fieldType},
-	 * a coercion to {@code fieldType} will be attempted before the field is set.
+	 * 获取解析器以解析带有{@code annotation}的{@code fieldType}字段的提交值.
+	 * <p>如果解析器返回的对象不是继承于{@code fieldType}，
+	 * 则在设置字段之前将尝试强制转换为{@code fieldType}.
 	 * @param annotation the annotation instance
 	 * @param fieldType the type of field that was annotated
 	 * @return the parser

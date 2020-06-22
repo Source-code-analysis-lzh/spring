@@ -21,8 +21,7 @@ import java.io.Serializable;
 import org.springframework.util.Assert;
 
 /**
- * Convenience superclass for configuration used in creating proxies,
- * to ensure that all proxy creators have consistent properties.
+ * 用于创建代理的配置的便利超类，以确保所有代理创建者具有一致的属性。记载生成代理对象的控制信息。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -33,15 +32,15 @@ public class ProxyConfig implements Serializable {
 	/** use serialVersionUID from Spring 1.2 for interoperability. */
 	private static final long serialVersionUID = -8409359707199703185L;
 
-
+	// 是否使用CGLIB生成动态代理对象
 	private boolean proxyTargetClass = false;
-
+	// 
 	private boolean optimize = false;
 
 	boolean opaque = false;
-
+	// 是否暴露代理对象
 	boolean exposeProxy = false;
-
+	// 配置信息是否能修改
 	private boolean frozen = false;
 
 

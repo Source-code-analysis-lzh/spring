@@ -28,6 +28,7 @@ import org.springframework.util.Assert;
 /**
  * Convenient base class for Advisors that are also static pointcuts.
  * Serializable if Advice and subclass are.
+ * 既方便又是静态切入点的Advisor的基类，如果Advice和子类是，则可以序列化。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

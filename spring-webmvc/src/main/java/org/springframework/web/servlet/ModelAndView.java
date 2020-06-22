@@ -24,16 +24,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 
 /**
- * Holder for both Model and View in the web MVC framework.
- * Note that these are entirely distinct. This class merely holds
- * both to make it possible for a controller to return both model
- * and view in a single return value.
+ * Web MVC框架中的Model和View的持有者。 请注意，他们完全不同。 
+ * 此类仅持有两者，以使控制器可以在单个返回值中返回模型和视图。
  *
- * <p>Represents a model and view returned by a handler, to be resolved
- * by a DispatcherServlet. The view can take the form of a String
- * view name which will need to be resolved by a ViewResolver object;
- * alternatively a View object can be specified directly. The model
- * is a Map, allowing the use of multiple objects keyed by name.
+ * <p>表示处理器返回的要由DispatcherServlet解析的模型和视图。 
+ * 该视图可以采用String视图名称的形式，该名称需要由ViewResolver对象解析； 
+ * 或者，可以直接指定View对象。 该模型是一个Map，允许使用按名称键控的多个对象。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -58,7 +54,7 @@ public class ModelAndView {
 	@Nullable
 	private HttpStatus status;
 
-	/** Indicates whether or not this instance has been cleared with a call to {@link #clear()}. */
+	/** 指示是否通过调用{@link #clear()}清除了此实例. */
 	private boolean cleared = false;
 
 
@@ -336,7 +332,7 @@ public class ModelAndView {
 	}
 
 	/**
-	 * Return whether this ModelAndView object is empty as a result of a call to {@link #clear}
+	 * 返回由于调用{@link #clear}导致此ModelAndView对象是否为空
 	 * i.e. whether it does not hold any view and does not contain a model.
 	 * <p>Returns {@code false} if any additional state was added to the instance
 	 * <strong>after</strong> the call to {@link #clear}.

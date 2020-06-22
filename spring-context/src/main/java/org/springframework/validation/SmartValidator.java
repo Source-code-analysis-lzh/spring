@@ -19,8 +19,7 @@ package org.springframework.validation;
 import org.springframework.lang.Nullable;
 
 /**
- * Extended variant of the {@link Validator} interface, adding support for
- * validation 'hints'.
+ * {@link Validator}接口的扩展变体，增加了对验证“提示”的支持.
  *
  * @author Juergen Hoeller
  * @author Sam Brannen
@@ -29,13 +28,11 @@ import org.springframework.lang.Nullable;
 public interface SmartValidator extends Validator {
 
 	/**
-	 * Validate the supplied {@code target} object, which must be of a type of {@link Class}
-	 * for which the {@link #supports(Class)} method typically returns {@code true}.
-	 * <p>The supplied {@link Errors errors} instance can be used to report any
-	 * resulting validation errors.
-	 * <p><b>This variant of {@code validate()} supports validation hints, such as
-	 * validation groups against a JSR-303 provider</b> (in which case, the provided hint
-	 * objects need to be annotation arguments of type {@code Class}).
+	 * 验证提供的{@code target}对象，该目标对象必须是{@link Class}类型，
+	 * 即{@link #supports(Class)}方法返回{@code true} 的类型.
+	 * <p>提供的{@link Errors errors}实例可用于报告任何导致的验证错误.
+	 * <p>{@code validate()}的此变体支持验证提示，例如针对JSR-303提供程序的验证组
+	 * （在这种情况下，提供的提示对象必须是{@code Class}类型的注释参数）.
 	 * <p>Note: Validation hints may get ignored by the actual target {@code Validator},
 	 * in which case this method should behave just like its regular
 	 * {@link #validate(Object, Errors)} sibling.

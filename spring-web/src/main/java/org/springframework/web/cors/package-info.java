@@ -1,6 +1,5 @@
 /**
- * Support for CORS (Cross-Origin Resource Sharing),
- * based on a common {@code CorsProcessor} strategy.
+ * 基于常见的{@code CorsProcessor}策略，对CORS（跨源资源共享）的支持。
  */
 @NonNullApi
 @NonNullFields

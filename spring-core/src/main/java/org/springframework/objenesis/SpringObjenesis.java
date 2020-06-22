@@ -23,9 +23,8 @@ import org.springframework.objenesis.strategy.StdInstantiatorStrategy;
 import org.springframework.util.ConcurrentReferenceHashMap;
 
 /**
- * Spring-specific variant of {@link ObjenesisStd} / {@link ObjenesisBase},
- * providing a cache based on {@code Class} keys instead of class names,
- * and allowing for selective use of the cache.
+ * 特定于spring的{@link ObjenesisStd} / {@link ObjenesisBase}变体，
+ * 提供基于{@code Class}键而不是类名的缓存，并允许选择性使用缓存.
  *
  * @author Juergen Hoeller
  * @since 4.2
@@ -35,11 +34,9 @@ import org.springframework.util.ConcurrentReferenceHashMap;
 public class SpringObjenesis implements Objenesis {
 
 	/**
-	 * System property that instructs Spring to ignore Objenesis, not even attempting
-	 * to use it. Setting this flag to "true" is equivalent to letting Spring find
-	 * out that Objenesis isn't working at runtime, triggering the fallback code path
-	 * immediately: Most importantly, this means that all CGLIB AOP proxies will be
-	 * created through regular instantiation via a default constructor.
+	 * 指示Spring忽略Objenesis的系统属性，甚至不尝试使用它.
+	 * 将此标志设置为"true"等效于让Spring的Objenesis在运行时不起作用，
+	 * 立即触发后备代码路径：最重要的是，这意味着所有CGLIB AOP代理都将通过默认构造函数通过常规实例化来创建.
 	 */
 	public static final String IGNORE_OBJENESIS_PROPERTY_NAME = "spring.objenesis.ignore";
 

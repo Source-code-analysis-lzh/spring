@@ -19,20 +19,17 @@ package org.springframework.web.servlet.handler;
 import org.springframework.web.method.HandlerMethod;
 
 /**
- * A strategy for assigning a name to a handler method's mapping.
+ * 为处理器方法的映射分配名称的策略。
  *
  * <p>The strategy can be configured on
- * {@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping
- * AbstractHandlerMethodMapping}. It is used to assign a name to the mapping of
- * every registered handler method. The names can then be queried via
- * {@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping#getHandlerMethodsForMappingName(String)
- * AbstractHandlerMethodMapping#getHandlerMethodsForMappingName}.
+ * <p>可以在{@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping
+ * AbstractHandlerMethodMapping}上配置该策略。 它用于为每个已注册处理器方法的映射分配名称。 
+ * 然后可以通过{@link org.springframework.web.servlet.handler.AbstractHandlerMethodMapping#getHandlerMethodsForMappingName(String)
+ * AbstractHandlerMethodMapping#getHandlerMethodsForMappingName}查询名称。
  *
- * <p>Applications can build a URL to a controller method by name with the help
- * of the static method
- * {@link org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder#fromMappingName(String)
- * MvcUriComponentsBuilder#fromMappingName} or in JSPs through the "mvcUrl"
- * function registered by the Spring tag library.
+ * <p>应用程序可以借助静态方法{@link org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder#fromMappingName(String)
+ * MvcUriComponentsBuilder#fromMappingName}或在JSP中通过Spring标签库注册的"mvcUrl"
+ * 函数按名称为控制器方法建立URL。
  *
  * @author Rossen Stoyanchev
  * @since 4.1

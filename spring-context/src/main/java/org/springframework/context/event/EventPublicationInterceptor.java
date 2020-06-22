@@ -29,14 +29,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link MethodInterceptor Interceptor} that publishes an
- * {@code ApplicationEvent} to all {@code ApplicationListeners}
- * registered with an {@code ApplicationEventPublisher} after each
- * <i>successful</i> method invocation.
+ * 每次成功调用方法后，将发布给所有已向
+ * {@code ApplicationEventPublisher}注册的{@code ApplicationListeners}
+ * 的{@code ApplicationEvent}的{@link MethodInterceptor 拦截器}.
  *
- * <p>Note that this interceptor is only capable of publishing <i>stateless</i>
- * events configured via the
- * {@link #setApplicationEventClass "applicationEventClass"} property.
+ * <p>请注意，此拦截器仅能够发布通过{@link #setApplicationEventClass "applicationEventClass"}属性配置的无状态事件.
  *
  * @author Dmitriy Kopylenko
  * @author Juergen Hoeller

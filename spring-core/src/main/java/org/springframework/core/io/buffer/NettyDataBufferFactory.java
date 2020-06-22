@@ -27,8 +27,7 @@ import io.netty.buffer.Unpooled;
 import org.springframework.util.Assert;
 
 /**
- * Implementation of the {@code DataBufferFactory} interface based on a
- * Netty {@link ByteBufAllocator}.
+ * 基于Netty {@link ByteBufAllocator}的{@code DataBufferFactory}接口的实现.
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

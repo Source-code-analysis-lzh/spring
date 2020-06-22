@@ -25,16 +25,12 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Property editor for {@code java.util.Date},
- * supporting a custom {@code java.text.DateFormat}.
+ * {@code java.util.Date}的属性编辑器，支持自定义{@code java.text.DateFormat}.
  *
- * <p>This is not meant to be used as system PropertyEditor but rather
- * as locale-specific date editor within custom controller code,
- * parsing user-entered number strings into Date properties of beans
- * and rendering them in the UI form.
+ * <p>这并不是要用作系统PropertyEditor，而是用作自定义控制器代码中特定于区域设置的日期编辑器，
+ * 它将用户输入的数字字符串解析为bean的Date属性，并以UI形式呈现它们.
  *
- * <p>In web MVC code, this editor will typically be registered with
- * {@code binder.registerCustomEditor}.
+ * <p>在Web MVC代码中，此编辑器通常将使用{@code binder.registerCustomEditor}注册.
  *
  * @author Juergen Hoeller
  * @since 28.04.2003

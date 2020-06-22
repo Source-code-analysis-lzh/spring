@@ -37,14 +37,12 @@ import org.springframework.web.servlet.support.WebContentGenerator;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Handler interceptor that checks the request and prepares the response.
- * Checks for supported methods and a required session, and applies the
- * specified {@link org.springframework.http.CacheControl} builder.
- * See superclass bean properties for configuration options.
+ * 处理器拦截器，用于检查请求并准备响应。 检查受支持的方法和所需的会话，
+ * 并应用指定的{@link org.springframework.http.CacheControl}构建器。 
+ * 有关配置选项，请参见超类bean属性。
  *
- * <p>All the settings supported by this interceptor can also be set on
- * {@link AbstractController}. This interceptor is mainly intended for applying
- * checks and preparations to a set of controllers mapped by a HandlerMapping.
+ * <p>该拦截器支持的所有设置也可以在{@link AbstractController}上进行设置。 
+ * 该拦截器主要用于将检查和准备应用于由HandlerMapping映射的一组控制器。
  *
  * @author Juergen Hoeller
  * @author Brian Clozel

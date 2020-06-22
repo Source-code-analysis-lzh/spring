@@ -26,18 +26,15 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 
 /**
- * A convenience annotation that is itself annotated with
- * {@link ControllerAdvice @ControllerAdvice}
- * and {@link ResponseBody @ResponseBody}.
+ * 一个方便注释，其本身由{@link ControllerAdvice @ControllerAdvice}
+ * 和{@link ResponseBody @ResponseBody}进行注释。
  *
- * <p>Types that carry this annotation are treated as controller advice where
- * {@link ExceptionHandler @ExceptionHandler} methods assume
- * {@link ResponseBody @ResponseBody} semantics by default.
+ * <p>带有此注释的类型被视为控制器advice，其中{@link ExceptionHandler @ExceptionHandler}
+ * 方法默认情况下采用{@link ResponseBody @ResponseBody}语义。
  *
- * <p><b>NOTE:</b> {@code @RestControllerAdvice} is processed if an appropriate
- * {@code HandlerMapping}-{@code HandlerAdapter} pair is configured such as the
- * {@code RequestMappingHandlerMapping}-{@code RequestMappingHandlerAdapter} pair
- * which are the default in the MVC Java config and the MVC namespace.
+ * <p>注意：如果配置了适当的{@code HandlerMapping}-{@code HandlerAdapter}对，
+ * 例如{@code RequestMappingHandlerMapping}-{@code RequestMappingHandlerAdapter}对
+ * (这是MVC Java配置和MVC命名空间中的默认对)，则将处理{@code @RestControllerAdvice}。
  *
  * @author Rossen Stoyanchev
  * @author Sam Brannen

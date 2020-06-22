@@ -43,16 +43,13 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Encapsulates a Java {@link java.lang.reflect.Type}, providing access to
- * {@link #getSuperType() supertypes}, {@link #getInterfaces() interfaces}, and
- * {@link #getGeneric(int...) generic parameters} along with the ability to ultimately
- * {@link #resolve() resolve} to a {@link java.lang.Class}.
+ * 封装Java {@link java.lang.reflect.Type}类型，提供对
+ * {@link #getSuperType() supertypes}, {@link #getInterfaces() interfaces}和{@link #getGeneric(int...) generic parameters}
+ * 的访问以及最终{@link #resolve() resolve}为{@link java.lang.Class}的能力.
  *
- * <p>{@code ResolvableTypes} may be obtained from {@link #forField(Field) fields},
- * {@link #forMethodParameter(Method, int) method parameters},
- * {@link #forMethodReturnType(Method) method returns} or
- * {@link #forClass(Class) classes}. Most methods on this class will themselves return
- * {@link ResolvableType ResolvableTypes}, allowing easy navigation. For example:
+ * <p>{@code ResolvableTypes}可以从{@link #forField(Field) fields}，{@link #forMethodParameter(Method, int) method parameters}，
+ * {@link #forMethodReturnType(Method) method returns}或{@link #forClass(Class) classes}中获取.
+ * 该类上的大多数方法本身都会返回{@link ResolvableType ResolvableTypes}，从而可以轻松导航. 例如：
  * <pre class="code">
  * private HashMap&lt;Integer, List&lt;String&gt;&gt; myMap;
  *

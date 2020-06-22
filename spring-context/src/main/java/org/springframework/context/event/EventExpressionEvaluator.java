@@ -30,8 +30,8 @@ import org.springframework.expression.Expression;
 import org.springframework.lang.Nullable;
 
 /**
- * Utility class for handling SpEL expression parsing for application events.
- * <p>Meant to be used as a reusable, thread-safe component.
+ * 工具类，用于处理应用程序事件的SpEL表达式解析.
+ * <p>旨在用作可重用的线程安全组件.
  *
  * @author Stephane Nicoll
  * @since 4.2

@@ -22,12 +22,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link org.springframework.web.servlet.ThemeResolver} implementation
- * that simply uses a fixed theme. The fixed name can be defined via
- * the "defaultThemeName" property; out of the box, it is "theme".
+ * 仅使用固定主题的{@link org.springframework.web.servlet.ThemeResolver}实现。 
+ * 固定名称可以通过"defaultThemeName"属性来定义。 开箱即用，它是"theme"。
  *
- * <p>Note: Does not support {@code setThemeName}, as the fixed theme
- * cannot be changed.
+ * <p>注意：不支持{@code setThemeName}，因为无法更改固定主题。
  *
  * @author Jean-Pierre Pawlak
  * @author Juergen Hoeller

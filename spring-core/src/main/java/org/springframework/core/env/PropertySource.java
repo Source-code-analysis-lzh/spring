@@ -24,29 +24,20 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Abstract base class representing a source of name/value property pairs. The underlying
- * {@linkplain #getSource() source object} may be of any type {@code T} that encapsulates
- * properties. Examples include {@link java.util.Properties} objects, {@link java.util.Map}
- * objects, {@code ServletContext} and {@code ServletConfig} objects (for access to init
- * parameters). Explore the {@code PropertySource} type hierarchy to see provided
- * implementations.
+ * 表示键/值属性对来源的抽象基类。 底层{@linkplain #getSource() source object}可以是封装属性的任何{@code T}类型。 
+ * 示例包括{@link java.util.Properties}对象，{@link java.util.Map}对象，{@code ServletContext}和
+ * {@code ServletConfig}对象（用于访问init参数）。 探索{@code PropertySource}类型层次结构以查看提供的实现。
  *
- * <p>{@code PropertySource} objects are not typically used in isolation, but rather
- * through a {@link PropertySources} object, which aggregates property sources and in
- * conjunction with a {@link PropertyResolver} implementation that can perform
- * precedence-based searches across the set of {@code PropertySources}.
+ * <p>{@code PropertySource}对象通常不是孤立使用的，而是通过{@link PropertySources}对象使用的，
+ * 该对象聚合属性源，并与{@link PropertyResolver}实现联合使用，该实现可以对整个{@code PropertySources}执行基于优先级的搜索。
  *
- * <p>{@code PropertySource} identity is determined not based on the content of
- * encapsulated properties, but rather based on the {@link #getName() name} of the
- * {@code PropertySource} alone. This is useful for manipulating {@code PropertySource}
- * objects when in collection contexts. See operations in {@link MutablePropertySources}
- * as well as the {@link #named(String)} and {@link #toString()} methods for details.
+ * <p>{@code PropertySource}身份的确定不是基于封装属性的内容，而是仅基于{@code PropertySource}的
+ * {@link #getName() name}。 这对于在集合上下文中操作{@code PropertySource}对象很有用。 
+ * 有关详细信息，请参见{@link MutablePropertySources}中的操作以及{@link #named(String)}和{@link #toString()}方法。
  *
- * <p>Note that when working with @{@link
- * org.springframework.context.annotation.Configuration Configuration} classes that
- * the @{@link org.springframework.context.annotation.PropertySource PropertySource}
- * annotation provides a convenient and declarative way of adding property sources to the
- * enclosing {@code Environment}.
+ * <p>请注意，在使用@{@link org.springframework.context.annotation.Configuration Configuration}类时，
+ * @{@link org.springframework.context.annotation.PropertySource PropertySource}批注
+ * 提供了将属性源添加到封闭{@code Environment}的便捷声明式方法。
  *
  * @author Chris Beams
  * @since 3.1
@@ -67,7 +58,7 @@ public abstract class PropertySource<T> {
 
 
 	/**
-	 * Create a new {@code PropertySource} with the given name and source object.
+	 * 使用给定的名称和源对象创建一个新的{@code PropertySource}。
 	 */
 	public PropertySource(String name, T source) {
 		Assert.hasText(name, "Property source name must contain at least one character");
@@ -77,10 +68,8 @@ public abstract class PropertySource<T> {
 	}
 
 	/**
-	 * Create a new {@code PropertySource} with the given name and with a new
-	 * {@code Object} instance as the underlying source.
-	 * <p>Often useful in testing scenarios when creating anonymous implementations
-	 * that never query an actual source but rather return hard-coded values.
+	 * 用给定的名称和新的{@code Object}实例作为底层源来创建一个新的{@code PropertySource}。
+	 * <p>在创建从不查询实际源而是返回硬编码值的匿名实现时，在测试场景中通常很有用。
 	 */
 	@SuppressWarnings("unchecked")
 	public PropertySource(String name) {
@@ -103,10 +92,8 @@ public abstract class PropertySource<T> {
 	}
 
 	/**
-	 * Return whether this {@code PropertySource} contains the given name.
-	 * <p>This implementation simply checks for a {@code null} return value
-	 * from {@link #getProperty(String)}. Subclasses may wish to implement
-	 * a more efficient algorithm if possible.
+	 * 返回此{@code PropertySource}是否包含给定名称。
+	 * <p>此实现仅检查{@link #getProperty(String)}中的空返回值。 如果可能，子类可能希望实现更有效的算法。
 	 * @param name the property name to find
 	 */
 	public boolean containsProperty(String name) {
@@ -168,7 +155,7 @@ public abstract class PropertySource<T> {
 
 
 	/**
-	 * Return a {@code PropertySource} implementation intended for collection comparison purposes only.
+	 * 返回仅用于集合比较目的的{@code PropertySource}实现。
 	 * <p>Primarily for internal use, but given a collection of {@code PropertySource} objects, may be
 	 * used as follows:
 	 * <pre class="code">
@@ -190,13 +177,9 @@ public abstract class PropertySource<T> {
 
 
 	/**
-	 * {@code PropertySource} to be used as a placeholder in cases where an actual
-	 * property source cannot be eagerly initialized at application context
-	 * creation time.  For example, a {@code ServletContext}-based property source
-	 * must wait until the {@code ServletContext} object is available to its enclosing
-	 * {@code ApplicationContext}.  In such cases, a stub should be used to hold the
-	 * intended default position/order of the property source, then be replaced
-	 * during context refresh.
+	 * 在无法在应用程序上下文创建时立即初始化实际属性源的情况下，该{@code PropertySource}用作占位符。 
+	 * 例如，基于{@code ServletContext}的属性源必须等待，直到{@code ServletContext}对象可用于
+	 * 其包含的{@code ApplicationContext}。 在这种情况下，应使用存根保留属性源的预期默认位置/顺序，然后在上下文刷新期间将其替换。
 	 * @see org.springframework.context.support.AbstractApplicationContext#initPropertySources()
 	 * @see org.springframework.web.context.support.StandardServletEnvironment
 	 * @see org.springframework.web.context.support.ServletContextPropertySource

@@ -29,10 +29,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Abstract base class for {@link BindingResult} implementations that work with
- * Spring's {@link org.springframework.beans.PropertyAccessor} mechanism.
- * Pre-implements field access through delegation to the corresponding
- * PropertyAccessor methods.
+ * 与Spring的{@link org.springframework.beans.PropertyAccessor}机制一起使用的{@link BindingResult}实现的抽象基类.
+ * 通过委派相应的PropertyAccessor方法来预实施字段访问.
  *
  * @author Juergen Hoeller
  * @since 2.0

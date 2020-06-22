@@ -30,16 +30,12 @@ import org.springframework.util.Assert;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
 /**
- * Abstract superclass for PDF views that operate on an existing
- * document with an AcroForm. Application-specific view classes
- * will extend this class to merge the PDF form with model data.
+ * 使用AcroForm对现有文档进行操作的PDF视图的抽象超类。 即读取模板生成PDF。
+ * 特定于应用程序的视图类将扩展此类，以将PDF表单与模型数据合并。
  *
- * <p>This view implementation uses Bruno Lowagie's
- * <a href="https://www.lowagie.com/iText">iText</a> API.
- * Known to work with the original iText 2.1.7 as well as its fork
- * <a href="https://github.com/LibrePDF/OpenPDF">OpenPDF</a>.
- * <b>We strongly recommend OpenPDF since it is actively maintained
- * and fixes an important vulnerability for untrusted PDF content.</b>
+ * <p>该视图实现使用Bruno Lowagie的<a href="https://www.lowagie.com/iText">iText</a> API。 
+ * 已知可与原始iText 2.1.7及其fork <a href="https://github.com/LibrePDF/OpenPDF">OpenPDF</a>一起使用。 
+ * 我们强烈推荐OpenPDF，因为它是主动维护的，并修复了不受信任的PDF内容的重要漏洞。
  *
  * <p>Thanks to Bryant Larsen for the suggestion and the original prototype!
  *

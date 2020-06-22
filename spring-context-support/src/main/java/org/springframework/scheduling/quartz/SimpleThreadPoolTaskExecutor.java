@@ -33,13 +33,11 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureTask;
 
 /**
- * Subclass of Quartz's SimpleThreadPool that implements Spring's
- * {@link org.springframework.core.task.TaskExecutor} interface
- * and listens to Spring lifecycle callbacks.
+ * Quartz的SimpleThreadPool的子类，
+ * 该子类实现Spring的{@link org.springframework.core.task.TaskExecutor}接口并侦听Spring生命周期回调。
  *
- * <p>Can be shared between a Quartz Scheduler (specified as "taskExecutor")
- * and other TaskExecutor users, or even used completely independent of
- * a Quartz Scheduler (as plain TaskExecutor backend).
+ * <p>可以在Quartz Scheduler（指定为"taskExecutor"）和其他TaskExecutor用户之间共享，
+ * 甚至可以完全独立于Quartz Scheduler（作为普通TaskExecutor后端）使用。
  *
  * @author Juergen Hoeller
  * @since 2.0

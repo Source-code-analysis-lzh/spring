@@ -22,11 +22,9 @@ import java.util.TimeZone;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple implementation of the {@link TimeZoneAwareLocaleContext} interface,
- * always returning a specified {@code Locale} and {@code TimeZone}.
+ * {@link TimeZoneAwareLocaleContext}接口的简单实现，始终返回指定的{@code Locale}和{@code TimeZone}.
  *
- * <p>Note: Prefer the use of {@link SimpleLocaleContext} when only setting
- * a Locale but no TimeZone.
+ * <p>注意：仅设置Locale设置而不设置TimeZone时，建议使用{@link SimpleLocaleContext}.
  *
  * @author Juergen Hoeller
  * @author Nicholas Williams

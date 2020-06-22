@@ -27,7 +27,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.TypeUtils;
 
 /**
- * Spring AOP advice wrapping an AspectJ after-returning advice method.
+ * Spring AOP advice包装了AspectJ的after-returning advice方法。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

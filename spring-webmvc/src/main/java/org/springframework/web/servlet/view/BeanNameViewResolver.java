@@ -27,24 +27,18 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 /**
- * A simple implementation of {@link org.springframework.web.servlet.ViewResolver}
- * that interprets a view name as a bean name in the current application context,
- * i.e. typically in the XML file of the executing {@code DispatcherServlet}.
+ * {@link org.springframework.web.servlet.ViewResolver}的简单实现，
+ * 它将视图名称解释为在当前应用程序上下文中的Bean名称，如通常在正在执行DispatcherServlet的XML文件中。
  *
- * <p>This resolver can be handy for small applications, keeping all definitions
- * ranging from controllers to views in the same place. For larger applications,
- * {@link XmlViewResolver} will be the better choice, as it separates the XML
- * view bean definitions into a dedicated views file.
+ * <p>对于小型应用程序，此解析器可能很方便，将所有定义（从控制器到视图）都保留在同一位置。 
+ * 对于较大的应用程序，{@link XmlViewResolver}将是更好的选择，因为它将XML视图Bean定义分离到专用的视图文件中。
  *
- * <p>Note: Neither this {@code ViewResolver} nor {@link XmlViewResolver} supports
- * internationalization. Consider {@link ResourceBundleViewResolver} if you need
- * to apply different view resources per locale.
+ * <p>注意：此{@code ViewResolver}和{@link XmlViewResolver}都不支持国际化。 
+ * 如果您需要在每个语言环境中应用不同的视图资源，请考虑使用{@link ResourceBundleViewResolver}。
  *
- * <p>Note: This {@code ViewResolver} implements the {@link Ordered} interface
- * in order to allow for flexible participation in {@code ViewResolver} chaining.
- * For example, some special views could be defined via this {@code ViewResolver}
- * (giving it 0 as "order" value), while all remaining views could be resolved by
- * a {@link UrlBasedViewResolver}.
+ * <p>注意：此{@code ViewResolver}实现{@link Ordered}接口，以允许灵活地参与{@code ViewResolver}链。 
+ * 例如，可以通过此{@code ViewResolver}定义一些特殊的视图（将其0表示为"order"值），
+ * 而所有其余视图都可以由{@link UrlBasedViewResolver}解析。
  *
  * @author Juergen Hoeller
  * @since 18.06.2003

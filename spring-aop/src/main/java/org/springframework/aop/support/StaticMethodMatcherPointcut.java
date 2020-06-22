@@ -21,11 +21,10 @@ import org.springframework.aop.MethodMatcher;
 import org.springframework.aop.Pointcut;
 
 /**
- * Convenient superclass when we want to force subclasses to implement the
- * {@link MethodMatcher} interface but subclasses will want to be pointcuts.
+ * 当我们要强制子类实现{@link MethodMatcher}接口但子类将成为切入点时，是方便的超类。
  *
- * <p>The {@link #setClassFilter "classFilter"} property can be set to customize
- * {@link ClassFilter} behavior. The default is {@link ClassFilter#TRUE}.
+ * <p>可以设置{@link #setClassFilter "classFilter"}属性以自定义{@link ClassFilter}行为。 
+ * 默认值为{@link ClassFilter#TRUE}。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

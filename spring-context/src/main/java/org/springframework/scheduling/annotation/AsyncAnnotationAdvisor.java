@@ -38,9 +38,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.function.SingletonSupplier;
 
 /**
- * Advisor that activates asynchronous method execution through the {@link Async}
- * annotation. This annotation can be used at the method and type level in
- * implementation classes as well as in service interfaces.
+ * 通过{@link Async}注释激活异步方法执行的Advisor。 此注释可以在实现类以及服务接口中的方法和类型级别上使用。
  *
  * <p>This advisor detects the EJB 3.1 {@code javax.ejb.Asynchronous}
  * annotation as well, treating it exactly like Spring's own {@code Async}.

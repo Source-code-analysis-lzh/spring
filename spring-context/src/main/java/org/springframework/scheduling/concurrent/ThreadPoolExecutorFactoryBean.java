@@ -32,10 +32,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.lang.Nullable;
 
 /**
- * JavaBean that allows for configuring a {@link java.util.concurrent.ThreadPoolExecutor}
- * in bean style (through its "corePoolSize", "maxPoolSize", "keepAliveSeconds",
- * "queueCapacity" properties) and exposing it as a bean reference of its native
- * {@link java.util.concurrent.ExecutorService} type.
+ * 允许以Bean样式（通过其"corePoolSize", "maxPoolSize", "keepAliveSeconds","queueCapacity"属性）
+ * 配置{@link java.util.concurrent.ThreadPoolExecutor}的JavaBean，
+ * 并将其作为其本机{@link java.util.concurrent.ExecutorService}类型的Bean引用公开。
  *
  * <p>The default configuration is a core pool size of 1, with unlimited max pool size
  * and unlimited queue capacity. This is roughly equivalent to

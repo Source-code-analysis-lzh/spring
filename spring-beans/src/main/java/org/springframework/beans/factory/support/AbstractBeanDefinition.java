@@ -39,13 +39,10 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Base class for concrete, full-fledged {@link BeanDefinition} classes,
- * factoring out common properties of {@link GenericBeanDefinition},
- * {@link RootBeanDefinition}, and {@link ChildBeanDefinition}.
+ * 具体的，成熟的{@link BeanDefinition}类的基类，
+ * 其中抽取了{@link GenericBeanDefinition}，{@link RootBeanDefinition}和{@link ChildBeanDefinition}的常用属性。
  *
- * <p>The autowire constants match the ones defined in the
- * {@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}
- * interface.
+ * <p>自动装配常数与{@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}接口中定义的常数匹配。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

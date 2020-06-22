@@ -32,11 +32,10 @@ import java.nio.charset.Charset;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple utility methods for dealing with streams. The copy methods of this class are
- * similar to those defined in {@link FileCopyUtils} except that all affected streams are
- * left open when done. All copy methods use a block size of 4096 bytes.
+ * 用于处理流的简单工具类方法. 此类的复制方法与{@link FileCopyUtils}中定义的复制方法类似，
+ * 不同之处在于所有受影响的流在完成后均保持打开状态. 所有复制方法都使用4096字节的块大小.
  *
- * <p>Mainly for use within the framework, but also useful for application code.
+ * <p>主要用于框架内，但对于应用程序代码也很有用.
  *
  * @author Juergen Hoeller
  * @author Phillip Webb
@@ -47,7 +46,7 @@ import org.springframework.lang.Nullable;
 public abstract class StreamUtils {
 
 	/**
-	 * The default buffer size used when copying bytes.
+	 * 复制字节时使用的默认缓冲区大小.
 	 */
 	public static final int BUFFER_SIZE = 4096;
 
@@ -55,8 +54,8 @@ public abstract class StreamUtils {
 
 
 	/**
-	 * Copy the contents of the given InputStream into a new byte array.
-	 * <p>Leaves the stream open when done.
+	 * 将给定InputStream的内容复制到新的字节数组中.
+	 * <p>完成后，使流保持打开状态.
 	 * @param in the stream to copy from (may be {@code null} or empty)
 	 * @return the new byte array that has been copied to (possibly empty)
 	 * @throws IOException in case of I/O errors
@@ -72,8 +71,8 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Copy the contents of the given InputStream into a String.
-	 * <p>Leaves the stream open when done.
+	 * 将给定InputStream的内容复制到String中.
+	 * <p>完成后，使流保持打开状态.
 	 * @param in the InputStream to copy from (may be {@code null} or empty)
 	 * @param charset the {@link Charset} to use to decode the bytes
 	 * @return the String that has been copied to (possibly empty)
@@ -95,10 +94,9 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Copy the contents of the given {@link ByteArrayOutputStream} into a {@link String}.
-	 * <p>This is a more effective equivalent of {@code new String(baos.toByteArray(), charset)}.
-	 * <p>As long as the {@code charset} is already available at the point of
-	 * invocation, no exception is expected to be thrown by this method.
+	 * 将给定{@link ByteArrayOutputStream}的内容复制到{@link String}中.
+	 * <p>这与{@code new String(baos.toByteArray(), charset)}等效.
+	 * <p>只要在调用时{@code charset}已经可用，则此方法不会引发任何异常.
 	 * @param baos the {@code ByteArrayOutputStream} to be copied into a String
 	 * @param charset the {@link Charset} to use to decode the bytes
 	 * @return the String that has been copied to (possibly empty)
@@ -116,8 +114,8 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Copy the contents of the given byte array to the given OutputStream.
-	 * <p>Leaves the stream open when done.
+	 * 将给定字节数组的内容复制到给定的OutputStream.
+	 * <p>完成后，使流保持打开状态.
 	 * @param in the byte array to copy from
 	 * @param out the OutputStream to copy to
 	 * @throws IOException in case of I/O errors
@@ -130,8 +128,8 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Copy the contents of the given String to the given output OutputStream.
-	 * <p>Leaves the stream open when done.
+	 * 将给定String的内容复制到给定输出OutputStream.
+	 * <p>完成后，使流保持打开状态.
 	 * @param in the String to copy from
 	 * @param charset the Charset
 	 * @param out the OutputStream to copy to
@@ -148,8 +146,8 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Copy the contents of the given InputStream to the given OutputStream.
-	 * <p>Leaves both streams open when done.
+	 * 将给定InputStream的内容复制到给定OutputStream.
+	 * <p>完成后，将两个流都打开.
 	 * @param in the InputStream to copy from
 	 * @param out the OutputStream to copy to
 	 * @return the number of bytes copied
@@ -171,10 +169,10 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Copy a range of content of the given InputStream to the given OutputStream.
-	 * <p>If the specified range exceeds the length of the InputStream, this copies
-	 * up to the end of the stream and returns the actual number of copied bytes.
 	 * <p>Leaves both streams open when done.
+	 * 将给定InputStream的内容范围复制到给定OutputStream.
+	 * <p>如果指定范围超出InputStream的长度，则此操作将复制到流的末尾，并返回实际复制的字节数.
+	 * <p>完成后，将两个流都打开.
 	 * @param in the InputStream to copy from
 	 * @param out the OutputStream to copy to
 	 * @param start the position to start copying from
@@ -212,8 +210,8 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Drain the remaining content of the given InputStream.
-	 * <p>Leaves the InputStream open when done.
+	 * 清空给定InputStream的剩余内容.
+	 * <p>完成后，将InputStream保持打开状态.
 	 * @param in the InputStream to drain
 	 * @return the number of bytes read
 	 * @throws IOException in case of I/O errors
@@ -231,7 +229,7 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Return an efficient empty {@link InputStream}.
+	 * 返回一个有效的空{@link InputStream}.
 	 * @return a {@link ByteArrayInputStream} based on an empty byte array
 	 * @since 4.2.2
 	 */
@@ -240,8 +238,7 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Return a variant of the given {@link InputStream} where calling
-	 * {@link InputStream#close() close()} has no effect.
+	 * 返回给定{@link InputStream}的变体，其中调用{@link InputStream#close() close()}无效.
 	 * @param in the InputStream to decorate
 	 * @return a version of the InputStream that ignores calls to close
 	 */
@@ -251,8 +248,7 @@ public abstract class StreamUtils {
 	}
 
 	/**
-	 * Return a variant of the given {@link OutputStream} where calling
-	 * {@link OutputStream#close() close()} has no effect.
+	 * 返回给定{@link OutputStream}的变体，其中调用{@link OutputStream#close() close()}无效.
 	 * @param out the OutputStream to decorate
 	 * @return a version of the OutputStream that ignores calls to close
 	 */

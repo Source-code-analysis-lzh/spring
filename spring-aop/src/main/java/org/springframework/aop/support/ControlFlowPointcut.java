@@ -28,9 +28,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Pointcut and method matcher for use in simple <b>cflow</b>-style pointcut.
- * Note that evaluating such pointcuts is 10-15 times slower than evaluating
- * normal pointcuts, but they are useful in some cases.
+ * 用于简单的<b>cflow</b>样式切入点的切入点和方法匹配器。
+ * 请注意，计算此类切入点的速度比计算普通切入点的速度慢10到15倍，但在某些情况下它们很有用。
  *
  * @author Rod Johnson
  * @author Rob Harrop

@@ -25,14 +25,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * One-way PropertyEditor which can convert from a text String to a
- * {@code java.io.InputStream}, interpreting the given String as a
- * Spring resource location (e.g. a URL String).
+ * 单向PropertyEditor可以从文本String转换为{@code java.io.InputStream}，
+ * 将给定的String解释为Spring资源位置（例如URL String）.
  *
- * <p>Supports Spring-style URL notation: any fully qualified standard URL
- * ("file:", "http:", etc.) and Spring's special "classpath:" pseudo-URL.
+ * <p>支持Spring样式的URL表示法：任何完全限定的标准URL("file:", "http:", etc.)
+ * 和Spring的特有"classpath:"伪URL.
  *
- * <p>Note that such streams usually do not get closed by Spring itself!
+ * <p>注意，这样的流通常不会被Spring自身关闭！
  *
  * @author Juergen Hoeller
  * @since 1.0.1

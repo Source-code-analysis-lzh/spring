@@ -86,24 +86,17 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Spring's default implementation of the {@link ConfigurableListableBeanFactory}
- * and {@link BeanDefinitionRegistry} interfaces: a full-fledged bean factory
- * based on bean definition metadata, extensible through post-processors.
+ * Spring的{@link ConfigurableListableBeanFactory}和{@link BeanDefinitionRegistry}接口的默认实现：
+ * 基于bean定义元数据的成熟bean工厂，可通过后处理器进行扩展.
  *
- * <p>Typical usage is registering all bean definitions first (possibly read
- * from a bean definition file), before accessing beans. Bean lookup by name
- * is therefore an inexpensive operation in a local bean definition table,
- * operating on pre-resolved bean definition metadata objects.
+ * <p>典型的用法是在访问bean之前先注册所有bean定义（可能是从bean定义文件中读取）.
+ * 因此，按名称查找Bean是对本地Bean定义表进行的方便操作，该操作对预先解析的Bean定义元数据对象进行操作.
  *
- * <p>Note that readers for specific bean definition formats are typically
- * implemented separately rather than as bean factory subclasses:
- * see for example {@link PropertiesBeanDefinitionReader} and
- * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
+ * <p>注意，特定bean定义格式的读取器通常是单独实现的，而不是作为bean工厂的子类实现的：
+ * 例如，参见{@link PropertiesBeanDefinitionReader}和{@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
  *
- * <p>For an alternative implementation of the
- * {@link org.springframework.beans.factory.ListableBeanFactory} interface,
- * have a look at {@link StaticListableBeanFactory}, which manages existing
- * bean instances rather than creating new ones based on bean definitions.
+ * <p>对于{@link org.springframework.beans.factory.ListableBeanFactory}接口的另一种实现，
+ * 请查看{@link StaticListableBeanFactory}，它管理现有的bean实例，而不是根据bean定义创建新的bean实例.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -145,10 +138,10 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	@Nullable
 	private String serializationId;
 
-	/** Whether to allow re-registration of a different definition with the same name. */
+	/** 是否允许重新注册具有相同名称的不同定义. */
 	private boolean allowBeanDefinitionOverriding = true;
 
-	/** Whether to allow eager class loading even for lazy-init beans. */
+	/** 是否允许对于延迟初始化的bean都立即加载类. */
 	private boolean allowEagerClassLoading = true;
 
 	/** Optional OrderComparator for dependency Lists and arrays. */
@@ -892,9 +885,11 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	protected boolean isBeanEligibleForMetadataCaching(String beanName) {
 		return (this.configurationFrozen || super.isBeanEligibleForMetadataCaching(beanName));
 	}
-
+	
 	@Override
 	public void preInstantiateSingletons() throws BeansException {
+		//1. 判断bean的类型是否是factoryBean，如果是的话判断类型是不是SmartFactoryBean，再获取是否需要立即加载的isEagerInit属性，执行getBean方法
+		//2. 在单例bean都初始化完成后，循环判断bean的类型是否是SmartInitializingSingleton，是的话会在这时候执行afterSingletonsInstantiated方法
 		if (logger.isTraceEnabled()) {
 			logger.trace("Pre-instantiating singletons in " + this);
 		}
@@ -906,7 +901,9 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		// Trigger initialization of all non-lazy singleton beans...
 		for (String beanName : beanNames) {
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
+			// 遍历所有非延迟加载的单例类型
 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
+				// 判断类型是否为 FactoryBean
 				if (isFactoryBean(beanName)) {
 					Object bean = getBean(FACTORY_BEAN_PREFIX + beanName);
 					if (bean instanceof FactoryBean) {
@@ -921,6 +918,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 							isEagerInit = (factory instanceof SmartFactoryBean &&
 									((SmartFactoryBean<?>) factory).isEagerInit());
 						}
+						// 是否需要立即加载
 						if (isEagerInit) {
 							getBean(beanName);
 						}
@@ -933,6 +931,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		}
 
 		// Trigger post-initialization callback for all applicable beans...
+		// 在单例bean都初始化完成后，循环判断bean的类型是否是SmartInitializingSingleton，是的话会在这时候执行afterSingletonsInstantiated方法
 		for (String beanName : beanNames) {
 			Object singletonInstance = getSingleton(beanName);
 			if (singletonInstance instanceof SmartInitializingSingleton) {

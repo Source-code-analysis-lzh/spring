@@ -30,8 +30,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.CollectionUtils;
 
 /**
- * Abstract base {@code Configuration} class providing common structure for enabling
- * Spring's asynchronous method execution capability.
+ * 抽象基础{@code Configuration}类提供了用于启用Spring的异步方法执行功能的通用结构。
  *
  * @author Chris Beams
  * @author Juergen Hoeller

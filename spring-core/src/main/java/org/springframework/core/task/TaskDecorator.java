@@ -17,15 +17,12 @@
 package org.springframework.core.task;
 
 /**
- * A callback interface for a decorator to be applied to any {@link Runnable}
- * about to be executed.
+ * 一个执行回调方法的装饰器，该接口应用于装饰将要执行的任何{@link Runnable}。
  *
- * <p>Note that such a decorator is not necessarily being applied to the
- * user-supplied {@code Runnable}/{@code Callable} but rather to the actual
- * execution callback (which may be a wrapper around the user-supplied task).
+ * <p>注意，这样的装饰器不一定要应用于用户提供的{@code Runnable}/{@code Callable}，
+ * 而是应用于实际的执行回调（可能是用户提供的任务的包装）。
  *
- * <p>The primary use case is to set some execution context around the task's
- * invocation, or to provide some monitoring/statistics for task execution.
+ * <p>主要应用于传递上下文，或者提供任务的监控/统计信息
  *
  * @author Juergen Hoeller
  * @since 4.3
@@ -36,8 +33,7 @@ package org.springframework.core.task;
 public interface TaskDecorator {
 
 	/**
-	 * Decorate the given {@code Runnable}, returning a potentially wrapped
-	 * {@code Runnable} for actual execution.
+	 * 装饰给定的{@code Runnable}，返回可能包装的{@code Runnable}以便实际执行。
 	 * @param runnable the original {@code Runnable}
 	 * @return the decorated {@code Runnable}
 	 */

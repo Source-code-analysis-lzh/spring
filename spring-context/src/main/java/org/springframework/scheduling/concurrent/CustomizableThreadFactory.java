@@ -21,11 +21,9 @@ import java.util.concurrent.ThreadFactory;
 import org.springframework.util.CustomizableThreadCreator;
 
 /**
- * Implementation of the {@link java.util.concurrent.ThreadFactory} interface,
- * allowing for customizing the created threads (name, priority, etc).
+ * {@link java.util.concurrent.ThreadFactory}接口的实现，允许自定义创建的线程（名称，优先级等）。
  *
- * <p>See the base class {@link org.springframework.util.CustomizableThreadCreator}
- * for details on the available configuration options.
+ * <p>有关可用配置选项的详细信息，请参见基类{@link org.springframework.util.CustomizableThreadCreator}。
  *
  * @author Juergen Hoeller
  * @since 2.0.3

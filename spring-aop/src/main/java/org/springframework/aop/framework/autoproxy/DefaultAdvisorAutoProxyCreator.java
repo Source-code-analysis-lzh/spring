@@ -20,17 +20,13 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.lang.Nullable;
 
 /**
- * {@code BeanPostProcessor} implementation that creates AOP proxies based on all
- * candidate {@code Advisor}s in the current {@code BeanFactory}. This class is
- * completely generic; it contains no special code to handle any particular aspects,
- * such as pooling aspects.
+ * {@code BeanPostProcessor}实现可基于当前{@code BeanFactory}中的所有候选{@code Advisor}来创建AOP代理。 
+ * 这个类是完全通用的。 它不包含用于处理任何特定方面（例如池化方面）的特殊代码。
  *
- * <p>It's possible to filter out advisors - for example, to use multiple post processors
- * of this type in the same factory - by setting the {@code usePrefix} property to true,
- * in which case only advisors beginning with the DefaultAdvisorAutoProxyCreator's bean
- * name followed by a dot (like "aapc.") will be used. This default prefix can be changed
- * from the bean name by setting the {@code advisorBeanNamePrefix} property.
- * The separator (.) will also be used in this case.
+ * <p>可以通过将{@code usePrefix}属性设置为true来过滤advisors，
+ * 例如，在同一工厂中使用此类型的多个后处理器，在这种情况下，
+ * 仅以DefaultAdvisorAutoProxyCreator的Bean名称开头，后跟一个点（例如"aapc."） 的advisors将会被使用。 
+ * 通过设置{@code advisorBeanNamePrefix}属性，可以从Bean名称更改此默认前缀。 在这种情况下，也将使用分隔符(.)。
  *
  * @author Rod Johnson
  * @author Rob Harrop

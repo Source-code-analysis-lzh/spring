@@ -38,10 +38,9 @@ import org.springframework.util.Assert;
 import org.springframework.web.servlet.view.AbstractView;
 
 /**
- * Abstract base class for Jackson based and content type independent
- * {@link AbstractView} implementations.
+ * 基于Jackson和与内容类型无关的{@link AbstractView}实现的抽象基类。
  *
- * <p>Compatible with Jackson 2.6 and higher, as of Spring 4.3.
+ * <p>从Spring 4.3开始与Jackson 2.6和更高版本兼容。
  *
  * @author Jeremy Grelle
  * @author Arjen Poutsma

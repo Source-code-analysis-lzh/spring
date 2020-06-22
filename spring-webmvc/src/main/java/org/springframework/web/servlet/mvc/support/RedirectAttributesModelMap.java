@@ -24,10 +24,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.DataBinder;
 
 /**
- * A {@link ModelMap} implementation of {@link RedirectAttributes} that formats
- * values as Strings using a {@link DataBinder}. Also provides a place to store
- * flash attributes so they can survive a redirect without the need to be
- * embedded in the redirect URL.
+ * {@link RedirectAttributes}的{@link ModelMap}实现，
+ * 该实现使用{@link DataBinder}将值格式化为字符串。 还提供了存储Flash属性的位置，
+ * 因此它们可以在重定向中幸存下来，而无需嵌入重定向URL中。
  *
  * @author Rossen Stoyanchev
  * @since 3.1

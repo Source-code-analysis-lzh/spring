@@ -33,8 +33,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
- * Interceptor that allows for changing the current locale on every request,
- * via a configurable request parameter (default parameter name: "locale").
+ * 拦截器，可通过可配置的请求参数（默认参数名称："locale"）更改每个请求的当前语言环境。
  *
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev

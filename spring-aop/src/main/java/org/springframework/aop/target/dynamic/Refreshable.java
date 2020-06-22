@@ -17,8 +17,7 @@
 package org.springframework.aop.target.dynamic;
 
 /**
- * Interface to be implemented by dynamic target objects,
- * which support reloading and optionally polling for updates.
+ * 由动态目标对象实现的接口，该对象支持重新加载和可选的轮询更新。
  *
  * @author Rod Johnson
  * @author Rob Harrop

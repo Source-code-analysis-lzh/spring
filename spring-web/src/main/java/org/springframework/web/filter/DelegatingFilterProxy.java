@@ -31,36 +31,28 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
- * Proxy for a standard Servlet Filter, delegating to a Spring-managed bean that
- * implements the Filter interface. Supports a "targetBeanName" filter init-param
- * in {@code web.xml}, specifying the name of the target bean in the Spring
- * application context.
+ * 标准Servlet过滤器的代理，委派给实现过滤器接口的Spring托管Bean。 
+ * 在{@code web.xml}中支持"targetBeanName"过滤器init-param，
+ * 该参数的值为Spring应用程序上下文中指定目标Bean的名称。
  *
- * <p>{@code web.xml} will usually contain a {@code DelegatingFilterProxy} definition,
- * with the specified {@code filter-name} corresponding to a bean name in
- * Spring's root application context. All calls to the filter proxy will then
- * be delegated to that bean in the Spring context, which is required to implement
- * the standard Servlet Filter interface.
+ * <p>{@code web.xml}通常将包含{@code DelegatingFilterProxy}定义，
+ * 其指定的过滤器名称与Spring的根应用程序上下文中的bean名称相对应。 
+ * 然后，所有对过滤器代理的调用将在Spring上下文中委派给该bean，
+ * 这是实现标准Servlet Filter接口所必需的。
  *
- * <p>This approach is particularly useful for Filter implementation with complex
- * setup needs, allowing to apply the full Spring bean definition machinery to
- * Filter instances. Alternatively, consider standard Filter setup in combination
- * with looking up service beans from the Spring root application context.
+ * <p>这种方法对于需要复杂设置的Filter实现特别有用，它允许将完整的Spring bean定义机制应用于Filter实例。
+ * 另外，可以考虑将标准过滤器设置与从Spring根应用程序上下文中查找服务bean结合使用。
  *
- * <p><b>NOTE:</b> The lifecycle methods defined by the Servlet Filter interface
- * will by default <i>not</i> be delegated to the target bean, relying on the
- * Spring application context to manage the lifecycle of that bean. Specifying
- * the "targetFilterLifecycle" filter init-param as "true" will enforce invocation
- * of the {@code Filter.init} and {@code Filter.destroy} lifecycle methods
- * on the target bean, letting the servlet container manage the filter lifecycle.
+ * <p>注意：默认情况下，由Servlet Filter接口定义的生命周期方法将不会委托给目标bean，
+ * 而是依靠Spring应用程序上下文来管理该bean的生命周期。 
+ * 将"targetFilterLifecycle"过滤器init-param指定为"true"将强制在目标bean上调用
+ * {@code Filter.init}和{@code Filter.destroy}生命周期方法，从而使Servlet容器可以管理过滤器生命周期。
  *
- * <p>As of Spring 3.1, {@code DelegatingFilterProxy} has been updated to optionally accept
- * constructor parameters when using Servlet 3.0's instance-based filter registration
- * methods, usually in conjunction with Spring 3.1's
- * {@link org.springframework.web.WebApplicationInitializer} SPI. These constructors allow
- * for providing the delegate Filter bean directly, or providing the application context
- * and bean name to fetch, avoiding the need to look up the application context from the
- * ServletContext.
+ * <p>从Spring 3.1开始，对{@code DelegatingFilterProxy}进行了更新，
+ * 可以在使用Servlet 3.0的基于实例的过滤器注册方法（通常与Spring 3.1的
+ * {@link org.springframework.web.WebApplicationInitializer} SPI结合使用）
+ * 时选择接受构造函数参数。 这些构造函数允许直接提供委托Filter Bean，
+ * 或提供要提取的应用程序上下文和Bean名称，从而避免了从ServletContext查找应用程序上下文的需求。
  *
  * <p>This class was originally inspired by Spring Security's {@code FilterToBeanProxy}
  * class, written by Ben Alex.

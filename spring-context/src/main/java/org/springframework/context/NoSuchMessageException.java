@@ -19,7 +19,7 @@ package org.springframework.context;
 import java.util.Locale;
 
 /**
- * Exception thrown when a message can't be resolved.
+ * 无法解析消息时引发的异常.
  *
  * @author Rod Johnson
  */

@@ -24,12 +24,10 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.lang.Nullable;
 
 /**
- * A convenient starting point for implementing
- * {@link org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice
- * ResponseBodyAdvice} with default method implementations.
+ * 使用默认方法实现来实现{@link org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice
+ * ResponseBodyAdvice}的便捷起点。
  *
- * <p>Sub-classes are required to implement {@link #supports} to return true
- * depending on when the advice applies.
+ * <p>需要子类来实现{@link #supports}，当advice的应用时返回true。
  *
  * @author Rossen Stoyanchev
  * @since 4.2

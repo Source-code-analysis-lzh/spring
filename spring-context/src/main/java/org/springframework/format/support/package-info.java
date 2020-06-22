@@ -1,6 +1,5 @@
 /**
- * Support classes for the formatting package,
- * providing common implementations as well as adapters.
+ * 格式包的支持类，提供常见的实现以及适配器.
  */
 @NonNullApi
 @NonNullFields

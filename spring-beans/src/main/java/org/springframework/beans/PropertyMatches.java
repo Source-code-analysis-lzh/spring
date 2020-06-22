@@ -26,11 +26,10 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Helper class for calculating property matches, according to a configurable
- * distance. Provide the list of potential matches and an easy way to generate
- * an error message. Works for both java bean properties and fields.
+ * 根据可配置的距离，用于计算属性匹配的Helper类。 
+ * 提供潜在匹配项列表以及生成错误消息的简便方法。 适用于Java Bean属性和字段。
  *
- * <p>Mainly for use within the framework and in particular the binding facility.
+ * <p>主要用于框架内，尤其是绑定工具内。
  *
  * @author Alef Arendsen
  * @author Arjen Poutsma

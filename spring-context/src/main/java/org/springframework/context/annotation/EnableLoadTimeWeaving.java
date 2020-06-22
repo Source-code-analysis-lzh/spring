@@ -26,12 +26,10 @@ import org.springframework.context.weaving.DefaultContextLoadTimeWeaver;
 import org.springframework.instrument.classloading.LoadTimeWeaver;
 
 /**
- * Activates a Spring {@link LoadTimeWeaver} for this application context, available as
- * a bean with the name "loadTimeWeaver", similar to the {@code <context:load-time-weaver>}
- * element in Spring XML.
+ * 为此应用程序上下文激活一个Spring {@link LoadTimeWeaver}，它可以获得一个名为"loadTimeWeaver"的bean，
+ * 类似于Spring XML中的{@code <context:load-time-weaver>}元素。
  *
- * <p>To be used on @{@link org.springframework.context.annotation.Configuration Configuration} classes;
- * the simplest possible example of which follows:
+ * <p>用于@{@link org.springframework.context.annotation.Configuration Configuration}类； 最简单的示例如下：
  *
  * <pre class="code">
  * &#064;Configuration
@@ -41,7 +39,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  *     // application-specific &#064;Bean definitions ...
  * }</pre>
  *
- * The example above is equivalent to the following Spring XML configuration:
+ * 上面的示例等效于以下Spring XML配置：
  *
  * <pre class="code">
  * &lt;beans&gt;
@@ -54,18 +52,15 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * </pre>
  *
  * <h2>The {@code LoadTimeWeaverAware} interface</h2>
- * Any bean that implements the {@link
- * org.springframework.context.weaving.LoadTimeWeaverAware LoadTimeWeaverAware} interface
- * will then receive the {@code LoadTimeWeaver} reference automatically; for example,
- * Spring's JPA bootstrap support.
+ * 任何实现{@link org.springframework.context.weaving.LoadTimeWeaverAware LoadTimeWeaverAware}
+ * 接口的bean都将自动接收{@code LoadTimeWeaver}引用。 例如，Spring的JPA启动支持。
  *
  * <h2>Customizing the {@code LoadTimeWeaver}</h2>
- * The default weaver is determined automatically: see {@link DefaultContextLoadTimeWeaver}.
+ * 默认的编织器是自动确定的：请参见{@link DefaultContextLoadTimeWeaver}。
  *
- * <p>To customize the weaver used, the {@code @Configuration} class annotated with
- * {@code @EnableLoadTimeWeaving} may also implement the {@link LoadTimeWeavingConfigurer}
- * interface and return a custom {@code LoadTimeWeaver} instance through the
- * {@code #getLoadTimeWeaver} method:
+ * <p>为了使用自定义的Weaver，用{@code @EnableLoadTimeWeaving}注释的{@code @Configuration}
+ * 类还可以实现{@link LoadTimeWeavingConfigurer}接口，并通过{@code #getLoadTimeWeaver}
+ * 方法返回自定义的{@code LoadTimeWeaver}实例：
  *
  * <pre class="code">
  * &#064;Configuration
@@ -81,7 +76,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  *     }
  * }</pre>
  *
- * <p>The example above can be compared to the following Spring XML configuration:
+ * <p>可以将上面的示例与以下Spring XML配置进行比较：
  *
  * <pre class="code">
  * &lt;beans&gt;
@@ -91,18 +86,14 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * &lt;/beans&gt;
  * </pre>
  *
- * <p>The code example differs from the XML example in that it actually instantiates the
- * {@code MyLoadTimeWeaver} type, meaning that it can also configure the instance, e.g.
- * calling the {@code #addClassTransformer} method. This demonstrates how the code-based
- * configuration approach is more flexible through direct programmatic access.
+ * <p>该代码示例与XML示例的不同之处在于，它实际上实例化了{@code MyLoadTimeWeaver}类型，
+ * 这意味着它还可以配置实例，例如 调用{@code #addClassTransformer}方法。 
+ * 这说明了基于代码的配置方法通过直接编程访问如何更加灵活。
  *
  * <h2>Enabling AspectJ-based weaving</h2>
- * AspectJ load-time weaving may be enabled with the {@link #aspectjWeaving()}
- * attribute, which will cause the {@linkplain
- * org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter AspectJ class transformer} to
- * be registered through {@link LoadTimeWeaver#addTransformer}. AspectJ weaving will be
- * activated by default if a "META-INF/aop.xml" resource is present on the classpath.
- * Example:
+ * 可以使用{@link #aspectjWeaving()}属性启用AspectJ加载时编织，这将导致通过{@link LoadTimeWeaver#addTransformer}
+ * 注册{@linkplain org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter AspectJ 类转换器}。 
+ * 如果类路径中存在"META-INF/aop.xml"资源，则默认情况下将激活AspectJ编织。 例：
  *
  * <pre class="code">
  * &#064;Configuration
@@ -110,7 +101,7 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * public class AppConfig {
  * }</pre>
  *
- * <p>The example above can be compared to the following Spring XML configuration:
+ * <p>可以将上面的示例与以下Spring XML配置进行比较：
  *
  * <pre class="code">
  * &lt;beans&gt;
@@ -120,11 +111,10 @@ import org.springframework.instrument.classloading.LoadTimeWeaver;
  * &lt;/beans&gt;
  * </pre>
  *
- * <p>The two examples are equivalent with one significant exception: in the XML case,
- * the functionality of {@code <context:spring-configured>} is implicitly enabled when
- * {@code aspectj-weaving} is "on".  This does not occur when using
- * {@code @EnableLoadTimeWeaving(aspectjWeaving=ENABLED)}. Instead you must explicitly add
- * {@code @EnableSpringConfigured} (included in the {@code spring-aspects} module)
+ * <p>这两个示例等效，但有一个重大例外：在XML情况下，当{@code aspectj-weaving}为"on"时，
+ * 隐式启用{@code <context:spring-configured>}的功能。 
+ * 使用{@code @EnableLoadTimeWeaving(aspectjWeaving=ENABLED)}时不会发生这种情况。 
+ * 相反，您必须显式添加{@code @EnableSpringConfigured}（包含在{@code spring-aspects}模块中）
  *
  * @author Chris Beams
  * @since 3.1

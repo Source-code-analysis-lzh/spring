@@ -42,28 +42,18 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.MethodInvoker;
 
 /**
- * {@link org.springframework.beans.factory.FactoryBean} that exposes a
- * {@link org.quartz.JobDetail} object which delegates job execution to a
- * specified (static or non-static) method. Avoids the need for implementing
- * a one-line Quartz Job that just invokes an existing service method on a
- * Spring-managed target bean.
+ * {@link org.springframework.beans.factory.FactoryBean}公开一个{@link org.quartz.JobDetail}对象，
+ * 该对象将作业执行委派给指定的（静态或非静态）方法。
  *
- * <p>Inherits common configuration properties from the {@link MethodInvoker}
- * base class, such as {@link #setTargetObject "targetObject"} and
- * {@link #setTargetMethod "targetMethod"}, adding support for lookup of the target
- * bean by name through the {@link #setTargetBeanName "targetBeanName"} property
- * (as alternative to specifying a "targetObject" directly, allowing for
- * non-singleton target objects).
+ * <p>从{@link MethodInvoker}基类继承通用配置属性，例如{@link #setTargetObject "targetObject"}
+ * 和{@link #setTargetMethod "targetMethod"}，并通过{@link #setTargetBeanName "targetBeanName"}
+ * 属性添加对名称bean的查找支持（可选择的直接指定"targetObject"，允许非单例目标对象）。
  *
- * <p>Supports both concurrently running jobs and non-currently running
- * jobs through the "concurrent" property. Jobs created by this
- * MethodInvokingJobDetailFactoryBean are by default volatile and durable
- * (according to Quartz terminology).
+ * <p>通过"concurrent"属性支持同时运行的作业和非同时运行的作业。 
+ * 默认情况下，此MethodInvokingJobDetailFactoryBean创建的作业是易变的和可持久（根据Quartz术语）。
  *
- * <p><b>NOTE: JobDetails created via this FactoryBean are <i>not</i>
- * serializable and thus not suitable for persistent job stores.</b>
- * You need to implement your own Quartz Job as a thin wrapper for each case
- * where you want a persistent job to delegate to a specific service method.
+ * <p>注意：通过此FactoryBean创建的JobDetails无法序列化，因此不适合持久性作业存储。 
+ * 对于每种需要持久性作业委派给特定服务方法的情况，都需要实现自己的Quartz Job作为瘦包装器。
  *
  * <p>Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
  *

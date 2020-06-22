@@ -20,13 +20,11 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.lang.Nullable;
 
 /**
- * Session-backed {@link org.springframework.beans.factory.config.Scope}
- * implementation.
+ * 支持会话{@link org.springframework.beans.factory.config.Scope}实现。
  *
- * <p>Relies on a thread-bound {@link RequestAttributes} instance, which
- * can be exported through {@link RequestContextListener},
- * {@link org.springframework.web.filter.RequestContextFilter} or
- * {@link org.springframework.web.servlet.DispatcherServlet}.
+ * <p>依赖于线程绑定的{@link RequestAttributes}实例，该实例可以通过
+ * {@link RequestContextListener}，{@link org.springframework.web.filter.RequestContextFilter}
+ * 或{@link org.springframework.web.servlet.DispatcherServlet}暴露。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

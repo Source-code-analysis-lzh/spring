@@ -43,15 +43,12 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * Encapsulates information about a handler method consisting of a
- * {@linkplain #getMethod() method} and a {@linkplain #getBean() bean}.
- * Provides convenient access to method parameters, the method return value,
- * method annotations, etc.
+ * 封装有关由{@linkplain #getMethod() method}和{@linkplain #getBean() bean}
+ * 组成的处理器方法的信息。 提供对方法参数，方法返回值，方法注释等的便捷访问。
  *
- * <p>The class may be created with a bean instance or with a bean name
- * (e.g. lazy-init bean, prototype bean). Use {@link #createWithResolvedBean()}
- * to obtain a {@code HandlerMethod} instance with a bean instance resolved
- * through the associated {@link BeanFactory}.
+ * <p>可以使用bean实例或bean名称（例如lazy-init bean，prototype bean）创建该类。 
+ * 使用{@link #createWithResolvedBean()}获取具有通过关联的{@link BeanFactory}
+ * 解析的bean实例的{@code HandlerMethod}实例。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
@@ -126,9 +123,8 @@ public class HandlerMethod {
 	}
 
 	/**
-	 * Create an instance from a bean name, a method, and a {@code BeanFactory}.
-	 * The method {@link #createWithResolvedBean()} may be used later to
-	 * re-create the {@code HandlerMethod} with an initialized bean.
+	 * 从bean名称，方法和{@code BeanFactory}创建实例。 
+	 * 方法{@link #createWithResolvedBean()}稍后可用于通过初始化的bean重新创建{@code HandlerMethod}。
 	 */
 	public HandlerMethod(String beanName, BeanFactory beanFactory, Method method) {
 		Assert.hasText(beanName, "Bean name is required");
@@ -213,7 +209,7 @@ public class HandlerMethod {
 
 
 	/**
-	 * Return the bean for this handler method.
+	 * 返回此处理器方法所在的bean。
 	 */
 	public Object getBean() {
 		return this.bean;

@@ -28,21 +28,16 @@ import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.type.filter.TypeFilter;
 
 /**
- * Configures component scanning directives for use with @{@link Configuration} classes.
- * Provides support parallel with Spring XML's {@code <context:component-scan>} element.
+ * 配置组件扫描指令以与@{@link Configuration}类一起使用。 提供与Spring XML 
+ * {@code <context:component-scan>}元素并行的支持。
  *
- * <p>Either {@link #basePackageClasses} or {@link #basePackages} (or its alias
- * {@link #value}) may be specified to define specific packages to scan. If specific
- * packages are not defined, scanning will occur from the package of the
- * class that declares this annotation.
+ * <p>可以指定{@link #basePackageClasses}或{@link #basePackages}（或其别名{@link #value}）
+ * 来定义要扫描的特定程序包。 如果未定义指定的程序包，则将从声明此批注的类的程序包中进行扫描。
  *
- * <p>Note that the {@code <context:component-scan>} element has an
- * {@code annotation-config} attribute; however, this annotation does not. This is because
- * in almost all cases when using {@code @ComponentScan}, default annotation config
- * processing (e.g. processing {@code @Autowired} and friends) is assumed. Furthermore,
- * when using {@link AnnotationConfigApplicationContext}, annotation config processors are
- * always registered, meaning that any attempt to disable them at the
- * {@code @ComponentScan} level would be ignored.
+ * <p>注意，{@code <context:component-scan>}元素具有{@code annotation-config}属性。 
+ * 但是，此注释没有。 这是因为在几乎所有情况下，使用{@code @ComponentScan}时，都假定使用默认的注释配置处理
+ * （例如，处理{@code @Autowired}和friends）。 此外，在使用{@link AnnotationConfigApplicationContext}时，
+ * 注释配置处理器始终会被注册，这意味着在{@code @ComponentScan}级别禁用它们的任何尝试都将被忽略。
  *
  * <p>See {@link Configuration @Configuration}'s Javadoc for usage examples.
  *
@@ -60,9 +55,8 @@ public @interface ComponentScan {
 
 	/**
 	 * Alias for {@link #basePackages}.
-	 * <p>Allows for more concise annotation declarations if no other attributes
-	 * are needed &mdash; for example, {@code @ComponentScan("org.my.pkg")}
-	 * instead of {@code @ComponentScan(basePackages = "org.my.pkg")}.
+	 * <p>如果不需要其它属性，则允许使用更简洁的注释声明，例如{@code @ComponentScan("org.my.pkg")}
+	 * 而不是{@code @ComponentScan(basePackages = "org.my.pkg")}。
 	 */
 	@AliasFor("basePackages")
 	String[] value() default {};
@@ -80,14 +74,12 @@ public @interface ComponentScan {
 	/**
 	 * Type-safe alternative to {@link #basePackages} for specifying the packages
 	 * to scan for annotated components. The package of each class specified will be scanned.
-	 * <p>Consider creating a special no-op marker class or interface in each package
-	 * that serves no purpose other than being referenced by this attribute.
+	 * <p>考虑在每个程序包中创建一个特殊的无操作标记类或接口，该类或接口除了被该属性引用外没有其他用途。
 	 */
 	Class<?>[] basePackageClasses() default {};
 
 	/**
-	 * The {@link BeanNameGenerator} class to be used for naming detected components
-	 * within the Spring container.
+	 * {@link BeanNameGenerator}类用于在Spring容器中命名检测到的组件。
 	 * <p>The default value of the {@link BeanNameGenerator} interface itself indicates
 	 * that the scanner used to process this {@code @ComponentScan} annotation should
 	 * use its inherited bean name generator, e.g. the default
@@ -105,35 +97,30 @@ public @interface ComponentScan {
 	Class<? extends ScopeMetadataResolver> scopeResolver() default AnnotationScopeMetadataResolver.class;
 
 	/**
-	 * Indicates whether proxies should be generated for detected components, which may be
-	 * necessary when using scopes in a proxy-style fashion.
-	 * <p>The default is defer to the default behavior of the component scanner used to
-	 * execute the actual scan.
+	 * 指示是否应为检测到的组件生成代理，当以代理样式的方式使用范围时，可能有必要。
+	 * <p>默认值取决于用于执行实际扫描的组件扫描程序的默认行为。
 	 * <p>Note that setting this attribute overrides any value set for {@link #scopeResolver}.
 	 * @see ClassPathBeanDefinitionScanner#setScopedProxyMode(ScopedProxyMode)
 	 */
 	ScopedProxyMode scopedProxy() default ScopedProxyMode.DEFAULT;
 
 	/**
-	 * Controls the class files eligible for component detection.
+	 * 控制有资格进行组件检测的类文件。
 	 * <p>Consider use of {@link #includeFilters} and {@link #excludeFilters}
 	 * for a more flexible approach.
 	 */
 	String resourcePattern() default ClassPathScanningCandidateComponentProvider.DEFAULT_RESOURCE_PATTERN;
 
 	/**
-	 * Indicates whether automatic detection of classes annotated with {@code @Component}
-	 * {@code @Repository}, {@code @Service}, or {@code @Controller} should be enabled.
+	 * 指示是否应启用对以{@code @Component}, {@code @Repository}, {@code @Service}, 或 {@code @Controller}注释的类的自动检测。
 	 */
 	boolean useDefaultFilters() default true;
 
 	/**
-	 * Specifies which types are eligible for component scanning.
-	 * <p>Further narrows the set of candidate components from everything in {@link #basePackages}
-	 * to everything in the base packages that matches the given filter or filters.
-	 * <p>Note that these filters will be applied in addition to the default filters, if specified.
-	 * Any type under the specified base packages which matches a given filter will be included,
-	 * even if it does not match the default filters (i.e. is not annotated with {@code @Component}).
+	 * 指定哪些类型适合进行组件扫描。
+	 * <p>进一步将候选组件的范围从{@link #basePackages}中的所有内容缩小到与给定过滤器匹配的基本包中的所有内容。
+	 * <p>请注意，如果指定了默认过滤器，还将应用这些过滤器。 即使与默认过滤器不匹配（即未使用{@code @Component}注释），
+	 * 也将包括与指定过滤器匹配的指定基本软件包下的任何类型。
 	 * @see #resourcePattern()
 	 * @see #useDefaultFilters()
 	 */

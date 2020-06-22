@@ -32,13 +32,10 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.AbstractView;
 
 /**
- * Spring-MVC {@link View} that allows for response context to be rendered as the result
- * of marshalling by a {@link Marshaller}.
+ * Spring-MVC {@link View}，允许响应上下文由{@link Marshaller}进行编组后渲染。
  *
- * <p>The Object to be marshalled is supplied as a parameter in the model and then
- * {@linkplain #locateToBeMarshalled(Map) detected} during response rendering. Users can
- * either specify a specific entry in the model via the {@link #setModelKey(String) sourceKey}
- * property or have Spring locate the Source object.
+ * <p>将要编组的对象作为模型中的参数提供，然后在响应渲染期间进行{@linkplain #locateToBeMarshalled(Map) detected}。 
+ * 用户可以通过{@link #setModelKey(String) sourceKey}属性在模型中指定特定条目，也可以让Spring自动查找Source对象。
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

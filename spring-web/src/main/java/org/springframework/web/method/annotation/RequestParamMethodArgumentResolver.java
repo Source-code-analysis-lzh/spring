@@ -50,24 +50,16 @@ import org.springframework.web.multipart.support.MultipartResolutionDelegate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
- * Resolves method arguments annotated with @{@link RequestParam}, arguments of
- * type {@link MultipartFile} in conjunction with Spring's {@link MultipartResolver}
- * abstraction, and arguments of type {@code javax.servlet.http.Part} in conjunction
- * with Servlet 3.0 multipart requests. This resolver can also be created in default
- * resolution mode in which simple types (int, long, etc.) not annotated with
- * {@link RequestParam @RequestParam} are also treated as request parameters with
- * the parameter name derived from the argument name.
+ * 解析使用@{@link RequestParam}注释的方法参数，{@link MultipartFile}类型的参数需结合
+ * Spring的{@link MultipartResolver}抽象以及结合Servlet 3.0 multipart请求的
+ * {@code javax.servlet.http.Part}类型的参数。 也可以在默认解析模式下创建此解析器，在默认解析模式下，
+ * 未使用{@link RequestParam @RequestParam}注释的简单类型（int，long等）也被视为具有从参数名称派生为请求参数名称。
  *
- * <p>If the method parameter type is {@link Map}, the name specified in the
- * annotation is used to resolve the request parameter String value. The value is
- * then converted to a {@link Map} via type conversion assuming a suitable
- * {@link Converter} or {@link PropertyEditor} has been registered.
- * Or if a request parameter name is not specified the
- * {@link RequestParamMapMethodArgumentResolver} is used instead to provide
- * access to all request parameters in the form of a map.
+ * <p>如果方法参数类型为{@link Map}，则注释中指定的名称用于解析请求参数String值。 
+ * 然后，假设已注册了适当的{@link Converter}或{@link PropertyEditor}，则通过类型转换将该值转换为{@link Map}。 
+ * 或者，如果未指定请求参数名称，则使用{@link RequestParamMapMethodArgumentResolver}来以map的形式提供对所有请求参数的访问。
  *
- * <p>A {@link WebDataBinder} is invoked to apply type conversion to resolved request
- * header values that don't yet match the method parameter type.
+ * <p>调用{@link WebDataBinder}将类型转换应用于尚未与方法参数类型匹配的已解析请求标头值。
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
@@ -85,10 +77,8 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 
 	/**
 	 * Create a new {@link RequestParamMethodArgumentResolver} instance.
-	 * @param useDefaultResolution in default resolution mode a method argument
-	 * that is a simple type, as defined in {@link BeanUtils#isSimpleProperty},
-	 * is treated as a request parameter even if it isn't annotated, the
-	 * request parameter name is derived from the method parameter name.
+	 * @param useDefaultResolution 在默认解析模式下，即使未注释，也可以将{@link BeanUtils#isSimpleProperty}
+	 * 中定义的简单类型的方法参数视为请求参数(它的名称就是方法参数名称)，即使该请求参数未注释也是如此。   
 	 */
 	public RequestParamMethodArgumentResolver(boolean useDefaultResolution) {
 		this.useDefaultResolution = useDefaultResolution;
@@ -96,9 +86,8 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 
 	/**
 	 * Create a new {@link RequestParamMethodArgumentResolver} instance.
-	 * @param beanFactory a bean factory used for resolving  ${...} placeholder
-	 * and #{...} SpEL expressions in default values, or {@code null} if default
-	 * values are not expected to contain expressions
+	 * @param beanFactory 一个用于以解析默认值中包含${...}占位符和#{...} SpEL表达式的bean工厂，
+	 * 如果默认值包含不希望的表达式，则返回{@code null}  
 	 * @param useDefaultResolution in default resolution mode a method argument
 	 * that is a simple type, as defined in {@link BeanUtils#isSimpleProperty},
 	 * is treated as a request parameter even if it isn't annotated, the
@@ -113,14 +102,13 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 
 
 	/**
-	 * Supports the following:
+	 * 支持以下内容：
 	 * <ul>
-	 * <li>@RequestParam-annotated method arguments.
-	 * This excludes {@link Map} params where the annotation does not specify a name.
-	 * See {@link RequestParamMapMethodArgumentResolver} instead for such params.
-	 * <li>Arguments of type {@link MultipartFile} unless annotated with @{@link RequestPart}.
-	 * <li>Arguments of type {@code Part} unless annotated with @{@link RequestPart}.
-	 * <li>In default resolution mode, simple type arguments even if not with @{@link RequestParam}.
+	 * <li>@RequestParam 注释的方法参数。 这不包括注释未指定名称的{@link Map}参数。
+	 * 关于它请参阅{@link RequestParamMapMethodArgumentResolver}以获得此类参数。
+	 * <li>没有使用@{@link RequestPart}注释的MultipartFile类型的参数。
+	 * <li>没有使用@{@link RequestPart}注释的{@code Part}类型的参数。
+	 * <li>在默认解析模式下，即使不使用@{@link RequestParam}，也要解析简单类型参数。
 	 * </ul>
 	 */
 	@Override
@@ -128,6 +116,7 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 		if (parameter.hasParameterAnnotation(RequestParam.class)) {
 			if (Map.class.isAssignableFrom(parameter.nestedIfOptional().getNestedParameterType())) {
 				RequestParam requestParam = parameter.getParameterAnnotation(RequestParam.class);
+				// 注释需要指定请求参数名称
 				return (requestParam != null && StringUtils.hasText(requestParam.name()));
 			}
 			else {
@@ -139,10 +128,11 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 				return false;
 			}
 			parameter = parameter.nestedIfOptional();
+			// 默认解析MultipartFile或Part类型的参数
 			if (MultipartResolutionDelegate.isMultipartArgument(parameter)) {
 				return true;
 			}
-			else if (this.useDefaultResolution) {
+			else if (this.useDefaultResolution) { // 默认模式，则解析简单类型参数
 				return BeanUtils.isSimpleProperty(parameter.getNestedParameterType());
 			}
 			else {
@@ -151,21 +141,24 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 		}
 	}
 
+	// 从@RequestParam获取配置值
 	@Override
 	protected NamedValueInfo createNamedValueInfo(MethodParameter parameter) {
 		RequestParam ann = parameter.getParameterAnnotation(RequestParam.class);
 		return (ann != null ? new RequestParamNamedValueInfo(ann) : new RequestParamNamedValueInfo());
 	}
 
+	// 根据请求参数名称获取参数值
 	@Override
 	@Nullable
 	protected Object resolveName(String name, MethodParameter parameter, NativeWebRequest request) throws Exception {
 		HttpServletRequest servletRequest = request.getNativeRequest(HttpServletRequest.class);
 
 		if (servletRequest != null) {
+			// 解析Multipart类型参数
 			Object mpArg = MultipartResolutionDelegate.resolveMultipartArgument(name, parameter, servletRequest);
 			if (mpArg != MultipartResolutionDelegate.UNRESOLVABLE) {
-				return mpArg;
+				return mpArg; // 直接返回解析后Multipart类型值
 			}
 		}
 
@@ -186,6 +179,7 @@ public class RequestParamMethodArgumentResolver extends AbstractNamedValueMethod
 		return arg;
 	}
 
+	// 请求中找不到对应值，则抛出相应的异常
 	@Override
 	protected void handleMissingValue(String name, MethodParameter parameter, NativeWebRequest request)
 			throws Exception {

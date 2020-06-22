@@ -27,13 +27,11 @@ import org.springframework.jndi.JndiTemplate;
 import org.springframework.lang.Nullable;
 
 /**
- * JNDI-based variant of {@link ConcurrentTaskExecutor}, performing a default lookup for
- * JSR-236's "java:comp/DefaultManagedExecutorService" in a Java EE 7 environment.
+ * {@link ConcurrentTaskExecutor}的基于JNDI的变体，
+ * 在Java EE 7环境中对JSR-236的"java:comp/DefaultManagedExecutorService"执行默认查找。
  *
- * <p>Note: This class is not strictly JSR-236 based; it can work with any regular
- * {@link java.util.concurrent.Executor} that can be found in JNDI.
- * The actual adapting to {@link javax.enterprise.concurrent.ManagedExecutorService}
- * happens in the base class {@link ConcurrentTaskExecutor} itself.
+ * <p>注意：此类并非严格基于JSR-236。 它可以与JNDI中可以找到的任何常规{@link java.util.concurrent.Executor}一起使用。 
+ * 对{@link javax.enterprise.concurrent.ManagedExecutorService}的实际调整发生在基类{@link ConcurrentTaskExecutor}本身中。
  *
  * @author Juergen Hoeller
  * @since 4.0

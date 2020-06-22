@@ -25,8 +25,7 @@ import org.springframework.core.io.ResourceEditor;
 import org.springframework.util.Assert;
 
 /**
- * Editor for {@code java.net.URL}, to directly populate a URL property
- * instead of using a String property as bridge.
+ * {@code java.net.URL}的编辑器，以直接填充URL属性，而不是使用String属性作为桥.
  *
  * <p>Supports Spring-style URL notation: any fully qualified standard URL
  * ("file:", "http:", etc) and Spring's special "classpath:" pseudo-URL,

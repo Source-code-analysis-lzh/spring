@@ -31,21 +31,16 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Default {@link BeanWrapper} implementation that should be sufficient
- * for all typical use cases. Caches introspection results for efficiency.
+ * 默认的{@link BeanWrapper}实现对于所有典型的用例都应该足够了。 缓存自省结果以提高效率。
  *
- * <p>Note: Auto-registers default property editors from the
- * {@code org.springframework.beans.propertyeditors} package, which apply
- * in addition to the JDK's standard PropertyEditors. Applications can call
- * the {@link #registerCustomEditor(Class, java.beans.PropertyEditor)} method
- * to register an editor for a particular instance (i.e. they are not shared
- * across the application). See the base class
- * {@link PropertyEditorRegistrySupport} for details.
+ * <p>注意：从org.springframework.beans.propertyeditors包中自动注册默认属性编辑器，
+ * 除JDK的标准PropertyEditor外这些编辑器将应用。 
+ * 应用程序可以调用{@link #registerCustomEditor(Class, java.beans.PropertyEditor)}
+ * 方法来注册特定实例的编辑器（即，它们不会在应用程序之间共享）。 
+ * 有关详细信息，请参见基类{@link PropertyEditorRegistrySupport}。
  *
- * <p><b>NOTE: As of Spring 2.5, this is - for almost all purposes - an
- * internal class.</b> It is just public in order to allow for access from
- * other framework packages. For standard application access purposes, use the
- * {@link PropertyAccessorFactory#forBeanPropertyAccess} factory method instead.
+ * <p>注意：从Spring 2.5开始，是内部类。 它只是公开的，以允许从其它框架包进行访问。 
+ * 为了实现标准应用程序访问，请改用{@link PropertyAccessorFactory#forBeanPropertyAccess}工厂方法。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

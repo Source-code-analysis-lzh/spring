@@ -32,31 +32,26 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Servlet 3.0 {@link ServletContainerInitializer} designed to support code-based
- * configuration of the servlet container using Spring's {@link WebApplicationInitializer}
- * SPI as opposed to (or possibly in combination with) the traditional
- * {@code web.xml}-based approach.
+ * Servlet 3.0 {@link ServletContainerInitializer}设计为
+ * 使用Spring的{@link WebApplicationInitializer} SPI支持Servlet容器的基于代码的配置，
+ * 这与传统的基于web.xml的方法相反（或可能与之结合）。
  *
- * <h2>Mechanism of Operation</h2>
- * This class will be loaded and instantiated and have its {@link #onStartup}
- * method invoked by any Servlet 3.0-compliant container during container startup assuming
- * that the {@code spring-web} module JAR is present on the classpath. This occurs through
- * the JAR Services API {@link ServiceLoader#load(Class)} method detecting the
- * {@code spring-web} module's {@code META-INF/services/javax.servlet.ServletContainerInitializer}
- * service provider configuration file. See the
- * <a href="https://download.oracle.com/javase/6/docs/technotes/guides/jar/jar.html#Service%20Provider">
- * JAR Services API documentation</a> as well as section <em>8.2.4</em> of the Servlet 3.0
- * Final Draft specification for complete details.
+ * <h2>运行机制</h2>
+ * 此类将被加载和实例化，并在容器启动期间由任何符合Servlet 3.0的容器调用其{@link #onStartup}方法，
+ * 并假设该{@code spring-web}模块JAR存在于类路径中。 
+ * 这是通过JAR Services API {@link ServiceLoader#load(Class)}方法来检测{@code spring-web}模块的
+ * {@code META-INF/services/javax.servlet.ServletContainerInitializer}服务提供程序配置文件而发生的。 
+ * 有关完整的详细信息，请参见
+ * <a href="https://download.oracle.com/javase/6/docs/technotes/guides/jar/jar.html#Service%20Provider">JAR Services API文档</a>
+ * 以及Servlet 3.0最终草案规范的8.2.4节。
  *
- * <h3>In combination with {@code web.xml}</h3>
- * A web application can choose to limit the amount of classpath scanning the Servlet
- * container does at startup either through the {@code metadata-complete} attribute in
- * {@code web.xml}, which controls scanning for Servlet annotations or through an
- * {@code <absolute-ordering>} element also in {@code web.xml}, which controls which
- * web fragments (i.e. jars) are allowed to perform a {@code ServletContainerInitializer}
- * scan. When using this feature, the {@link SpringServletContainerInitializer}
- * can be enabled by adding "spring_web" to the list of named web fragments in
- * {@code web.xml} as follows:
+ * <h3>与{@code web.xml}结合</h3>
+ * Web应用程序可以选择通过限制{@code web.xml}中的{@code metadata-complete}
+ * 属性来控制Servlet容器在启动时扫描类路径的数量，该属性控制Servlet注释的扫描，
+ * 或者也可以通过{@code web.xml}中的{@code <absolute-ordering>}元素进行控制 ，
+ * 它控制允许哪些Web片段（即jars）执行{@code ServletContainerInitializer}扫描。 
+ * 使用此功能时，可以通过如下方式启用{@link SpringServletContainerInitializer}：
+ * 将"spring_web"添加到{@code web.xml}中的命名Web片段列表中，如下所示：
  *
  * <pre class="code">
  * &lt;absolute-ordering&gt;
@@ -65,38 +60,27 @@ import org.springframework.util.ReflectionUtils;
  * &lt;/absolute-ordering&gt;
  * </pre>
  *
- * <h2>Relationship to Spring's {@code WebApplicationInitializer}</h2>
- * Spring's {@code WebApplicationInitializer} SPI consists of just one method:
- * {@link WebApplicationInitializer#onStartup(ServletContext)}. The signature is intentionally
- * quite similar to {@link ServletContainerInitializer#onStartup(Set, ServletContext)}:
- * simply put, {@code SpringServletContainerInitializer} is responsible for instantiating
- * and delegating the {@code ServletContext} to any user-defined
- * {@code WebApplicationInitializer} implementations. It is then the responsibility of
- * each {@code WebApplicationInitializer} to do the actual work of initializing the
- * {@code ServletContext}. The exact process of delegation is described in detail in the
- * {@link #onStartup onStartup} documentation below.
+ * <h2>与Spring的{@code WebApplicationInitializer}的关系</h2>
+ * Spring的{@code WebApplicationInitializer} SPI仅包含一种方法：{@link WebApplicationInitializer#onStartup(ServletContext)}。
+ * 签名故意与{@link ServletContainerInitializer#onStartup(Set, ServletContext)}非常相似：
+ * 简而言之，{@code SpringServletContainerInitializer}负责实例化{@code ServletContext}并将其委托给任何用户定义的
+ * {@code WebApplicationInitializer}实现。 然后，每个{@code WebApplicationInitializer}都有责任完成初始化{@code ServletContext}的实际工作。
+ * 委派的确切过程在下面的{@link #onStartup onStartup}文档中详细描述。
  *
- * <h2>General Notes</h2>
- * In general, this class should be viewed as <em>supporting infrastructure</em> for
- * the more important and user-facing {@code WebApplicationInitializer} SPI. Taking
- * advantage of this container initializer is also completely <em>optional</em>: while
- * it is true that this initializer will be loaded and invoked under all Servlet 3.0+
- * runtimes, it remains the user's choice whether to make any
- * {@code WebApplicationInitializer} implementations available on the classpath. If no
- * {@code WebApplicationInitializer} types are detected, this container initializer will
- * have no effect.
+ * <h2>一般注意事项</h2>
+ * 通常，应将此类视为更重要且面向用户的{@code WebApplicationInitializer} SPI的支持基础结构。 
+ * 利用此容器初始化程序也是完全可选的：尽管确实会在所有Servlet 3.0+运行时下加载并调用此初始化程序，
+ * 但用户仍可以选择是否在类路径上提供任何{@code WebApplicationInitializer}实现。 
+ * 如果未检测到{@code WebApplicationInitializer}类型，则此容器初始化程序将无效。
  *
- * <p>Note that use of this container initializer and of {@code WebApplicationInitializer}
- * is not in any way "tied" to Spring MVC other than the fact that the types are shipped
- * in the {@code spring-web} module JAR. Rather, they can be considered general-purpose
- * in their ability to facilitate convenient code-based configuration of the
- * {@code ServletContext}. In other words, any servlet, listener, or filter may be
- * registered within a {@code WebApplicationInitializer}, not just Spring MVC-specific
- * components.
+ * <p>请注意，除了包含{@code spring-web}模块JAR到类路径之外，
+ * 使用此容器初始化程序和WebApplicationInitializer都不会“绑定”到Spring MVC。 
+ * 它们可以被认为有助于{@code ServletContext}的基于代码的便捷配置。 
+ * 换句话说，任何servlet, listener, 或者 filter都可以在{@code WebApplicationInitializer}中注册，
+ * 而不仅仅是Spring MVC特定的组件。
  *
- * <p>This class is neither designed for extension nor intended to be extended.
- * It should be considered an internal type, with {@code WebApplicationInitializer}
- * being the public-facing SPI.
+ * <p>此类既不是为扩展而设计的，也不是旨在扩展的。 
+ * 应该将其视为内部类型，{@code WebApplicationInitializer}是面向公众的SPI。
  *
  * <h2>See Also</h2>
  * See {@link WebApplicationInitializer} Javadoc for examples and detailed usage
@@ -151,6 +135,7 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 				if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) &&
 						WebApplicationInitializer.class.isAssignableFrom(waiClass)) {
 					try {
+						// 收集启动器实例
 						initializers.add((WebApplicationInitializer)
 								ReflectionUtils.accessibleConstructor(waiClass).newInstance());
 					}
@@ -168,6 +153,7 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 
 		servletContext.log(initializers.size() + " Spring WebApplicationInitializers detected on classpath");
 		AnnotationAwareOrderComparator.sort(initializers);
+		// 依次调用初始化器
 		for (WebApplicationInitializer initializer : initializers) {
 			initializer.onStartup(servletContext);
 		}

@@ -28,7 +28,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Default implementation of the {@link MessageCodesResolver} interface.
+ * {@link MessageCodesResolver}接口的默认实现.
  *
  * <p>Will create two message codes for an object error, in the following order (when
  * using the {@link Format#PREFIX_ERROR_CODE prefixed}

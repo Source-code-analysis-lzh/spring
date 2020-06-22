@@ -34,19 +34,15 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.servlet.HandlerExecutionChain;
 
 /**
- * Abstract base class for URL-mapped {@link org.springframework.web.servlet.HandlerMapping}
- * implementations. Provides infrastructure for mapping handlers to URLs and configurable
- * URL lookup. For information on the latter, see "alwaysUseFullPath" property.
+ * URL映射的{@link org.springframework.web.servlet.HandlerMapping}实现的抽象基类。 
+ * 提供用于将处理器映射到URL和可配置URL查找的基础结构。 有关后者的信息，请参见"alwaysUseFullPath"属性。
  *
- * <p>Supports direct matches, e.g. a registered "/test" matches "/test", and
- * various Ant-style pattern matches, e.g. a registered "/t*" pattern matches
- * both "/test" and "/team", "/test/*" matches all paths in the "/test" directory,
- * "/test/**" matches all paths below "/test". For details, see the
- * {@link org.springframework.util.AntPathMatcher AntPathMatcher} javadoc.
+ * <p>支持直接匹配，例如 已注册的"/test"匹配"/test"，和各种Ant样式的模式匹配，
+ * 例如 注册的"/t*"模式匹配"/test"和"/team"，"/test/*"匹配"/test"目录中的所有路径，
+ * "/test/**"匹配"/test"下面的所有路径。 有关详细信息，
+ * 请参见{@link org.springframework.util.AntPathMatcher AntPathMatcher} javadoc。
  *
- * <p>Will search all path patterns to find the most exact match for the
- * current request path. The most exact match is defined as the longest
- * path pattern that matches the current request path.
+ * <p>将搜索所有路径模式以找到当前请求路径的最精确匹配。 最精确的匹配定义为与当前请求路径匹配的最长路径模式。
  *
  * @author Juergen Hoeller
  * @author Arjen Poutsma

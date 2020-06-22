@@ -21,10 +21,9 @@ import java.util.Locale;
 import org.springframework.lang.Nullable;
 
 /**
- * Strategy interface for resolving messages, with support for the parameterization
- * and internationalization of such messages.
+ * 用于解析消息的策略接口，并支持此类消息的参数化和国际化.
  *
- * <p>Spring provides two out-of-the-box implementations for production:
+ * <p>Spring为生产提供了两种现成的实现：
  * <ul>
  * <li>{@link org.springframework.context.support.ResourceBundleMessageSource}: built
  * on top of the standard {@link java.util.ResourceBundle}, sharing its limitations.
@@ -40,7 +39,7 @@ import org.springframework.lang.Nullable;
 public interface MessageSource {
 
 	/**
-	 * Try to resolve the message. Return default message if no message was found.
+	 * 尝试解析该消息. 如果未找到任何消息，则返回默认消息.
 	 * @param code the message code to look up, e.g. 'calculator.noRateSet'.
 	 * MessageSource users are encouraged to base message names on qualified class
 	 * or package names, avoiding potential conflicts and ensuring maximum clarity.
@@ -58,7 +57,7 @@ public interface MessageSource {
 	String getMessage(String code, @Nullable Object[] args, @Nullable String defaultMessage, Locale locale);
 
 	/**
-	 * Try to resolve the message. Treat as an error if the message can't be found.
+	 * 尝试解决该消息. 如果找不到消息，则抛出异常.
 	 * @param code the message code to look up, e.g. 'calculator.noRateSet'.
 	 * MessageSource users are encouraged to base message names on qualified class
 	 * or package names, avoiding potential conflicts and ensuring maximum clarity.
@@ -74,11 +73,9 @@ public interface MessageSource {
 	String getMessage(String code, @Nullable Object[] args, Locale locale) throws NoSuchMessageException;
 
 	/**
-	 * Try to resolve the message using all the attributes contained within the
-	 * {@code MessageSourceResolvable} argument that was passed in.
-	 * <p>NOTE: We must throw a {@code NoSuchMessageException} on this method
-	 * since at the time of calling this method we aren't able to determine if the
-	 * {@code defaultMessage} property of the resolvable is {@code null} or not.
+	 * 尝试使用传入的{@code MessageSourceResolvable}参数中包含的所有属性来解析消息.
+	 * <p>注意：我们必须在此方法上抛出{@code NoSuchMessageException}，因为在调用此方法时，
+	 * 我们无法确定可解析对象的{@code defaultMessage}属性是否为{@code null}.
 	 * @param resolvable the value object storing attributes required to resolve a message
 	 * (may include a default message)
 	 * @param locale the locale in which to do the lookup

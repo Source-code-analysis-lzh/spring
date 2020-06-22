@@ -28,17 +28,13 @@ import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * This class can be used to parse other classes containing constant definitions
- * in public static final members. The {@code asXXXX} methods of this class
- * allow these constant values to be accessed via their string names.
+ * 此类可用于解析其它类公共静态final成员中包含常量定义.
+ * 此类的 {@code asXXXX} 方法允许通过其字符串名称访问这些常量值.
  *
- * <p>Consider class Foo containing {@code public final static int CONSTANT1 = 66;}
- * An instance of this class wrapping {@code Foo.class} will return the constant value
- * of 66 from its {@code asNumber} method given the argument {@code "CONSTANT1"}.
+ * <p>考虑包含 {@code public final static int CONSTANT1 = 66;} 的 Foo 类;
+ * 包裹 {@code Foo.class} 的类的实例将从给定参数 {@code "CONSTANT1"} 的 {@code asNumber} 方法返回常数66.
  *
- * <p>This class is ideal for use in PropertyEditors, enabling them to
- * recognize the same names as the constants themselves, and freeing them
- * from maintaining their own mapping.
+ * <p>此类非常适合在PropertyEditor中使用，使它们能够识别与常量本身相同的名称，并使它们免于维护自己的映射.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

@@ -25,6 +25,8 @@ import org.springframework.lang.Nullable;
  * Extended {@link org.springframework.beans.factory.config.BeanDefinition}
  * interface that exposes {@link org.springframework.core.type.AnnotationMetadata}
  * about its bean class - without requiring the class to be loaded yet.
+ * 扩展的{@link org.springframework.beans.factory.config.BeanDefinition}接口，
+ * 公开有关其bean类的{@link org.springframework.core.type.AnnotationMetadata}-无需加载该类。
  *
  * @author Juergen Hoeller
  * @since 2.5

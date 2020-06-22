@@ -66,27 +66,23 @@ import org.springframework.web.servlet.support.WebContentGenerator;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * {@code HttpRequestHandler} that serves static resources in an optimized way
- * according to the guidelines of Page Speed, YSlow, etc.
+ * {@code HttpRequestHandler}根据Page Speed，YSlow等的准则以优化的方式为静态资源提供服务。
  *
- * <p>The {@linkplain #setLocations "locations"} property takes a list of Spring
- * {@link Resource} locations from which static resources are allowed to be served
- * by this handler. Resources could be served from a classpath location, e.g.
- * "classpath:/META-INF/public-web-resources/", allowing convenient packaging
- * and serving of resources such as .js, .css, and others in jar files.
+ * <p>&lt;mvc:default-servlet-handler /&gt;将静态资源的处理经由Spring MVC框架交回Web
+ * 应用服务器处理。而&lt;mvc:resources /&gt;更进一步，由Spring MVC框架自己处理静态资源，
+ * 并添加一些有用的附加值功能。
+ * 
+ * <p>{@linkplain #setLocations "locations"}属性获取一个Spring {@link Resource}位置列表，
+ * 此处理器允许从该位置提供静态资源。 可以从类路径位置提供资源，例如 "classpath:/META-INF/public-web-resources/"，
+ * 允许在jar文件中方便地打包和提供资源，例如.js，.css和其它资源。
  *
- * <p>This request handler may also be configured with a
- * {@link #setResourceResolvers(List) resourcesResolver} and
- * {@link #setResourceTransformers(List) resourceTransformer} chains to support
- * arbitrary resolution and transformation of resources being served. By default
- * a {@link PathResourceResolver} simply finds resources based on the configured
- * "locations". An application can configure additional resolvers and transformers
- * such as the {@link VersionResourceResolver} which can resolve and prepare URLs
- * for resources with a version in the URL.
+ * <p>该请求处理器还可以配置有{@link #setResourceResolvers(List) resourcesResolver}和
+ * {@link #setResourceTransformers(List) resourceTransformer}链，以支持任意解析和所服务资源的转换。
+ * 默认情况下，{@link PathResourceResolver}仅根据配置的"locations"查找资源。 
+ * 应用程序可以配置其它解析器和转换器，例如{@link VersionResourceResolver}，它们可以解析和准备URL中带有版本的资源的URL。
  *
- * <p>This handler also properly evaluates the {@code Last-Modified} header
- * (if present) so that a {@code 304} status code will be returned as appropriate,
- * avoiding unnecessary overhead for resources that are already cached by the client.
+ * <p>此处理器还会正确计算{@code Last-Modified}头（如果存在），以便将适当地返回{@code 304}状态代码，
+ * 从而避免了客户端已经缓存的资源而导致不必要开销。
  *
  * @author Keith Donald
  * @author Jeremy Grelle

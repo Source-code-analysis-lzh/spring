@@ -21,8 +21,7 @@ import org.springframework.beans.factory.config.Scope;
 import org.springframework.lang.Nullable;
 
 /**
- * A {@link Scope} implementation exposing the attributes of a SiMP session
- * (e.g. WebSocket session).
+ * 一个{@link Scope}实现，公开了SiMP会话（例如WebSocket会话）的属性。
  *
  * <p>Relies on a thread-bound {@link SimpAttributes} instance exported by
  * {@link org.springframework.messaging.simp.annotation.support.SimpAnnotationMethodMessageHandler}.

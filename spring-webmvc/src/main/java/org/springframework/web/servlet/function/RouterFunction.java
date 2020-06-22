@@ -19,7 +19,7 @@ package org.springframework.web.servlet.function;
 import java.util.Optional;
 
 /**
- * Represents a function that routes to a {@linkplain HandlerFunction handler function}.
+ * 表示一个路由到{@linkplain HandlerFunction handler function}的函数。
  *
  * @author Arjen Poutsma
  * @since 5.2

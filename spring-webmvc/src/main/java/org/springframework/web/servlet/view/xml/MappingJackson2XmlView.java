@@ -29,14 +29,13 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.json.AbstractJackson2View;
 
 /**
- * Spring MVC {@link View} that renders XML content by serializing the model for the current request
- * using <a href="https://github.com/FasterXML/jackson">Jackson 2's</a> {@link XmlMapper}.
+ * Spring MVC {@link View}通过使用<a href="https://github.com/FasterXML/jackson">Jackson 2's</a>
+ * 的{@link XmlMapper}序列化当前请求的模型来渲染XML内容。
  *
- * <p>The Object to be serialized is supplied as a parameter in the model. The first serializable
- * entry is used. Users can either specify a specific entry in the model via the
- * {@link #setModelKey(String) sourceKey} property.
+ * <p>要序列化的对象作为模型中的参数提供。 使用第一个可序列化的条目。 
+ * 用户可以通过{@link #setModelKey(String) sourceKey}属性在模型中指定特定条目。
  *
- * <p>The default constructor uses the default configuration provided by {@link Jackson2ObjectMapperBuilder}.
+ * <p>默认构造函数使用{@link Jackson2ObjectMapperBuilder}提供的默认配置。
  *
  * <p>Compatible with Jackson 2.6 and higher, as of Spring 4.3.
  *

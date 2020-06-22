@@ -19,8 +19,7 @@ package org.springframework.core.convert;
 import org.springframework.lang.Nullable;
 
 /**
- * Exception to be thrown when a suitable converter could not be found
- * in a given conversion service.
+ * 当在给定的转换服务中找不到合适的转换器时，将引发异常.
  *
  * @author Keith Donald
  * @author Juergen Hoeller

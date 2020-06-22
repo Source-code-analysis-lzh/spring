@@ -149,10 +149,13 @@ public class GenericWebApplicationContext extends GenericApplicationContext
 	@Override
 	protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 		if (this.servletContext != null) {
+			// 注册bean后处理器
 			beanFactory.addBeanPostProcessor(new ServletContextAwareProcessor(this.servletContext));
 			beanFactory.ignoreDependencyInterface(ServletContextAware.class);
 		}
+		// 注册web范围
 		WebApplicationContextUtils.registerWebApplicationScopes(beanFactory, this.servletContext);
+		// 注册web特有bean,如"contextParameters", "contextAttributes"
 		WebApplicationContextUtils.registerEnvironmentBeans(beanFactory, this.servletContext);
 	}
 
@@ -191,6 +194,7 @@ public class GenericWebApplicationContext extends GenericApplicationContext
 	protected void initPropertySources() {
 		ConfigurableEnvironment env = getEnvironment();
 		if (env instanceof ConfigurableWebEnvironment) {
+			// 使用servletContext替换环境中StubPropertySource占位
 			((ConfigurableWebEnvironment) env).initPropertySources(this.servletContext, null);
 		}
 	}

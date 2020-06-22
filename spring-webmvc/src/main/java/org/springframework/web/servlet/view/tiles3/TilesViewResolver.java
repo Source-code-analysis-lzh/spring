@@ -22,8 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * Convenience subclass of {@link UrlBasedViewResolver} that supports
- * {@link TilesView} (i.e. Tiles definitions) and custom subclasses of it.
+ * 支持{@link TilesView}（即Tiles定义）及其自定义子类的{@link UrlBasedViewResolver}的便利子类。
  *
  * @author Nicolas Le Bas
  * @author Rossen Stoyanchev

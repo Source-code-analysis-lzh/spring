@@ -26,6 +26,7 @@ import org.springframework.web.util.WebUtils;
 /**
  * A response wrapper used for the implementation of
  * {@link RelativeRedirectFilter} also shared with {@link ForwardedHeaderFilter}.
+ * 用于实现{@link RelativeRedirectFilter}的响应包装也与{@link ForwardedHeaderFilter}共享。
  *
  * @author Rossen Stoyanchev
  * @since 4.3.10

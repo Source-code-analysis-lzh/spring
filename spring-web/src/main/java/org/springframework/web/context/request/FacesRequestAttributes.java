@@ -33,6 +33,8 @@ import org.springframework.web.util.WebUtils;
 /**
  * {@link RequestAttributes} adapter for a JSF {@link javax.faces.context.FacesContext}.
  * Used as default in a JSF environment, wrapping the current FacesContext.
+ * 在JSF环境中用作默认的JSF {@link javax.faces.context.FacesContext}的{@link RequestAttributes}适配器。 
+ * 包装当前的FacesContext。
  *
  * <p><b>NOTE:</b> In contrast to {@link ServletRequestAttributes}, this variant does
  * <i>not</i> support destruction callbacks for scoped attributes, neither for the

@@ -28,11 +28,10 @@ import org.springframework.core.io.support.PropertiesLoaderSupport;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Allows for configuration of individual bean property values from a property resource,
- * i.e. a properties file. Useful for custom config files targeted at system
- * administrators that override bean properties configured in the application context.
+ * 允许从属性资源（即属性文件）配置单个bean属性值。 对于针对系统管理员的自定义配置文件很有用，
+ * 这些文件覆盖了在应用程序上下文中配置的Bean属性。
  *
- * <p>Two concrete implementations are provided in the distribution:
+ * <p>发布版中提供了两个具体的实现：
  * <ul>
  * <li>{@link PropertyOverrideConfigurer} for "beanName.property=value" style overriding
  * (<i>pushing</i> values from a properties file into bean definitions)
@@ -40,9 +39,8 @@ import org.springframework.util.ObjectUtils;
  * (<i>pulling</i> values from a properties file into bean definitions)
  * </ul>
  *
- * <p>Property values can be converted after reading them in, through overriding
- * the {@link #convertPropertyValue} method. For example, encrypted values
- * can be detected and decrypted accordingly before processing them.
+ * <p>通过覆盖{@link #convertPropertyValue}方法，可以在读入属性值后对其进行转换。 
+ * 例如，可以在处理加密值之前对它们进行检测和解密。
  *
  * @author Juergen Hoeller
  * @since 02.10.2003

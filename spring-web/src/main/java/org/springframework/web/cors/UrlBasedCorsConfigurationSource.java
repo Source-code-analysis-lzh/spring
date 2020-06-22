@@ -29,11 +29,9 @@ import org.springframework.util.PathMatcher;
 import org.springframework.web.util.UrlPathHelper;
 
 /**
- * Provide a per request {@link CorsConfiguration} instance based on a
- * collection of {@link CorsConfiguration} mapped on path patterns.
+ * 根据映射到路径模式的{@link CorsConfiguration}的集合提供每个请求的{@link CorsConfiguration}实例。
  *
- * <p>Exact path mapping URIs (such as {@code "/admin"}) are supported
- * as well as Ant-style path patterns (such as {@code "/admin/**"}).
+ * <p>支持精确的路径映射URI（例如{@code "/admin"}）以及Ant样式的路径模式（例如{@code "/admin/**"}）。
  *
  * @author Sebastien Deleuze
  * @since 4.2

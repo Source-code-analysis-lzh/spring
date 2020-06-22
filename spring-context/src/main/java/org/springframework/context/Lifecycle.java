@@ -17,28 +17,21 @@
 package org.springframework.context;
 
 /**
- * A common interface defining methods for start/stop lifecycle control.
- * The typical use case for this is to control asynchronous processing.
- * <b>NOTE: This interface does not imply specific auto-startup semantics.
- * Consider implementing {@link SmartLifecycle} for that purpose.</b>
+ * 定义启动/停止生命周期控制方法的通用接口.
+ * 典型的用例是控制异步处理.
+ * <b>注意：此接口并不意味着特定的自动启动语义. 考虑为此目的实现{@link SmartLifecycle}.</b>
  *
- * <p>Can be implemented by both components (typically a Spring bean defined in a
- * Spring context) and containers  (typically a Spring {@link ApplicationContext}
- * itself). Containers will propagate start/stop signals to all components that
- * apply within each container, e.g. for a stop/restart scenario at runtime.
+ * <p>可以由组件（通常是在Spring上下文中定义的Spring bean）
+ * 和容器（通常是Spring {@link ApplicationContext}本身）实现.
+ * 容器会将开始/停止信号传播到每个容器中应用的所有组件，例如 在运行时停止/重新启动的情况.
  *
- * <p>Can be used for direct invocations or for management operations via JMX.
- * In the latter case, the {@link org.springframework.jmx.export.MBeanExporter}
- * will typically be defined with an
- * {@link org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler},
- * restricting the visibility of activity-controlled components to the Lifecycle
- * interface.
+ * <p>可以用于直接调用或通过JMX进行管理操作.
+ * 在后一种情况下，通常将使用{@link org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler}
+ * 定义{@link org.springframework.jmx.export.MBeanExporter}，从而将活动控制的组件的可见性限制为Lifecycle接口.
  *
- * <p>Note that the present {@code Lifecycle} interface is only supported on
- * <b>top-level singleton beans</b>. On any other component, the {@code Lifecycle}
- * interface will remain undetected and hence ignored. Also, note that the extended
- * {@link SmartLifecycle} interface provides sophisticated integration with the
- * application context's startup and shutdown phases.
+ * <p>请注意，当前的{@code Lifecycle}接口仅在顶级Singleton Bean上受支持.
+ * 在任何其他组件上，{@code Lifecycle}接口将保持未被检测到并因此被忽略.
+ * 另外，请注意，扩展的{@link SmartLifecycle}接口提供了与应用程序上下文的启动和关闭阶段的复杂集成.
  *
  * @author Juergen Hoeller
  * @since 2.0
@@ -50,35 +43,30 @@ package org.springframework.context;
 public interface Lifecycle {
 
 	/**
-	 * Start this component.
-	 * <p>Should not throw an exception if the component is already running.
-	 * <p>In the case of a container, this will propagate the start signal to all
-	 * components that apply.
+	 * 启动此组件.
+	 * <p>如果组件已经在运行，则不应抛出异常.
+	 * <p>对于容器，这会将启动信号传播到所有适用的组件.
 	 * @see SmartLifecycle#isAutoStartup()
 	 */
 	void start();
 
 	/**
-	 * Stop this component, typically in a synchronous fashion, such that the component is
-	 * fully stopped upon return of this method. Consider implementing {@link SmartLifecycle}
-	 * and its {@code stop(Runnable)} variant when asynchronous stop behavior is necessary.
-	 * <p>Note that this stop notification is not guaranteed to come before destruction:
-	 * On regular shutdown, {@code Lifecycle} beans will first receive a stop notification
-	 * before the general destruction callbacks are being propagated; however, on hot
-	 * refresh during a context's lifetime or on aborted refresh attempts, a given bean's
-	 * destroy method will be called without any consideration of stop signals upfront.
-	 * <p>Should not throw an exception if the component is not running (not started yet).
-	 * <p>In the case of a container, this will propagate the stop signal to all components
-	 * that apply.
+	 * 通常以同步方式停止此组件，以便在返回此方法后完全停止该组件.
+	 * 当需要异步停止行为时，请考虑实现{@link SmartLifecycle}及其{@code stop(Runnable)}变体.
+	 * <p>请注意，此停止通知不能保证在销毁之前出现：
+	 * 在常规关闭时，{@code Lifecycle} Bean将在传播常规销毁回调之前首先收到一个停止通知；
+	 * 否则，将不会收到该通知. 但是，在上下文生存期内的热刷新或中止的刷新尝试下，
+	 * 将调用给定bean的destroy方法，而无需事先考虑停止信号.
+	 * <p>如果组件未运行（尚未启动），则不应引发异常.
+	 * <p>对于容器，这会将停止信号传播到所有适用的组件.
 	 * @see SmartLifecycle#stop(Runnable)
 	 * @see org.springframework.beans.factory.DisposableBean#destroy()
 	 */
 	void stop();
 
 	/**
-	 * Check whether this component is currently running.
-	 * <p>In the case of a container, this will return {@code true} only if <i>all</i>
-	 * components that apply are currently running.
+	 * 检查此组件当前是否正在运行.
+	 * <p>对于容器，仅当所有适用的组件当前正在运行时，它才会返回{@code true}.
 	 * @return whether the component is currently running
 	 */
 	boolean isRunning();

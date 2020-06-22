@@ -22,13 +22,11 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.util.Assert;
 
 /**
- * Adapter that exposes the {@link java.util.concurrent.Executor} interface
- * for any Spring {@link org.springframework.core.task.TaskExecutor}.
+ * 公开任何Spring {@link org.springframework.core.task.TaskExecutor}
+ * 的{@link java.util.concurrent.Executor}接口的适配器。
  *
- * <p>This is less useful as of Spring 3.0, since TaskExecutor itself
- * extends the Executor interface. The adapter is only relevant for
- * <em>hiding</em> the TaskExecutor nature of a given object now,
- * solely exposing the standard Executor interface to a client.
+ * <p>从Spring 3.0开始，此功能不再有用，因为TaskExecutor本身扩展了Executor接口。 
+ * 适配器仅与现在隐藏给定对象的TaskExecutor本质有关，仅将标准Executor接口公开给客户端。
  *
  * @author Juergen Hoeller
  * @since 2.5

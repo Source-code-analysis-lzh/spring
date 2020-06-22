@@ -51,14 +51,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.concurrent.ListenableFuture;
 
 /**
- * {@link GenericApplicationListener} adapter that delegates the processing of
- * an event to an {@link EventListener} annotated method.
+ * {@link GenericApplicationListener}适配器，将事件的处理委派给带注释的{@link EventListener}方法.
  *
- * <p>Delegates to {@link #processEvent(ApplicationEvent)} to give subclasses
- * a chance to deviate from the default. Unwraps the content of a
- * {@link PayloadApplicationEvent} if necessary to allow a method declaration
- * to define any arbitrary event type. If a condition is defined, it is
- * evaluated prior to invoking the underlying method.
+ * <p>委托{@link #processEvent(ApplicationEvent)}使子类有机会覆盖默认值.
+ * 必要时解包{@link PayloadApplicationEvent}的内容，以允许方法声明定义任意事件类型.
+ * 如果定义了条件，则在调用基础方法之前先对其进行评估.
  *
  * @author Stephane Nicoll
  * @author Juergen Hoeller

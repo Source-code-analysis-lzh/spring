@@ -22,20 +22,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * This interface represents a generic runtime joinpoint (in the AOP
- * terminology).
+ * 该接口表示通用的运行时连接点（在AOP术语中）。
  *
- * <p>A runtime joinpoint is an <i>event</i> that occurs on a static
- * joinpoint (i.e. a location in a the program). For instance, an
- * invocation is the runtime joinpoint on a method (static joinpoint).
- * The static part of a given joinpoint can be generically retrieved
- * using the {@link #getStaticPart()} method.
+ * <p>运行时连接点是在静态连接点（即程序中的位置）上发生的事件。 
+ * 例如，invocation是方法上的运行时连接点（静态连接点）。 
+ * 可以使用{@link #getStaticPart()}方法来一般检索给定连接点的静态部分。
  *
- * <p>In the context of an interception framework, a runtime joinpoint
- * is then the reification of an access to an accessible object (a
- * method, a constructor, a field), i.e. the static part of the
- * joinpoint. It is passed to the interceptors that are installed on
- * the static joinpoint.
+ * <p>然后在拦截框架的上下文中，运行时连接点是对可访问对象（方法，构造函数，字段）
+ * （即连接点的静态部分）的访问的验证。 它被传递到安装在静态连接点上的拦截器。
  *
  * @author Rod Johnson
  * @see Interceptor

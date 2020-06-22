@@ -28,8 +28,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Quartz {@link ThreadPool} adapter that delegates to a Spring-managed
- * {@link Executor} instance, specified on {@link SchedulerFactoryBean}.
+ * Quartz {@link ThreadPool}适配器，委派给在{@link SchedulerFactoryBean}
+ * 上指定的Spring管理的{@link Executor}实例。
  *
  * @author Juergen Hoeller
  * @since 2.0

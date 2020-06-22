@@ -25,9 +25,8 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 
 /**
- * Convenient {@link WebBindingInitializer} for declarative configuration
- * in a Spring application context. Allows for reusing pre-configured
- * initializers with multiple controller/handlers.
+ * 方便的{@link WebBindingInitializer}用于在Spring应用程序上下文中进行声明式配置。 
+ * 允许与多个控制器/处理器一起重用预配置的初始化程序。
  *
  * @author Juergen Hoeller
  * @since 2.5

@@ -132,9 +132,8 @@ public abstract class RequestContextUtils {
 	}
 
 	/**
-	 * Retrieve the current locale from the given request, using the
-	 * LocaleResolver bound to the request by the DispatcherServlet
-	 * (if available), falling back to the request's accept-header Locale.
+	 * 使用由DispatcherServlet绑定到请求的LocaleResolver（如果有），
+	 * 从给定请求中检索当前语言环境，并使用请求的接受(accept-header)标头作为后备的语言环境。
 	 * <p>This method serves as a straightforward alternative to the standard
 	 * Servlet {@link javax.servlet.http.HttpServletRequest#getLocale()} method,
 	 * falling back to the latter if no more specific locale has been found.

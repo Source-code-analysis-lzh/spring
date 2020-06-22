@@ -47,9 +47,12 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 
 /**
- * {@code Filter} that parses form data for HTTP PUT, PATCH, and DELETE requests
- * and exposes it as Servlet request parameters. By default the Servlet spec
- * only requires this for HTTP POST.
+ * {@code Filter}，用于解析HTTP PUT，PATCH和DELETE请求的表单数据，
+ * 并将其公开为Servlet请求参数。 默认情况下，Servlet规范仅对HTTP POST要求此操作。
+ * 
+ * <p>浏览器端的form表单只支持GET与POST，而非浏览器客户端可是能发送PUT等其他类型的请求，
+ * 而Servlet规范要求{@code ServletRequest.getParameter*()}系列方法只能获取POST请求的参数，怎么办？
+ * 使用本过滤器可以修正这个。
  *
  * @author Rossen Stoyanchev
  * @since 5.1
