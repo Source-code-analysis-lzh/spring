@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.bind.support.WebDataBinderFactory</OriginalElement>
+  <nodes>
+    <node x="0.0" y="428.0">org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder</node>
+    <node x="782.5" y="637.0">org.springframework.web.bind.support.DefaultDataBinderFactory</node>
+    <node x="60.0" y="1060.0">org.springframework.web.bind.support.WebBindingInitializer</node>
+    <node x="323.0" y="744.0">org.springframework.validation.AbstractBindingResult</node>
+    <node x="398.0" y="530.0">org.springframework.validation.Errors</node>
+    <node x="40.0" y="321.0">org.springframework.web.bind.ServletRequestDataBinder</node>
+    <node x="459.5" y="637.0">org.springframework.validation.AbstractErrors</node>
+    <node x="802.5" y="530.0">org.springframework.web.bind.support.WebDataBinderFactory</node>
+    <node x="747.5" y="851.0">org.springframework.web.servlet.mvc.method.annotation.ServletRequestDataBinderFactory</node>
+    <node x="0.0" y="1167.0">org.springframework.web.bind.support.ConfigurableWebBindingInitializer</node>
+    <node x="403.0" y="107.0">org.springframework.validation.DataBinder</node>
+    <node x="348.0" y="321.0">org.springframework.web.bind.support.WebExchangeDataBinder</node>
+    <node x="216.5" y="0.0">org.springframework.beans.PropertyEditorRegistry</node>
+    <node x="318.0" y="958.0">org.springframework.validation.DirectFieldBindingResult</node>
+    <node x="261.5" y="637.0">org.springframework.validation.BindingResult</node>
+    <node x="626.0" y="321.0">org.springframework.web.bind.support.WebRequestDataBinder</node>
+    <node x="458.0" y="1060.0">org.springframework.validation.BindingErrorProcessor</node>
+    <node x="136.5" y="851.0">org.springframework.validation.AbstractPropertyBindingResult</node>
+    <node x="494.5" y="851.0">org.springframework.validation.MapBindingResult</node>
+    <node x="767.5" y="744.0">org.springframework.web.method.annotation.InitBinderDataBinderFactory</node>
+    <node x="388.0" y="214.0">org.springframework.web.bind.WebDataBinder</node>
+    <node x="504.5" y="0.0">org.springframework.beans.TypeConverter</node>
+    <node x="0.0" y="958.0">org.springframework.validation.BeanPropertyBindingResult</node>
+    <node x="423.0" y="1167.0">org.springframework.validation.DefaultBindingErrorProcessor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.validation.AbstractBindingResult" target="org.springframework.validation.BindingResult">
+      <point x="-64.5" y="-28.5" />
+      <point x="387.5" y="719.0" />
+      <point x="350.5" y="719.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.method.annotation.InitBinderDataBinderFactory" target="org.springframework.web.bind.support.DefaultDataBinderFactory">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder" target="org.springframework.web.bind.ServletRequestDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.DirectFieldBindingResult" target="org.springframework.validation.AbstractPropertyBindingResult">
+      <point x="0.0" y="-28.5" />
+      <point x="462.0" y="933.0" />
+      <point x="390.0" y="933.0" />
+      <point x="84.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.AbstractErrors" target="org.springframework.validation.Errors">
+      <point x="0.0" y="-28.5" />
+      <point x="553.5" y="612.0" />
+      <point x="479.0" y="612.0" />
+      <point x="27.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.AbstractBindingResult" target="org.springframework.validation.AbstractErrors">
+      <point x="64.5" y="-28.5" />
+      <point x="516.5" y="719.0" />
+      <point x="553.5" y="719.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.support.WebExchangeDataBinder" target="org.springframework.web.bind.WebDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.support.DefaultDataBinderFactory" target="org.springframework.web.bind.support.WebDataBinderFactory">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.MapBindingResult" target="org.springframework.validation.AbstractBindingResult">
+      <point x="0.0" y="-28.5" />
+      <point x="598.5" y="826.0" />
+      <point x="516.5" y="826.0" />
+      <point x="64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.BindingResult" target="org.springframework.validation.Errors">
+      <point x="0.0" y="-28.5" />
+      <point x="350.5" y="612.0" />
+      <point x="425.0" y="612.0" />
+      <point x="-27.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.ServletRequestDataBinderFactory" target="org.springframework.web.method.annotation.InitBinderDataBinderFactory">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.DefaultBindingErrorProcessor" target="org.springframework.validation.BindingErrorProcessor">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.AbstractPropertyBindingResult" target="org.springframework.validation.AbstractBindingResult">
+      <point x="0.0" y="-28.5" />
+      <point x="305.5" y="826.0" />
+      <point x="387.5" y="826.0" />
+      <point x="-64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.BeanPropertyBindingResult" target="org.springframework.validation.AbstractPropertyBindingResult">
+      <point x="0.0" y="-28.5" />
+      <point x="149.0" y="933.0" />
+      <point x="221.0" y="933.0" />
+      <point x="-84.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.DataBinder" target="org.springframework.beans.PropertyEditorRegistry">
+      <point x="-37.0" y="-28.5" />
+      <point x="440.0" y="82.0" />
+      <point x="350.5" y="82.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.ServletRequestDataBinder" target="org.springframework.web.bind.WebDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="184.0" y="296.0" />
+      <point x="417.6666666666667" y="296.0" />
+      <point x="-59.333333333333314" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.support.ConfigurableWebBindingInitializer" target="org.springframework.web.bind.support.WebBindingInitializer">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.support.WebRequestDataBinder" target="org.springframework.web.bind.WebDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="750.0" y="296.0" />
+      <point x="536.3333333333334" y="296.0" />
+      <point x="59.33333333333337" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.DataBinder" target="org.springframework.beans.TypeConverter">
+      <point x="37.0" y="-28.5" />
+      <point x="514.0" y="82.0" />
+      <point x="593.5" y="82.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.WebDataBinder" target="org.springframework.validation.DataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5289389067524116" x="553.0" y="612.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

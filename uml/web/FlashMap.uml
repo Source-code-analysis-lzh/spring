@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.FlashMap</OriginalElement>
+  <nodes>
+    <node x="197.75" y="107.0">java.lang.Cloneable</node>
+    <node x="18.75" y="107.0">java.util.AbstractMap</node>
+    <node x="306.0" y="214.0">java.lang.SuppressWarnings</node>
+    <node x="0.0" y="530.0">org.springframework.web.servlet.support.AbstractFlashMapManager</node>
+    <node x="103.5" y="0.0">java.util.Map</node>
+    <node x="40.0" y="423.0">org.springframework.web.servlet.FlashMapManager</node>
+    <node x="163.0" y="321.0">org.springframework.web.servlet.FlashMap</node>
+    <node x="168.0" y="214.0">java.util.HashMap</node>
+    <node x="0.0" y="214.0">java.lang.Comparable</node>
+    <node x="5.0" y="637.0">org.springframework.web.servlet.support.SessionFlashMapManager</node>
+    <node x="355.75" y="107.0">java.io.Serializable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.util.HashMap" target="java.util.Map">
+      <point x="-14.75" y="-28.5" />
+      <point x="212.25" y="184.0" />
+      <point x="187.25" y="184.0" />
+      <point x="187.25" y="82.0" />
+      <point x="162.0" y="82.0" />
+      <point x="19.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.FlashMap" target="java.util.HashMap">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.FlashMap" target="java.lang.Comparable">
+      <point x="-42.66666666666663" y="-28.5" />
+      <point x="184.33333333333337" y="296.0" />
+      <point x="74.0" y="296.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="java.util.HashMap" target="java.lang.Cloneable">
+      <point x="14.75" y="-28.5" />
+      <point x="241.75" y="184.0" />
+      <point x="266.75" y="184.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="java.util.HashMap" target="java.util.AbstractMap">
+      <point x="-44.25" y="-28.5" />
+      <point x="182.75" y="194.0" />
+      <point x="97.75" y="194.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.FlashMap" target="java.lang.SuppressWarnings">
+      <point x="42.666666666666686" y="-28.5" />
+      <point x="269.6666666666667" y="296.0" />
+      <point x="410.0" y="296.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="java.util.AbstractMap" target="java.util.Map">
+      <point x="0.0" y="-28.5" />
+      <point x="97.75" y="82.0" />
+      <point x="123.0" y="82.0" />
+      <point x="-19.5" y="28.5" />
+    </edge>
+    <edge source="java.util.HashMap" target="java.io.Serializable">
+      <point x="44.25" y="-28.5" />
+      <point x="271.25" y="194.0" />
+      <point x="439.75" y="194.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.support.SessionFlashMapManager" target="org.springframework.web.servlet.support.AbstractFlashMapManager">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.support.AbstractFlashMapManager" target="org.springframework.web.servlet.FlashMapManager">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="262.0" y="399.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

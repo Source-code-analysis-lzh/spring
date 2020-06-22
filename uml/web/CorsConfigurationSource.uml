@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.cors.CorsConfigurationSource</OriginalElement>
+  <nodes>
+    <node x="0.0" y="214.0">org.springframework.web.socket.sockjs.transport.TransportHandlingSockJsService</node>
+    <node x="1009.0" y="107.0">org.springframework.web.servlet.resource.ResourceHttpRequestHandler</node>
+    <node x="706.0" y="0.0">org.springframework.web.cors.CorsConfigurationSource</node>
+    <node x="0.0" y="530.0">org.springframework.web.cors.DefaultCorsProcessor</node>
+    <node x="50.0" y="321.0">org.springframework.web.socket.sockjs.transport.handler.DefaultSockJsService</node>
+    <node x="701.0" y="107.0">org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler</node>
+    <node x="35.0" y="423.0">org.springframework.web.cors.CorsProcessor</node>
+    <node x="323.0" y="107.0">org.springframework.web.cors.UrlBasedCorsConfigurationSource</node>
+    <node x="293.0" y="423.0">org.springframework.web.cors.CorsConfiguration</node>
+    <node x="1337.0" y="107.0">org.springframework.web.servlet.handler.HandlerMappingIntrospector</node>
+    <node x="45.0" y="107.0">org.springframework.web.socket.sockjs.support.AbstractSockJsService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.socket.sockjs.transport.TransportHandlingSockJsService" target="org.springframework.web.socket.sockjs.support.AbstractSockJsService">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.cors.DefaultCorsProcessor" target="org.springframework.web.cors.CorsProcessor">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.socket.sockjs.support.AbstractSockJsService" target="org.springframework.web.cors.CorsConfigurationSource">
+      <point x="0.0" y="-28.5" />
+      <point x="174.0" y="77.0" />
+      <point x="733.8" y="77.0" />
+      <point x="-111.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.cors.UrlBasedCorsConfigurationSource" target="org.springframework.web.cors.CorsConfigurationSource">
+      <point x="0.0" y="-28.5" />
+      <point x="502.0" y="87.0" />
+      <point x="789.4" y="87.0" />
+      <point x="-55.60000000000002" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.socket.sockjs.transport.handler.DefaultSockJsService" target="org.springframework.web.socket.sockjs.transport.TransportHandlingSockJsService">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.HandlerMappingIntrospector" target="org.springframework.web.cors.CorsConfigurationSource">
+      <point x="0.0" y="-28.5" />
+      <point x="1491.0" y="77.0" />
+      <point x="956.2" y="77.0" />
+      <point x="111.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.resource.ResourceHttpRequestHandler" target="org.springframework.web.cors.CorsConfigurationSource">
+      <point x="0.0" y="-28.5" />
+      <point x="1163.0" y="87.0" />
+      <point x="900.6" y="87.0" />
+      <point x="55.60000000000002" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler" target="org.springframework.web.cors.CorsConfigurationSource">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="514.5" y="292.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

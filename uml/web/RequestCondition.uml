@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.mvc.condition.RequestCondition</OriginalElement>
+  <nodes>
+    <node x="1304.5" y="0.0">org.springframework.web.servlet.mvc.condition.RequestCondition</node>
+    <node x="368.0" y="234.0">org.springframework.web.servlet.mvc.condition.ProducesRequestCondition</node>
+    <node x="40.0" y="336.0">org.springframework.web.servlet.mvc.condition.MediaTypeExpression</node>
+    <node x="0.0" y="443.0">org.springframework.web.servlet.mvc.condition.AbstractMediaTypeExpression</node>
+    <node x="1898.0" y="234.0">org.springframework.web.servlet.mvc.condition.HeadersRequestCondition</node>
+    <node x="1125.5" y="107.0">org.springframework.web.servlet.mvc.condition.AbstractRequestCondition</node>
+    <node x="363.0" y="443.0">org.springframework.web.servlet.mvc.condition.AbstractNameValueExpression</node>
+    <node x="0.0" y="234.0">org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondition</node>
+    <node x="1433.5" y="107.0">org.springframework.web.servlet.mvc.method.RequestMappingInfo</node>
+    <node x="403.0" y="336.0">org.springframework.web.servlet.mvc.condition.NameValueExpression</node>
+    <node x="676.0" y="234.0">org.springframework.web.servlet.mvc.condition.PatternsRequestCondition</node>
+    <node x="984.0" y="234.0">org.springframework.web.servlet.mvc.condition.ParamsRequestCondition</node>
+    <node x="2196.0" y="234.0">org.springframework.web.servlet.mvc.condition.RequestConditionHolder</node>
+    <node x="1590.0" y="234.0">org.springframework.web.servlet.mvc.condition.ConsumesRequestCondition</node>
+    <node x="1272.0" y="234.0">org.springframework.web.servlet.mvc.condition.CompositeRequestCondition</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.mvc.method.RequestMappingInfo" target="org.springframework.web.servlet.mvc.condition.RequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="1547.5" y="82.0" />
+      <point x="1460.5" y="82.0" />
+      <point x="52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.AbstractNameValueExpression" target="org.springframework.web.servlet.mvc.condition.NameValueExpression">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.RequestConditionHolder" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="2330.0" y="184.0" />
+      <point x="1395.5" y="184.0" />
+      <point x="126.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.HeadersRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="2037.0" y="194.0" />
+      <point x="1359.5" y="194.0" />
+      <point x="90.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.CompositeRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="1421.0" y="214.0" />
+      <point x="1287.5" y="214.0" />
+      <point x="18.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.PatternsRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="820.0" y="204.0" />
+      <point x="1215.5" y="204.0" />
+      <point x="-54.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.ProducesRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="512.0" y="194.0" />
+      <point x="1179.5" y="194.0" />
+      <point x="-90.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.ParamsRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="1118.0" y="214.0" />
+      <point x="1251.5" y="214.0" />
+      <point x="-18.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.AbstractMediaTypeExpression" target="org.springframework.web.servlet.mvc.condition.MediaTypeExpression">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.ConsumesRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="1734.0" y="204.0" />
+      <point x="1323.5" y="204.0" />
+      <point x="54.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition" target="org.springframework.web.servlet.mvc.condition.RequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="1269.5" y="82.0" />
+      <point x="1356.5" y="82.0" />
+      <point x="-52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondition" target="org.springframework.web.servlet.mvc.condition.AbstractRequestCondition">
+      <point x="0.0" y="-28.5" />
+      <point x="174.0" y="184.0" />
+      <point x="1143.5" y="184.0" />
+      <point x="-126.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="473.5" y="205.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.mvc.condition.CompositeRequestCondition</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

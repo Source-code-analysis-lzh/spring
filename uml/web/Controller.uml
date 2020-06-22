@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.mvc.Controller</OriginalElement>
+  <nodes>
+    <node x="512.0" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="636.0" y="321.0">org.springframework.web.servlet.mvc.ServletForwardingController</node>
+    <node x="517.0" y="214.0">org.springframework.web.servlet.mvc.AbstractController</node>
+    <node x="557.0" y="107.0">org.springframework.web.servlet.mvc.Controller</node>
+    <node x="974.0" y="321.0">org.springframework.web.servlet.mvc.ParameterizableViewController</node>
+    <node x="0.0" y="428.0">org.springframework.web.servlet.mvc.UrlFilenameViewController</node>
+    <node x="0.0" y="321.0">org.springframework.web.servlet.mvc.AbstractUrlViewController</node>
+    <node x="318.0" y="321.0">org.springframework.web.servlet.mvc.ServletWrappingController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.mvc.ServletForwardingController" target="org.springframework.web.servlet.mvc.AbstractController">
+      <point x="0.0" y="-28.5" />
+      <point x="795.0" y="301.0" />
+      <point x="659.5" y="301.0" />
+      <point x="28.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.AbstractController" target="org.springframework.web.servlet.mvc.Controller">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.UrlFilenameViewController" target="org.springframework.web.servlet.mvc.AbstractUrlViewController">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.ServletWrappingController" target="org.springframework.web.servlet.mvc.AbstractController">
+      <point x="0.0" y="-28.5" />
+      <point x="467.0" y="301.0" />
+      <point x="602.5" y="301.0" />
+      <point x="-28.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.AbstractUrlViewController" target="org.springframework.web.servlet.mvc.AbstractController">
+      <point x="0.0" y="-28.5" />
+      <point x="149.0" y="291.0" />
+      <point x="545.5" y="291.0" />
+      <point x="-85.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.Controller" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.ParameterizableViewController" target="org.springframework.web.servlet.mvc.AbstractController">
+      <point x="0.0" y="-28.5" />
+      <point x="1143.0" y="291.0" />
+      <point x="716.5" y="291.0" />
+      <point x="85.5" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7342342342342343" x="656.0" y="242.5" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.mvc.Controller</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

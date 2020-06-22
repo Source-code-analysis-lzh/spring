@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>javax.servlet.Filter</OriginalElement>
+  <nodes>
+    <node x="338.0" y="613.0">org.springframework.web.filter.ServletContextRequestLoggingFilter</node>
+    <node x="1095.5" y="506.0">org.springframework.web.filter.RelativeRedirectFilter</node>
+    <node x="2087.5" y="506.0">org.springframework.web.filter.HttpPutFormContentFilter</node>
+    <node x="827.5000000000001" y="506.0">org.springframework.web.filter.RequestContextFilter</node>
+    <node x="1839.5" y="262.0">org.springframework.web.filter.CompositeFilter</node>
+    <node x="1450.0" y="369.0">org.springframework.web.filter.OncePerRequestFilter</node>
+    <node x="181.5" y="506.0">org.springframework.web.filter.AbstractRequestLoggingFilter</node>
+    <node x="2673.5" y="506.0">org.springframework.web.filter.HiddenHttpMethodFilter</node>
+    <node x="1383.5" y="506.0">org.springframework.web.filter.CorsFilter</node>
+    <node x="1551.5" y="506.0">org.springframework.web.filter.CharacterEncodingFilter</node>
+    <node x="1718.0" y="369.0">org.springframework.web.filter.DelegatingFilterProxy</node>
+    <node x="0.0" y="613.0">org.springframework.web.filter.CommonsRequestLoggingFilter</node>
+    <node x="2395.5" y="506.0">org.springframework.web.filter.ForwardedHeaderFilter</node>
+    <node x="1601.5" y="262.0">org.springframework.web.filter.GenericFilterBean</node>
+    <node x="1849.5" y="506.0">org.springframework.web.filter.FormContentFilter</node>
+    <node x="1770.5" y="155.0">javax.servlet.Filter</node>
+    <node x="529.5000000000001" y="506.0">org.springframework.web.filter.ShallowEtagHeaderFilter</node>
+  </nodes>
+  <notes>
+    <note x="1187.0" y="0.0">
+      <node>javax.servlet.Filter</node>
+      <value>mvc的filter有几类：\n(1) 直接实现Filter，这一类过滤器只有CompositeFilter；\n(2) 继承抽象类GenericFilterBean，该类实现了javax.servlet.Filter，这一类的过滤器只有一个，即DelegatingFilterProxy；\n(3) 继承抽象类OncePerRequestFilter，该类为GenericFilterBean的直接子类，这一类过滤器包括CharacterEncodingFilter、HiddenHttpMethodFilter、HttpPutFormContentFilter、RequestContextFilter和ShallowEtagHeaderFilter；\n(4) 继承抽象类AbstractRequestLoggingFilter，该类为OncePerRequestFilter的直接子类，这一类过滤器包括CommonsRequestLoggingFilter、Log4jNestedDiagnosticContextFilter和ServletContextRequestLoggingFilter。</value>
+      <edge>
+        <point x="0.0" y="-28.5" />
+        <point x="0.0" y="52.5" />
+      </edge>
+    </note>
+  </notes>
+  <edges>
+    <edge source="org.springframework.web.filter.GenericFilterBean" target="javax.servlet.Filter">
+      <point x="0.0" y="-28.5" />
+      <point x="1710.5" y="237.0" />
+      <point x="1797.5" y="237.0" />
+      <point x="-27.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.ForwardedHeaderFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="1.1368683772161603E-13" y="-28.5" />
+      <point x="2524.5" y="456.0" />
+      <point x="1660.8000000000002" y="456.0" />
+      <point x="86.80000000000018" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.OncePerRequestFilter" target="org.springframework.web.filter.GenericFilterBean">
+      <point x="0.0" y="-28.5" />
+      <point x="1574.0" y="344.0" />
+      <point x="1656.0" y="344.0" />
+      <point x="-54.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.HttpPutFormContentFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="2231.5" y="466.0" />
+      <point x="1636.0" y="466.0" />
+      <point x="62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.CorsFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="1457.5" y="486.0" />
+      <point x="1561.6" y="486.0" />
+      <point x="-12.400000000000091" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.HiddenHttpMethodFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="2807.5" y="446.0" />
+      <point x="1685.6000000000004" y="446.0" />
+      <point x="111.60000000000014" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.CompositeFilter" target="javax.servlet.Filter">
+      <point x="0.0" y="-28.5" />
+      <point x="1938.5" y="237.0" />
+      <point x="1851.5" y="237.0" />
+      <point x="27.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.RequestContextFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="951.5000000000001" y="466.0" />
+      <point x="1512.0" y="466.0" />
+      <point x="-62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.DelegatingFilterProxy" target="org.springframework.web.filter.GenericFilterBean">
+      <point x="0.0" y="-28.5" />
+      <point x="1847.0" y="344.0" />
+      <point x="1765.0" y="344.0" />
+      <point x="54.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.AbstractRequestLoggingFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="345.5" y="446.0" />
+      <point x="1462.4" y="446.0" />
+      <point x="-111.59999999999991" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.FormContentFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="1958.5" y="476.0" />
+      <point x="1611.2000000000003" y="476.0" />
+      <point x="37.200000000000045" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.CommonsRequestLoggingFilter" target="org.springframework.web.filter.AbstractRequestLoggingFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="159.0" y="588.0" />
+      <point x="263.5" y="588.0" />
+      <point x="-82.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.ServletContextRequestLoggingFilter" target="org.springframework.web.filter.AbstractRequestLoggingFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="532.0" y="588.0" />
+      <point x="427.5" y="588.0" />
+      <point x="82.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.RelativeRedirectFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="1229.5" y="476.0" />
+      <point x="1536.8000000000002" y="476.0" />
+      <point x="-37.200000000000045" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.ShallowEtagHeaderFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="668.5000000000001" y="456.0" />
+      <point x="1487.2000000000003" y="456.0" />
+      <point x="-86.79999999999995" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.filter.CharacterEncodingFilter" target="org.springframework.web.filter.OncePerRequestFilter">
+      <point x="0.0" y="-28.5" />
+      <point x="1690.5" y="486.0" />
+      <point x="1586.4" y="486.0" />
+      <point x="12.400000000000091" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="858.5" y="345.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.multipart.MultipartResolver</OriginalElement>
+  <nodes>
+    <node x="308.0" y="107.0">org.springframework.web.multipart.support.StandardServletMultipartResolver</node>
+    <node x="0.0" y="107.0">org.springframework.web.multipart.commons.CommonsMultipartResolver</node>
+    <node x="209.0" y="0.0">org.springframework.web.multipart.MultipartResolver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.multipart.support.StandardServletMultipartResolver" target="org.springframework.web.multipart.MultipartResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="492.0" y="82.0" />
+      <point x="372.5" y="82.0" />
+      <point x="54.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.multipart.commons.CommonsMultipartResolver" target="org.springframework.web.multipart.MultipartResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="144.0" y="82.0" />
+      <point x="263.5" y="82.0" />
+      <point x="-54.5" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="109.0" y="28.5" />
+  <SelectedNodes>
+    <node>org.springframework.web.multipart.support.StandardServletMultipartResolver</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

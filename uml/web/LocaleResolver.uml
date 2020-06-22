@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.LocaleResolver</OriginalElement>
+  <nodes>
+    <node x="660.5" y="107.0">org.springframework.web.servlet.LocaleContextResolver</node>
+    <node x="278.0" y="321.0">org.springframework.web.servlet.i18n.FixedLocaleResolver</node>
+    <node x="44.5" y="107.0">org.springframework.web.servlet.i18n.AbstractLocaleResolver</node>
+    <node x="392.5" y="0.0">org.springframework.web.servlet.LocaleResolver</node>
+    <node x="730.0" y="214.0">org.springframework.web.servlet.i18n.CookieLocaleResolver</node>
+    <node x="0.0" y="321.0">org.springframework.web.servlet.i18n.SessionLocaleResolver</node>
+    <node x="94.0" y="214.0">org.springframework.web.servlet.i18n.AbstractLocaleContextResolver</node>
+    <node x="332.5" y="107.0">org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver" target="org.springframework.web.servlet.LocaleResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.AbstractLocaleResolver" target="org.springframework.web.servlet.LocaleResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="178.5" y="82.0" />
+      <point x="423.8333333333333" y="82.0" />
+      <point x="-62.666666666666686" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.AbstractLocaleContextResolver" target="org.springframework.web.servlet.LocaleContextResolver">
+      <point x="84.5" y="-28.5" />
+      <point x="347.5" y="189.0" />
+      <point x="725.0" y="189.0" />
+      <point x="-64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.SessionLocaleResolver" target="org.springframework.web.servlet.i18n.AbstractLocaleContextResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="129.0" y="296.0" />
+      <point x="178.5" y="296.0" />
+      <point x="-84.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.LocaleContextResolver" target="org.springframework.web.servlet.LocaleResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="789.5" y="82.0" />
+      <point x="549.1666666666666" y="82.0" />
+      <point x="62.66666666666663" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.CookieLocaleResolver" target="org.springframework.web.servlet.LocaleContextResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.FixedLocaleResolver" target="org.springframework.web.servlet.i18n.AbstractLocaleContextResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="397.0" y="296.0" />
+      <point x="347.5" y="296.0" />
+      <point x="84.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.AbstractLocaleContextResolver" target="org.springframework.web.servlet.i18n.AbstractLocaleResolver">
+      <point x="-84.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="94.0" y="83.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.LocaleResolver</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

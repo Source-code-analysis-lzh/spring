@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.core.env.PropertySources</OriginalElement>
+  <nodes>
+    <node x="298.0" y="214.0">org.springframework.core.env.CommandLinePropertySource</node>
+    <node x="999.0" y="0.0">org.springframework.core.env.PropertySource</node>
+    <node x="696.0" y="428.0">org.springframework.core.io.support.ResourcePropertySource</node>
+    <node x="820.0" y="321.0">org.springframework.core.env.PropertiesPropertySource</node>
+    <node x="15.0" y="637.0">org.springframework.core.env.ConfigurablePropertyResolver</node>
+    <node x="671.0" y="107.0">org.springframework.core.env.EnumerablePropertySource</node>
+    <node x="984.0" y="428.0">org.springframework.core.testfixture.env.MockPropertySource</node>
+    <node x="35.0" y="744.0">org.springframework.core.env.AbstractPropertyResolver</node>
+    <node x="1128.0" y="321.0">org.springframework.core.env.SystemEnvironmentPropertySource</node>
+    <node x="1264.5" y="214.0">org.springframework.web.context.support.ServletConfigPropertySource</node>
+    <node x="438.0" y="637.0">org.springframework.core.env.PropertySources</node>
+    <node x="657.1155555555556" y="214.0">org.springframework.web.context.support.ServletContextPropertySource</node>
+    <node x="462.0" y="321.0">org.springframework.core.env.JOptCommandLinePropertySource</node>
+    <node x="473.0" y="530.0">java.lang.Iterable</node>
+    <node x="84.0" y="321.0">org.springframework.core.env.SimpleCommandLinePropertySource</node>
+    <node x="716.0" y="530.0">org.springframework.core.env.SimpleCommandLineArgsParser</node>
+    <node x="0.0" y="214.0">org.springframework.core.env.CompositePropertySource</node>
+    <node x="1079.0" y="530.0">org.springframework.core.env.CommandLineArgs</node>
+    <node x="75.0" y="530.0">org.springframework.core.env.PropertyResolver</node>
+    <node x="1026.5" y="214.0">org.springframework.core.env.MapPropertySource</node>
+    <node x="979.0" y="107.0">org.springframework.core.env.PropertySource.StubPropertySource</node>
+    <node x="403.0" y="744.0">org.springframework.core.env.MutablePropertySources</node>
+    <node x="0.0" y="851.0">org.springframework.core.env.PropertySourcesPropertyResolver</node>
+    <node x="1227.0" y="107.0">org.springframework.jndi.JndiPropertySource</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.core.env.SimpleCommandLinePropertySource" target="org.springframework.core.env.CommandLinePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="263.0" y="296.0" />
+      <point x="372.5" y="296.0" />
+      <point x="-74.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.SystemEnvironmentPropertySource" target="org.springframework.core.env.MapPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1307.0" y="296.0" />
+      <point x="1190.0" y="296.0" />
+      <point x="54.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.PropertiesPropertySource" target="org.springframework.core.env.MapPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="964.0" y="296.0" />
+      <point x="1081.0" y="296.0" />
+      <point x="-54.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.PropertySources" target="java.lang.Iterable">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.CommandLinePropertySource" target="org.springframework.core.env.EnumerablePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="447.0" y="194.0" />
+      <point x="757.4000000000001" y="194.0" />
+      <point x="-57.59999999999991" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.PropertySourcesPropertyResolver" target="org.springframework.core.env.AbstractPropertyResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.context.support.ServletContextPropertySource" target="org.springframework.core.env.EnumerablePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="821.1155555555556" y="194.0" />
+      <point x="815.0" y="194.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.context.support.ServletConfigPropertySource" target="org.springframework.core.env.EnumerablePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1423.5" y="184.0" />
+      <point x="930.2" y="184.0" />
+      <point x="115.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.AbstractPropertyResolver" target="org.springframework.core.env.ConfigurablePropertyResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.CompositePropertySource" target="org.springframework.core.env.EnumerablePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="139.0" y="184.0" />
+      <point x="699.8" y="184.0" />
+      <point x="-115.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.ConfigurablePropertyResolver" target="org.springframework.core.env.PropertyResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.PropertySource.StubPropertySource" target="org.springframework.core.env.PropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.JOptCommandLinePropertySource" target="org.springframework.core.env.CommandLinePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="631.0" y="296.0" />
+      <point x="521.5" y="296.0" />
+      <point x="74.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.jndi.JndiPropertySource" target="org.springframework.core.env.PropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1341.0" y="82.0" />
+      <point x="1155.6666666666667" y="82.0" />
+      <point x="62.66666666666674" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.io.support.ResourcePropertySource" target="org.springframework.core.env.PropertiesPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="830.0" y="403.0" />
+      <point x="892.0" y="403.0" />
+      <point x="-72.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.EnumerablePropertySource" target="org.springframework.core.env.PropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="815.0" y="82.0" />
+      <point x="1030.3333333333333" y="82.0" />
+      <point x="-62.66666666666674" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.MutablePropertySources" target="org.springframework.core.env.PropertySources">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.MapPropertySource" target="org.springframework.core.env.EnumerablePropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1135.5" y="194.0" />
+      <point x="872.5999999999999" y="194.0" />
+      <point x="57.59999999999991" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.testfixture.env.MockPropertySource" target="org.springframework.core.env.PropertiesPropertySource">
+      <point x="0.0" y="-28.5" />
+      <point x="1098.0" y="403.0" />
+      <point x="1036.0" y="403.0" />
+      <point x="72.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5814792543595911" x="821.5" y="454.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

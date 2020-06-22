@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.HandlerInterceptor</OriginalElement>
+  <nodes>
+    <node x="0.0" y="321.0">org.springframework.web.servlet.resource.ResourceUrlProviderExposingInterceptor</node>
+    <node x="836.0" y="321.0">org.springframework.web.servlet.theme.ThemeChangeInterceptor</node>
+    <node x="1124.0" y="321.0">org.springframework.web.servlet.i18n.LocaleChangeInterceptor</node>
+    <node x="1313.0" y="107.0">org.springframework.web.servlet.handler.MappedInterceptor</node>
+    <node x="448.0" y="321.0">org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor</node>
+    <node x="1015.0" y="107.0">org.springframework.web.servlet.AsyncHandlerInterceptor</node>
+    <node x="1551.0" y="107.0">org.springframework.web.servlet.mvc.WebContentInterceptor</node>
+    <node x="1308.0" y="0.0">org.springframework.web.servlet.HandlerInterceptor</node>
+    <node x="1422.0" y="321.0">org.springframework.web.servlet.handler.ConversionServiceExposingInterceptor</node>
+    <node x="821.0" y="214.0">org.springframework.web.servlet.handler.HandlerInterceptorAdapter</node>
+    <node x="1139.0" y="214.0">org.springframework.web.servlet.handler.WebRequestHandlerInterceptorAdapter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.AsyncHandlerInterceptor" target="org.springframework.web.servlet.HandlerInterceptor">
+      <point x="0.0" y="-28.5" />
+      <point x="1154.0" y="82.0" />
+      <point x="1346.0" y="82.0" />
+      <point x="-76.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.resource.ResourceUrlProviderExposingInterceptor" target="org.springframework.web.servlet.handler.HandlerInterceptorAdapter">
+      <point x="0.0" y="-28.5" />
+      <point x="214.0" y="291.0" />
+      <point x="850.8" y="291.0" />
+      <point x="-119.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.theme.ThemeChangeInterceptor" target="org.springframework.web.servlet.handler.HandlerInterceptorAdapter">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" target="org.springframework.web.servlet.handler.HandlerInterceptorAdapter">
+      <point x="0.0" y="-28.5" />
+      <point x="1263.0" y="301.0" />
+      <point x="1029.6" y="301.0" />
+      <point x="59.60000000000002" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.WebContentInterceptor" target="org.springframework.web.servlet.HandlerInterceptor">
+      <point x="0.0" y="-28.5" />
+      <point x="1680.0" y="82.0" />
+      <point x="1498.0" y="82.0" />
+      <point x="76.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.HandlerInterceptorAdapter" target="org.springframework.web.servlet.AsyncHandlerInterceptor">
+      <point x="0.0" y="-28.5" />
+      <point x="970.0" y="189.0" />
+      <point x="1084.5" y="189.0" />
+      <point x="-69.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor" target="org.springframework.web.servlet.handler.HandlerInterceptorAdapter">
+      <point x="0.0" y="-28.5" />
+      <point x="632.0" y="301.0" />
+      <point x="910.4" y="301.0" />
+      <point x="-59.60000000000002" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.ConversionServiceExposingInterceptor" target="org.springframework.web.servlet.handler.HandlerInterceptorAdapter">
+      <point x="0.0" y="-28.5" />
+      <point x="1626.0" y="291.0" />
+      <point x="1089.2" y="291.0" />
+      <point x="119.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.WebRequestHandlerInterceptorAdapter" target="org.springframework.web.servlet.AsyncHandlerInterceptor">
+      <point x="0.0" y="-28.5" />
+      <point x="1338.0" y="189.0" />
+      <point x="1223.5" y="189.0" />
+      <point x="69.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.MappedInterceptor" target="org.springframework.web.servlet.HandlerInterceptor">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7243243243243244" x="915.0" y="189.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.AsyncHandlerInterceptor</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

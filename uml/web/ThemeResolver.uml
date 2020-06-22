@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.ThemeResolver</OriginalElement>
+  <nodes>
+    <node x="268.0" y="214.0">org.springframework.web.servlet.theme.FixedThemeResolver</node>
+    <node x="298.0" y="0.0">org.springframework.web.servlet.ThemeResolver</node>
+    <node x="0.0" y="214.0">org.springframework.web.servlet.theme.SessionThemeResolver</node>
+    <node x="402.0" y="107.0">org.springframework.web.servlet.theme.CookieThemeResolver</node>
+    <node x="123.99999999999997" y="107.0">org.springframework.web.servlet.theme.AbstractThemeResolver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.theme.CookieThemeResolver" target="org.springframework.web.servlet.ThemeResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="521.0" y="82.0" />
+      <point x="431.5" y="82.0" />
+      <point x="44.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.theme.FixedThemeResolver" target="org.springframework.web.servlet.theme.AbstractThemeResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="382.0" y="189.0" />
+      <point x="317.5" y="189.0" />
+      <point x="64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.theme.SessionThemeResolver" target="org.springframework.web.servlet.theme.AbstractThemeResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="124.0" y="189.0" />
+      <point x="188.49999999999997" y="189.0" />
+      <point x="-64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.theme.AbstractThemeResolver" target="org.springframework.web.servlet.ThemeResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="252.99999999999997" y="82.0" />
+      <point x="342.5" y="82.0" />
+      <point x="-44.5" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="89.0" y="28.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

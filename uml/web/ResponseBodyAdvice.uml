@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice</OriginalElement>
+  <nodes>
+    <node x="110.0" y="0.0">org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice</node>
+    <node x="70.0" y="214.0">org.springframework.web.servlet.mvc.method.annotation.JsonViewResponseBodyAdvice</node>
+    <node x="0.0" y="107.0">org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.JsonViewResponseBodyAdvice" target="org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice" target="org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="114.0" y="28.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.HttpRequestHandler</OriginalElement>
+  <nodes>
+    <node x="288.0" y="224.0">org.springframework.web.servlet.resource.ResourceHttpRequestHandler</node>
+    <node x="802.5" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="1590.0" y="224.0">org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler</node>
+    <node x="1262.0" y="224.0">org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter</node>
+    <node x="924.0" y="224.0">org.springframework.web.socket.server.support.WebSocketHttpRequestHandler</node>
+    <node x="616.0" y="224.0">org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler</node>
+    <node x="807.5" y="107.0">org.springframework.web.HttpRequestHandler</node>
+    <node x="0.0" y="224.0">org.springframework.remoting.caucho.HessianServiceExporter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter" target="org.springframework.web.HttpRequestHandler">
+      <point x="0.0" y="-28.5" />
+      <point x="1416.0" y="194.0" />
+      <point x="978.5" y="194.0" />
+      <point x="57.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler" target="org.springframework.web.HttpRequestHandler">
+      <point x="0.0" y="-28.5" />
+      <point x="1774.0" y="184.0" />
+      <point x="1016.5" y="184.0" />
+      <point x="95.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.resource.ResourceHttpRequestHandler" target="org.springframework.web.HttpRequestHandler">
+      <point x="0.0" y="-28.5" />
+      <point x="442.0" y="194.0" />
+      <point x="864.5" y="194.0" />
+      <point x="-57.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.socket.server.support.WebSocketHttpRequestHandler" target="org.springframework.web.HttpRequestHandler">
+      <point x="0.0" y="-28.5" />
+      <point x="1083.0" y="204.0" />
+      <point x="940.5" y="204.0" />
+      <point x="19.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler" target="org.springframework.web.HttpRequestHandler">
+      <point x="0.0" y="-28.5" />
+      <point x="760.0" y="204.0" />
+      <point x="902.5" y="204.0" />
+      <point x="-19.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.remoting.caucho.HessianServiceExporter" target="org.springframework.web.HttpRequestHandler">
+      <point x="0.0" y="-28.5" />
+      <point x="134.0" y="184.0" />
+      <point x="826.5" y="184.0" />
+      <point x="-95.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.HttpRequestHandler" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.49443882709807885" x="979.0" y="140.5" />
+  <SelectedNodes>
+    <node>org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

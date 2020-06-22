@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.ui.context.ThemeSource</OriginalElement>
+  <nodes>
+    <node x="318.0" y="214.0">org.springframework.ui.context.support.DelegatingThemeSource</node>
+    <node x="0.0" y="214.0">org.springframework.ui.context.support.ResourceBundleThemeSource</node>
+    <node x="219.0" y="0.0">org.springframework.ui.context.ThemeSource</node>
+    <node x="30.0" y="316.0">org.springframework.ui.context.Theme</node>
+    <node x="0.0" y="423.0">org.springframework.ui.context.support.SimpleTheme</node>
+    <node x="159.0" y="107.0">org.springframework.ui.context.HierarchicalThemeSource</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.ui.context.support.ResourceBundleThemeSource" target="org.springframework.ui.context.HierarchicalThemeSource">
+      <point x="0.0" y="-28.5" />
+      <point x="149.0" y="189.0" />
+      <point x="228.5" y="189.0" />
+      <point x="-69.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.ui.context.HierarchicalThemeSource" target="org.springframework.ui.context.ThemeSource">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.ui.context.support.DelegatingThemeSource" target="org.springframework.ui.context.HierarchicalThemeSource">
+      <point x="0.0" y="-28.5" />
+      <point x="447.0" y="189.0" />
+      <point x="367.5" y="189.0" />
+      <point x="69.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.ui.context.support.SimpleTheme" target="org.springframework.ui.context.Theme">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="79.0" y="185.0" />
+  <SelectedNodes>
+    <node>org.springframework.ui.context.ThemeSource</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

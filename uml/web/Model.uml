@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.ui.Model</OriginalElement>
+  <nodes>
+    <node x="289.50000000000006" y="107.0">org.springframework.web.servlet.mvc.support.RedirectAttributes</node>
+    <node x="668.6018518518518" y="214.0">org.springframework.validation.support.BindingAwareModelMap</node>
+    <node x="354.50000000000006" y="0.0">org.springframework.ui.Model</node>
+    <node x="0.0" y="214.0">org.springframework.validation.support.BindingAwareConcurrentModel</node>
+    <node x="60.0" y="107.0">org.springframework.ui.ConcurrentModel</node>
+    <node x="340.6018518518519" y="214.0">org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap</node>
+    <node x="660.1481481481482" y="107.0">org.springframework.ui.ExtendedModelMap</node>
+    <node x="783.3981481481482" y="0.0">org.springframework.ui.ModelMap</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap" target="org.springframework.ui.ModelMap">
+      <point x="77.00000000000006" y="-28.5" />
+      <point x="571.601851851852" y="194.0" />
+      <point x="878.6481481481482" y="194.0" />
+      <point x="32.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.support.BindingAwareConcurrentModel" target="org.springframework.ui.ConcurrentModel">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap" target="org.springframework.web.servlet.mvc.support.RedirectAttributes">
+      <point x="-76.99999999999994" y="-28.5" />
+      <point x="417.60185185185196" y="194.0" />
+      <point x="403.50000000000006" y="194.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.support.BindingAwareModelMap" target="org.springframework.ui.ExtendedModelMap">
+      <point x="0.0" y="-28.5" />
+      <point x="792.6018518518518" y="184.0" />
+      <point x="764.1481481481482" y="184.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.ui.ConcurrentModel" target="org.springframework.ui.Model">
+      <point x="0.0" y="-28.5" />
+      <point x="159.0" y="82.0" />
+      <point x="370.83333333333337" y="82.0" />
+      <point x="-32.666666666666686" y="28.5" />
+    </edge>
+    <edge source="org.springframework.ui.ExtendedModelMap" target="org.springframework.ui.ModelMap">
+      <point x="52.0" y="-28.5" />
+      <point x="-32.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.support.RedirectAttributes" target="org.springframework.ui.Model">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.ui.ExtendedModelMap" target="org.springframework.ui.Model">
+      <point x="-52.0" y="-28.5" />
+      <point x="712.1481481481482" y="82.0" />
+      <point x="436.1666666666667" y="82.0" />
+      <point x="32.66666666666663" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="380.5" y="28.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

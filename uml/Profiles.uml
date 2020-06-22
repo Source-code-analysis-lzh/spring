@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.core.env.Profiles</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="25.0" y="214.0">org.springframework.core.env.ProfilesParser.ParsedProfiles</node>
+    <node x="55.0" y="107.0">org.springframework.core.env.Profiles</node>
+    <node x="0.0" y="316.0">org.springframework.core.env.ProfilesParser</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.core.env.ProfilesParser.ParsedProfiles" target="org.springframework.core.env.Profiles">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.env.Profiles" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="119.0" y="82.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

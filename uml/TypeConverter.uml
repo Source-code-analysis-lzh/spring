@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.beans.TypeConverter</OriginalElement>
+  <nodes>
+    <node x="0.0" y="428.0">org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder</node>
+    <node x="40.0" y="321.0">org.springframework.web.bind.ServletRequestDataBinder</node>
+    <node x="398.0" y="107.0">org.springframework.validation.DataBinder</node>
+    <node x="616.0" y="321.0">org.springframework.web.bind.support.WebExchangeDataBinder</node>
+    <node x="1249.625" y="214.0">org.springframework.beans.BeanWrapper</node>
+    <node x="868.1250000000001" y="428.0">org.springframework.beans.DirectFieldAccessor</node>
+    <node x="348.0" y="321.0">org.springframework.web.bind.support.WebRequestDataBinder</node>
+    <node x="1180.125" y="428.0">org.springframework.beans.BeanWrapperImpl</node>
+    <node x="729.0" y="107.0">org.springframework.beans.TypeConverterSupport</node>
+    <node x="383.0" y="214.0">org.springframework.web.bind.WebDataBinder</node>
+    <node x="895.1250000000001" y="321.0">org.springframework.beans.AbstractNestablePropertyAccessor</node>
+    <node x="935.1250000000001" y="214.0">org.springframework.beans.AbstractPropertyAccessor</node>
+    <node x="764.0" y="0.0">org.springframework.beans.TypeConverter</node>
+    <node x="1079.125" y="107.0">org.springframework.beans.ConfigurablePropertyAccessor</node>
+    <node x="628.5" y="214.0">org.springframework.beans.SimpleTypeConverter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.beans.BeanWrapperImpl" target="org.springframework.beans.AbstractNestablePropertyAccessor">
+      <point x="-49.5" y="-28.5" />
+      <point x="1229.625" y="403.0" />
+      <point x="1171.125" y="403.0" />
+      <point x="92.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder" target="org.springframework.web.bind.ServletRequestDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.TypeConverterSupport" target="org.springframework.beans.TypeConverter">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.BeanWrapper" target="org.springframework.beans.ConfigurablePropertyAccessor">
+      <point x="0.0" y="-28.5" />
+      <point x="1328.625" y="189.0" />
+      <point x="1325.125" y="189.0" />
+      <point x="82.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.DirectFieldAccessor" target="org.springframework.beans.AbstractNestablePropertyAccessor">
+      <point x="0.0" y="-28.5" />
+      <point x="-92.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.ConfigurablePropertyAccessor" target="org.springframework.beans.TypeConverter">
+      <point x="0.0" y="-28.5" />
+      <point x="1243.125" y="82.0" />
+      <point x="912.3333333333334" y="82.0" />
+      <point x="59.33333333333337" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.support.WebExchangeDataBinder" target="org.springframework.web.bind.WebDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="745.0" y="296.0" />
+      <point x="531.3333333333333" y="296.0" />
+      <point x="59.33333333333326" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.SimpleTypeConverter" target="org.springframework.beans.TypeConverterSupport">
+      <point x="0.0" y="-28.5" />
+      <point x="747.5" y="189.0" />
+      <point x="791.0" y="189.0" />
+      <point x="-62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.AbstractNestablePropertyAccessor" target="org.springframework.beans.AbstractPropertyAccessor">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.BeanWrapperImpl" target="org.springframework.beans.BeanWrapper">
+      <point x="49.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.AbstractPropertyAccessor" target="org.springframework.beans.ConfigurablePropertyAccessor">
+      <point x="72.0" y="-28.5" />
+      <point x="1151.125" y="189.0" />
+      <point x="1161.125" y="189.0" />
+      <point x="-82.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.ServletRequestDataBinder" target="org.springframework.web.bind.WebDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="184.0" y="296.0" />
+      <point x="412.66666666666663" y="296.0" />
+      <point x="-59.33333333333337" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.support.WebRequestDataBinder" target="org.springframework.web.bind.WebDataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.beans.AbstractPropertyAccessor" target="org.springframework.beans.TypeConverterSupport">
+      <point x="-72.0" y="-28.5" />
+      <point x="1007.1250000000001" y="189.0" />
+      <point x="915.0" y="189.0" />
+      <point x="62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.validation.DataBinder" target="org.springframework.beans.TypeConverter">
+      <point x="0.0" y="-28.5" />
+      <point x="472.0" y="82.0" />
+      <point x="793.6666666666666" y="82.0" />
+      <point x="-59.33333333333337" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.WebDataBinder" target="org.springframework.validation.DataBinder">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.677170868347339" x="704.0" y="242.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.aop.TargetSource</OriginalElement>
+  <nodes>
+    <node x="198.0" y="321.0">org.springframework.aop.target.LazyInitTargetSource</node>
+    <node x="874.0" y="321.0">org.springframework.aop.target.SimpleBeanTargetSource</node>
+    <node x="9.5" y="428.0">org.springframework.aop.target.AbstractPoolingTargetSource</node>
+    <node x="1162.0" y="214.0">org.springframework.aop.target.HotSwappableTargetSource</node>
+    <node x="0.0" y="321.0">org.springframework.aop.target.PoolingConfig</node>
+    <node x="884.0" y="214.0">org.springframework.aop.target.SingletonTargetSource</node>
+    <node x="929.0" y="107.0">org.springframework.aop.TargetSource</node>
+    <node x="1470.0" y="214.0">org.springframework.aop.target.EmptyTargetSource</node>
+    <node x="909.0" y="0.0">org.springframework.aop.TargetClassAware</node>
+    <node x="1117.5" y="428.0">org.springframework.aop.target.ThreadLocalTargetSource</node>
+    <node x="24.5" y="535.0">org.springframework.aop.target.CommonsPool2TargetSource</node>
+    <node x="68.0" y="214.0">org.springframework.aop.target.AbstractLazyCreationTargetSource</node>
+    <node x="1162.0" y="321.0">org.springframework.aop.target.ThreadLocalTargetSourceStats</node>
+    <node x="466.0" y="321.0">org.springframework.aop.target.AbstractPrototypeBasedTargetSource</node>
+    <node x="456.0" y="214.0">org.springframework.aop.target.AbstractBeanFactoryBasedTargetSource</node>
+    <node x="531.0000000000001" y="428.0">org.springframework.aop.target.PrototypeTargetSource</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.aop.target.ThreadLocalTargetSource" target="org.springframework.aop.target.AbstractPrototypeBasedTargetSource">
+      <point x="-69.5" y="-28.5" />
+      <point x="1187.0" y="403.0" />
+      <point x="789.3333333333335" y="403.0" />
+      <point x="129.33333333333343" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.PrototypeTargetSource" target="org.springframework.aop.target.AbstractPrototypeBasedTargetSource">
+      <point x="-5.6843418860808015E-14" y="-28.5" />
+      <point x="5.6843418860808015E-14" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.EmptyTargetSource" target="org.springframework.aop.TargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="1579.0" y="184.0" />
+      <point x="1080.2" y="184.0" />
+      <point x="67.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.CommonsPool2TargetSource" target="org.springframework.aop.target.AbstractPoolingTargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.HotSwappableTargetSource" target="org.springframework.aop.TargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="1306.0" y="194.0" />
+      <point x="1046.6" y="194.0" />
+      <point x="33.60000000000002" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.AbstractPoolingTargetSource" target="org.springframework.aop.target.PoolingConfig">
+      <point x="-79.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.ThreadLocalTargetSource" target="org.springframework.aop.target.ThreadLocalTargetSourceStats">
+      <point x="69.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.LazyInitTargetSource" target="org.springframework.aop.target.AbstractBeanFactoryBasedTargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="322.0" y="296.0" />
+      <point x="524.0" y="296.0" />
+      <point x="-136.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.SingletonTargetSource" target="org.springframework.aop.TargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.AbstractLazyCreationTargetSource" target="org.springframework.aop.TargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="252.0" y="184.0" />
+      <point x="945.8" y="184.0" />
+      <point x="-67.20000000000005" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.TargetSource" target="org.springframework.aop.TargetClassAware">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.AbstractPrototypeBasedTargetSource" target="org.springframework.aop.target.AbstractBeanFactoryBasedTargetSource">
+      <point x="-5.6843418860808015E-14" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.AbstractBeanFactoryBasedTargetSource" target="org.springframework.aop.TargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="660.0" y="194.0" />
+      <point x="979.4" y="194.0" />
+      <point x="-33.60000000000002" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.AbstractPoolingTargetSource" target="org.springframework.aop.target.AbstractPrototypeBasedTargetSource">
+      <point x="79.5" y="-28.5" />
+      <point x="248.0" y="403.0" />
+      <point x="530.6666666666667" y="403.0" />
+      <point x="-129.33333333333331" y="28.5" />
+    </edge>
+    <edge source="org.springframework.aop.target.SimpleBeanTargetSource" target="org.springframework.aop.target.AbstractBeanFactoryBasedTargetSource">
+      <point x="0.0" y="-28.5" />
+      <point x="1008.0" y="296.0" />
+      <point x="796.0" y="296.0" />
+      <point x="136.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="189.5" y="297.0" />
+  <SelectedNodes>
+    <node>org.springframework.aop.TargetSource</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

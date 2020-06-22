@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.View</OriginalElement>
+  <nodes>
+    <node x="1553.0" y="341.0">org.springframework.web.servlet.view.document.AbstractPdfStamperView</node>
+    <node x="1128.5" y="224.0">org.springframework.web.servlet.view.json.AbstractJackson2View</node>
+    <node x="1762.0" y="448.0">org.springframework.web.servlet.view.freemarker.FreeMarkerView</node>
+    <node x="892.9999999999999" y="107.0">org.springframework.web.servlet.view.AbstractView</node>
+    <node x="2573.0" y="341.0">org.springframework.web.servlet.view.xslt.XsltView</node>
+    <node x="2147.0" y="341.0">org.springframework.web.servlet.view.InternalResourceView</node>
+    <node x="3026.0" y="107.0">org.springframework.web.servlet.SmartView</node>
+    <node x="168.0" y="448.0">org.springframework.web.servlet.view.document.AbstractXlsxStreamingView</node>
+    <node x="2730.2925824175827" y="224.0">org.springframework.web.servlet.view.document.AbstractPdfView</node>
+    <node x="2207.0" y="448.0">org.springframework.web.servlet.view.JstlView</node>
+    <node x="2969.0" y="341.0">org.springframework.web.servlet.view.RedirectView</node>
+    <node x="966.9999999999999" y="341.0">org.springframework.web.servlet.view.json.MappingJackson2JsonView</node>
+    <node x="708.9999999999999" y="341.0">org.springframework.web.servlet.view.feed.AbstractRssFeedView</node>
+    <node x="592.5" y="224.0">org.springframework.web.servlet.view.feed.AbstractFeedView</node>
+    <node x="1969.9999999999998" y="448.0">org.springframework.web.servlet.view.groovy.GroovyMarkupView</node>
+    <node x="1841.0" y="341.0">org.springframework.web.servlet.view.AbstractTemplateView</node>
+    <node x="218.0" y="224.0">org.springframework.web.servlet.view.document.AbstractXlsView</node>
+    <node x="1265.0" y="341.0">org.springframework.web.servlet.view.xml.MappingJackson2XmlView</node>
+    <node x="213.0" y="341.0">org.springframework.web.servlet.view.document.AbstractXlsxView</node>
+    <node x="441.0" y="341.0">org.springframework.web.servlet.view.feed.AbstractAtomFeedView</node>
+    <node x="1773.0425824175827" y="0.0">org.springframework.web.servlet.View</node>
+    <node x="0.0" y="224.0">org.springframework.web.servlet.view.xml.MarshallingView</node>
+    <node x="2360.0" y="224.0">org.springframework.web.servlet.view.AbstractUrlBasedView</node>
+    <node x="2415.0" y="341.0">org.springframework.web.servlet.view.tiles3.TilesView</node>
+    <node x="2721.0" y="341.0">org.springframework.web.servlet.view.script.ScriptTemplateView</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.view.document.AbstractPdfView" target="org.springframework.web.servlet.view.AbstractView">
+      <point x="0.0" y="-28.5" />
+      <point x="2829.2925824175827" y="184.0" />
+      <point x="1047.0" y="184.0" />
+      <point x="70.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.tiles3.TilesView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.json.AbstractJackson2View" target="org.springframework.web.servlet.view.AbstractView">
+      <point x="0.0" y="-28.5" />
+      <point x="1252.5" y="204.0" />
+      <point x="990.9999999999999" y="204.0" />
+      <point x="14.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.xml.MappingJackson2XmlView" target="org.springframework.web.servlet.view.json.AbstractJackson2View">
+      <point x="0.0" y="-28.5" />
+      <point x="1399.0" y="321.0" />
+      <point x="1314.5" y="321.0" />
+      <point x="62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.groovy.GroovyMarkupView" target="org.springframework.web.servlet.view.AbstractTemplateView">
+      <point x="0.0" y="-28.5" />
+      <point x="2074.0" y="423.0" />
+      <point x="2026.9999999999998" y="423.0" />
+      <point x="61.999999999999886" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.document.AbstractPdfStamperView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="0.0" y="-28.5" />
+      <point x="1687.0" y="301.0" />
+      <point x="2377.7142857142853" y="301.0" />
+      <point x="-106.28571428571433" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.feed.AbstractAtomFeedView" target="org.springframework.web.servlet.view.feed.AbstractFeedView">
+      <point x="0.0" y="-28.5" />
+      <point x="565.0" y="321.0" />
+      <point x="644.5" y="321.0" />
+      <point x="-52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.JstlView" target="org.springframework.web.servlet.view.InternalResourceView">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.script.ScriptTemplateView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="0.0" y="-28.5" />
+      <point x="2835.0" y="311.0" />
+      <point x="2554.8571428571427" y="311.0" />
+      <point x="70.85714285714278" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.AbstractView" target="org.springframework.web.servlet.View">
+      <point x="0.0" y="-28.5" />
+      <point x="976.9999999999999" y="82.0" />
+      <point x="1795.0425824175827" y="82.0" />
+      <point x="-22.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.feed.AbstractRssFeedView" target="org.springframework.web.servlet.view.feed.AbstractFeedView">
+      <point x="0.0" y="-28.5" />
+      <point x="827.9999999999999" y="321.0" />
+      <point x="748.5" y="321.0" />
+      <point x="52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.AbstractUrlBasedView" target="org.springframework.web.servlet.view.AbstractView">
+      <point x="0.0" y="-28.5" />
+      <point x="2484.0" y="194.0" />
+      <point x="1018.9999999999999" y="194.0" />
+      <point x="42.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.RedirectView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="-42.0" y="-28.5" />
+      <point x="3011.0" y="301.0" />
+      <point x="2590.285714285714" y="301.0" />
+      <point x="106.28571428571422" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.document.AbstractXlsxView" target="org.springframework.web.servlet.view.document.AbstractXlsView">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.feed.AbstractFeedView" target="org.springframework.web.servlet.view.AbstractView">
+      <point x="0.0" y="-28.5" />
+      <point x="696.5" y="204.0" />
+      <point x="962.9999999999999" y="204.0" />
+      <point x="-14.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.xslt.XsltView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="0.0" y="-28.5" />
+      <point x="2637.0" y="321.0" />
+      <point x="2519.4285714285716" y="321.0" />
+      <point x="35.428571428571445" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.SmartView" target="org.springframework.web.servlet.View">
+      <point x="0.0" y="-28.5" />
+      <point x="3095.0" y="82.0" />
+      <point x="1839.0425824175827" y="82.0" />
+      <point x="22.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.InternalResourceView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="0.0" y="-28.5" />
+      <point x="2271.0" y="321.0" />
+      <point x="2448.5714285714284" y="321.0" />
+      <point x="-35.428571428571445" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.freemarker.FreeMarkerView" target="org.springframework.web.servlet.view.AbstractTemplateView">
+      <point x="0.0" y="-28.5" />
+      <point x="1856.0" y="423.0" />
+      <point x="1903.0" y="423.0" />
+      <point x="-62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.document.AbstractXlsView" target="org.springframework.web.servlet.view.AbstractView">
+      <point x="0.0" y="-28.5" />
+      <point x="317.0" y="194.0" />
+      <point x="934.9999999999999" y="194.0" />
+      <point x="-42.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.RedirectView" target="org.springframework.web.servlet.SmartView">
+      <point x="42.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.AbstractTemplateView" target="org.springframework.web.servlet.view.AbstractUrlBasedView">
+      <point x="-1.1368683772161603E-13" y="-28.5" />
+      <point x="1964.9999999999998" y="311.0" />
+      <point x="2413.142857142857" y="311.0" />
+      <point x="-70.85714285714289" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.document.AbstractXlsxStreamingView" target="org.springframework.web.servlet.view.document.AbstractXlsxView">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.json.MappingJackson2JsonView" target="org.springframework.web.servlet.view.json.AbstractJackson2View">
+      <point x="0.0" y="-28.5" />
+      <point x="1106.0" y="321.0" />
+      <point x="1190.5" y="321.0" />
+      <point x="-62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.view.xml.MarshallingView" target="org.springframework.web.servlet.view.AbstractView">
+      <point x="0.0" y="-28.5" />
+      <point x="99.0" y="184.0" />
+      <point x="906.9999999999999" y="184.0" />
+      <point x="-70.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="2328.5" y="210.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.View</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

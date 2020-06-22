@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.method.HandlerMethod</OriginalElement>
+  <nodes>
+    <node x="368.0" y="0.0">org.springframework.web.method.HandlerMethod</node>
+    <node x="323.0" y="107.0">org.springframework.web.reactive.result.method.InvocableHandlerMethod</node>
+    <node x="0.0" y="321.0">org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.ConcurrentResultHandlerMethod</node>
+    <node x="0.0" y="214.0">org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod</node>
+    <node x="35.0" y="107.0">org.springframework.web.method.support.InvocableHandlerMethod</node>
+    <node x="611.0" y="107.0">org.springframework.web.reactive.result.method.SyncInvocableHandlerMethod</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod" target="org.springframework.web.method.support.InvocableHandlerMethod">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.ConcurrentResultHandlerMethod" target="org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod">
+      <point x="84.5" y="-28.5" />
+      <point x="84.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.reactive.result.method.SyncInvocableHandlerMethod" target="org.springframework.web.method.HandlerMethod">
+      <point x="0.0" y="-28.5" />
+      <point x="765.0" y="82.0" />
+      <point x="516.3333333333334" y="82.0" />
+      <point x="59.33333333333337" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.reactive.result.method.InvocableHandlerMethod" target="org.springframework.web.method.HandlerMethod">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.method.support.InvocableHandlerMethod" target="org.springframework.web.method.HandlerMethod">
+      <point x="0.0" y="-28.5" />
+      <point x="169.0" y="82.0" />
+      <point x="397.6666666666667" y="82.0" />
+      <point x="-59.333333333333314" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="650.0" y="97.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.method.HandlerMethod</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

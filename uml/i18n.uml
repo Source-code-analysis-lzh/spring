@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.context.support.DefaultMessageSourceResolvable</OriginalElement>
+  <nodes>
+    <node x="0.0" y="1055.0">org.springframework.context.i18n.LocaleContextHolder</node>
+    <node x="0.0" y="214.0">org.springframework.context.support.AbstractResourceBasedMessageSource</node>
+    <node x="0.0" y="637.0">org.springframework.context.NoSuchMessageException</node>
+    <node x="509.5" y="107.0">org.springframework.context.support.DelegatingMessageSource</node>
+    <node x="611.0" y="739.0">org.springframework.context.support.MessageSourceResourceBundle</node>
+    <node x="283.0" y="1055.0">org.springframework.context.MessageSourceAware</node>
+    <node x="14.999999999999886" y="530.0">java.lang.SuppressWarnings</node>
+    <node x="116.5" y="953.0">org.springframework.context.i18n.SimpleTimeZoneAwareLocaleContext</node>
+    <node x="231.5" y="107.0">org.springframework.context.support.AbstractMessageSource</node>
+    <node x="328.0" y="846.0">org.springframework.context.i18n.SimpleLocaleContext</node>
+    <node x="408.0" y="214.0">org.springframework.context.support.StaticMessageSource</node>
+    <node x="335.99999999999994" y="530.0">java.io.Serializable</node>
+    <node x="544.0" y="423.0">java.lang.FunctionalInterface</node>
+    <node x="35.0" y="321.0">org.springframework.context.support.ResourceBundleMessageSource</node>
+    <node x="288.0" y="637.0">org.springframework.context.support.DefaultMessageSourceResolvable</node>
+    <node x="0.0" y="846.0">org.springframework.context.i18n.TimeZoneAwareLocaleContext</node>
+    <node x="974.0" y="739.0">org.springframework.context.support.MessageSourceAccessor</node>
+    <node x="532.0" y="0.0">org.springframework.context.support.MessageSourceSupport</node>
+    <node x="524.0" y="530.0">org.springframework.context.MessageSourceResolvable</node>
+    <node x="211.5" y="739.0">org.springframework.context.i18n.LocaleContext</node>
+    <node x="251.5" y="0.0">org.springframework.context.MessageSource</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.context.support.DefaultMessageSourceResolvable" target="org.springframework.context.MessageSourceResolvable">
+      <point x="116.0" y="-28.5" />
+      <point x="578.0" y="617.0" />
+      <point x="663.0" y="617.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.i18n.SimpleLocaleContext" target="org.springframework.context.i18n.LocaleContext">
+      <point x="0.0" y="-28.5" />
+      <point x="447.0" y="821.0" />
+      <point x="345.0" y="821.0" />
+      <point x="44.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.NoSuchMessageException" target="java.lang.SuppressWarnings">
+      <point x="-67.00000000000011" y="-28.5" />
+      <point x="-52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.DefaultMessageSourceResolvable" target="java.lang.SuppressWarnings">
+      <point x="-116.0" y="-28.5" />
+      <point x="346.0" y="607.0" />
+      <point x="170.9999999999999" y="607.0" />
+      <point x="52.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.AbstractMessageSource" target="org.springframework.context.support.MessageSourceSupport">
+      <point x="64.5" y="-28.5" />
+      <point x="425.0" y="87.0" />
+      <point x="594.0" y="87.0" />
+      <point x="-62.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.i18n.SimpleTimeZoneAwareLocaleContext" target="org.springframework.context.i18n.SimpleLocaleContext">
+      <point x="92.0" y="-28.5" />
+      <point x="392.5" y="928.0" />
+      <point x="447.0" y="928.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.StaticMessageSource" target="org.springframework.context.support.AbstractMessageSource">
+      <point x="0.0" y="-28.5" />
+      <point x="527.0" y="189.0" />
+      <point x="425.0" y="189.0" />
+      <point x="64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.i18n.TimeZoneAwareLocaleContext" target="org.springframework.context.i18n.LocaleContext">
+      <point x="0.0" y="-28.5" />
+      <point x="154.0" y="821.0" />
+      <point x="256.0" y="821.0" />
+      <point x="-44.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.i18n.SimpleTimeZoneAwareLocaleContext" target="org.springframework.context.i18n.TimeZoneAwareLocaleContext">
+      <point x="-92.0" y="-28.5" />
+      <point x="208.5" y="928.0" />
+      <point x="154.0" y="928.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.ResourceBundleMessageSource" target="org.springframework.context.support.AbstractResourceBasedMessageSource">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.DefaultMessageSourceResolvable" target="java.io.Serializable">
+      <point x="0.0" y="-28.5" />
+      <point x="42.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.AbstractResourceBasedMessageSource" target="org.springframework.context.support.AbstractMessageSource">
+      <point x="0.0" y="-28.5" />
+      <point x="194.0" y="189.0" />
+      <point x="296.0" y="189.0" />
+      <point x="-64.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.DelegatingMessageSource" target="org.springframework.context.MessageSource">
+      <point x="-69.5" y="-28.5" />
+      <point x="579.0" y="77.0" />
+      <point x="385.0" y="77.0" />
+      <point x="44.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.AbstractMessageSource" target="org.springframework.context.MessageSource">
+      <point x="-64.5" y="-28.5" />
+      <point x="-44.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.MessageSourceResolvable" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.NoSuchMessageException" target="java.io.Serializable">
+      <point x="66.99999999999989" y="-28.5" />
+      <point x="200.9999999999999" y="617.0" />
+      <point x="377.99999999999994" y="617.0" />
+      <point x="-42.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.context.support.DelegatingMessageSource" target="org.springframework.context.support.MessageSourceSupport">
+      <point x="69.5" y="-28.5" />
+      <point x="62.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6236749116607774" x="616.0" y="556.0" />
+  <SelectedNodes>
+    <node>org.springframework.context.support.DefaultMessageSourceResolvable</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

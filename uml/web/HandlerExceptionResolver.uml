@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.HandlerExceptionResolver</OriginalElement>
+  <nodes>
+    <node x="448.0" y="214.0">org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</node>
+    <node x="861.0" y="0.0">org.springframework.web.servlet.HandlerExceptionResolver</node>
+    <node x="1012.5" y="107.0">org.springframework.web.servlet.handler.HandlerExceptionResolverComposite</node>
+    <node x="0.0" y="214.0">org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver</node>
+    <node x="25.0" y="321.0">org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver</node>
+    <node x="816.0" y="214.0">org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver</node>
+    <node x="624.5" y="107.0">org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver</node>
+    <node x="1194.0" y="214.0">org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver" target="org.springframework.web.servlet.HandlerExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="808.5" y="82.0" />
+      <point x="933.0" y="82.0" />
+      <point x="-72.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" target="org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="622.0" y="194.0" />
+      <point x="762.5" y="194.0" />
+      <point x="-46.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" target="org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver" target="org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="995.0" y="194.0" />
+      <point x="854.5" y="194.0" />
+      <point x="46.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.HandlerExceptionResolverComposite" target="org.springframework.web.servlet.HandlerExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="1201.5" y="82.0" />
+      <point x="1077.0" y="82.0" />
+      <point x="72.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver" target="org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="1373.0" y="184.0" />
+      <point x="946.5" y="184.0" />
+      <point x="138.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver" target="org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver">
+      <point x="0.0" y="-28.5" />
+      <point x="214.0" y="184.0" />
+      <point x="670.5" y="184.0" />
+      <point x="-138.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6151399491094147" x="776.0" y="189.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.HandlerExceptionResolver</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

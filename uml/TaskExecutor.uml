@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.core.task.TaskExecutor</OriginalElement>
+  <nodes>
+    <node x="1002.2010869565217" y="428.0">org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</node>
+    <node x="1545.7010869565217" y="321.0">org.springframework.scheduling.concurrent.ExecutorConfigurationSupport</node>
+    <node x="1346.782608695652" y="214.0">org.springframework.scheduling.concurrent.CustomizableThreadFactory</node>
+    <node x="477.37499999999994" y="0.0">java.util.concurrent.Executor</node>
+    <node x="357.87499999999994" y="214.0">org.springframework.core.task.AsyncTaskExecutor</node>
+    <node x="308.0" y="428.0">org.springframework.scheduling.commonj.WorkManagerTaskExecutor</node>
+    <node x="436.99999999999994" y="321.0">org.springframework.core.task.AsyncListenableTaskExecutor</node>
+    <node x="1622.7010869565217" y="428.0">org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean</node>
+    <node x="714.875" y="107.0">org.springframework.core.task.TaskDecorator</node>
+    <node x="1072.7010869565217" y="107.0">org.springframework.util.CustomizableThreadCreator</node>
+    <node x="625.375" y="0.0">java.lang.FunctionalInterface</node>
+    <node x="595.875" y="214.0">org.springframework.core.task.SyncTaskExecutor</node>
+    <node x="1157.7010869565217" y="321.0">org.springframework.scheduling.concurrent.DefaultManagedAwareThreadFactory</node>
+    <node x="0.0" y="535.0">org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor</node>
+    <node x="704.2010869565217" y="428.0">org.springframework.core.task.SimpleAsyncTaskExecutor</node>
+    <node x="20.0" y="428.0">org.springframework.scheduling.concurrent.ConcurrentTaskExecutor</node>
+    <node x="499.37499999999994" y="107.0">org.springframework.core.task.TaskExecutor</node>
+    <node x="1481.282608695652" y="107.0">java.util.concurrent.ThreadFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.scheduling.concurrent.ExecutorConfigurationSupport" target="org.springframework.scheduling.concurrent.CustomizableThreadFactory">
+      <point x="0.0" y="-28.5" />
+      <point x="1709.7010869565217" y="301.0" />
+      <point x="1570.282608695652" y="301.0" />
+      <point x="74.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean" target="org.springframework.scheduling.concurrent.ExecutorConfigurationSupport">
+      <point x="0.0" y="-28.5" />
+      <point x="82.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.TaskDecorator" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-28.5" />
+      <point x="59.49999999999994" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.commonj.WorkManagerTaskExecutor" target="org.springframework.core.task.AsyncListenableTaskExecutor">
+      <point x="69.5" y="-28.5" />
+      <point x="516.5" y="408.0" />
+      <point x="556.25" y="408.0" />
+      <point x="-39.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.DefaultManagedAwareThreadFactory" target="org.springframework.scheduling.concurrent.CustomizableThreadFactory">
+      <point x="0.0" y="-28.5" />
+      <point x="1341.7010869565217" y="301.0" />
+      <point x="1421.282608695652" y="301.0" />
+      <point x="-74.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.ConcurrentTaskExecutor" target="org.springframework.core.task.AsyncTaskExecutor">
+      <point x="-67.0" y="-28.5" />
+      <point x="87.0" y="291.0" />
+      <point x="385.12499999999994" y="291.0" />
+      <point x="-81.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.SyncTaskExecutor" target="org.springframework.core.task.TaskExecutor">
+      <point x="0.0" y="-28.5" />
+      <point x="699.875" y="189.0" />
+      <point x="625.375" y="189.0" />
+      <point x="42.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" target="org.springframework.core.task.AsyncTaskExecutor">
+      <point x="0.0" y="-28.5" />
+      <point x="1136.2010869565217" y="398.0" />
+      <point x="1075.5" y="398.0" />
+      <point x="1075.5" y="291.0" />
+      <point x="548.625" y="291.0" />
+      <point x="81.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.CustomizableThreadFactory" target="org.springframework.util.CustomizableThreadCreator">
+      <point x="-74.5" y="-28.5" />
+      <point x="1421.282608695652" y="189.0" />
+      <point x="1296.2010869565217" y="189.0" />
+      <point x="74.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.AsyncListenableTaskExecutor" target="org.springframework.core.task.AsyncTaskExecutor">
+      <point x="0.0" y="-28.5" />
+      <point x="596.0" y="301.0" />
+      <point x="494.12499999999994" y="301.0" />
+      <point x="27.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" target="org.springframework.core.task.AsyncListenableTaskExecutor">
+      <point x="-89.33333333333331" y="-28.5" />
+      <point x="1046.8677536231885" y="398.0" />
+      <point x="715.25" y="398.0" />
+      <point x="119.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.ConcurrentTaskExecutor" target="org.springframework.core.task.AsyncListenableTaskExecutor">
+      <point x="67.0" y="-28.5" />
+      <point x="221.0" y="408.0" />
+      <point x="476.74999999999994" y="408.0" />
+      <point x="-119.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.SimpleAsyncTaskExecutor" target="org.springframework.core.task.AsyncListenableTaskExecutor">
+      <point x="-69.5" y="-28.5" />
+      <point x="773.7010869565217" y="408.0" />
+      <point x="635.75" y="408.0" />
+      <point x="39.75" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.SimpleAsyncTaskExecutor" target="org.springframework.util.CustomizableThreadCreator">
+      <point x="69.5" y="-28.5" />
+      <point x="912.7010869565217" y="408.0" />
+      <point x="1147.2010869565217" y="408.0" />
+      <point x="-74.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.AsyncTaskExecutor" target="org.springframework.core.task.TaskExecutor">
+      <point x="0.0" y="-28.5" />
+      <point x="466.87499999999994" y="189.0" />
+      <point x="541.375" y="189.0" />
+      <point x="-42.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.TaskExecutor" target="java.lang.FunctionalInterface">
+      <point x="42.0" y="-28.5" />
+      <point x="625.375" y="82.0" />
+      <point x="684.875" y="82.0" />
+      <point x="-59.5" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" target="org.springframework.scheduling.concurrent.ExecutorConfigurationSupport">
+      <point x="89.33333333333331" y="-28.5" />
+      <point x="1225.534420289855" y="408.0" />
+      <point x="1627.7010869565217" y="408.0" />
+      <point x="-82.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.commonj.WorkManagerTaskExecutor" target="org.springframework.core.task.AsyncTaskExecutor">
+      <point x="-69.5" y="-28.5" />
+      <point x="377.5" y="398.0" />
+      <point x="382.12499999999994" y="398.0" />
+      <point x="382.12499999999994" y="301.0" />
+      <point x="439.62499999999994" y="301.0" />
+      <point x="-27.25" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.CustomizableThreadFactory" target="java.util.concurrent.ThreadFactory">
+      <point x="74.5" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor" target="org.springframework.scheduling.concurrent.ConcurrentTaskExecutor">
+      <point x="0.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="org.springframework.core.task.TaskExecutor" target="java.util.concurrent.Executor">
+      <point x="-42.0" y="-28.5" />
+      <point x="0.0" y="28.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4517920242301868" x="980.5" y="296.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
